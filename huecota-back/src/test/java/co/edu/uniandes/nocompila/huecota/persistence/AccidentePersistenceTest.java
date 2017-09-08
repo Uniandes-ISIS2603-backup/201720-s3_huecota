@@ -6,6 +6,12 @@
 package co.edu.uniandes.nocompila.huecota.persistence;
 
 import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
+import java.util.ArrayList;
+import java.util.List;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.UserTransaction;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,6 +24,8 @@ import org.junit.runner.RunWith;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import uk.co.jemos.podam.api.PodamFactory;
+import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 
 /**
@@ -27,6 +35,28 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 @RunWith(Arquillian.class)
 public class AccidentePersistenceTest
 {
+	
+	 @Inject
+    private AccidentePersistence persistence;
+
+    /**
+     * Contexto de Persistencia que se va a utilizar para acceder a la Base de
+     * datos por fuera de los métodos que se están probando.
+     */
+    @PersistenceContext
+    private EntityManager em;
+
+    /**
+     * Variable para martcar las transacciones del em anterior cuando se
+     * crean/borran datos para las pruebas.
+     */
+    @Inject
+    UserTransaction utx;
+
+     /**
+     *
+     */
+    private List<AccidenteEntity> data = new ArrayList<AccidenteEntity>();
 	
 	//persistence: es el objeto de la clase que se va a probar. El contenedor inyectará una instancia de esta clase.
     //em: un EntityManager para verificar los datos directamente sobre la base de datos
@@ -138,5 +168,20 @@ public class AccidentePersistenceTest
 	{
 		
 	}
-	
+	private void clearData()
+	{
+        em.createQuery("delete from XYZEntity").executeUpdate();
+    }
+
+
+	private void insertData()
+	{
+        PodamFactory factory = new PodamFactoryImpl();
+        for (int i = 0; i < 3; i++) {
+            AccidenteEntity entity = factory.manufacturePojo(AccidenteEntity.class);
+
+            em.persist(entity);
+            data.add(entity);
+        }
+    }
 }
