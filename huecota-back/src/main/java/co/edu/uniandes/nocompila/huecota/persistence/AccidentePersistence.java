@@ -22,20 +22,20 @@ import javax.persistence.TypedQuery;
 public class AccidentePersistence
 {
 
-    private static final Logger LOGGER = Logger.getLogger(HuecoPersistence.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(AccidentePersistence.class.getName());
 
     @PersistenceContext(unitName = "huecotaPU")
     protected EntityManager em;
 
     /**
      *
-     * @param entity objeto Hueco que se crear√° en la base de datos
+     * @param entity objeto accidente que se crea en la base de datos
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
     public AccidenteEntity create(AccidenteEntity entity)
 	{
         LOGGER.info("Creando un accidente nuevo");
-        /* Note que hacemos uso de un m√©todo propio de EntityManager para persistir la Hueco en la base de datos.
+        /* Note que hacemos uso de un mÈtodo propio de EntityManager para persistir la Hueco en la base de datos.
         Es similar a "INSERT INTO table_codigo (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);" en SQL.
          */
         em.persist(entity);
@@ -47,7 +47,7 @@ public class AccidentePersistence
      * Actualiza un huecota.
      *
      * @param entity: la Hueco que viene con los nuevos cambios. Por ejemplo
-     * el codigo pudo cambiar. En ese caso, se haria uso del m√©todo update.
+     * el codigo pudo cambiar. En ese caso, se haria uso del mÈtodo update.
      * @return un huecota con los cambios aplicados.
      */
     public AccidenteEntity update(AccidenteEntity entity)
@@ -70,7 +70,7 @@ public class AccidentePersistence
     public void delete(Long id)
 	{
         LOGGER.log(Level.INFO, "Borrando accidente con id={0}", id);
-        // Se hace uso de mismo m√©todo que esta explicado en public HuecoEntity find(Long id) para obtener la Hueco a borrar.
+        // Se hace uso de mismo mÈtodo que esta explicado en public HuecoEntity find(Long id) para obtener la Hueco a borrar.
         AccidenteEntity entity = em.find(AccidenteEntity.class, id);
         /* Note que una vez obtenido el objeto desde la base de datos llamado "entity", volvemos hacer uso de un m√©todo propio del
          EntityManager para eliminar de la base de datos el objeto que encontramos y queremos borrar.

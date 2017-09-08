@@ -55,6 +55,4 @@ public class AccidenteLogic
         LOGGER.info("Termina proceso de consultar todas los accidentes");
         return accidentes;
     }
-
-
 }
