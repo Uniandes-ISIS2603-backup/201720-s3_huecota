@@ -24,6 +24,7 @@ import org.junit.runner.RunWith;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.junit.Assert;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
@@ -87,6 +88,17 @@ public class AccidentePersistenceTest
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
 	
+	@Test
+public void createXYZEntityTest() {
+    PodamFactory factory = new PodamFactoryImpl();
+    AccidenteEntity newEntity = factory.manufacturePojo(AccidenteEntity.class);
+    AccidenteEntity result = persistence.create(newEntity);
+
+    Assert.assertNotNull(result);
+    AccidenteEntity entity = em.find(AccidenteEntity.class, result.getId());
+    Assert.assertNotNull(entity);
+    Assert.assertEquals(newEntity.getName(), entity.getName());
+}
 	@BeforeClass
 	public static void setUpClass()
 	{
@@ -177,7 +189,8 @@ public class AccidentePersistenceTest
 	private void insertData()
 	{
         PodamFactory factory = new PodamFactoryImpl();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++)
+		{
             AccidenteEntity entity = factory.manufacturePojo(AccidenteEntity.class);
 
             em.persist(entity);
