@@ -6,7 +6,7 @@
 package co.edu.uniandes.nocompila.huecota.entities;
 
 import java.io.Serializable;
-import co.edu.uniandes.baco.huecota.entities.BaseEntity;
+import co.edu.uniandes.nocompila.huecota.entities.BaseEntity;
 /**
  *
  * @author ma.puentes

@@ -23,7 +23,7 @@ SOFTWARE.
 */
 package co.edu.uniandes.nocompila.huecota.entities;
 
-import co.edu.uniandes.baco.huecota.entities.BaseEntity;
+import co.edu.uniandes.nocompila.huecota.entities.BaseEntity;
 import java.io.Serializable;
 import javax.persistence.Entity;
 
