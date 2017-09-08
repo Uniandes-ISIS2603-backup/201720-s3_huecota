@@ -1,2 +1,2 @@
 # s2_huecota
-# ingredientes
+# integrantes
