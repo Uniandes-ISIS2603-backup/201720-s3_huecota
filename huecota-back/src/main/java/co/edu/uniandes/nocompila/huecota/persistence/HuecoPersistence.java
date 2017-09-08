@@ -114,7 +114,8 @@ public class HuecoPersistence {
      * datos, "select u from HuecoEntity u" es como un "select * from
      * HuecoEntity;" - "SELECT * FROM table_codigo" en SQL.
      */
-    public List<HuecoEntity> findAll() {
+    public List<HuecoEntity> findAll()
+	{
         LOGGER.info("Consultando todas las Huecoes");
         // Se crea un query para buscar todas las Huecoes en la base de datos.
         TypedQuery query = em.createQuery("select u from HuecoEntity u", HuecoEntity.class);
