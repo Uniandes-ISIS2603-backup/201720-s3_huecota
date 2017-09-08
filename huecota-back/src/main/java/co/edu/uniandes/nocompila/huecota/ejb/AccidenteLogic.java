@@ -24,7 +24,7 @@ public class AccidenteLogic
     private static final Logger LOGGER = Logger.getLogger(HuecoLogic.class.getName());
 
     @Inject
-    private AccidentePersistence persistence; // Variable para acceder a la persistencia de la aplicaci贸n. Es una inyecci贸n de dependencias.
+    private AccidentePersistence persistence; // Variable para acceder a la persistencia de la aplicaci髇. Es una inyecci髇 de dependencias.
 
     /**
      *
@@ -37,7 +37,7 @@ public class AccidenteLogic
         LOGGER.info("Inicia proceso de creaci髇 de accidente");
         // Invoca la persistencia para crear la Hueco
         persistence.create(entity);
-        LOGGER.info("Termina proceso de creaci贸n de Hueco");
+        LOGGER.info("Termina proceso de creaci髇 de un accidente");
         return entity;
     }
 
@@ -49,10 +49,10 @@ public class AccidenteLogic
      */
     public List<AccidenteEntity> getHuecos()
 	{
-        LOGGER.info("Inicia proceso de consultar todas las Huecoes");
-        // Note que, por medio de la inyecci贸n de dependencias se llama al m茅todo "findAll()" que se encuentra en la persistencia.
+        LOGGER.info("Inicia proceso de consultar todos los accidentes");
+        // Note que, por medio de la inyecci髇 de dependencias se llama al m閠odo "findAll()" que se encuentra en la persistencia.
         List<AccidenteEntity> accidentes = persistence.findAll();
-        LOGGER.info("Termina proceso de consultar todas las Huecoes");
+        LOGGER.info("Termina proceso de consultar todas los accidentes");
         return accidentes;
     }
 
