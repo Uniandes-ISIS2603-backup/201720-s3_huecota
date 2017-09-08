@@ -89,15 +89,72 @@ public class AccidentePersistenceTest
     }
 	
 	@Test
-public void createXYZEntityTest() {
+	public void getXYZTest()
+	{
+    AccidenteEntity entity = data.get(0);
+    AccidenteEntity newEntity = persistence.find(entity.getId());
+    Assert.assertNotNull(newEntity);
+    Assert.assertEquals(entity.getName(), newEntity.getName());
+	}
+	
+	@Test
+	public void getXYZByNameTest() {
+    AccidenteEntity entity = data.get(0);
+    AccidenteEntity newEntity = persistence.find(entity.getId());
+    Assert.assertNotNull(newEntity);
+    Assert.assertEquals(entity.getId(), newEntity.getId());
+	}
+	@Test
+	public void createAccidenteEntityTest()
+	{
     PodamFactory factory = new PodamFactoryImpl();
     AccidenteEntity newEntity = factory.manufacturePojo(AccidenteEntity.class);
     AccidenteEntity result = persistence.create(newEntity);
-
     Assert.assertNotNull(result);
     AccidenteEntity entity = em.find(AccidenteEntity.class, result.getId());
     Assert.assertNotNull(entity);
     Assert.assertEquals(newEntity.getName(), entity.getName());
+	}
+	
+	@Test
+	public void updateXYZTest()
+	{
+    AccidenteEntity entity = data.get(0);
+    PodamFactory factory = new PodamFactoryImpl();
+    AccidenteEntity newEntity = factory.manufacturePojo(AccidenteEntity.class);
+    newEntity.setId(entity.getId());
+    persistence.update(newEntity);
+    AccidenteEntity resp = em.find(AccidenteEntity.class, entity.getId());
+
+    Assert.assertEquals(newEntity.getName(), resp.getName());
+	}
+	
+	@Test
+	public void deleteXYZTest()
+	{
+    AccidenteEntity entity = data.get(0);
+    persistence.delete(entity.getId());
+    AccidenteEntity deleted = em.find(AccidenteEntity.class, entity.getId());
+    Assert.assertNull(deleted);
+	}
+	
+	@Test
+    public void getAccidentesTest()
+   {
+    List<AccidenteEntity> list = persistence.findAll();
+    Assert.assertEquals(data.size(), list.size());
+    for (AccidenteEntity ent : list)
+	{
+        boolean found = false;
+        for (AccidenteEntity entity : data)
+		{
+            if (ent.getId().equals(entity.getId()))
+			{
+                found = true;
+            }
+        }
+        Assert.assertTrue(found);
+    }
 }
 	@BeforeClass
 	public static void setUpClass()
@@ -120,11 +177,14 @@ public void createXYZEntityTest() {
             clearData();
             insertData();
             utx.commit();
-        } catch (Exception e) {
+        }
+		catch (Exception e)
+		{
             e.printStackTrace();
             try {
                 utx.rollback();
-            } catch (Exception e1) {
+            } catch (Exception e1)
+			{
                 e1.printStackTrace();
             }
         }
