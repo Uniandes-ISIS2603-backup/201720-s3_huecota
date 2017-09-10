@@ -219,17 +219,17 @@ Código|Descripción|Cuerpo
 # Tabla de contenidos
 -  [Introducción](#introducción)
 -  [API](#api-de-la-aplicación-books)
-  -  [Recurso Contratista] (#Recurso-contratista)
-    - [GET /contratistas] (#GET-/contratistas)
-    - [GET /contratistas/{id}] (#GET-/contratistas/{id})
-    - [POST /contratistas] (#POST-/contratistas)
-    - [PUT /contratistas/{id}] (#PUT-/contratistas/{id})
-    - [DELETE /contratistas/{id}] (#DELETE-/contratistas/{id})
-    - [GET /contratistas/{id}/cuentasCobro] (#GET-/contratistas/{id}/cuentasCobro)
-    - [GET /contratistas/{id}/cuentasCobro/{cuentasid}] (#GET-/contratistas/{id}/cuentasCobro/{cuentasid})
-    - [POST /contratistas/{id}/cuentasCobro] (#POST-/contratistas/{id}/cuentasCobro)
-    - [PUT /contratistas/{id}/cuentasCobro/{cuentasid}] (#PUT-/contratistas/{id}/cuentasCobro/{cuentasid})
-    - [DELETE /contratistas/{id}/cuentasCobro/{cuentasid}] (#DELETE-/contratistas/{id}/cuentasCobro/{cuentasid})
+  -  [Recurso Contratista](#Recurso-contratista)
+    - [GET /contratistas](#GET-/contratistas)
+    - [GET /contratistas/{id}](#GET-/contratistas/{id})
+    - [POST /contratistas](#POST-/contratistas)
+    - [PUT /contratistas/{id}](#PUT-/contratistas/{id})
+    - [DELETE /contratistas/{id}](#DELETE-/contratistas/{id})
+    - [GET /contratistas/{id}/cuentasCobro](#GET-/contratistas/{id}/cuentasCobro)
+    - [GET /contratistas/{id}/cuentasCobro/{cuentasid}](#GET-/contratistas/{id}/cuentasCobro/{cuentasid})
+    - [POST /contratistas/{id}/cuentasCobro](#POST-/contratistas/{id}/cuentasCobro)
+    - [PUT /contratistas/{id}/cuentasCobro/{cuentasid}](#PUT-/contratistas/{id}/cuentasCobro/{cuentasid})
+    - [DELETE /contratistas/{id}/cuentasCobro/{cuentasid}](#DELETE-/contratistas/{id}/cuentasCobro/{cuentasid})
 
 # API Rest
 ## Introducción
