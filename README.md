@@ -115,7 +115,7 @@ Código|Descripción|Cuerpo
 
 [Volver arriba](#tabla-de-contenidos)
 
-# API REST recurso Calificion
+# API REST recurso Calificacion
 
 # Tabla de contenidos
 -  [API](#api-de-la-aplicación-Huecota)
