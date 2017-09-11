@@ -40,4 +40,8 @@ public class ClienteLogic {
     public ClienteEntity getCliente(int id)throws BusinessLogicException{
         return persistence.find(id);
     }
+    
+    public void deleteCliente(Long id){
+        persistence.delete(id);
+    }
 }
