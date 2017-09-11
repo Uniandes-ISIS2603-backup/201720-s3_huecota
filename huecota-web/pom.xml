@@ -3,8 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>co.edu.uniandes.baco</groupId>
-        <artifactId>huecota</artifactId>
+        <groupId>co.edu.uniandes.nocompila</groupId>
+        <artifactId>s3_huecota</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
@@ -26,7 +26,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>co.edu.uniandes.baco</groupId>
+            <groupId>co.edu.uniandes.nocompila</groupId>
             <artifactId>huecota-back</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
