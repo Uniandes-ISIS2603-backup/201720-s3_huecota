@@ -127,7 +127,7 @@ public class HuecoPersistenceTest {
      *
      */
     private void clearData() {
-        em.createQuery("delete from CompanyEntity").executeUpdate();
+        em.createQuery("delete from HuecoEntity").executeUpdate();
     }
     
     /**
@@ -147,10 +147,10 @@ public class HuecoPersistenceTest {
     }
     
     /**
-     * Prueba para crear una calificacion.
+     * Prueba para crear un hueco.
      */
     @Test
-    public void createCalificacionTest()
+    public void createHuecoTest()
     {
         PodamFactory factory = new PodamFactoryImpl();
         HuecoEntity newEntity = factory.manufacturePojo(HuecoEntity.class);
@@ -164,10 +164,10 @@ public class HuecoPersistenceTest {
     }
     
     /**
-     * Prueba para consultar la lista de Califiaciones.
+     * Prueba para consultar la lista de Huecos.
      */
     @Test
-    public void getCalificacionesTest()
+    public void getHuecosTest()
     {
         List<HuecoEntity> list = huecoPersistence.findAll();
         Assert.assertEquals(data.size(), list.size());
@@ -187,10 +187,10 @@ public class HuecoPersistenceTest {
     }
     
     /**
-     * Prueba para consultar una calificacion.
+     * Prueba para consultar un hueco.
      */
     @Test
-    public void getCalificacionTest()
+    public void getHuecoTest()
     {
         HuecoEntity entity = data.get(0);
         HuecoEntity newEntity = huecoPersistence.find(entity.getId());
@@ -199,10 +199,10 @@ public class HuecoPersistenceTest {
     }
     
     /**
-     * prueba para eliminar una calificacion.
+     * prueba para eliminar un hueco.
      */
     @Test
-    public void deleteCalificacionTest()
+    public void deleteHuecoTest()
     {
         HuecoEntity entity = data.get(0);
         huecoPersistence.delete(entity.getId());
@@ -210,8 +210,11 @@ public class HuecoPersistenceTest {
         Assert.assertNull(deleted);
     }
     
+    /**
+     * prueba para actualizar un hueco.
+     */
     @Test
-    public void updateCalificacionTest()
+    public void updateHuecoTest()
     {
         HuecoEntity entity = data.get(0);
         PodamFactory factory  = new PodamFactoryImpl();
@@ -227,7 +230,7 @@ public class HuecoPersistenceTest {
     }
 
     /**
-     * Test of create method, of class CalificacionPersistence.
+     * Test of create method, of class HuecoPersistence.
      */
     @Test
     public void testCreate() throws Exception {
@@ -235,7 +238,7 @@ public class HuecoPersistenceTest {
     }
 
     /**
-     * Test of update method, of class CalificacionPersistence.
+     * Test of update method, of class HuecoPersistence.
      */
     @Test
     public void testUpdate() throws Exception {
@@ -243,7 +246,7 @@ public class HuecoPersistenceTest {
     }
 
     /**
-     * Test of delete method, of class CalificacionPersistence.
+     * Test of delete method, of class HuecoPersistence.
      */
     @Test
     public void testDelete() throws Exception {
@@ -251,7 +254,7 @@ public class HuecoPersistenceTest {
     }
 
     /**
-     * Test of find method, of class CalificacionPersistence.
+     * Test of find method, of class HuecoPersistence.
      */
     @Test
     public void testFind() throws Exception {
@@ -259,12 +262,10 @@ public class HuecoPersistenceTest {
     }
 
     /**
-     * Test of findAll method, of class CalificacionPersistence.
+     * Test of findAll method, of class HuecoPersistence.
      */
     @Test
     public void testFindAll() throws Exception {
         fail("testFindAll");
     }
-    
-    
 }
