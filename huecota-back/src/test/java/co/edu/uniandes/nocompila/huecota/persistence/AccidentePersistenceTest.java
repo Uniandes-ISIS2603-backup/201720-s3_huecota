@@ -42,7 +42,7 @@ public class AccidentePersistenceTest
 
     /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
-     * datos por fuera de los métodos que se están probando.
+     * datos por fuera de los mï¿½todos que se estï¿½n probando.
      */
     @PersistenceContext
     private EntityManager em;
@@ -59,10 +59,10 @@ public class AccidentePersistenceTest
      */
     private List<AccidenteEntity> data = new ArrayList<AccidenteEntity>();
 	
-	//persistence: es el objeto de la clase que se va a probar. El contenedor inyectará una instancia de esta clase.
+	//persistence: es el objeto de la clase que se va a probar. El contenedor inyectarï¿½ una instancia de esta clase.
     //em: un EntityManager para verificar los datos directamente sobre la base de datos
     //utx: un UserTransactions para manipular los datos directamente sobre la base de datos
-    //data: este arreglo contendrá el conjunto de datos de prueba
+    //data: este arreglo contendrï¿½ el conjunto de datos de prueba
 	
 	
 	
@@ -74,8 +74,8 @@ public class AccidentePersistenceTest
 	/**
      *
      * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
-     * embebido. El jar contiene las clases de XYZ, el descriptor de la
-     * base de datos y el archivo beans.xml para resolver la inyección de
+     * embebido. El jar contiene las clases de AccidenteEntity el descriptor de la
+     * base de datos y el archivo beans.xml para resolver la inyecciï¿½n de
      * dependencias.
      */
     @Deployment
@@ -89,7 +89,7 @@ public class AccidentePersistenceTest
     }
 	
 	@Test
-	public void getXYZTest()
+	public void getAccidenteEntityTest()
 	{
 		AccidenteEntity entity = data.get(0);
 		AccidenteEntity newEntity = persistence.find(entity.getId());
@@ -98,7 +98,7 @@ public class AccidentePersistenceTest
 	}
 	
 	@Test
-	public void getXYZByNameTest()
+	public void getAccidenteByNameTest()
 	{
 		AccidenteEntity entity = data.get(0);
 		AccidenteEntity newEntity = persistence.find(entity.getId());
@@ -118,7 +118,7 @@ public class AccidentePersistenceTest
 	}
 	
 	@Test
-	public void updateXYZTest()
+	public void updateAccidenteEntityTest()
 	{
 		AccidenteEntity entity = data.get(0);
 		PodamFactory factory = new PodamFactoryImpl();
@@ -130,7 +130,7 @@ public class AccidentePersistenceTest
 	}
 	
 	@Test
-	public void deleteXYZTest()
+	public void deleteAccidenteEntityTest()
 	{
 		AccidenteEntity entity = data.get(0);
 		persistence.delete(entity.getId());
@@ -242,7 +242,7 @@ public class AccidentePersistenceTest
 	}
 	private void clearData()
 	{
-        em.createQuery("delete from XYZEntity").executeUpdate();
+        em.createQuery("delete from AccidenteEntity").executeUpdate();
     }
 
 
