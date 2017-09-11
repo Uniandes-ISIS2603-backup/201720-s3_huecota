@@ -6,7 +6,6 @@
 package co.edu.uniandes.nocompila.huecota.entities;
 
 import java.io.Serializable;
-import co.edu.uniandes.nocompila.huecota.entities.BaseEntity;
 import java.util.Date;
 /**
  *
