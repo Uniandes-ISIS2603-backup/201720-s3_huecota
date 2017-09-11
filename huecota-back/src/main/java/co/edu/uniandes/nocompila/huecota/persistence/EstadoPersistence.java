@@ -25,7 +25,7 @@ public class EstadoPersistence {
     @PersistenceContext(unitName = "huecotaPU")
     protected EntityManager em;
     
-        /**
+     /**
      *
      * Crea una entidad de estado con la base de datos.
      * @param entity objeto accidente que se crea en la base de datos
@@ -42,7 +42,7 @@ public class EstadoPersistence {
         return entity;
     }
     
-        /**
+     /**
      * Actualiza un estado.
      * @param entity el estado que viene con los nuevos cambios.
      * @return  un estado con los cambios aplicados

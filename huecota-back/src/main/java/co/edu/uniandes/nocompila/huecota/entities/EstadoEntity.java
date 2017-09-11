@@ -34,5 +34,4 @@ public class EstadoEntity extends BaseEntity implements Serializable{
     public void setFechaDeCambio(Date fechaDeCambio) {
         this.fechaDeCambio = fechaDeCambio;
     }
-    
 }
