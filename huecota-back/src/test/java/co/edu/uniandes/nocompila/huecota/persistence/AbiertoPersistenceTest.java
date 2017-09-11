@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.nocompila.huecota.persistence;
 
-import co.edu.uniandes.nocompila.huecota.entities.HuecoEntity;
+import co.edu.uniandes.nocompila.huecota.entities.AbiertoEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -29,13 +29,33 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
  *
- * @author ch.patino
+ * @author jpr.arango10
  */
 @RunWith(Arquillian.class)
-public class HuecoPersistenceTest {
+public class AbiertoPersistenceTest {
     
+     /**
+     *
+     * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
+     * embebido. El jar contiene las clases de Abierto, el descriptor de la
+     * base de datos y el archivo beans.xml para resolver la inyecci�n de
+     * dependencias.
+     */
+    @Deployment
+    public static JavaArchive createDeployment() {
+        return ShrinkWrap.create(JavaArchive.class)
+                .addPackage(AbiertoEntity.class.getPackage())
+                .addPackage(AbiertoPersistence.class.getPackage())
+                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
+                .addAsManifestResource("META-INF/beans.xml", "beans.xml");
+    }
+    
+     /**
+     * Inyección de la dependencia a la clase AbiertoPersistence cuyos m�todos
+     * se van a probar.
+     */
     @Inject
-    private HuecoPersistence huecoPersistence;
+    private AbiertoPersistence abiertoPersistence;
     
     /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
@@ -43,48 +63,14 @@ public class HuecoPersistenceTest {
      */
     @PersistenceContext
     private EntityManager em;
-
+    
     /**
-     * Variable para martcar las transacciones del em anterior cuando se
+     * Variable para marcar las transacciones del em anterior cuando se
      * crean/borran datos para las pruebas.
      */
     @Inject
     UserTransaction utx;
 
-     /**
-     *
-     */
-    private List<HuecoEntity> data = new ArrayList<HuecoEntity>();
-	
-    //persistence: es el objeto de la clase que se va a probar. El contenedor inyectar� una instancia de esta clase.
-    //em: un EntityManager para verificar los datos directamente sobre la base de datos
-    //utx: un UserTransactions para manipular los datos directamente sobre la base de datos
-    //data: este arreglo contendr� el conjunto de datos de prueba
-	
-	
-	
-    public HuecoPersistenceTest()
-    {
-		
-    }
-	
-	/**
-     *
-     * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
-     * embebido. El jar contiene las clases de XYZ, el descriptor de la
-     * base de datos y el archivo beans.xml para resolver la inyecci�n de
-     * dependencias.
-     */
-    @Deployment
-    public static JavaArchive createDeployment()
-	{
-        return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(HuecoEntity.class.getPackage())
-                .addPackage(HuecoPersistence.class.getPackage())
-                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
-                .addAsManifestResource("META-INF/beans.xml", "beans.xml");
-    }
-    
     @BeforeClass
     public static void setUpClass() throws Exception {
     }
@@ -127,8 +113,13 @@ public class HuecoPersistenceTest {
      *
      */
     private void clearData() {
-        em.createQuery("delete from HuecoEntity").executeUpdate();
+        em.createQuery("delete from AbiertoEntity").executeUpdate();
     }
+    
+    /**
+     *
+     */
+    private List<AbiertoEntity> data = new ArrayList<AbiertoEntity>();
     
     /**
      * Inserta los datos iniciales para el correcto funcionamiento de las
@@ -139,7 +130,7 @@ public class HuecoPersistenceTest {
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
-            HuecoEntity entity = factory.manufacturePojo(HuecoEntity.class);
+            AbiertoEntity entity = factory.manufacturePojo(AbiertoEntity.class);
 
             em.persist(entity);
             data.add(entity);
@@ -147,34 +138,34 @@ public class HuecoPersistenceTest {
     }
     
     /**
-     * Prueba para crear un hueco.
+     * Prueba para crear una calificacion.
      */
     @Test
-    public void createHuecoTest()
+    public void createAbiertoTest()
     {
         PodamFactory factory = new PodamFactoryImpl();
-        HuecoEntity newEntity = factory.manufacturePojo(HuecoEntity.class);
-        HuecoEntity result = huecoPersistence.create(newEntity);
+        AbiertoEntity newEntity = factory.manufacturePojo(AbiertoEntity.class);
+        AbiertoEntity result = abiertoPersistence.create(newEntity);
         
         Assert.assertNotNull(result);
         
-        HuecoEntity entity = em.find(HuecoEntity.class,result.getId());
+        AbiertoEntity entity = em.find(AbiertoEntity.class,result.getId());
         
         Assert.assertEquals(newEntity.getName(), entity.getName());
     }
     
     /**
-     * Prueba para consultar la lista de Huecos.
+     * Prueba para consultar la lista de Califiaciones.
      */
     @Test
-    public void getHuecosTest()
+    public void getAbiertoesTest()
     {
-        List<HuecoEntity> list = huecoPersistence.findAll();
+        List<AbiertoEntity> list = abiertoPersistence.findAll();
         Assert.assertEquals(data.size(), list.size());
-        for(HuecoEntity ent : list)
+        for(AbiertoEntity ent : list)
         {
             boolean found = false;
-            for(HuecoEntity entity : data)
+            for(AbiertoEntity entity : data)
             {
                 if(ent.getId().equals(entity.getId()))
                 {
@@ -187,50 +178,48 @@ public class HuecoPersistenceTest {
     }
     
     /**
-     * Prueba para consultar un hueco.
+     * Prueba para consultar una calificacion.
      */
     @Test
-    public void getHuecoTest()
+    public void getAbiertoTest()
     {
-        HuecoEntity entity = data.get(0);
-        HuecoEntity newEntity = huecoPersistence.find(entity.getId());
+        AbiertoEntity entity = data.get(0);
+        AbiertoEntity newEntity = abiertoPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
     }
     
     /**
-     * prueba para eliminar un hueco.
+     * prueba para eliminar una calificacion.
      */
     @Test
-    public void deleteHuecoTest()
+    public void deleteAbiertoTest()
     {
-        HuecoEntity entity = data.get(0);
-        huecoPersistence.delete(entity.getId());
-        HuecoEntity deleted = em.find(HuecoEntity.class,entity.getId());
+        AbiertoEntity entity = data.get(0);
+        abiertoPersistence.delete(entity.getId());
+        AbiertoEntity deleted = em.find(AbiertoEntity.class,entity.getId());
         Assert.assertNull(deleted);
     }
     
-    /**
-     * prueba para actualizar un hueco.
-     */
     @Test
-    public void updateHuecoTest()
+    public void updateAbiertoTest()
     {
-        HuecoEntity entity = data.get(0);
+        AbiertoEntity entity = data.get(0);
         PodamFactory factory  = new PodamFactoryImpl();
-        HuecoEntity newEntity = factory.manufacturePojo(HuecoEntity.class);
+        AbiertoEntity newEntity = factory.manufacturePojo(AbiertoEntity.class);
         
         newEntity.setId(entity.getId());
         
-        huecoPersistence.update(newEntity);
+        abiertoPersistence.update(newEntity);
         
-        HuecoEntity resp = em.find(HuecoEntity.class, entity.getId());
+        AbiertoEntity resp = em.find(AbiertoEntity.class, entity.getId());
         
         Assert.assertEquals(newEntity.getName(), resp.getName());
     }
 
     /**
-     * Test of create method, of class HuecoPersistence.
+     * Test of create method, of class AbiertoPersistence.
+     * @throws java.lang.Exception
      */
     @Test
     public void testCreate() throws Exception {
@@ -238,7 +227,7 @@ public class HuecoPersistenceTest {
     }
 
     /**
-     * Test of update method, of class HuecoPersistence.
+     * Test of update method, of class AbiertoPersistence.
      */
     @Test
     public void testUpdate() throws Exception {
@@ -246,7 +235,7 @@ public class HuecoPersistenceTest {
     }
 
     /**
-     * Test of delete method, of class HuecoPersistence.
+     * Test of delete method, of class AbiertoPersistence.
      */
     @Test
     public void testDelete() throws Exception {
@@ -254,7 +243,7 @@ public class HuecoPersistenceTest {
     }
 
     /**
-     * Test of find method, of class HuecoPersistence.
+     * Test of find method, of class AbiertoPersistence.
      */
     @Test
     public void testFind() throws Exception {
@@ -262,7 +251,7 @@ public class HuecoPersistenceTest {
     }
 
     /**
-     * Test of findAll method, of class HuecoPersistence.
+     * Test of findAll method, of class AbiertoPersistence.
      */
     @Test
     public void testFindAll() throws Exception {
