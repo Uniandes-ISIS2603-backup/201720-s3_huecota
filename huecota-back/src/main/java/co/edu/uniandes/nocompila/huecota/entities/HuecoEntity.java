@@ -23,15 +23,86 @@ SOFTWARE.
 */
 package co.edu.uniandes.nocompila.huecota.entities;
 
-import co.edu.uniandes.nocompila.huecota.entities.BaseEntity;
 import java.io.Serializable;
 import javax.persistence.Entity;
 
 /**
  *
- * @author ISIS2603
+ * @author ch.patino
  */
 @Entity
 public class HuecoEntity extends BaseEntity implements Serializable {
    
+    // atributos
+           
+        /**
+         * Atributo que representa la descripción de un hueco.
+         */
+        private String descripcion;
+        
+        /**
+         * Atributo que representa la lista de fotos de un hueco.
+         */
+        private String fotos;
+        
+        /**
+         * Atributo que representa la dirección de un hueco.
+         */
+        private String direccion;
+        
+     // getters y setters
+        
+        /**
+         * getter del atributo descripcion.
+         * @return el estado actual.
+         */
+        public String getDescripcion()
+        {
+            return descripcion;
+        }
+        
+        /**
+         * setter del atributo descripcion
+         * @param descripcion que se va a agregar
+         */
+        public void setDescripcion(String descripcion)
+        {
+            this.descripcion = descripcion;
+        }
+        
+        /**
+         * getter del atributo fotos.
+         * @return las fotos del hueco
+         */
+        public String getFotos()
+        {
+            return fotos;
+        }
+        
+        /**
+         * setter del atributo fotos
+         * @param fotos que se van a agregar
+         */
+        public void setFotos(String fotos)
+        {
+            this.fotos = fotos;
+        }
+        
+        /**
+         * getter del atributo direccion.
+         * @return la direccion del hueco
+         */
+        public String getDireccion()
+        {
+            return direccion;
+        }
+        
+        /**
+         * setter del atributo direccion
+         * @param direccion que se va a agregar
+         */
+        public void setDireccion(String direccion)
+        {
+            this.direccion = direccion;
+        }
 }
