@@ -21,13 +21,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
-package co.edu.uniandes.baco.huecota.resources;
+package co.edu.uniandes.nocompila.huecota.resources;
 
-import co.edu.uniandes.baco.huecota.ejb.HuecoLogic;
-import co.edu.uniandes.baco.huecota.dtos.HuecoDetailDTO;
-import co.edu.uniandes.baco.huecota.entities.HuecoEntity;
-import co.edu.uniandes.baco.huecota.exceptions.BusinessLogicException;
-import co.edu.uniandes.baco.huecota.persistence.HuecoPersistence;
+import co.edu.uniandes.nocompila.huecota.ejb.HuecoLogic;
+import co.edu.uniandes.nocompila.huecota.dtos.HuecoDetailDTO;
+import co.edu.uniandes.nocompila.huecota.entities.HuecoEntity;
+import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
+import co.edu.uniandes.nocompila.huecota.persistence.HuecoPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;

@@ -18,9 +18,13 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import static org.junit.Assert.*;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
@@ -67,6 +71,14 @@ public class CalificacionPersistenceTest {
      */
     @Inject
     UserTransaction utx;
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
     
     
     /**
@@ -90,6 +102,10 @@ public class CalificacionPersistenceTest {
                 e1.printStackTrace();
             }
         }
+    }
+
+    @After
+    public void tearDown() throws Exception {
     }
     
      /**
@@ -200,6 +216,46 @@ public class CalificacionPersistenceTest {
         CalificacionEntity resp = em.find(CalificacionEntity.class, entity.getId());
         
         Assert.assertEquals(newEntity.getName(), resp.getName());
+    }
+
+    /**
+     * Test of create method, of class CalificacionPersistence.
+     */
+    @Test
+    public void testCreate() throws Exception {
+        fail("testCreate");
+    }
+
+    /**
+     * Test of update method, of class CalificacionPersistence.
+     */
+    @Test
+    public void testUpdate() throws Exception {
+        fail("testUpdate");
+    }
+
+    /**
+     * Test of delete method, of class CalificacionPersistence.
+     */
+    @Test
+    public void testDelete() throws Exception {
+        fail("testDelet");
+    }
+
+    /**
+     * Test of find method, of class CalificacionPersistence.
+     */
+    @Test
+    public void testFind() throws Exception {
+        fail("testFind");
+    }
+
+    /**
+     * Test of findAll method, of class CalificacionPersistence.
+     */
+    @Test
+    public void testFindAll() throws Exception {
+        fail("testFindAll");
     }
     
 }
