@@ -44,8 +44,8 @@ public class PuntoPersistence {
         return em.merge(punto);
     }
     
-    public PuntoEntity delete(Long id){
-        return PuntoEntity cliente = find(id);
-        
+    public void delete(Long id){
+        PuntoEntity entity = em.find(PuntoEntity.class, id);
+        em.remove(entity);
     }
 }

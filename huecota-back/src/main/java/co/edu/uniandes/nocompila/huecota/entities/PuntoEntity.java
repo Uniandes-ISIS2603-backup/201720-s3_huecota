@@ -8,6 +8,7 @@ package co.edu.uniandes.nocompila.huecota.entities;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
@@ -15,7 +16,7 @@ import javax.persistence.Entity;
  */
 @Entity
 public class PuntoEntity extends BaseEntity implements Serializable {
-    @id
+    @Id
     private Long id;
     
     private int cantidad;
@@ -26,7 +27,7 @@ public class PuntoEntity extends BaseEntity implements Serializable {
         return id;
     }
     
-    public void setId(int id){
+    public void setId(Long id){
         this.id = id;
     }
     
@@ -39,7 +40,7 @@ public class PuntoEntity extends BaseEntity implements Serializable {
     }
     
     public Date getFecha(){
-        return date;
+        return fecha;
     }
     
     public void setFecha(Date fecha){

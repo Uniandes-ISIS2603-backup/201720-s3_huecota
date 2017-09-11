@@ -7,13 +7,16 @@ package co.edu.uniandes.nocompila.huecota.entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 /**
  *
  * @author c.martinezc1
  */
 @Entity
 public class ClienteEntity extends BaseEntity implements Serializable{
-    @id
+    
+    
+    @Id
     private int cedula ;
     
     private int huecosRegistrados;
