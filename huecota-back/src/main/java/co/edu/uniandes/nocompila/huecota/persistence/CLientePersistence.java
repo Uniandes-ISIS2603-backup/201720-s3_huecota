@@ -46,7 +46,6 @@ public class CLientePersistence {
     }
     
     public ClienteEntity delete(Long id){
-        return ClienteEntity cliente = find(id);
-        
+        return ClienteEntity cliente = find(id);       
     }
 }
