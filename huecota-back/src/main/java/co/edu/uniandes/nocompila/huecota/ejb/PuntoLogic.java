@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.nocompila.huecota.ejb;
 
-import co.edu.uniandes.baco.huecota.exceptions.BusinessLogicException;
+import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
 import co.edu.uniandes.nocompila.huecota.entities.PuntoEntity;
 import co.edu.uniandes.nocompila.huecota.persistence.PuntoPersistence;
 import java.util.List;
