@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.nocompila.huecota.persistence;
 
-import co.edu.uniandes.nocompila.huecota.entities.AbiertoEntity;
+import co.edu.uniandes.nocompila.huecota.entities.EnProgresoEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -32,8 +32,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  * @author jpr.arango10
  */
 @RunWith(Arquillian.class)
-public class AbiertoPersistenceTest {
-    
+public class EnProgresoPersistenceTest {
      /**
      *
      * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
@@ -44,7 +43,7 @@ public class AbiertoPersistenceTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(AbiertoEntity.class.getPackage())
+                .addPackage(EnProgresoEntity.class.getPackage())
                 .addPackage(AbiertoPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
@@ -55,7 +54,7 @@ public class AbiertoPersistenceTest {
      * se van a probar.
      */
     @Inject
-    private AbiertoPersistence abiertoPersistence;
+    private EnProgresoPersistence enProgresoPersistence;
     
     /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
@@ -113,13 +112,13 @@ public class AbiertoPersistenceTest {
      *
      */
     private void clearData() {
-        em.createQuery("delete from AbiertoEntity").executeUpdate();
+        em.createQuery("delete from EnProgresoEntity").executeUpdate();
     }
     
     /**
      *
      */
-    private List<AbiertoEntity> data = new ArrayList<AbiertoEntity>();
+    private List<EnProgresoEntity> data = new ArrayList<EnProgresoEntity>();
     
     /**
      * Inserta los datos iniciales para el correcto funcionamiento de las
@@ -130,7 +129,7 @@ public class AbiertoPersistenceTest {
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
-            AbiertoEntity entity = factory.manufacturePojo(AbiertoEntity.class);
+            EnProgresoEntity entity = factory.manufacturePojo(EnProgresoEntity.class);
 
             em.persist(entity);
             data.add(entity);
@@ -144,12 +143,12 @@ public class AbiertoPersistenceTest {
     public void createAbiertoTest()
     {
         PodamFactory factory = new PodamFactoryImpl();
-        AbiertoEntity newEntity = factory.manufacturePojo(AbiertoEntity.class);
-        AbiertoEntity result = abiertoPersistence.create(newEntity);
+        EnProgresoEntity newEntity = factory.manufacturePojo(EnProgresoEntity.class);
+        EnProgresoEntity result = enProgresoPersistence.create(newEntity);
         
         Assert.assertNotNull(result);
         
-        AbiertoEntity entity = em.find(AbiertoEntity.class,result.getId());
+        EnProgresoEntity entity = em.find(EnProgresoEntity.class,result.getId());
         
         Assert.assertEquals(newEntity.getName(), entity.getName());
     }
@@ -160,12 +159,12 @@ public class AbiertoPersistenceTest {
     @Test
     public void getAbiertoesTest()
     {
-        List<AbiertoEntity> list = abiertoPersistence.findAll();
+        List<EnProgresoEntity> list = enProgresoPersistence.findAll();
         Assert.assertEquals(data.size(), list.size());
-        for(AbiertoEntity ent : list)
+        for(EnProgresoEntity ent : list)
         {
             boolean found = false;
-            for(AbiertoEntity entity : data)
+            for(EnProgresoEntity entity : data)
             {
                 if(ent.getId().equals(entity.getId())){
                     found= true;
@@ -182,8 +181,8 @@ public class AbiertoPersistenceTest {
     @Test
     public void getAbiertoTest()
     {
-        AbiertoEntity entity = data.get(0);
-        AbiertoEntity newEntity = abiertoPersistence.find(entity.getId());
+        EnProgresoEntity entity = data.get(0);
+        EnProgresoEntity newEntity = enProgresoPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
     }
@@ -194,24 +193,24 @@ public class AbiertoPersistenceTest {
     @Test
     public void deleteAbiertoTest()
     {
-        AbiertoEntity entity = data.get(0);
-        abiertoPersistence.delete(entity.getId());
-        AbiertoEntity deleted = em.find(AbiertoEntity.class,entity.getId());
+        EnProgresoEntity entity = data.get(0);
+        enProgresoPersistence.delete(entity.getId());
+        EnProgresoEntity deleted = em.find(EnProgresoEntity.class,entity.getId());
         Assert.assertNull(deleted);
     }
     
     @Test
     public void updateAbiertoTest()
     {
-        AbiertoEntity entity = data.get(0);
+        EnProgresoEntity entity = data.get(0);
         PodamFactory factory  = new PodamFactoryImpl();
-        AbiertoEntity newEntity = factory.manufacturePojo(AbiertoEntity.class);
+        EnProgresoEntity newEntity = factory.manufacturePojo(EnProgresoEntity.class);
         
         newEntity.setId(entity.getId());
         
-        abiertoPersistence.update(newEntity);
+        enProgresoPersistence.update(newEntity);
         
-        AbiertoEntity resp = em.find(AbiertoEntity.class, entity.getId());
+        EnProgresoEntity resp = em.find(EnProgresoEntity.class, entity.getId());
         
         Assert.assertEquals(newEntity.getName(), resp.getName());
     }
@@ -257,3 +256,4 @@ public class AbiertoPersistenceTest {
         fail("testFindAll");
     }
 }
+
