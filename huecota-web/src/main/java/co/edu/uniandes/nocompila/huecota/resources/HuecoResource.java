@@ -27,7 +27,6 @@ import co.edu.uniandes.nocompila.huecota.ejb.HuecoLogic;
 import co.edu.uniandes.nocompila.huecota.dtos.HuecoDetailDTO;
 import co.edu.uniandes.nocompila.huecota.entities.HuecoEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
-import co.edu.uniandes.nocompila.huecota.persistence.HuecoPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
