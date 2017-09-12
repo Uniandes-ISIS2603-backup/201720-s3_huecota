@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.nocompila.huecota.persistence;
 
-import co.edu.uniandes.nocompila.huecota.entities.AbiertoEntity;
+import co.edu.uniandes.nocompila.huecota.entities.EnProgresoEntity;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,7 +20,7 @@ import javax.persistence.TypedQuery;
  */
 @Stateless
 public class EnProgresoPersistence {
-    private static final Logger LOGGER = Logger.getLogger(AbiertoPersistence.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(EnProgresoPersistence.class.getName());
         
     @PersistenceContext(unitName = "huecotaPU")
     protected EntityManager em;
@@ -31,7 +31,7 @@ public class EnProgresoPersistence {
      * @param entity objeto accidente que se crea en la base de datos
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
-    public AbiertoEntity create(AbiertoEntity entity)
+    public EnProgresoEntity create(EnProgresoEntity entity)
 	{
         LOGGER.info("Creando un estado nuevo");
         
@@ -47,7 +47,7 @@ public class EnProgresoPersistence {
      * @param entity el estado que viene con los nuevos cambios.
      * @return  un estado con los cambios aplicados
      */
-    public AbiertoEntity update(AbiertoEntity entity)
+    public EnProgresoEntity update(EnProgresoEntity entity)
     {
         LOGGER.log(Level.INFO, "Actualizando estado con id={0}", entity.getId());
         
@@ -62,7 +62,7 @@ public class EnProgresoPersistence {
     {
         LOGGER.log(Level.INFO, "Eliminando estado con id={0}", id);
         
-        AbiertoEntity entity = em.find(AbiertoEntity.class, id);
+        EnProgresoEntity entity = em.find(EnProgresoEntity.class, id);
         
         em.remove(entity);
     }
@@ -72,22 +72,22 @@ public class EnProgresoPersistence {
      * @param id id correspondiente con la calificacion buscada.
      * @return un estado.
      */
-    public AbiertoEntity find(Long id)
+    public EnProgresoEntity find(Long id)
     {
         LOGGER.log(Level.INFO, "Consultando estado con id={0}", id);
         
-        return em.find(AbiertoEntity.class, id);
+        return em.find(EnProgresoEntity.class, id);
     }
     
     /**
      * Devuelve todos los estados de la base de datos.
      * @return una lista con todos los estados que encuentre en la base de datos,
      */
-    public List<AbiertoEntity> findAll()
+    public List<EnProgresoEntity> findAll()
     {
         LOGGER.info("Consultando todos los estados abiertos");
         
-        TypedQuery query = em.createNamedQuery("select u from AbiertoEntity u", AbiertoEntity.class);
+        TypedQuery query = em.createNamedQuery("select u from EnProgresoEntity u", EnProgresoEntity.class);
         
         return query.getResultList();
     }
