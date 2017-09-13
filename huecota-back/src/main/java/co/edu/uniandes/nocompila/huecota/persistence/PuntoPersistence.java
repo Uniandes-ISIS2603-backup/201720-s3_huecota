@@ -22,7 +22,7 @@ public class PuntoPersistence {
     
     private static final Logger LOGGER = Logger.getLogger(HuecoPersistence.class.getName());
 
-    @PersistenceContext(unitName = "puntoPU")
+    @PersistenceContext(unitName = "huecotaPU")
     protected EntityManager em;
     
    public PuntoEntity find(Long id){
