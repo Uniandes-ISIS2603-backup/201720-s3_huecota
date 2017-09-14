@@ -7,11 +7,13 @@ package co.edu.uniandes.nocompila.huecota.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
 
 /**
  *
  * @author jpr.arango10
  */
+@Entity
 public class EnProgresoEntity extends BaseEntity implements Serializable{
     
     /**

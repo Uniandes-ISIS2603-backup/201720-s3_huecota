@@ -6,11 +6,13 @@
 package co.edu.uniandes.nocompila.huecota.entities;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
 
 /**
  *
  * @author jpr.arango10
  */
+@Entity
 public class AbiertoEntity extends BaseEntity implements Serializable{
     
     /**
