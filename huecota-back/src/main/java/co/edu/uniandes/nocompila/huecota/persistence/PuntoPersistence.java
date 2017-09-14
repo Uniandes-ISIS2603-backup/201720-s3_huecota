@@ -22,7 +22,7 @@ public class PuntoPersistence {
     
     private static final Logger LOGGER = Logger.getLogger(HuecoPersistence.class.getName());
 
-    @PersistenceContext(unitName = "puntoPU")
+    @PersistenceContext(unitName = "huecotaPU")
     protected EntityManager em;
     
    public PuntoEntity find(Long id){
@@ -45,7 +45,12 @@ public class PuntoPersistence {
     }
     
     public void delete(Long id){
+        LOGGER.log(Level.INFO, "Borrando accidente con id={0}", id);
+        // Se hace uso de mismo m�todo que esta explicado en public AccidenteEntity find(Long id) para obtener el accidente a borrar.
         PuntoEntity entity = em.find(PuntoEntity.class, id);
+         /* Note que una vez obtenido el objeto desde la base de datos llamado "entity", volvemos hacer uso de un método propio del
+         EntityManager para eliminar de la base de datos el objeto que encontramos y queremos borrar.
+         Es similar a "delete from AccidenteEntity where id=id;" - "DELETE FROM table_codigo WHERE condition;" en SQL.*/
         em.remove(entity);
     }
 }

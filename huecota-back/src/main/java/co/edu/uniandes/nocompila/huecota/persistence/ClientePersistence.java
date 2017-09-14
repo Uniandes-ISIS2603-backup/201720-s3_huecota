@@ -23,7 +23,7 @@ public class ClientePersistence {
 
     private static final Logger LOGGER = Logger.getLogger(HuecoPersistence.class.getName());
 
-    @PersistenceContext(unitName = "clientePU")
+    @PersistenceContext(unitName = "huecotaPU")
     protected EntityManager em;
     
     public ClienteEntity find(Long id){
@@ -37,8 +37,9 @@ public class ClientePersistence {
         
     }
     
-    public void create(ClienteEntity cliente){
+    public ClienteEntity create(ClienteEntity cliente){
         em.persist(cliente);
+        return cliente;
     }
     
     public ClienteEntity update(ClienteEntity cliente){
@@ -46,9 +47,11 @@ public class ClientePersistence {
     }
     
     public void delete(Long id){
-       
+LOGGER.log(Level.INFO, "Borrando cliente con id={0}", id);
+        // Se hace uso de mismo m�todo que esta explicado en public ClienteEntity find(Long id) para obtener el cliente a borrar.
         ClienteEntity entity = em.find(ClienteEntity.class, id);
-        em.remove(entity);
-        
-    }
+        /* Note que una vez obtenido el objeto desde la base de datos llamado "entity", volvemos hacer uso de un método propio del
+         EntityManager para eliminar de la base de datos el objeto que encontramos y queremos borrar.
+         Es similar a "delete from ClienteteEntity where id=id;" - "DELETE FROM table_codigo WHERE condition;" en SQL.*/
+        em.remove(entity);    }
 }

@@ -15,11 +15,24 @@ import javax.persistence.Entity;
 @Entity
 public class ContratistaEntity extends BaseEntity implements  Serializable
 {
+    /**
+     * Nombre del contratista.
+     */
     private String name;
+    
+    /**
+     * Retorna el nombre del contratista.
+     * @return nombre del contratista.
+     */
     public  String getName()
     {
         return name;
     }
+    
+    /**
+     * Modifica el nombre del contratista.
+     * @param name nuevo nombre del contratista.
+     */
     public void setName(String name)
     {
         this.name = name;
