@@ -15,11 +15,24 @@ import javax.persistence.Entity;
 @Entity
 public class CuentaCobroEntity extends BaseEntity implements Serializable
 {
+    /**
+     * Valor de la cuenta de cobro.
+     */
     private double precio;
+    
+    /**
+     * Retorna el precio de la cuenta de cobro.
+     * @return precio de la cuenta de cobro.
+     */
     public double getPrecio()
     {
         return precio;
     }
+    
+    /**
+     * Modifica el valor de la cuenta de cobro.
+     * @param precio nuevo valor de la cuenta de cobro.
+     */
     public void setPrecio(double precio)
     {
         this.precio = precio;
