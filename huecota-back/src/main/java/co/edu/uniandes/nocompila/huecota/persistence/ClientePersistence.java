@@ -23,7 +23,7 @@ public class ClientePersistence {
 
     private static final Logger LOGGER = Logger.getLogger(HuecoPersistence.class.getName());
 
-    @PersistenceContext(unitName = "clientePU")
+    @PersistenceContext(unitName = "huecotaPU")
     protected EntityManager em;
     
     public ClienteEntity find(Long id){
