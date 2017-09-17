@@ -3,7 +3,7 @@
 <modelVersion>4.0.0</modelVersion>
 
 <parent>
-<groupId>co.edu.uniandes.nocompila.huecota</groupId>
+<groupId>co.edu.uniandes.nocompila</groupId>
 <artifactId>huecota</artifactId>
 <version>1.0-SNAPSHOT</version>
 <relativePath>../pom.xml</relativePath>
@@ -36,6 +36,13 @@
       <scope>test</scope>
       <type>jar</type>
     </dependency>
+     <dependency>
+             <groupId>org.glassfish.main.extras</groupId>
+             <artifactId>glassfish-embedded-all</artifactId>
+             <version>4.1</version>
+             <scope>test</scope>
+             <type>jar</type>
+         </dependency>
     <dependency>
 <groupId>javax</groupId>
 <artifactId>javaee-api</artifactId>

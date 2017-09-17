@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -20,7 +22,7 @@ public class PuntoEntity extends BaseEntity implements Serializable {
     private Long id;
     
     private int cantidad;
-    
+    @Temporal(TemporalType.DATE)
     private Date fecha;
     
     public Long getId(){

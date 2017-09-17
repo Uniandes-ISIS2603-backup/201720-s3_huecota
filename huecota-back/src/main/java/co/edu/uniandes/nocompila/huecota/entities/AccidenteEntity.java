@@ -7,6 +7,8 @@ package co.edu.uniandes.nocompila.huecota.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 /**
  *
  * @author ma.puentes
@@ -14,6 +16,7 @@ import java.util.Date;
 public class AccidenteEntity  extends BaseEntity implements Serializable
 {
 	private String direccion;
+        @Temporal(TemporalType.DATE)
 	private Date fecha;
 	
 	public String getDireccion()

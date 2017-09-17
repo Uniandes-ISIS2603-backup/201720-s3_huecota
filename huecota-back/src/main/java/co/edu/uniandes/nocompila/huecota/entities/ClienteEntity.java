@@ -16,7 +16,7 @@ import javax.persistence.Id;
 public class ClienteEntity extends BaseEntity implements Serializable{
     
     
-    @Id
+    
     private int cedula ;
     
     private int huecosRegistrados;

@@ -43,6 +43,8 @@ public class ClientePersistenceTest {
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
     
+    public ClientePersistenceTest () {}
+    
     @Inject
     private ClientePersistence clientePersistence;
     

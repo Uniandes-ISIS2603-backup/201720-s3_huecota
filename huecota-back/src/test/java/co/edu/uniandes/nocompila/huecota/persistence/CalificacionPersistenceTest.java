@@ -39,7 +39,7 @@ public class CalificacionPersistenceTest {
      *
      * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
      * embebido. El jar contiene las clases de Calificacion, el descriptor de la
-     * base de datos y el archivo beans.xml para resolver la inyección de
+     * base de datos y el archivo beans.xml para resolver la inyecciï¿½n de
      * dependencias.
      */
     @Deployment
@@ -51,8 +51,10 @@ public class CalificacionPersistenceTest {
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
     
+    public CalificacionPersistenceTest (){}
+    
      /**
-     * Inyección de la dependencia a la clase CalificacionPersistence cuyos métodos
+     * Inyecciï¿½n de la dependencia a la clase CalificacionPersistence cuyos mï¿½todos
      * se van a probar.
      */
     @Inject
@@ -60,7 +62,7 @@ public class CalificacionPersistenceTest {
     
     /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
-     * datos por fuera de los métodos que se están probando.
+     * datos por fuera de los mï¿½todos que se estï¿½n probando.
      */
     @PersistenceContext
     private EntityManager em;
@@ -82,7 +84,7 @@ public class CalificacionPersistenceTest {
     
     
     /**
-     * Configuración inicial de la prueba.
+     * Configuraciï¿½n inicial de la prueba.
      *
      *
      */
@@ -109,7 +111,7 @@ public class CalificacionPersistenceTest {
     }
     
      /**
-     * Limpia las tablas que están implicadas en la prueba.
+     * Limpia las tablas que estï¿½n implicadas en la prueba.
      *
      *
      */

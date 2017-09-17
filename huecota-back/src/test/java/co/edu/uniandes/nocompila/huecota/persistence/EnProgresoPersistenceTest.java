@@ -49,6 +49,8 @@ public class EnProgresoPersistenceTest {
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
     
+    public EnProgresoPersistenceTest () {}
+    
      /**
      * Inyección de la dependencia a la clase AbiertoPersistence cuyos m�todos
      * se van a probar.

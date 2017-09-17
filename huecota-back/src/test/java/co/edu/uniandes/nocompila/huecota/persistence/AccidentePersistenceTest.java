@@ -66,10 +66,7 @@ public class AccidentePersistenceTest
 	
 	
 	
-	public AccidentePersistenceTest()
-	{
-		
-	}
+	
 	
 	/**
      *
@@ -87,6 +84,10 @@ public class AccidentePersistenceTest
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
+    public AccidentePersistenceTest()
+	{
+		
+	}
 	
 	@Test
 	public void getAccidenteEntityTest()

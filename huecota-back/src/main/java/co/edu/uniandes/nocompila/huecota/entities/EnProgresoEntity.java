@@ -8,6 +8,8 @@ package co.edu.uniandes.nocompila.huecota.entities;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -19,6 +21,7 @@ public class EnProgresoEntity extends BaseEntity implements Serializable{
     /**
      * Fecha de inicio de tapado del hueco.
      */
+    @Temporal(TemporalType.DATE)
     private Date fechaDeInicio;
 
     /**
