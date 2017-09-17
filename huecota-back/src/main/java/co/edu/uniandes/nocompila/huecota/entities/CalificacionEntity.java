@@ -6,11 +6,13 @@
 package co.edu.uniandes.nocompila.huecota.entities;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
 
 /**
  *
  * @author le.viana
  */
+@Entity
 public class CalificacionEntity extends BaseEntity implements Serializable{
         
     // atributos

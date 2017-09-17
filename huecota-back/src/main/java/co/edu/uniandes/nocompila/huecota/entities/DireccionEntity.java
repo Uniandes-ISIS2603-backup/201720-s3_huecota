@@ -13,10 +13,12 @@ package co.edu.uniandes.nocompila.huecota.entities;
 
 
 import java.io.Serializable;
+import javax.persistence.Entity;
 /**
  *
  * @author ma.puentes
  */
+@Entity
 public class DireccionEntity extends BaseEntity implements Serializable
 {
 	private Long x;

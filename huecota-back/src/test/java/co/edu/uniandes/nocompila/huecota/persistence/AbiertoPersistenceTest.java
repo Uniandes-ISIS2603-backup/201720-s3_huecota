@@ -34,6 +34,24 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 @RunWith(Arquillian.class)
 public class AbiertoPersistenceTest {
     
+     @Inject
+    private AbiertoPersistence abiertoPersistence;
+    
+    /**
+     * Contexto de Persistencia que se va a utilizar para acceder a la Base de
+     * datos por fuera de los m�todos que se est�n probando.
+     */
+    @PersistenceContext
+    private EntityManager em;
+    
+    /**
+     * Variable para marcar las transacciones del em anterior cuando se
+     * crean/borran datos para las pruebas.
+     */
+    @Inject
+    UserTransaction utx;
+
+    
      /**
      *
      * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
@@ -52,34 +70,20 @@ public class AbiertoPersistenceTest {
     
     public AbiertoPersistenceTest () {}
     
-     /**
-     * Inyección de la dependencia a la clase AbiertoPersistence cuyos m�todos
-     * se van a probar.
-     */
-    @Inject
-    private AbiertoPersistence abiertoPersistence;
-    
-    /**
-     * Contexto de Persistencia que se va a utilizar para acceder a la Base de
-     * datos por fuera de los m�todos que se est�n probando.
-     */
-    @PersistenceContext
-    private EntityManager em;
-    
-    /**
-     * Variable para marcar las transacciones del em anterior cuando se
-     * crean/borran datos para las pruebas.
-     */
-    @Inject
-    UserTransaction utx;
-
-    @BeforeClass
+     @BeforeClass
     public static void setUpClass() throws Exception {
     }
 
     @AfterClass
     public static void tearDownClass() throws Exception {
     }
+    
+     /**
+     * Inyección de la dependencia a la clase AbiertoPersistence cuyos m�todos
+     * se van a probar.
+     */
+   
+   
     
     
     /**

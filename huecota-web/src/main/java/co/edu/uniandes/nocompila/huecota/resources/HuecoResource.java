@@ -54,7 +54,7 @@ import javax.ws.rs.WebApplicationException;
  * @author ISIS2603
  *
  */
-@Path("huecos")
+@Path("/huecos")
 @Produces("application/json")
 @Consumes("application/json")
 @Stateless
@@ -146,7 +146,7 @@ public class HuecoResource {
      * @return la lista de Huecoes en forma DTO (json)
      */
     private List<HuecoDetailDTO> listEntity2DetailDTO(List<HuecoEntity> entityList) {
-        List<HuecoDetailDTO> list = new ArrayList<>();
+        List<HuecoDetailDTO> list = new ArrayList();
         for (HuecoEntity entity : entityList) {
             list.add(new HuecoDetailDTO(entity));
         }
