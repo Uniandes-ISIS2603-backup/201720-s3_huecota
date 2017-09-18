@@ -87,7 +87,7 @@ public class AbiertoPersistence {
     {
         LOGGER.info("Consultando todos los estados abiertos");
         
-        TypedQuery query = em.createNamedQuery("select u from AbiertoEntity u", AbiertoEntity.class);
+        TypedQuery query = em.createQuery("select u from AbiertoEntity u", AbiertoEntity.class);
         
         return query.getResultList();
     }

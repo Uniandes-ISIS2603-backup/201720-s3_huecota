@@ -88,7 +88,7 @@ public class CerradoPersistence {
     {
         LOGGER.info("Consultando todos los estados abiertos");
         
-        TypedQuery query = em.createNamedQuery("select u from CerradoEntity u", CerradoEntity.class);
+        TypedQuery query = em.createQuery("select u from CerradoEntity u", CerradoEntity.class);
         
         return query.getResultList();
     }
