@@ -81,7 +81,7 @@ public class DireccionPersistenceTest
 	{
         return ShrinkWrap.create(JavaArchive.class)
                 .addPackage(DireccionEntity.class.getPackage())
-                .addPackage(DireccionEntity.class.getPackage())
+                .addPackage(DireccionPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
