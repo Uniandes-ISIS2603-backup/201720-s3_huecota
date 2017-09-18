@@ -49,7 +49,7 @@ import javax.ws.rs.Produces;
  * este recurso tiene la ruta "Huecos". Al ejecutar la aplicación, el
  * recurso será accesibe a través de la ruta "/api/Huecos"
  *
- * @author ISIS2603
+ * @author ch.patino
  *
  */
 @Path("/huecos")

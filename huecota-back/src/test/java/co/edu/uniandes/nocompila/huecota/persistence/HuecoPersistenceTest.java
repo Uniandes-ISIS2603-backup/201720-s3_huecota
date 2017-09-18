@@ -228,44 +228,4 @@ public class HuecoPersistenceTest {
         
         Assert.assertEquals(newEntity.getName(), resp.getName());
     }
-
-    /**
-     * Test of create method, of class HuecoPersistence.
-     */
-    @Test
-    public void testCreate() throws Exception {
-        fail("testCreate");
-    }
-
-    /**
-     * Test of update method, of class HuecoPersistence.
-     */
-    @Test
-    public void testUpdate() throws Exception {
-        fail("testUpdate");
-    }
-
-    /**
-     * Test of delete method, of class HuecoPersistence.
-     */
-    @Test
-    public void testDelete() throws Exception {
-        fail("testDelet");
-    }
-
-    /**
-     * Test of find method, of class HuecoPersistence.
-     */
-    @Test
-    public void testFind() throws Exception {
-        fail("testFind");
-    }
-
-    /**
-     * Test of findAll method, of class HuecoPersistence.
-     */
-    @Test
-    public void testFindAll() throws Exception {
-        fail("testFindAll");
-    }
 }

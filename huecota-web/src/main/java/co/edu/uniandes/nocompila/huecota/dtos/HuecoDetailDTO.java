@@ -26,14 +26,16 @@ import co.edu.uniandes.nocompila.huecota.entities.HuecoEntity;
 
 /**
  *
- * @author ISIS2603
+ * @author ch.patino
  */
-public class HuecoDetailDTO extends HuecoDTO {
+public class HuecoDetailDTO extends HuecoDTO 
+{
 
     /**
      * Constructor por defecto
      */
-    public HuecoDetailDTO() {
+    public HuecoDetailDTO() +
+    {
     }
 
     /**
@@ -41,7 +43,8 @@ public class HuecoDetailDTO extends HuecoDTO {
      *
      * @param entity
      */
-    public HuecoDetailDTO(HuecoEntity entity) {
+    public HuecoDetailDTO(HuecoEntity entity) 
+    {
         super(entity);
     }
 
@@ -51,7 +54,8 @@ public class HuecoDetailDTO extends HuecoDTO {
      * @return 
      */
     @Override
-    public HuecoEntity toEntity() {
+    public HuecoEntity toEntity() 
+    {
         HuecoEntity HuecoE = super.toEntity();
         return HuecoE;
     }
