@@ -30,16 +30,18 @@ import co.edu.uniandes.nocompila.huecota.entities.HuecoEntity;
  * contienen las represnetaciones de los JSON que se transfieren entre el
  * cliente y el servidor.
  *
- * @author ISIS2603
+ * @author ch.patino
  */
-public class HuecoDTO {
+public class HuecoDTO 
+{
 
     private Long id;
 
     /**
      * Constructor por defecto
      */
-    public HuecoDTO() {
+    public HuecoDTO() 
+    {
     }
 
     /**
@@ -48,21 +50,24 @@ public class HuecoDTO {
      *
      * @param Hueco: Es la entidad que se va a convertir a DTO
      */
-    public HuecoDTO(HuecoEntity Hueco) {
+    public HuecoDTO(HuecoEntity Hueco) 
+    {
         this.id = Hueco.getId();
     }
 
     /**
-     * @return the id
+     * @return id
      */
-    public Long getId() {
+    public Long getId() 
+    {
         return id;
     }
 
     /**
-     * @param id the id to set
+     * @param id id a cambiar
      */
-    public void setId(Long id) {
+    public void setId(Long id) 
+    {
         this.id = id;
     }
 
@@ -71,7 +76,8 @@ public class HuecoDTO {
      *
      * @return Un Entity con los valores del DTO
      */
-    public HuecoEntity toEntity() {
+    public HuecoEntity toEntity() 
+    {
         HuecoEntity entity = new HuecoEntity();
         entity.setId(this.id);
         return entity;
