@@ -85,7 +85,7 @@ public class ClientePersistenceTest {
     }
     
      private void clearData() {
-        em.createQuery("delete from CompanyEntity").executeUpdate();
+        em.createQuery("delete from ClienteEntity").executeUpdate();
     }
      
       private List<ClienteEntity> data = new ArrayList<ClienteEntity>();
