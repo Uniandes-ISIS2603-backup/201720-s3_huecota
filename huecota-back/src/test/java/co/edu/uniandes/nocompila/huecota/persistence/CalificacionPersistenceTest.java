@@ -116,7 +116,7 @@ public class CalificacionPersistenceTest {
      *
      */
     private void clearData() {
-        em.createQuery("delete from CompanyEntity").executeUpdate();
+        em.createQuery("delete from CalificacionEntity").executeUpdate();
     }
     
     /**
