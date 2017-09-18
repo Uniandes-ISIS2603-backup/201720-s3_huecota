@@ -87,7 +87,7 @@ public class EnProgresoPersistence {
     {
         LOGGER.info("Consultando todos los estados abiertos");
         
-        TypedQuery query = em.createNamedQuery("select u from EnProgresoEntity u", EnProgresoEntity.class);
+        TypedQuery query = em.createQuery("select u from EnProgresoEntity u", EnProgresoEntity.class);
         
         return query.getResultList();
     }
