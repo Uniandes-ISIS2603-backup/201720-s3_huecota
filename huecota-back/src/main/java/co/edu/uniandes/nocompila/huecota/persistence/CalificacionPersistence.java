@@ -56,7 +56,7 @@ public class CalificacionPersistence {
     }
     
     /**
-     * Elimina una calificación de la base de datos recibiendo como argumento el id de la calificacion.
+     * Elimina una calificaciï¿½n de la base de datos recibiendo como argumento el id de la calificacion.
      * @param id: id correspondiente a la calificacion a borrar.
      */
     public void delete(Long id)
@@ -83,13 +83,13 @@ public class CalificacionPersistence {
     /**
      * Devuelve todas las calificaciones de la base de datos.
      * @return una lista con todas las calificaciones que encuentre en la base de datos,
-     * "select u from CalificacionEntity u" es como un "señect * from HuecoEntity;" - "SELECT * FROM table_codigo" en SQL.
+     * "select u from CalificacionEntity u" es como un "seï¿½ect * from HuecoEntity;" - "SELECT * FROM table_codigo" en SQL.
      */
     public List<CalificacionEntity> findAll()
     {
         LOGGER.info("Consultando todas las calificaciones");
         
-        TypedQuery query = em.createNamedQuery("select u from CalificacionEntity u", CalificacionEntity.class);
+        TypedQuery query = em.createQuery("select u from CalificacionEntity u", CalificacionEntity.class);
         
         return query.getResultList();
     }
