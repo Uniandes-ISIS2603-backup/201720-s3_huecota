@@ -34,7 +34,7 @@ public class HuecoDetailDTO extends HuecoDTO
     /**
      * Constructor por defecto
      */
-    public HuecoDetailDTO() +
+    public HuecoDetailDTO()
     {
     }
 
