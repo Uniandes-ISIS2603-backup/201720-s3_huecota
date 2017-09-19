@@ -30,7 +30,8 @@ import javax.ejb.ApplicationException;
  * @author ISIS2603
  */
 @ApplicationException(rollback = true)
-public class BusinessLogicException extends Exception {
+public class BusinessLogicException extends Exception
+{
 
     public BusinessLogicException() {
     }
@@ -40,7 +41,8 @@ public class BusinessLogicException extends Exception {
      *
      * @param message mensaje de la excepción
      */
-    public BusinessLogicException(String message) {
+    public BusinessLogicException(String message)
+	{
         super(message);
     }
 
@@ -49,7 +51,8 @@ public class BusinessLogicException extends Exception {
      *
      * @param cause causa de la excepción. Usada para generar la traza.
      */
-    public BusinessLogicException(Throwable cause) {
+    public BusinessLogicException(Throwable cause) 
+	{
         super(cause);
     }
 
