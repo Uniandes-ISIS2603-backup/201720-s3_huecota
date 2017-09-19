@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.nocompila.huecota.persistence;
 
-import co.edu.uniandes.nocompila.huecota.entities.CalificacionEntity;
 import co.edu.uniandes.nocompila.huecota.entities.ClienteEntity;
 import java.util.ArrayList;
 import java.util.List;
@@ -100,7 +99,8 @@ public class ClientePersistenceTest {
         }
     }
       
-    @Test
+    
+@Test
     public void createClienteTest()
     {
         PodamFactory factory = new PodamFactoryImpl();

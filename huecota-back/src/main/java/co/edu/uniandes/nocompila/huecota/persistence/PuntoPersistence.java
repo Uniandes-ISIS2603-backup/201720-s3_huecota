@@ -36,8 +36,9 @@ public class PuntoPersistence {
         
     }
     
-    public void create(PuntoEntity cliente){
-        em.persist(cliente);
+    public PuntoEntity create(PuntoEntity entity){
+        em.persist(entity);
+        return entity;
     }
     
     public PuntoEntity update(PuntoEntity punto){
