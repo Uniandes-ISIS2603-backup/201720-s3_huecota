@@ -16,7 +16,6 @@ import javax.persistence.Id;
 public class ClienteEntity extends BaseEntity implements Serializable{
     
     
-    
     private int cedula ;
     
     private int huecosRegistrados;
@@ -44,7 +43,7 @@ public class ClienteEntity extends BaseEntity implements Serializable{
         return nombre;
     }
     
-    public void nombre(String nombre){
+    public void setNombre(String nombre){
         this.nombre = nombre;
     }
 }
