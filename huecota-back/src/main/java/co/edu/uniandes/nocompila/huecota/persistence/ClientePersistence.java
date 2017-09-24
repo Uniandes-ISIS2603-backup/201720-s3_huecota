@@ -47,7 +47,7 @@ public class ClientePersistence {
     }
     
     public void delete(Long id){
-LOGGER.log(Level.INFO, "Borrando cliente con id={0}", id);
+        LOGGER.log(Level.INFO, "Borrando cliente con id={0}", id);
         // Se hace uso de mismo m�todo que esta explicado en public ClienteEntity find(Long id) para obtener el cliente a borrar.
         ClienteEntity entity = em.find(ClienteEntity.class, id);
         /* Note que una vez obtenido el objeto desde la base de datos llamado "entity", volvemos hacer uso de un método propio del

@@ -17,12 +17,9 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
-import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.runner.RunWith;
@@ -154,18 +151,7 @@ public class DireccionPersistenceTest
         Assert.assertTrue(found);
     }
 }
-	@BeforeClass
-	public static void setUpClass()
-	{
 		
-	}
-	
-	@AfterClass
-	public static void tearDownClass()
-	{
-		
-	}
-	
 	@Before
 	public void setUp()
 	{
@@ -188,56 +174,11 @@ public class DireccionPersistenceTest
         }
     }
 	
-	@After
-	public void tearDown()
-	{
-		
-	}
-
-	/**
-	 * Test of create method, of class DireccionPersistence.
-	 */
-	@Test
-	public void testCreate() throws Exception
-	{
-		
-	}
-
+	
 	/**
 	 * Test of update method, of class DireccionPersistence.
 	 */
-	@Test
-	public void testUpdate() throws Exception
-	{
-		
-	}
-
-	/**
-	 * Test of delete method, of class DireccionPersistence.
-	 */
-	@Test
-	public void testDelete() throws Exception
-	{
-		
-	}
-
-	/**
-	 * Test of find method, of class DireccionPersistence.
-	 */
-	@Test
-	public void testFind() throws Exception
-	{
-		
-	}
-
-	/**
-	 * Test of findAll method, of class DireccionPersistence.
-	 */
-	@Test
-	public void testFindAll() throws Exception
-	{
-		
-	}
+	
 	private void clearData()
 	{
         em.createQuery("delete from DireccionEntity").executeUpdate();

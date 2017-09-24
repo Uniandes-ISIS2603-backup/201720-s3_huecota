@@ -17,18 +17,9 @@ import javax.persistence.TemporalType;
 @Entity
 public class AccidenteEntity  extends BaseEntity implements Serializable
 {
-	private String direccion;
-        @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE)
 	private Date fecha;
 	
-	public String getDireccion()
-	{
-		return direccion;
-	}
-	public void setDireccion(String pDireccion)
-	{
-		this.direccion = pDireccion;
-	}
 	public Date getFecha()
 	{
 		return fecha;
