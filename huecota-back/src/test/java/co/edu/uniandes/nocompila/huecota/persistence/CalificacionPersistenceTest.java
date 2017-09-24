@@ -24,7 +24,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import static org.junit.Assert.*;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
@@ -119,9 +118,7 @@ public class CalificacionPersistenceTest {
         em.createQuery("delete from CalificacionEntity").executeUpdate();
     }
     
-    /**
-     *
-     */
+    
     private List<CalificacionEntity> data = new ArrayList<CalificacionEntity>();
     
     /**
