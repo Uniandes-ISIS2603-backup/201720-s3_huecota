@@ -9,6 +9,7 @@ import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
 import co.edu.uniandes.nocompila.huecota.persistence.AccidentePersistence;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -21,10 +22,10 @@ import javax.inject.Inject;
 public class AccidenteLogic
 {
 
-    private static final Logger LOGGER = Logger.getLogger(HuecoLogic.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(AccidenteLogic.class.getName());
 
     @Inject
-    private AccidentePersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
+    private AccidentePersistence persistence; // Variable para acceder a la persistencia de la aplicaciï¿½n. Es una inyecciï¿½n de dependencias.
 
     /**
      *
@@ -32,27 +33,42 @@ public class AccidenteLogic
      * @return
      * @throws BusinessLogicException
      */
-    public AccidenteEntity createHueco(AccidenteEntity entity) throws BusinessLogicException 
+    public AccidenteEntity createAccidente(AccidenteEntity entity) throws BusinessLogicException 
 	{
-        LOGGER.info("Inicia proceso de creación de accidente");
-        // Invoca la persistencia para crear la Hueco
+        LOGGER.info("Inicia proceso de creaciï¿½n de accidente");
+        // Invoca la persistencia para crear el accidente
         persistence.create(entity);
-        LOGGER.info("Termina proceso de creación de un accidente");
+        LOGGER.info("Termina proceso de creaciï¿½n de un accidente");
         return entity;
     }
 
     /**
      * 
-     * Obtener todas las Huecoes existentes en la base de datos.
+     * Obtener todos los accidentes existentes en la base de datos.
      *
-     * @return una lista de Huecoes.
+     * @return una lista de accidentes.
      */
-    public List<AccidenteEntity> getHuecos()
+    public List<AccidenteEntity> getAccidentes()
 	{
         LOGGER.info("Inicia proceso de consultar todos los accidentes");
-        // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
+        // Note que, por medio de la inyecciï¿½n de dependencias se llama al mï¿½todo "findAll()" que se encuentra en la persistencia.
         List<AccidenteEntity> accidentes = persistence.findAll();
         LOGGER.info("Termina proceso de consultar todas los accidentes");
         return accidentes;
+    }
+	
+	public AccidenteEntity getAccidente(Long id)
+    {
+       AccidenteEntity answ = persistence.find(id);
+        return answ;
+    }
+	public AccidenteEntity updateAccidente(AccidenteEntity entity)
+    {
+        AccidenteEntity answ = persistence.update(entity);
+        return answ;
+    }
+	 public void deleteAccidente(Long id)
+    {
+        persistence.delete(id);
     }
 }
