@@ -29,9 +29,12 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(co.edu.uniandes.nocompila.huecota.resources.ClienteResource.class);
-        resources.add(co.edu.uniandes.nocompila.huecota.resources.HuecoResource.class);
-        resources.add(co.edu.uniandes.nocompila.huecota.resources.PuntoResource.class);
+        resources.add(co.edu.uniandes.nocompila.huecota.mappers.BusinessLogicExceptionMapper.class);
+        resources.add(co.edu.uniandes.nocompila.huecota.mappers.UnsupportedOperationExceptionMapper.class);
+        resources.add(co.edu.uniandes.nocompila.huecota.mappers.WebApplicationExceptionMapper.class);
+		resources.add(co.edu.uniandes.nocompila.huecota.resources.ClienteResource.class);
+		resources.add(co.edu.uniandes.nocompila.huecota.resources.HuecoResource.class);
+		resources.add(co.edu.uniandes.nocompila.huecota.resources.PuntoResource.class);
     }
     
 }
