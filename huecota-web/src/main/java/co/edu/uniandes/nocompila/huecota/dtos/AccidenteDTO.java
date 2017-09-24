@@ -6,6 +6,7 @@
 package co.edu.uniandes.nocompila.huecota.dtos;
 
 import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
+import co.edu.uniandes.nocompila.huecota.entities.HuecoEntity;
 import java.util.Date;
 
 /**
@@ -68,13 +69,13 @@ public class AccidenteDTO
      *
      * @return Un Entity con los valores del DTO
      */
-    public AccidenteDTO toEntity() 
+    public AccidenteEntity toEntity() 
     {
-        AccidenteDTO entity = new AccidenteDTO();
+        AccidenteEntity entity = new AccidenteEntity();
         entity.setId(this.id);
-		entity.setDate(this.fecha);
+		entity.setFecha(this.fecha);
         return entity;
     }
-    
+	    
 }
 
