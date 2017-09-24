@@ -5,24 +5,24 @@
  */
 package co.edu.uniandes.nocompila.huecota.dtos;
 
-import co.edu.uniandes.nocompila.huecota.entities.AbiertoEntity;
+import co.edu.uniandes.nocompila.huecota.entities.EnProgresoEntity;
 /**
  *
  * @author jpr.arango10
  */
-public class EnProgresoDetailDTO extends AbiertoDTO{
+public class EnProgresoDetailDTO extends EnProgresoDTO{
     
     public EnProgresoDetailDTO(){
 }
-        public EnProgresoDetailDTO(AbiertoEntity entity) 
+        public EnProgresoDetailDTO(EnProgresoEntity entity) 
     {
         super(entity);
     }
 
     @Override
-    public AbiertoEntity toEntity() 
+    public EnProgresoEntity toEntity() 
     {
-        AbiertoEntity HuecoE = super.toEntity();
+        EnProgresoEntity HuecoE = super.toEntity();
         return HuecoE;
     }
     

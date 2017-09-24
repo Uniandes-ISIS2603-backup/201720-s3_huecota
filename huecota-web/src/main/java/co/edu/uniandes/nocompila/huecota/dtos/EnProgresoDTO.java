@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.nocompila.huecota.dtos;
 
-import co.edu.uniandes.nocompila.huecota.entities.AbiertoEntity;
+import co.edu.uniandes.nocompila.huecota.entities.EnProgresoEntity;
 /**
  *
  * @author jpr.arango10
@@ -18,7 +18,7 @@ public class EnProgresoDTO {
         
     }
     
-    public EnProgresoDTO(AbiertoEntity cliente){
+    public EnProgresoDTO(EnProgresoEntity cliente){
         this.id = (cliente.getId());
     }
     
@@ -30,8 +30,8 @@ public class EnProgresoDTO {
         this.id = id;
     }
     
-    public AbiertoEntity toEntity(){
-        AbiertoEntity entity = new AbiertoEntity();
+    public EnProgresoEntity toEntity(){
+        EnProgresoEntity entity = new EnProgresoEntity();
         entity.setId(this.id);
         return entity;
     }

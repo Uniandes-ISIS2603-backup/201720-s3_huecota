@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.nocompila.huecota.dtos;
 
-import co.edu.uniandes.nocompila.huecota.entities.AbiertoEntity;
+import co.edu.uniandes.nocompila.huecota.entities.CerradoEntity;
 /**
  *
  * @author jpr.arango10
@@ -18,7 +18,7 @@ public class CerradoDTO {
         
     }
     
-    public CerradoDTO(AbiertoEntity cliente){
+    public CerradoDTO(CerradoEntity cliente){
         this.id = (cliente.getId());
     }
     
@@ -30,8 +30,8 @@ public class CerradoDTO {
         this.id = id;
     }
     
-    public AbiertoEntity toEntity(){
-        AbiertoEntity entity = new AbiertoEntity();
+    public CerradoEntity toEntity(){
+        CerradoEntity entity = new CerradoEntity();
         entity.setId(this.id);
         return entity;
     }

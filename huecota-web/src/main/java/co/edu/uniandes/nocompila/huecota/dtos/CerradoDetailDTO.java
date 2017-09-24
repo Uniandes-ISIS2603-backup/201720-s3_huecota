@@ -5,24 +5,24 @@
  */
 package co.edu.uniandes.nocompila.huecota.dtos;
 
-import co.edu.uniandes.nocompila.huecota.entities.AbiertoEntity;
+import co.edu.uniandes.nocompila.huecota.entities.CerradoEntity;
 /**
  *
  * @author jpr.arango10
  */
-public class CerradoDetailDTO extends AbiertoDTO{
+public class CerradoDetailDTO extends CerradoDTO{
     
     public CerradoDetailDTO(){
-}
-        public CerradoDetailDTO(AbiertoEntity entity) 
+    }
+    public CerradoDetailDTO(CerradoEntity entity) 
     {
         super(entity);
     }
 
     @Override
-    public AbiertoEntity toEntity() 
+    public CerradoEntity toEntity() 
     {
-        AbiertoEntity HuecoE = super.toEntity();
+        CerradoEntity HuecoE = super.toEntity();
         return HuecoE;
     }
     
