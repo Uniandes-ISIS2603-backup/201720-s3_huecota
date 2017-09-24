@@ -19,20 +19,33 @@ import co.edu.uniandes.nocompila.huecota.entities.DireccionEntity;
 public class DireccionDTO
 {
 	
-
     private Long id;
 	
-	
-	private Long x;
-	private Long y;
-	private Long z;
-	private Integer idZona;
+	/**
+	 * Atributo de tipo Integer que representa el tipo de via en una dirección.
+	 */
+	private Integer tipoVia;
+	/**
+	 * Atributo de tipo Integer que representa el numero en una dirección.
+	 */
+	private Integer numero;
+	/**
+	 * Atributo de tipo String que representa la letra en una dirección.
+	 */
+	private String letra;
+	/**
+	 * Atributo de tipo Integer que representa el cuadrante en una dirección.
+	 */
+	private Integer cuadrante;
+	/**
+	 * Atributo de tipo String que representa la concatenacion de todos loa tributos de la dirección.
+	 */
 	private String direccionRaw;
 
     /**
      * Constructor por defecto
      */
-    public AccidenteDTO() 
+    public DireccionDTO() 
     {
 		
     }
@@ -41,48 +54,83 @@ public class DireccionDTO
      * Conviertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
      * la entidad que viene de argumento.
      *
-     * @param Accidente: Es la entidad que se va a convertir a DTO
+     * @param Direccion: Es la entidad que se va a convertir a DTO
      */
-    public AccidenteDTO(AccidenteEntity Accidente) 
+    public DireccionDTO(DireccionEntity pDireccion) 
     {
-        this.id = Accidente.getId();
-		this.fecha = Accidente.getFecha();
+        this.id = pDireccion.getId();
+		this.tipoVia = pDireccion.getTipoVia();
+		this.letra = pDireccion.getLetra();
+		this.numero = pDireccion.getNumero();
+		this.cuadrante = pDireccion.getCuadrante();
+		this.direccionRaw =pDireccion.getDireccionRaw();
+		
     }
 
-    /**
-     * @return id
-     */
-    public Long getId() 
-    {
-        return id;
-    }
-	public Date getDireccion()
-	{
-		return fecha;
+	public Long getId() {
+		return id;
 	}
 
-    /**
-     * @param id id a cambiar
-     */
-    public void setId(Long id) 
-    {
-        this.id = id;
-    }
-	public void setDate(Date fecha) 
-    {
-        this.fecha = fecha;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Integer getTipoVia() {
+		return tipoVia;
+	}
+
+	public void setTipoVia(Integer tipoVia) {
+		this.tipoVia = tipoVia;
+	}
+
+	public Integer getNumero() {
+		return numero;
+	}
+
+	public void setNumero(Integer numero) {
+		this.numero = numero;
+	}
+
+	public String getLetra() {
+		return letra;
+	}
+
+	public void setLetra(String letra) {
+		this.letra = letra;
+	}
+
+	public Integer getCuadrante() {
+		return cuadrante;
+	}
+
+	public void setCuadrante(Integer cuadrante) {
+		this.cuadrante = cuadrante;
+	}
+
+	public String getDireccionRaw() {
+		return direccionRaw;
+	}
+
+	public void setDireccionRaw(String direccionRaw) {
+		this.direccionRaw = direccionRaw;
+	}
+
+    
 
     /**
      * Convertir DTO a Entity
      *
      * @return Un Entity con los valores del DTO
      */
-    public AccidenteDTO toEntity() 
+    public DireccionDTO toEntity() 
     {
-        AccidenteDTO entity = new AccidenteDTO();
+        DireccionDTO entity = new DireccionDTO();
         entity.setId(this.id);
-		entity.setDate(this.fecha);
+		entity.setTipoVia(this.tipoVia);
+		entity.setCuadrante(this.cuadrante);
+		entity.setLetra(this.letra);
+		entity.setNumero(this.numero);
+		entity.setDireccionRaw(this.direccionRaw);
         return entity;
     }
     

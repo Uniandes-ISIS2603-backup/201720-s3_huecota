@@ -22,13 +22,28 @@ import javax.persistence.Entity;
 public class DireccionEntity extends BaseEntity implements Serializable
 {
 
-	
+	/**
+	 * Atributo de tipo Integer que representa el tipo de via en una dirección.
+	 */
 	private Integer tipoVia;
+	/**
+	 * Atributo de tipo Integer que representa el numero en una dirección.
+	 */
 	private Integer numero;
+	/**
+	 * Atributo de tipo String que representa la letra en una dirección.
+	 */
 	private String letra;
+	/**
+	 * Atributo de tipo Integer que representa el cuadrante en una dirección.
+	 */
 	private Integer cuadrante;
+	/**
+	 * Atributo de tipo String que representa la concatenacion de todos loa tributos de la dirección.
+	 */
 	private String direccionRaw;
 
+	
 	public Integer getTipoVia() {
 		return tipoVia;
 	}
@@ -53,11 +68,13 @@ public class DireccionEntity extends BaseEntity implements Serializable
 		this.letra = letra;
 	}
 
-	public Integer getCuadrante() {
+	public Integer getCuadrante()
+	{
 		return cuadrante;
 	}
 
-	public void setCuadrante(Integer cuadrante) {
+	public void setCuadrante(Integer cuadrante)
+	{
 		this.cuadrante = cuadrante;
 	}
 
@@ -65,12 +82,10 @@ public class DireccionEntity extends BaseEntity implements Serializable
 		return direccionRaw;
 	}
 
-	public void setDireccionRaw(String direccionRaw) {
+	public void setDireccionRaw(String direccionRaw)
+	{
 		this.direccionRaw = direccionRaw;
 	}
-
-	
-
 	
 }
 
