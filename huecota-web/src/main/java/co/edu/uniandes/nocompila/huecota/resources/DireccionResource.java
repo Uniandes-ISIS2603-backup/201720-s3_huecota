@@ -27,6 +27,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 @Path("/direcciones")
 @Produces("application/json")
@@ -127,11 +128,15 @@ public class DireccionResource
     @Path("{id: \\d+}")
     public DireccionDTO updateDireccion(@PathParam("id") Long id, DireccionDTO direccion) throws BusinessLogicException, UnsupportedOperationException
 	{
-      DireccionEntity entity = direccionLogic.getDireccion(id);
-	  DireccionEntity nueva = direccionLogic.updateDireccion(entity);
-      return new DireccionDTO(nueva);
+		direccion.setId(id);
+		DireccionEntity entity = direccionLogic.getDireccion(id);
+		if (entity == null)
+		{
+			throw new WebApplicationException("El recurso /direcciones/" + id + "no existe.", 404);
+		}
+		return new DireccionDTO( direccionLogic.updateDireccion(id, direccion.toEntity()));
     }
-    
+	    
     /**
      * DELETE http://localhost:8080/huecota-web/api/direcciones/{id}
      *

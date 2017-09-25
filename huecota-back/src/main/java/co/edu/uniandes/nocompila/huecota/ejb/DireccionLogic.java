@@ -6,6 +6,7 @@ import co.edu.uniandes.nocompila.huecota.entities.DireccionEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
 import co.edu.uniandes.nocompila.huecota.persistence.DireccionPersistence;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -67,6 +68,20 @@ public class DireccionLogic
 	 public void deleteDireccion(Long id)
     {
         persistence.delete(id);
+    }
+	 /**
+     *
+     * Actualizar una direccion.
+     *
+     * @param id: id de la direccion para buscarla en la base de datos.
+     * @param entity: direccion con los cambios para ser actualizada, por
+     * ejemplo el nombre.
+     * @return la direccion con los cambios actualizados en la base de datos.
+     */
+    public DireccionEntity updateDireccion(Long id, DireccionEntity entity)
+	{
+        DireccionEntity newEntity = persistence.update(entity);
+        return newEntity;
     }
 }
 

@@ -11,8 +11,10 @@ package co.edu.uniandes.nocompila.huecota.resources;
  */
 
 import co.edu.uniandes.nocompila.huecota.dtos.AccidenteDTO;
+import co.edu.uniandes.nocompila.huecota.dtos.DireccionDTO;
 import co.edu.uniandes.nocompila.huecota.ejb.AccidenteLogic;
 import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
+import co.edu.uniandes.nocompila.huecota.entities.DireccionEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +29,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 @Path("/accidentes")
 @Produces("application/json")
@@ -127,9 +130,15 @@ public class AccidenteResource
     @Path("{id: \\d+}")
     public AccidenteDTO updateAccidente(@PathParam("id") Long id, AccidenteDTO accidente) throws BusinessLogicException, UnsupportedOperationException
 	{
-      AccidenteEntity entity = accidenteLogic.getAccidente(id);
-	  AccidenteEntity nueva = accidenteLogic.updateAccidente(entity);
-      return new AccidenteDTO(nueva);
+		
+		
+		accidente.setId(id);
+		AccidenteEntity entity = accidenteLogic.getAccidente(id);
+		if (entity == null)
+		{
+			throw new WebApplicationException("El recurso /direcciones/" + id + "no existe.", 404);
+		}
+		return new AccidenteDTO( accidenteLogic.updateDireccion(id, accidente.toEntity()));
     }
     
     /**

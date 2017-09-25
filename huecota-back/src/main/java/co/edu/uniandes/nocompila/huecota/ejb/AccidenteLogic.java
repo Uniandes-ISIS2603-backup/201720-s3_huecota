@@ -6,6 +6,7 @@
 package co.edu.uniandes.nocompila.huecota.ejb;
 
 import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
+import co.edu.uniandes.nocompila.huecota.entities.DireccionEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
 import co.edu.uniandes.nocompila.huecota.persistence.AccidentePersistence;
 import java.util.List;
@@ -70,5 +71,19 @@ public class AccidenteLogic
 	 public void deleteAccidente(Long id)
     {
         persistence.delete(id);
+    }
+	 /**
+     *
+     * Actualizar un accidente.
+     *
+     * @param id: id del accidente para buscarla en la base de datos.
+     * @param entity: accidente con los cambios para ser actualizada, por
+     * ejemplo el nombre.
+     * @return el accidente con los cambios actualizados en la base de datos.
+     */
+    public AccidenteEntity updateDireccion(Long id, AccidenteEntity entity)
+	{
+        AccidenteEntity newEntity = persistence.update(entity);
+        return newEntity;
     }
 }
