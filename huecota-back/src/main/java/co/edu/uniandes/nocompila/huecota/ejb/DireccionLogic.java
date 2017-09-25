@@ -1,6 +1,7 @@
 
 package co.edu.uniandes.nocompila.huecota.ejb;
 
+import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
 import co.edu.uniandes.nocompila.huecota.entities.DireccionEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
 import co.edu.uniandes.nocompila.huecota.persistence.DireccionPersistence;
@@ -42,7 +43,7 @@ public class DireccionLogic
      * 
      * Obtener todas las Direcciones existentes en la base de datos.
      *
-     * @return una lista de Huecoes.
+     * @return una lista de direcciones.
      */
     public List<DireccionEntity> getDirecciones()
 	{
@@ -51,6 +52,21 @@ public class DireccionLogic
         List<DireccionEntity> direcciones = persistence.findAll();
         LOGGER.info("Termina proceso de consultar todas las direcciones");
         return direcciones;
+    }
+	
+	public DireccionEntity getDireccion(Long id)
+    {
+       DireccionEntity answ = persistence.find(id);
+       return answ;
+    }
+	public DireccionEntity updateDireccion(DireccionEntity entity)
+    {
+        DireccionEntity answ = persistence.update(entity);
+        return answ;
+    }
+	 public void deleteDireccion(Long id)
+    {
+        persistence.delete(id);
     }
 }
 

@@ -10,6 +10,7 @@ package co.edu.uniandes.nocompila.huecota.dtos;
  * @author ma.puentes
  */
 
+import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
 import co.edu.uniandes.nocompila.huecota.entities.DireccionEntity;
 
 /**
@@ -122,9 +123,9 @@ public class DireccionDTO
      *
      * @return Un Entity con los valores del DTO
      */
-    public DireccionDTO toEntity() 
+    public DireccionEntity toEntity() 
     {
-        DireccionDTO entity = new DireccionDTO();
+        DireccionEntity entity = new DireccionEntity();
         entity.setId(this.id);
 		entity.setTipoVia(this.tipoVia);
 		entity.setCuadrante(this.cuadrante);
@@ -132,8 +133,7 @@ public class DireccionDTO
 		entity.setNumero(this.numero);
 		entity.setDireccionRaw(this.direccionRaw);
         return entity;
-    }
-    
+	}
 }
 
 
