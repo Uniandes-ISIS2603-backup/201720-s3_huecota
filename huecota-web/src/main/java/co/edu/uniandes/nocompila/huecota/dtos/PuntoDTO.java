@@ -12,6 +12,7 @@ import co.edu.uniandes.nocompila.huecota.entities.PuntoEntity;
  * @author c.martinezc1
  */
 public class PuntoDTO {
+    
     private Long id;
     
     public PuntoDTO(){

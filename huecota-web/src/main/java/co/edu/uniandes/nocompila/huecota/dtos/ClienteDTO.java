@@ -15,12 +15,18 @@ public class ClienteDTO {
    
     private Long id;
     
+    private String nombre;
+    
+    private int cedula;
+    
     public ClienteDTO(){
         
     }
     
     public ClienteDTO(ClienteEntity cliente){
         this.id = (cliente.getId());
+        this.nombre = cliente.getNombre();
+        this.cedula = cliente.getCedula();
     }
     
     public Long getId(){
@@ -31,9 +37,27 @@ public class ClienteDTO {
         this.id = id;
     }
     
+    public String getNombre(){
+        return nombre;
+    }
+    
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+    
+    public int getCedula(){
+        return cedula;
+    }
+    
+    public void setCedula(int cedula){
+        this.cedula = cedula;
+    }
+    
     public ClienteEntity toEntity(){
         ClienteEntity entity = new ClienteEntity();
         entity.setId(this.id);
+        entity.setCedula(this.cedula);
+        entity.setNombre(this.nombre);
         return entity;
     }
 }

@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.nocompila.huecota.resources;
 
-import co.edu.uniandes.nocompila.huecota.dtos.PuntoDetailDTO;
+import co.edu.uniandes.nocompila.huecota.dtos.PuntoDTO;
 import co.edu.uniandes.nocompila.huecota.ejb.PuntoLogic;
 import co.edu.uniandes.nocompila.huecota.entities.PuntoEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
@@ -48,13 +48,13 @@ public class PuntoResource {
      * @throws BusinessLogicException
      */
     @POST
-    public PuntoDetailDTO createPunto(PuntoDetailDTO cliente) throws BusinessLogicException {
+    public PuntoDTO createPunto(PuntoDTO cliente) throws BusinessLogicException {
         // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
         PuntoEntity entity = cliente.toEntity();
         // Invoca la lógica para crear el cliente nuev
         PuntoEntity nuevoHueco = puntoLogic.createPunto(entity);
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-        return new PuntoDetailDTO(nuevoHueco);
+        return new PuntoDTO(nuevoHueco);
     }
     
     /**
@@ -65,8 +65,8 @@ public class PuntoResource {
      * @throws BusinessLogicException
      */
     @GET
-    public List<PuntoDetailDTO> getClientes() throws BusinessLogicException {
-        return listEntity2DetailDTO(puntoLogic.getPuntos());
+    public List<PuntoDTO> getPunto() throws BusinessLogicException {
+        return listEntity2DTO(puntoLogic.getPuntos());
     }
     
      /**
@@ -80,10 +80,10 @@ public class PuntoResource {
      * que vamos a convertir a DTO.
      * @return la lista de clientes en forma DTO (json)
      */
-    private List<PuntoDetailDTO> listEntity2DetailDTO(List<PuntoEntity> entityList) {
-        List<PuntoDetailDTO> list = new ArrayList();
+    private List<PuntoDTO> listEntity2DTO(List<PuntoEntity> entityList) {
+        List<PuntoDTO> list = new ArrayList();
         for (PuntoEntity entity : entityList) {
-            list.add(new PuntoDetailDTO(entity));
+            list.add(new PuntoDTO(entity));
         }
         return list;
     }
@@ -95,9 +95,10 @@ public class PuntoResource {
      * @return el cliente en objeto json DTO.
      * @throws BusinessLogicException
      */
+    @GET
     @Path("{id: \\d+}")
-    public PuntoDetailDTO getPunto(@PathParam("id") Long id) throws BusinessLogicException{
-        PuntoDetailDTO dto = new PuntoDetailDTO(puntoLogic.getPunto(id));
+    public PuntoDTO getPunto(@PathParam("id") Long id) throws BusinessLogicException{
+        PuntoDTO dto = new PuntoDTO(puntoLogic.getPunto(id));
         return dto;
     }
     
@@ -116,7 +117,7 @@ public class PuntoResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public PuntoDetailDTO updatePunto(@PathParam("id") Long id, PuntoDetailDTO cliente) throws BusinessLogicException, UnsupportedOperationException {
+    public PuntoDTO updatePunto(@PathParam("id") Long id, PuntoDTO cliente) throws BusinessLogicException, UnsupportedOperationException {
           return null;
     }
     

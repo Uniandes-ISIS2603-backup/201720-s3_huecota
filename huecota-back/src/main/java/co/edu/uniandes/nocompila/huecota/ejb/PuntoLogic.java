@@ -43,4 +43,10 @@ public class PuntoLogic {
         persistence.delete(id);
     }
     
+    public PuntoEntity updatePunto(Long id, PuntoEntity entity){
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar punto con id={0}", id);
+        PuntoEntity newEntity = persistence.update(entity);
+        LOGGER.log(Level.INFO, "Termina proceso de actualizar punto con id={0}", entity.getId());
+        return newEntity;
+    }
 }

@@ -96,6 +96,7 @@ public class ClienteResource {
      * @return el cliente en objeto json DTO.
      * @throws BusinessLogicException
      */
+    @GET
     @Path("{id: \\d+}")
     public ClienteDetailDTO getCliente(@PathParam("id") Long id) throws BusinessLogicException{
         ClienteDetailDTO dto = new ClienteDetailDTO(clienteLogic.getCliente(id));

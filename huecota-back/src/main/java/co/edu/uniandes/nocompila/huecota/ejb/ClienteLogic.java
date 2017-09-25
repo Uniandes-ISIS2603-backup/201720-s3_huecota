@@ -44,4 +44,11 @@ public class ClienteLogic {
     public void deleteCliente(Long id){
         persistence.delete(id);
     }
+    
+    public ClienteEntity updateCliente(Long id, ClienteEntity entity){
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar cliente con id={0}", id);
+        ClienteEntity newEntity = persistence.update(entity);
+        LOGGER.log(Level.INFO, "Termina proceso de actualizar cliente con id={0}", entity.getId());
+        return newEntity;
+    }
 }
