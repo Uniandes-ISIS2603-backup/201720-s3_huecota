@@ -57,6 +57,7 @@ public class CerradoResource {
         return list;
     }
     
+    @GET
     @Path("{id: \\d+}")
     public CerradoDetailDTO getState(@PathParam("id") Long id) throws BusinessLogicException{
         CerradoDetailDTO dto = new CerradoDetailDTO(cerradoLogic.getState(id));

@@ -57,6 +57,7 @@ public class EnProgresoResource {
         return list;
     }
     
+    @GET
     @Path("{id: \\d+}")
     public EnProgresoDetailDTO getState(@PathParam("id") Long id) throws BusinessLogicException{
         EnProgresoDetailDTO dto = new EnProgresoDetailDTO(enProgresoLogic.getState(id));

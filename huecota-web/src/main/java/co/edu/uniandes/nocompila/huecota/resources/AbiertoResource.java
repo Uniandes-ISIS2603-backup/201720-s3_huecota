@@ -57,6 +57,7 @@ public class AbiertoResource {
         return list;
     }
     
+    @GET
     @Path("{id: \\d+}")
     public AbiertoDetailDTO getState(@PathParam("id") Long id) throws BusinessLogicException{
         AbiertoDetailDTO dto = new AbiertoDetailDTO(abiertoLogic.getState(id));
