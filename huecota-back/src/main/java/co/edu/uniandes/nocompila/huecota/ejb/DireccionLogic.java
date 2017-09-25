@@ -20,7 +20,7 @@ import javax.inject.Inject;
 public class DireccionLogic
 {
 
-    private static final Logger LOGGER = Logger.getLogger(HuecoLogic.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(DireccionLogic.class.getName());
 
     @Inject
     private DireccionPersistence persistence; // Variable para acceder a la persistencia de la aplicaci�n. Es una inyecci�n de dependencias.

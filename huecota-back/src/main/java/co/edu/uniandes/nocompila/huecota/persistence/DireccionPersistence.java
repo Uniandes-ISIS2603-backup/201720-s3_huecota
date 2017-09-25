@@ -1,6 +1,7 @@
 package co.edu.uniandes.nocompila.huecota.persistence;
 
 import co.edu.uniandes.nocompila.huecota.entities.DireccionEntity;
+import co.edu.uniandes.nocompila.huecota.entities.HuecoEntity;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -82,6 +83,7 @@ public class DireccionPersistence
     public List<DireccionEntity> findAll()
 	{
         TypedQuery query = em.createQuery("select u from DireccionEntity u", DireccionEntity.class);
+        // Note que en el query se hace uso del método getResultList() que obtiene una lista de Huecoes.
         return query.getResultList();
     }
 }

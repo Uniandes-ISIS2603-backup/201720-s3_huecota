@@ -10,7 +10,6 @@ package co.edu.uniandes.nocompila.huecota.dtos;
  * @author ma.puentes
  */
 
-import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
 import co.edu.uniandes.nocompila.huecota.entities.DireccionEntity;
 
 /**
