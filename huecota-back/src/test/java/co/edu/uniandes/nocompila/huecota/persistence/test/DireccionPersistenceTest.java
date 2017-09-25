@@ -3,21 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.nocompila.huecota.persistence;
+package co.edu.uniandes.nocompila.huecota.persistence.test;
 
-import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
+/**
+ *
+ * @author ma.puentes
+ */
+
+import co.edu.uniandes.nocompila.huecota.entities.DireccionEntity;
+import co.edu.uniandes.nocompila.huecota.persistence.DireccionPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
-import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.runner.RunWith;
@@ -34,11 +37,11 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  * @author ma.puentes
  */
 @RunWith(Arquillian.class)
-public class AccidentePersistenceTest
+public class DireccionPersistenceTest
 {
 	
 	 @Inject
-    private AccidentePersistence persistence;
+    private DireccionPersistence persistence;
 
     /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
@@ -57,21 +60,17 @@ public class AccidentePersistenceTest
      /**
      *
      */
-    private List<AccidenteEntity> data = new ArrayList<AccidenteEntity>();
+    private List<DireccionEntity> data = new ArrayList<DireccionEntity>();
 	
-	//persistence: es el objeto de la clase que se va a probar. El contenedor inyectar� una instancia de esta clase.
-    //em: un EntityManager para verificar los datos directamente sobre la base de datos
-    //utx: un UserTransactions para manipular los datos directamente sobre la base de datos
-    //data: este arreglo contendr� el conjunto de datos de prueba
-	
-	
-	
-	
+	public DireccionPersistenceTest()
+	{
+		
+	}
 	
 	/**
      *
      * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
-     * embebido. El jar contiene las clases de AccidenteEntity el descriptor de la
+     * embebido. El jar contiene las clases de DireccionEntity el descriptor de la
      * base de datos y el archivo beans.xml para resolver la inyecci�n de
      * dependencias.
      */
@@ -79,75 +78,71 @@ public class AccidentePersistenceTest
     public static JavaArchive createDeployment()
 	{
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(AccidenteEntity.class.getPackage())
-                .addPackage(AccidentePersistence.class.getPackage())
+                .addPackage(DireccionEntity.class.getPackage())
+                .addPackage(DireccionPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
-    public AccidentePersistenceTest()
-	{
-		
-	}
 	
 	@Test
-	public void getAccidenteEntityTest()
+	public void getDireccionEntityTest()
 	{
-		AccidenteEntity entity = data.get(0);
-		AccidenteEntity newEntity = persistence.find(entity.getId());
+		DireccionEntity entity = data.get(0);
+		DireccionEntity newEntity = persistence.find(entity.getId());
 		Assert.assertNotNull(newEntity);
 		Assert.assertEquals(entity.getName(), newEntity.getName());
 	}
 	
 	@Test
-	public void getAccidenteByNameTest()
+	public void getDireccionByNameTest()
 	{
-		AccidenteEntity entity = data.get(0);
-		AccidenteEntity newEntity = persistence.find(entity.getId());
+		DireccionEntity entity = data.get(0);
+		DireccionEntity newEntity = persistence.find(entity.getId());
 		Assert.assertNotNull(newEntity);
 		Assert.assertEquals(entity.getId(), newEntity.getId());
 	}
 	@Test
-	public void createAccidenteEntityTest()
+	public void createDireccionEntityTest()
 	{
 		PodamFactory factory = new PodamFactoryImpl();
-		AccidenteEntity newEntity = factory.manufacturePojo(AccidenteEntity.class);
-		AccidenteEntity result = persistence.create(newEntity);
+		DireccionEntity newEntity = factory.manufacturePojo(DireccionEntity.class);
+		DireccionEntity result = persistence.create(newEntity);
 		Assert.assertNotNull(result);
-		AccidenteEntity entity = em.find(AccidenteEntity.class, result.getId());
+		DireccionEntity entity = em.find(DireccionEntity.class, result.getId());
 		Assert.assertNotNull(entity);
 		Assert.assertEquals(newEntity.getName(), entity.getName());
 	}
 	
 	@Test
-	public void updateAccidenteEntityTest()
+	public void updateDireccionEntityTest()
 	{
-		AccidenteEntity entity = data.get(0);
+		DireccionEntity entity = data.get(0);
 		PodamFactory factory = new PodamFactoryImpl();
-		AccidenteEntity newEntity = factory.manufacturePojo(AccidenteEntity.class);
+		DireccionEntity newEntity = factory.manufacturePojo(DireccionEntity.class);
 		newEntity.setId(entity.getId());
 		persistence.update(newEntity);
-		AccidenteEntity resp = em.find(AccidenteEntity.class, entity.getId());
+		DireccionEntity resp = em.find(DireccionEntity.class, entity.getId());
 		Assert.assertEquals(newEntity.getName(), resp.getName());
 	}
 	
 	@Test
-	public void deleteAccidenteEntityTest()
+	public void deleteDireccionEntityTest()
 	{
-		AccidenteEntity entity = data.get(0);
+		DireccionEntity entity = data.get(0);
 		persistence.delete(entity.getId());
-		AccidenteEntity deleted = em.find(AccidenteEntity.class, entity.getId());
+		DireccionEntity deleted = em.find(DireccionEntity.class, entity.getId());
 		Assert.assertNull(deleted);
 	}
 	
 	@Test
-    public void getAccidentesTest()
+    public void getDireccionesTest()
    {
-    List<AccidenteEntity> list = persistence.findAll();
+    List<DireccionEntity> list = persistence.findAll();
     Assert.assertEquals(data.size(), list.size());
-    for (AccidenteEntity ent : list)
+    for (DireccionEntity ent : list)
 	{
         boolean found = false;
-        for (AccidenteEntity entity : data)
+        for (DireccionEntity entity : data)
 		{
             if (ent.getId().equals(entity.getId()))
 			{
@@ -157,18 +152,7 @@ public class AccidentePersistenceTest
         Assert.assertTrue(found);
     }
 }
-	@BeforeClass
-	public static void setUpClass()
-	{
 		
-	}
-	
-	@AfterClass
-	public static void tearDownClass()
-	{
-		
-	}
-	
 	@Before
 	public void setUp()
 	{
@@ -191,59 +175,14 @@ public class AccidentePersistenceTest
         }
     }
 	
-	@After
-	public void tearDown()
-	{
-		
-	}
-
+	
 	/**
-	 * Test of create method, of class AccidentePersistence.
+	 * Test of update method, of class DireccionPersistence.
 	 */
-	@Test
-	public void testCreate() throws Exception
-	{
-		
-	}
-
-	/**
-	 * Test of update method, of class AccidentePersistence.
-	 */
-	@Test
-	public void testUpdate() throws Exception
-	{
-		
-	}
-
-	/**
-	 * Test of delete method, of class AccidentePersistence.
-	 */
-	@Test
-	public void testDelete() throws Exception
-	{
-		
-	}
-
-	/**
-	 * Test of find method, of class AccidentePersistence.
-	 */
-	@Test
-	public void testFind() throws Exception
-	{
-		
-	}
-
-	/**
-	 * Test of findAll method, of class AccidentePersistence.
-	 */
-	@Test
-	public void testFindAll() throws Exception
-	{
-		
-	}
+	
 	private void clearData()
 	{
-        em.createQuery("delete from AccidenteEntity").executeUpdate();
+        em.createQuery("delete from DireccionEntity").executeUpdate();
     }
 
 
@@ -252,10 +191,11 @@ public class AccidentePersistenceTest
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++)
 		{
-            AccidenteEntity entity = factory.manufacturePojo(AccidenteEntity.class);
+            DireccionEntity entity = factory.manufacturePojo(DireccionEntity.class);
 
             em.persist(entity);
             data.add(entity);
         }
     }
 }
+

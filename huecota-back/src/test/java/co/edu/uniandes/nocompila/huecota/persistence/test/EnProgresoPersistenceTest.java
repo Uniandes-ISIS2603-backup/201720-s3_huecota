@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.nocompila.huecota.persistence;
+package co.edu.uniandes.nocompila.huecota.persistence.test;
 
-import co.edu.uniandes.nocompila.huecota.entities.CerradoEntity;
+import co.edu.uniandes.nocompila.huecota.entities.EnProgresoEntity;
+import co.edu.uniandes.nocompila.huecota.persistence.AbiertoPersistence;
+import co.edu.uniandes.nocompila.huecota.persistence.EnProgresoPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -32,8 +34,8 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  * @author jpr.arango10
  */
 @RunWith(Arquillian.class)
-public class CerradoPersistenceTest {
-         /**
+public class EnProgresoPersistenceTest {
+     /**
      *
      * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
      * embebido. El jar contiene las clases de Abierto, el descriptor de la
@@ -43,21 +45,20 @@ public class CerradoPersistenceTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(CerradoEntity.class.getPackage())
+                .addPackage(EnProgresoEntity.class.getPackage())
                 .addPackage(AbiertoPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
     
-    public CerradoPersistenceTest () {}
-            
+    public EnProgresoPersistenceTest () {}
     
      /**
      * Inyección de la dependencia a la clase AbiertoPersistence cuyos m�todos
      * se van a probar.
      */
     @Inject
-    private CerradoPersistence cerradoPersistence;
+    private EnProgresoPersistence enProgresoPersistence;
     
     /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
@@ -115,13 +116,13 @@ public class CerradoPersistenceTest {
      *
      */
     private void clearData() {
-        em.createQuery("delete from CerradoEntity").executeUpdate();
+        em.createQuery("delete from EnProgresoEntity").executeUpdate();
     }
     
     /**
      *
      */
-    private List<CerradoEntity> data = new ArrayList<CerradoEntity>();
+    private List<EnProgresoEntity> data = new ArrayList<EnProgresoEntity>();
     
     /**
      * Inserta los datos iniciales para el correcto funcionamiento de las
@@ -132,7 +133,7 @@ public class CerradoPersistenceTest {
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
-            CerradoEntity entity = factory.manufacturePojo(CerradoEntity.class);
+            EnProgresoEntity entity = factory.manufacturePojo(EnProgresoEntity.class);
 
             em.persist(entity);
             data.add(entity);
@@ -146,12 +147,12 @@ public class CerradoPersistenceTest {
     public void createAbiertoTest()
     {
         PodamFactory factory = new PodamFactoryImpl();
-        CerradoEntity newEntity = factory.manufacturePojo(CerradoEntity.class);
-        CerradoEntity result = cerradoPersistence.create(newEntity);
+        EnProgresoEntity newEntity = factory.manufacturePojo(EnProgresoEntity.class);
+        EnProgresoEntity result = enProgresoPersistence.create(newEntity);
         
         Assert.assertNotNull(result);
         
-        CerradoEntity entity = em.find(CerradoEntity.class,result.getId());
+        EnProgresoEntity entity = em.find(EnProgresoEntity.class,result.getId());
         
         Assert.assertEquals(newEntity.getName(), entity.getName());
     }
@@ -162,12 +163,12 @@ public class CerradoPersistenceTest {
     @Test
     public void getAbiertoesTest()
     {
-        List<CerradoEntity> list = cerradoPersistence.findAll();
+        List<EnProgresoEntity> list = enProgresoPersistence.findAll();
         Assert.assertEquals(data.size(), list.size());
-        for(CerradoEntity ent : list)
+        for(EnProgresoEntity ent : list)
         {
             boolean found = false;
-            for(CerradoEntity entity : data)
+            for(EnProgresoEntity entity : data)
             {
                 if(ent.getId().equals(entity.getId())){
                     found= true;
@@ -184,8 +185,8 @@ public class CerradoPersistenceTest {
     @Test
     public void getAbiertoTest()
     {
-        CerradoEntity entity = data.get(0);
-        CerradoEntity newEntity = cerradoPersistence.find(entity.getId());
+        EnProgresoEntity entity = data.get(0);
+        EnProgresoEntity newEntity = enProgresoPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
     }
@@ -196,25 +197,26 @@ public class CerradoPersistenceTest {
     @Test
     public void deleteAbiertoTest()
     {
-        CerradoEntity entity = data.get(0);
-        cerradoPersistence.delete(entity.getId());
-        CerradoEntity deleted = em.find(CerradoEntity.class,entity.getId());
+        EnProgresoEntity entity = data.get(0);
+        enProgresoPersistence.delete(entity.getId());
+        EnProgresoEntity deleted = em.find(EnProgresoEntity.class,entity.getId());
         Assert.assertNull(deleted);
     }
     
     @Test
     public void updateAbiertoTest()
     {
-        CerradoEntity entity = data.get(0);
+        EnProgresoEntity entity = data.get(0);
         PodamFactory factory  = new PodamFactoryImpl();
-        CerradoEntity newEntity = factory.manufacturePojo(CerradoEntity.class);
+        EnProgresoEntity newEntity = factory.manufacturePojo(EnProgresoEntity.class);
         
         newEntity.setId(entity.getId());
         
-        cerradoPersistence.update(newEntity);
+        enProgresoPersistence.update(newEntity);
         
-        CerradoEntity resp = em.find(CerradoEntity.class, entity.getId());
+        EnProgresoEntity resp = em.find(EnProgresoEntity.class, entity.getId());
         
         Assert.assertEquals(newEntity.getName(), resp.getName());
     }
 }
+

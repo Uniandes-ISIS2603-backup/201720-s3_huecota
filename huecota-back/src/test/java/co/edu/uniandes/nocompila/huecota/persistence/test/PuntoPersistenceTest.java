@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.nocompila.huecota.persistence;
+package co.edu.uniandes.nocompila.huecota.persistence.test;
 
 import co.edu.uniandes.nocompila.huecota.entities.PuntoEntity;
+import co.edu.uniandes.nocompila.huecota.persistence.PuntoPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;

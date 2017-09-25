@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.nocompila.huecota.persistence;
+package co.edu.uniandes.nocompila.huecota.persistence.test;
 
-import co.edu.uniandes.nocompila.huecota.entities.EnProgresoEntity;
+import co.edu.uniandes.nocompila.huecota.entities.CerradoEntity;
+import co.edu.uniandes.nocompila.huecota.persistence.AbiertoPersistence;
+import co.edu.uniandes.nocompila.huecota.persistence.CerradoPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -32,8 +34,8 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  * @author jpr.arango10
  */
 @RunWith(Arquillian.class)
-public class EnProgresoPersistenceTest {
-     /**
+public class CerradoPersistenceTest {
+         /**
      *
      * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
      * embebido. El jar contiene las clases de Abierto, el descriptor de la
@@ -43,20 +45,21 @@ public class EnProgresoPersistenceTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(EnProgresoEntity.class.getPackage())
+                .addPackage(CerradoEntity.class.getPackage())
                 .addPackage(AbiertoPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
     
-    public EnProgresoPersistenceTest () {}
+    public CerradoPersistenceTest () {}
+            
     
      /**
      * Inyección de la dependencia a la clase AbiertoPersistence cuyos m�todos
      * se van a probar.
      */
     @Inject
-    private EnProgresoPersistence enProgresoPersistence;
+    private CerradoPersistence cerradoPersistence;
     
     /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
@@ -114,13 +117,13 @@ public class EnProgresoPersistenceTest {
      *
      */
     private void clearData() {
-        em.createQuery("delete from EnProgresoEntity").executeUpdate();
+        em.createQuery("delete from CerradoEntity").executeUpdate();
     }
     
     /**
      *
      */
-    private List<EnProgresoEntity> data = new ArrayList<EnProgresoEntity>();
+    private List<CerradoEntity> data = new ArrayList<CerradoEntity>();
     
     /**
      * Inserta los datos iniciales para el correcto funcionamiento de las
@@ -131,7 +134,7 @@ public class EnProgresoPersistenceTest {
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
-            EnProgresoEntity entity = factory.manufacturePojo(EnProgresoEntity.class);
+            CerradoEntity entity = factory.manufacturePojo(CerradoEntity.class);
 
             em.persist(entity);
             data.add(entity);
@@ -145,12 +148,12 @@ public class EnProgresoPersistenceTest {
     public void createAbiertoTest()
     {
         PodamFactory factory = new PodamFactoryImpl();
-        EnProgresoEntity newEntity = factory.manufacturePojo(EnProgresoEntity.class);
-        EnProgresoEntity result = enProgresoPersistence.create(newEntity);
+        CerradoEntity newEntity = factory.manufacturePojo(CerradoEntity.class);
+        CerradoEntity result = cerradoPersistence.create(newEntity);
         
         Assert.assertNotNull(result);
         
-        EnProgresoEntity entity = em.find(EnProgresoEntity.class,result.getId());
+        CerradoEntity entity = em.find(CerradoEntity.class,result.getId());
         
         Assert.assertEquals(newEntity.getName(), entity.getName());
     }
@@ -161,12 +164,12 @@ public class EnProgresoPersistenceTest {
     @Test
     public void getAbiertoesTest()
     {
-        List<EnProgresoEntity> list = enProgresoPersistence.findAll();
+        List<CerradoEntity> list = cerradoPersistence.findAll();
         Assert.assertEquals(data.size(), list.size());
-        for(EnProgresoEntity ent : list)
+        for(CerradoEntity ent : list)
         {
             boolean found = false;
-            for(EnProgresoEntity entity : data)
+            for(CerradoEntity entity : data)
             {
                 if(ent.getId().equals(entity.getId())){
                     found= true;
@@ -183,8 +186,8 @@ public class EnProgresoPersistenceTest {
     @Test
     public void getAbiertoTest()
     {
-        EnProgresoEntity entity = data.get(0);
-        EnProgresoEntity newEntity = enProgresoPersistence.find(entity.getId());
+        CerradoEntity entity = data.get(0);
+        CerradoEntity newEntity = cerradoPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
     }
@@ -195,26 +198,25 @@ public class EnProgresoPersistenceTest {
     @Test
     public void deleteAbiertoTest()
     {
-        EnProgresoEntity entity = data.get(0);
-        enProgresoPersistence.delete(entity.getId());
-        EnProgresoEntity deleted = em.find(EnProgresoEntity.class,entity.getId());
+        CerradoEntity entity = data.get(0);
+        cerradoPersistence.delete(entity.getId());
+        CerradoEntity deleted = em.find(CerradoEntity.class,entity.getId());
         Assert.assertNull(deleted);
     }
     
     @Test
     public void updateAbiertoTest()
     {
-        EnProgresoEntity entity = data.get(0);
+        CerradoEntity entity = data.get(0);
         PodamFactory factory  = new PodamFactoryImpl();
-        EnProgresoEntity newEntity = factory.manufacturePojo(EnProgresoEntity.class);
+        CerradoEntity newEntity = factory.manufacturePojo(CerradoEntity.class);
         
         newEntity.setId(entity.getId());
         
-        enProgresoPersistence.update(newEntity);
+        cerradoPersistence.update(newEntity);
         
-        EnProgresoEntity resp = em.find(EnProgresoEntity.class, entity.getId());
+        CerradoEntity resp = em.find(CerradoEntity.class, entity.getId());
         
         Assert.assertEquals(newEntity.getName(), resp.getName());
     }
 }
-
