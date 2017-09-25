@@ -64,7 +64,7 @@ public class HuecoResource {
     private static final Logger LOGGER = Logger.getLogger(HuecoResource.class.getName());
 
     /**
-     * POST http://localhost:8080/huecota-web/api/huecotas
+     * POST http://localhost:8080/huecota-web/api/huecota
      *
      * @param Hueco correponde a la representación java del objeto json
      * enviado en el llamado.
