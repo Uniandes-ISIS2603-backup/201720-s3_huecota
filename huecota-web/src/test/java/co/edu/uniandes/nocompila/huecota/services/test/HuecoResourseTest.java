@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.nocompila.huecota.services.test;
 
-import co.edu.uniandes.nocompila.huecota.resourses.HuecoResourse
+import co.edu.uniandes.nocompila.huecota.resources.HuecoResource;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -43,7 +43,7 @@ public class HuecoResourseTest {
                         .importRuntimeDependencies().resolve()
                         .withTransitivity().asFile())
                 // Se agregan los compilados de los paquetes de servicios
-                .addPackage(HuecoResourse.class.getPackage())
+                .addPackage(HuecoResource.class.getPackage())
                 // El archivo que contiene la configuracion a la base de datos.
                 .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                 // El archivo beans.xml es necesario para injeccion de dependencias.
@@ -55,7 +55,8 @@ public class HuecoResourseTest {
 
     public void setPostmanCollectionValues() throws FileNotFoundException, IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, InterruptedException, ExecutionException {
 
-        try (FileWriter wrt = new FileWriter(path)) {
+        try (FileWriter wrt = new FileWriter(path))
+		{
             wrt.write("newman run ".concat(BASEPATH.concat("\\collections\\runners\\nocompilaCollectionRunner.postman_collection.json").concat(" --disable-unicode")));
             wrt.flush();
         }
