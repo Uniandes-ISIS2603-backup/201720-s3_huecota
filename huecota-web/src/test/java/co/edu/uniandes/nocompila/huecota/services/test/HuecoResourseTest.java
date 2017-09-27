@@ -55,11 +55,12 @@ public class HuecoResourseTest {
 
     public void setPostmanCollectionValues() throws FileNotFoundException, IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, InterruptedException, ExecutionException {
 
-        try (FileWriter wrt = new FileWriter(path))
-		{
-            wrt.write("newman run ".concat(BASEPATH.concat("\\collections\\runners\\nocompilaCollectionRunner.postman_collection.json").concat(" --disable-unicode")));
-            wrt.flush();
-        }
+//        try (FileWriter wrt = new FileWriter(path))
+//		{
+//            wrt.write("newman run ".concat(BASEPATH.concat("\\collections\\runners\\nocompilaCollectionRunner.postman_collection.json").concat(" --disable-unicode")));
+//            wrt.flush();
+//        }
+		
 
     }
 
