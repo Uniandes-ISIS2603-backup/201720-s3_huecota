@@ -6,7 +6,10 @@
 package co.edu.uniandes.nocompila.huecota.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -19,6 +22,10 @@ public class AbiertoEntity extends BaseEntity implements Serializable{
      * Número de huecos en estado abierto.
      */
     private int numeroDeHuecos;
+    
+    @PodamExclude
+    @OneToOne    
+    private List<HuecoEntity> huecos;
 
     /**
      * Retorna el número de huecos en estado abierto.
@@ -35,4 +42,14 @@ public class AbiertoEntity extends BaseEntity implements Serializable{
     public void setNumeroDeHuecos(int numeroDeHuecos) {
         this.numeroDeHuecos = numeroDeHuecos;
     }
+
+    public List<HuecoEntity> getHuecos() {
+        return huecos;
+    }
+
+    public void setHuecos(List<HuecoEntity> huecos) {
+        this.huecos = huecos;
+    }
+    
+    
 }

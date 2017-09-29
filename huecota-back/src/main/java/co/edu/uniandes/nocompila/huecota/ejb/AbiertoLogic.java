@@ -9,6 +9,7 @@ import co.edu.uniandes.nocompila.huecota.entities.AbiertoEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
 import co.edu.uniandes.nocompila.huecota.persistence.AbiertoPersistence;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -41,5 +42,13 @@ public class AbiertoLogic{
 
     public void deleteState(Long id) {
         persistence.delete(id);
-    }    
+    }
+    
+    public AbiertoEntity updateState(AbiertoEntity entity){
+        LOGGER.log(Level.INFO, "Inicia el proceso de actualizar el estado con id={0}", entity.getId());
+        AbiertoEntity toReturn = persistence.update(entity);
+        LOGGER.log(Level.INFO, "Termina el proceso de actualizar el estado con id={0}", entity.getId());
+        return toReturn;
+    }
+    
 }
