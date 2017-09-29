@@ -1,0 +1,74 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Pruebas-Cliente",
+		"_postman_id": "173f329d-25b1-590c-016b-8cd3a61f7682",
+		"description": "Estas son las pruebas web del recurso cliente\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Consulta todos los clientes",
+			"request": {
+				"url": " http://localhost:8080/huecota-web/api/clientes",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Crea los clientes que vienen por json",
+			"request": {
+				"url": " http://localhost:8080/huecota-web/api/clientes",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Crea los clientes del json",
+			"request": {
+				"url": " http://localhost:8080/huecota-web/api/clientes",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": "Debe lanzar exception ya que es el mismo archivo"
+			},
+			"response": []
+		}
+	]
+}

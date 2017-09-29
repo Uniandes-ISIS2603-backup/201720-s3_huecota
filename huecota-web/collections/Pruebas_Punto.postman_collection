@@ -1,0 +1,137 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Pruebas_Punto",
+		"_postman_id": "80375fec-25b4-fee8-60a3-4be767df09aa",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pide todos los puntos de un cliente",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/huecota-web/api/clientes/:id/puntos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"huecota-web",
+						"api",
+						"clientes",
+						":id",
+						"puntos"
+					],
+					"query": [],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Registra los puntos desde el json",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/huecota-web/api/clientes/:id/puntos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"huecota-web",
+						"api",
+						"clientes",
+						":id",
+						"puntos"
+					],
+					"query": [],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Intenta registrar los puntos del json",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/huecota-web/api/clientes/:id/puntos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"huecota-web",
+						"api",
+						"clientes",
+						":id",
+						"puntos"
+					],
+					"query": [],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": "Sale exception porque es el mismo archivo"
+			},
+			"response": []
+		}
+	]
+}
