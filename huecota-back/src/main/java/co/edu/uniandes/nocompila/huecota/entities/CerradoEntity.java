@@ -6,7 +6,10 @@
 package co.edu.uniandes.nocompila.huecota.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -24,6 +27,10 @@ public class CerradoEntity extends BaseEntity implements Serializable {
      * Comentario del cambio de estado.
      */
     private String comentario;
+    
+    @PodamExclude
+    @OneToOne    
+    private List<HuecoEntity> huecos;
 
     /**
      * Retorna el comentario asociado al hueco cerrado.
@@ -56,4 +63,14 @@ public class CerradoEntity extends BaseEntity implements Serializable {
     public void setCausa(String causa) {
         this.causa = causa;
     }
+
+    public List<HuecoEntity> getHuecos() {
+        return huecos;
+    }
+
+    public void setHuecos(List<HuecoEntity> huecos) {
+        this.huecos = huecos;
+    }
+    
+    
 }

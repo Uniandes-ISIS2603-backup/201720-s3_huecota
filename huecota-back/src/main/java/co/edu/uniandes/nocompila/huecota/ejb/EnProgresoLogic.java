@@ -9,6 +9,7 @@ import co.edu.uniandes.nocompila.huecota.entities.EnProgresoEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
 import co.edu.uniandes.nocompila.huecota.persistence.EnProgresoPersistence;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -42,5 +43,12 @@ public class EnProgresoLogic{
     public void deleteState(Long id) {
         persistence.delete(id);
                 
-    }    
+    }
+    
+    public EnProgresoEntity updateState(EnProgresoEntity entity){
+        LOGGER.log(Level.INFO, "Inicia el proceso de actualizar el estado con id={0}", entity.getId());
+        EnProgresoEntity toReturn = persistence.update(entity);
+        LOGGER.log(Level.INFO, "Termina el proceso de actualizar el estado con id={0}", entity.getId());
+        return toReturn;
+    }
 }
