@@ -6,7 +6,6 @@
 package co.edu.uniandes.nocompila.huecota.persistence;
 
 import co.edu.uniandes.nocompila.huecota.entities.PuntoEntity;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
@@ -25,15 +24,15 @@ public class PuntoPersistence {
     @PersistenceContext(unitName = "huecotaPU")
     protected EntityManager em;
     
-   public PuntoEntity find(Long id){
-         LOGGER.log(Level.INFO, "Consultando Punto con id={0}", id);
-        return em.find(PuntoEntity.class, id);
+    public PuntoEntity find(Long clienteid, Long puntoid) {
+        TypedQuery<PuntoEntity> q = em.createQuery("select p from PuntoEntity p where (p.cliente.id = :clienteid) and (p.id = :clienteid)", PuntoEntity.class);
+        q.setParameter("bookid", clienteid);
+        q.setParameter("reviewid", puntoid);
+        return q.getSingleResult();
     }
-    
-    public List<PuntoEntity> findAll(){
-        TypedQuery q = em.createQuery("select u from PuntoEntity u",PuntoEntity.class);
-        return q.getResultList();
-        
+    public PuntoEntity find(Long puntoid) {
+        PuntoEntity entity = em.find(PuntoEntity.class, puntoid);
+        return entity;
     }
     
     public PuntoEntity create(PuntoEntity entity){

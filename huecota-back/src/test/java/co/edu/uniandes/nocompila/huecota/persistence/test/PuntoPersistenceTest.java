@@ -118,25 +118,7 @@ public void createPuntoTest()
         Assert.assertEquals(newEntity.getName(), entity.getName());
     }
     
-    @Test
-    public void getPuntosTest()
-    {
-        List<PuntoEntity> list = puntoPersistence.findAll();
-        Assert.assertEquals(data.size(), list.size());
-        for(PuntoEntity ent : list)
-        {
-            boolean found = false;
-            for(PuntoEntity entity : data)
-            {
-                if(ent.getId().equals(entity.getId()))
-                {
-                    found= true;
-                }
-            }
-            
-            Assert.assertTrue(found);
-        }
-    }
+    
     
     /**
      *jj

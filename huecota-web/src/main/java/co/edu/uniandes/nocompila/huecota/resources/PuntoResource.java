@@ -22,6 +22,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  *
@@ -42,31 +43,33 @@ public class PuntoResource {
      *
      * @param punto correponde a la representación java del objeto json
      * enviado en el llamado.
+     * @param clienteid
      * @return Devuelve el objeto json de entrada que contiene el id creado por
      * la base de datos y el tipo del objeto java. Ejemplo: { "type":
      * "HuecoDetailDTO", "id": 1, atributo1 : "valor" }
      * @throws BusinessLogicException
      */
     @POST
-    public PuntoDTO createPunto(PuntoDTO cliente) throws BusinessLogicException {
+    public PuntoDTO createPunto(PuntoDTO punto,@PathParam("id") Long clienteid) throws BusinessLogicException {
         // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
-        PuntoEntity entity = cliente.toEntity();
+        PuntoEntity entity = punto.toEntity();
         // Invoca la lógica para crear el cliente nuev
-        PuntoEntity nuevoHueco = puntoLogic.createPunto(entity);
+        PuntoEntity nuevoHueco = puntoLogic.createPunto(clienteid,entity);
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
         return new PuntoDTO(nuevoHueco);
     }
     
     /**
      * GET para todas los clientes.
-     * http://localhost:8080/huecota-web/api/clientes
+     * http://localhost:8080/huecota-web/api/clientes/{id}/puntos
      *
+     * @param clienteid
      * @return la lista de todas los clientes en objetos json DTO.
      * @throws BusinessLogicException
      */
     @GET
-    public List<PuntoDTO> getPunto() throws BusinessLogicException {
-        return listEntity2DTO(puntoLogic.getPuntos());
+    public List<PuntoDTO> getPuntos(@PathParam("id") Long clienteid) throws BusinessLogicException {
+        return listEntity2DTO(puntoLogic.getPuntos(clienteid));
     }
     
      /**
@@ -90,39 +93,20 @@ public class PuntoResource {
     
     /**
      * GET para un cliente.
-     * http://localhost:8080/huecota-web/api/clientes/{id}
+     * http://localhost:8080/huecota-web/api/clientes/{id}/puntos/{id}
      *
      * @return el cliente en objeto json DTO.
      * @throws BusinessLogicException
      */
     @GET
     @Path("{id: \\d+}")
-    public PuntoDTO getPunto(@PathParam("id") Long id) throws BusinessLogicException{
-        PuntoDTO dto = new PuntoDTO(puntoLogic.getPunto(id));
+    public PuntoDTO getPunto(@PathParam("clienteid") Long clienteid,@PathParam("id") Long puntoid) throws BusinessLogicException{
+        PuntoDTO dto = new PuntoDTO(puntoLogic.getPunto(clienteid,puntoid));
         return dto;
     }
     
-     /**
-     * PUT http://localhost:8080/huecota-web/api/clientes/{id} 
-     * json { "id": 1, "atirbuto1": "Valor nuevo" }
-     *
-     * @param id corresponde al cliente a actualizar.
-     * @param cliente corresponde  al objeto con los cambios que se van a
-     * realizar.
-     * @return El cliente actualizada.
-     * @throws BusinessLogicException
-     *
-     * En caso de no existir el id de el cliente a actualizar se retorna un
-     * 404 con el mensaje.
-     */
-    @PUT
-    @Path("{id: \\d+}")
-    public PuntoDTO updatePunto(@PathParam("id") Long id, PuntoDTO cliente) throws BusinessLogicException, UnsupportedOperationException {
-          return null;
-    }
-    
     /**
-     * DELETE http://localhost:8080/huecota-web/api/clientes/{id}
+     * DELETE http://localhost:8080/huecota-web/api/clientes/{id}/puntos/{id}
      *
      * @param id corresponde al cliente a borrar.
      * @throws BusinessLogicException
@@ -133,7 +117,23 @@ public class PuntoResource {
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void deletePunto(@PathParam("id") Long id) throws BusinessLogicException {
-         puntoLogic.deletePunto(id);
+    public void deletePunto(@PathParam("id") Long clienteid,@PathParam("id") Long id) throws BusinessLogicException {
+        PuntoEntity entity = puntoLogic.getPunto(clienteid, id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /cliente/" + clienteid + "/puntos/" + id + " no existe.", 404);
+        }
+        puntoLogic.deletePunto(clienteid, id);
+    }
+    
+    @PUT
+    @Path("{id: \\d+}")
+    public PuntoDTO updatePunto(@PathParam("clienteid") Long clienteid, @PathParam("id") Long id, PuntoDTO punto) throws BusinessLogicException {
+        punto.setId(id);
+        PuntoEntity entity = puntoLogic.getPunto(clienteid, id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /cliente/" + clienteid + "/puntos/" + id + " no existe.", 404);
+        }
+        return new PuntoDTO(puntoLogic.updatePunto(clienteid, punto.toEntity()));
+
     }
 }

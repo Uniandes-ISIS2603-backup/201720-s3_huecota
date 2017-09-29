@@ -8,9 +8,10 @@ package co.edu.uniandes.nocompila.huecota.entities;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -18,19 +19,19 @@ import javax.persistence.TemporalType;
  */
 @Entity
 public class PuntoEntity extends BaseEntity implements Serializable {
-    @Id
-    private Long id;
+   
     
     private int cantidad;
+    
     @Temporal(TemporalType.DATE)
     private Date fecha;
+   
+    @ManyToOne
+    @PodamExclude
+    private ClienteEntity cliente;
     
-    public Long getId(){
-        return id;
-    }
-    
-    public void setId(Long id){
-        this.id = id;
+    public PuntoEntity(){
+        
     }
     
     public int getCantidad(){
@@ -48,4 +49,13 @@ public class PuntoEntity extends BaseEntity implements Serializable {
     public void setFecha(Date fecha){
         this.fecha = fecha;
     }
+    
+    public ClienteEntity getCliente(){
+        return cliente;
+    }
+    
+    public void setCliente(ClienteEntity cliente){
+        this.cliente = cliente;
+    }
+
 }

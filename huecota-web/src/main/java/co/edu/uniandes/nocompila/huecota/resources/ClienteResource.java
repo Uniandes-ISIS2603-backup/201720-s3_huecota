@@ -22,6 +22,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  *
@@ -93,6 +94,7 @@ public class ClienteResource {
      * GET para un cliente.
      * http://localhost:8080/huecota-web/api/clientes/{id}
      *
+     * @param id
      * @return el cliente en objeto json DTO.
      * @throws BusinessLogicException
      */
@@ -119,7 +121,12 @@ public class ClienteResource {
     @PUT
     @Path("{id: \\d+}")
     public ClienteDetailDTO updateCliente(@PathParam("id") Long id, ClienteDetailDTO cliente) throws BusinessLogicException, UnsupportedOperationException {
-          return null;
+          cliente.setId(id);
+        ClienteEntity entity = clienteLogic.getCliente(id);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /books/" + id + " no existe.", 404);
+        }
+        return new ClienteDetailDTO(clienteLogic.updateCliente(id, cliente.toEntity()));
     }
     
     /**
@@ -134,7 +141,22 @@ public class ClienteResource {
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteHueco(@PathParam("id") Long id) throws BusinessLogicException {
+    public void deleteCliente(@PathParam("id") Long id) throws BusinessLogicException {
          clienteLogic.deleteCliente(id);
+    }
+    
+    @Path("{idBook: \\d+}/reviews")
+    public Class<PuntoResource> getPuntoResource(@PathParam("idCliente") Long clienteId) {
+        try{
+          ClienteEntity entity = clienteLogic.getCliente(clienteId);
+        if (entity == null) {
+            throw new WebApplicationException("El recurso /books/" + clienteId + "/reviews no existe.", 404);
+        }
+        return PuntoResource.class;  
+        }
+        catch(Exception e){
+            return null;
+        }
+        
     }
 }

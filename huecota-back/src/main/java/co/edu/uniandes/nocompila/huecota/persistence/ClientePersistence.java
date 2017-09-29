@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 /**
  *
@@ -32,7 +33,8 @@ public class ClientePersistence {
     }
     
     public List<ClienteEntity> findAll(){
-        TypedQuery q = em.createQuery("select u from ClienteEntity u",ClienteEntity.class);
+        Query q;
+        q = em.createQuery("select u from ClienteEntity u",ClienteEntity.class);
         return q.getResultList();
         
     }
