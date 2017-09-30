@@ -12,6 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 /**
@@ -58,6 +64,49 @@ public class HuecoImagenResource {
         return list;
     }
     
+    /**
+     * Obtiene  una colección de instancias de CalificacionDTO asociados a un hueco
+     * @param huecosid identificador de la instancia de hueco.
+     * @return Coleccion de instancias de calificacionDTO asociadas al hueco.
+     */
+    @GET
+    public List<ImagenDTO> listImagenes(@PathParam("huecosid") Long huecosid)
+    {
+        return imagenesListEntity2DTO(huecoLogic.getFotos(huecosid));
+    }
     
+    /**
+     * Obtiene una instancia de calificacion asociada a un hueco.
+     * @param huecosid identificador de la instancia hueco.
+     * @param imagenesId identificador de la calificacion-
+     * @return calificacion que pertenece a un hueco.
+     */
+    @GET
+    @Path("{imagenesId: \\d+}")
+    public ImagenDTO getImagen(@PathParam("huecosid") Long huecosid, @PathParam("imagenesId") Long imagenesId)
+    {
+        return new ImagenDTO(huecoLogic.getFoto(huecosid, imagenesId));
+    }
+    
+    @POST
+    @Path("{imagenesId: \\d+}")
+    public ImagenDTO addImagen(@PathParam("huecosid") Long huecosid, @PathParam("imagenesId") Long imagenesId)
+    {
+        return new ImagenDTO(huecoLogic.addFoto(huecosid, imagenesId));
+    }
+    
+    @PUT
+    public List<ImagenDTO> remplazarImagen(@PathParam("huecosid") Long huecosid,List<ImagenDTO> imagenes)
+    {
+        return imagenesListEntity2DTO(huecoLogic.replaceFotos(huecosid, imagenesListDTO2Entity(imagenes)));
+    }
+    
+    
+    @DELETE
+    @Path("{imagenesId: \\d+}")
+    public void removeCalificaciones(@PathParam("huecosid") Long huecosid, @PathParam("imagenesid") Long imagenesid)
+    {
+        huecoLogic.removeFoto(huecosid, imagenesid);
+    }
     
 }
