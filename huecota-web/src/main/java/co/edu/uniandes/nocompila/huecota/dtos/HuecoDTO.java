@@ -36,6 +36,7 @@ public class HuecoDTO
 {
 
     private Long id;
+    private String descripcion;
 
     /**
      * Constructor por defecto
@@ -70,6 +71,22 @@ public class HuecoDTO
     {
         this.id = id;
     }
+    
+    /**
+     * @return descripcion
+     */
+    public String getDescripcion() 
+    {
+        return descripcion;
+    }
+
+    /**
+     * @param descripcion  descripcion a cambiar
+     */
+    public void setDescirpcion(String descripcion) 
+    {
+        this.descripcion = descripcion;
+    }
 
     /**
      * Convertir DTO a Entity
@@ -80,7 +97,7 @@ public class HuecoDTO
     {
         HuecoEntity entity = new HuecoEntity();
         entity.setId(this.id);
+        entity.setDescripcion(this.descripcion);
         return entity;
     }
-    
 }

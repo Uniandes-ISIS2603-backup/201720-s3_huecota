@@ -24,7 +24,12 @@ SOFTWARE.
 package co.edu.uniandes.nocompila.huecota.entities;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -43,14 +48,46 @@ public class HuecoEntity extends BaseEntity implements Serializable {
         /**
          * Atributo que representa la lista de fotos de un hueco.
          */
-        private String fotos;
+        @PodamExclude
+        @OneToMany(mappedBy = "hueco", cascade = CascadeType.ALL, orphanRemoval = true)
+        private List<ImagenEntity> fotos;
+        
+        /**
+         * Atributo que representa la lista de calificaciones de un hueco.
+         */
+        @PodamExclude
+        @OneToMany(mappedBy = "hueco", cascade = CascadeType.ALL, orphanRemoval = true)
+        private List<CalificacionEntity> calificaciones;
         
         /**
          * Atributo que representa la dirección de un hueco.
          */
-        private String direccion;
+        @PodamExclude
+        @OneToOne
+        private DireccionEntity direccion;
         
-     // getters y setters
+        /**
+         * Atributo que representa el estado abierto de un hueco.
+         */
+        @PodamExclude
+        @OneToOne
+        private AbiertoEntity estadoAbierto;
+        
+        /**
+         * Atributo que representa el estado en progreso de un hueco.
+         */
+        @PodamExclude
+        @OneToOne
+        private EnProgresoEntity estadoEnProgreso;
+        
+        /**
+         * Atributo que representa el estado cerrado de un hueco.
+         */
+        @PodamExclude
+        @OneToOne
+        private CerradoEntity estadoCerrado;
+        
+        // getters y setters
         
         /**
          * getter del atributo descripcion.
@@ -72,27 +109,45 @@ public class HuecoEntity extends BaseEntity implements Serializable {
         
         /**
          * getter del atributo fotos.
-         * @return las fotos del hueco
+         * @return Lista de las fotos del hueco
          */
-        public String getFotos()
+        public List<ImagenEntity> getFotos()
         {
             return fotos;
         }
         
         /**
          * setter del atributo fotos
-         * @param fotos que se van a agregar
+         * @param fotos lista de fotos que se van a agregar
          */
-        public void setFotos(String fotos)
+        public void setFotos(List<ImagenEntity> fotos)
         {
-            this.fotos = fotos;
+              this.fotos = fotos;
+        }
+        
+        /**
+         * getter del atributo calificaciones.
+         * @return Lista de las calificaciones del hueco
+         */
+        public List<CalificacionEntity> getCalificaciones()
+        {
+              return calificaciones;
+        }
+        
+        /**
+         * setter del atributo calificaciones
+         * @param calificaciones lista de calificaciones que se van a agregar
+         */
+        public void setCalificaciones(List<CalificacionEntity> calificaciones)
+        {
+             this.calificaciones = calificaciones;
         }
         
         /**
          * getter del atributo direccion.
          * @return la direccion del hueco
          */
-        public String getDireccion()
+        public DireccionEntity getDireccion()
         {
             return direccion;
         }
@@ -101,8 +156,63 @@ public class HuecoEntity extends BaseEntity implements Serializable {
          * setter del atributo direccion
          * @param direccion que se va a agregar
          */
-        public void setDireccion(String direccion)
+        public void setDireccion(DireccionEntity direccion)
         {
             this.direccion = direccion;
         }
+        
+        /**
+         * getter del atributo estadoAbierto.
+         * @return estadoAbierto del hueco
+         */
+        public AbiertoEntity getEstadoAbierto()
+        {
+            return estadoAbierto;
+        }
+        
+        /**
+         * setter del atributo estadoAbierto
+         * @param estadoAbierto que se va a agregar
+         */
+        public void setEstadoAbierto(AbiertoEntity estadoAbierto)
+        {
+            this.estadoAbierto = estadoAbierto;
+        }
+        
+        /**
+         * getter del atributo estadoEnProgreso.
+         * @return estadoEnProgreso del hueco
+         */
+        public EnProgresoEntity getEstadoEnProgreso()
+        {
+            return estadoEnProgreso;
+        }
+        
+        /**
+         * setter del atributo estadoEnProgreso
+         * @param estadoEnProgreso que se va a agregar
+         */
+        public void setEstadoEnProgreso(EnProgresoEntity estadoEnProgreso)
+        {
+            this.estadoEnProgreso = estadoEnProgreso;
+        }
+        
+        /**
+         * getter del atributo estadoCerrado.
+         * @return estadoCerrado del hueco
+         */
+        public CerradoEntity getEstadoCerrado()
+        {
+            return estadoCerrado;
+        }
+        
+        /**
+         * setter del atributo estadoCerrado
+         * @param estadoCerrado que se va a agregar
+         */
+        public void setEstadoCerrado(CerradoEntity estadoCerrado)
+        {
+            this.estadoCerrado = estadoCerrado;
+        }
+        
 }
