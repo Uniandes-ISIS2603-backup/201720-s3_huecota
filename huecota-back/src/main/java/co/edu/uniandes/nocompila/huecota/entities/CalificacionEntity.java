@@ -7,6 +7,8 @@ package co.edu.uniandes.nocompila.huecota.entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -16,6 +18,29 @@ import javax.persistence.Entity;
 public class CalificacionEntity extends BaseEntity implements Serializable{
         
     // atributos
+    @PodamExclude
+    @ManyToOne
+    private HuecoEntity hueco;
+    
+    @PodamExclude
+    @ManyToOne
+    private ClienteEntity cliente;
+
+    public ClienteEntity getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(ClienteEntity cliente) {
+        this.cliente = cliente;
+    }
+
+    public HuecoEntity getHueco() {
+        return hueco;
+    }
+
+    public void setHueco(HuecoEntity hueco) {
+        this.hueco = hueco;
+    }
         
         /**
          * Atributo que representa una nota dada por un ciudadano a un hueco.
