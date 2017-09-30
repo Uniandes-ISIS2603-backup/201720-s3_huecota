@@ -11,7 +11,6 @@ import co.edu.uniandes.nocompila.huecota.entities.AbiertoEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;

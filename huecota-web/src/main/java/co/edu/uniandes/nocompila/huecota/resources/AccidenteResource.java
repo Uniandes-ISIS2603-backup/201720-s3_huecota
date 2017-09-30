@@ -11,10 +11,8 @@ package co.edu.uniandes.nocompila.huecota.resources;
  */
 
 import co.edu.uniandes.nocompila.huecota.dtos.AccidenteDTO;
-import co.edu.uniandes.nocompila.huecota.dtos.DireccionDTO;
 import co.edu.uniandes.nocompila.huecota.ejb.AccidenteLogic;
 import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
-import co.edu.uniandes.nocompila.huecota.entities.DireccionEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,8 +39,6 @@ public class AccidenteResource
  
     @Inject
     AccidenteLogic accidenteLogic;
-    
-    private static final Logger LOGGER = Logger.getLogger(AccidenteResource.class.getName());
 
     /**
      * POST http://localhost:8080/huecota-web/api/accidentes
