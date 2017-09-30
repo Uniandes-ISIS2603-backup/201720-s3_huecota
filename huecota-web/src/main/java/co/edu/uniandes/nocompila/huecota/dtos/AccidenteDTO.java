@@ -6,7 +6,6 @@
 package co.edu.uniandes.nocompila.huecota.dtos;
 
 import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
-import co.edu.uniandes.nocompila.huecota.entities.HuecoEntity;
 import java.util.Date;
 
 /**
@@ -16,8 +15,14 @@ import java.util.Date;
 public class AccidenteDTO
 {
 	
-
+	
+	/**
+	 * Identificador del accidente.
+	 */
     private Long id;
+	/**
+	 * Fecha del accidente
+	 */
 	private Date fecha;
 
     /**
@@ -41,24 +46,34 @@ public class AccidenteDTO
     }
 
     /**
+	 * Retorna el identificador del accidente.
      * @return id
      */
     public Long getId() 
     {
         return id;
     }
+	/**
+	 * Retorna la fecha del accidente.
+	 * @return fecha
+	 */
 	public Date getDireccion()
 	{
 		return fecha;
 	}
 
     /**
+	 * Cambia el id por el id que recibe por parámetro.
      * @param id id a cambiar
      */
     public void setId(Long id) 
     {
         this.id = id;
     }
+	/**
+	 * Cambia la fecha por la fehca que recibe por parámetro.
+     * @param fecha fecha a cambiar
+     */
 	public void setDate(Date fecha) 
     {
         this.fecha = fecha;
@@ -66,7 +81,6 @@ public class AccidenteDTO
 
     /**
      * Convertir DTO a Entity
-     *
      * @return Un Entity con los valores del DTO
      */
     public AccidenteEntity toEntity() 
