@@ -23,6 +23,7 @@ SOFTWARE.
 */
 package co.edu.uniandes.nocompila.huecota.dtos;
 import co.edu.uniandes.nocompila.huecota.entities.HuecoEntity;
+import java.util.List;
 
 /**
  *
@@ -31,6 +32,36 @@ import co.edu.uniandes.nocompila.huecota.entities.HuecoEntity;
 public class HuecoDetailDTO extends HuecoDTO 
 {
 
+    /*
+    * Relacion uno a muchos con Imagen
+    */
+    private List<ImagenDTO> fotos;
+    
+    /*
+    * Relacion con una Direccion
+    */
+    private DireccionDTO direccion;
+    
+    /*
+    * Relacion con un estado Abierto
+    */
+    private AbiertoDTO estadoAbierto;
+    
+    /*
+    * Relacion con un estado EnProgreso
+    */
+    private EnProgresoDTO estadoEnProgreso;
+    
+    /*
+    * Relacion con un estado Cerrado
+    */
+    private CerradoDTO estadoCerrado;
+    
+    /*
+    * Relacion de uno a muchos con Calificacion
+    */
+    private List<CalificacionDTO> calificaciones;
+    
     /**
      * Constructor por defecto
      */
@@ -59,5 +90,4 @@ public class HuecoDetailDTO extends HuecoDTO
         HuecoEntity HuecoE = super.toEntity();
         return HuecoE;
     }
-
 }

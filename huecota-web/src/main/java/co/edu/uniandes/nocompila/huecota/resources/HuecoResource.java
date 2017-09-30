@@ -58,7 +58,7 @@ import javax.ws.rs.Produces;
 @Stateless
 public class HuecoResource {
 
-    @Inject
+   @Inject
     HuecoLogic huecotaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
     private static final Logger LOGGER = Logger.getLogger(HuecoResource.class.getName());
@@ -150,5 +150,4 @@ public class HuecoResource {
         }
         return list;
     }
-
 }

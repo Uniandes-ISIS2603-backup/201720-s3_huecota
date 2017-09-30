@@ -7,9 +7,10 @@ package co.edu.uniandes.nocompila.huecota.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -24,8 +25,8 @@ public class AccidenteEntity  extends BaseEntity implements Serializable
 	 * Atributo que representa un cliente para la clase accidente.
 	 */
 	@PodamExclude
-    @OneToOne
-    private ClienteEntity cliente;
+    @ManyToMany
+    private List<ClienteEntity> cliente;
 	
 	/**
 	 * Atributo que representa un cliente para la clase accidente.
@@ -39,6 +40,14 @@ public class AccidenteEntity  extends BaseEntity implements Serializable
 	 */
     @Temporal(TemporalType.DATE)
 	private Date fecha;
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 	
 	/**
 	 * Atributo que reresenta la descripción de un accidente.
@@ -46,11 +55,11 @@ public class AccidenteEntity  extends BaseEntity implements Serializable
 	private String descripcion;
 	
 	
-	public ClienteEntity getCliente() {
+	public List<ClienteEntity> getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(ClienteEntity cliente) {
+	public void setCliente(List<ClienteEntity> cliente) {
 		this.cliente = cliente;
 	}
 
