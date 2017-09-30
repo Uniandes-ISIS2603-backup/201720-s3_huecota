@@ -14,12 +14,15 @@ public class AbiertoDTO {
     
     private Long id;
     
+    private int numeroDeHuecos;
+    
     public AbiertoDTO(){
         
     }
     
-    public AbiertoDTO(AbiertoEntity cliente){
-        this.id = (cliente.getId());
+    public AbiertoDTO(AbiertoEntity state){
+        this.id = (state.getId());
+        this.numeroDeHuecos = state.getNumeroDeHuecos();
     }
     
     public Long getId(){
@@ -29,10 +32,19 @@ public class AbiertoDTO {
     public void setId(Long id){
         this.id = id;
     }
+
+    public int getNumeroDeHuecos() {
+        return numeroDeHuecos;
+    }
+
+    public void setNumeroDeHuecos(int numeroDeHuecos) {
+        this.numeroDeHuecos = numeroDeHuecos;
+    }
     
     public AbiertoEntity toEntity(){
         AbiertoEntity entity = new AbiertoEntity();
         entity.setId(this.id);
+        entity.setNumeroDeHuecos(numeroDeHuecos);
         return entity;
     }
 }

@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.nocompila.huecota.resources;
 
-import co.edu.uniandes.nocompila.huecota.dtos.AbiertoDetailDTO;
+import co.edu.uniandes.nocompila.huecota.dtos.AbiertoDTO;
 import co.edu.uniandes.nocompila.huecota.ejb.AbiertoLogic;
 import co.edu.uniandes.nocompila.huecota.entities.AbiertoEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
@@ -34,39 +34,37 @@ import javax.ws.rs.Produces;
 public class AbiertoResource {
     @Inject
     AbiertoLogic abiertoLogic;
-    
-    private static final Logger LOGGER = Logger.getLogger(AbiertoResource.class.getName());
 
     @POST
-    public AbiertoDetailDTO createState(AbiertoDetailDTO state) throws BusinessLogicException {
+    public AbiertoDTO createState(AbiertoDTO state) throws BusinessLogicException {
         AbiertoEntity entity = state.toEntity();
         AbiertoEntity newState = abiertoLogic.createState(entity);
-        return new AbiertoDetailDTO(newState);
+        return new AbiertoDTO(newState);
     }
     
     @GET
-    public List<AbiertoDetailDTO> getStates() throws BusinessLogicException {
+    public List<AbiertoDTO> getStates() throws BusinessLogicException {
         return listEntity2DetailDTO(abiertoLogic.getStates());
     }
     
-    private List<AbiertoDetailDTO> listEntity2DetailDTO(List<AbiertoEntity> entityList) {
-        List<AbiertoDetailDTO> list = new ArrayList();
+    private List<AbiertoDTO> listEntity2DetailDTO(List<AbiertoEntity> entityList) {
+        List<AbiertoDTO> list = new ArrayList();
         for (AbiertoEntity entity : entityList) {
-            list.add(new AbiertoDetailDTO(entity));
+            list.add(new AbiertoDTO(entity));
         }
         return list;
     }
     
     @GET
     @Path("{id: \\d+}")
-    public AbiertoDetailDTO getState(@PathParam("id") Long id) throws BusinessLogicException{
-        AbiertoDetailDTO dto = new AbiertoDetailDTO(abiertoLogic.getState(id));
+    public AbiertoDTO getState(@PathParam("id") Long id) throws BusinessLogicException{
+        AbiertoDTO dto = new AbiertoDTO(abiertoLogic.getState(id));
         return dto;
     }
     
     @PUT
     @Path("{id: \\d+}")
-    public AbiertoDetailDTO updateState(@PathParam("id") Long id, AbiertoDetailDTO cliente) throws BusinessLogicException, UnsupportedOperationException {
+    public AbiertoDTO updateState(@PathParam("id") Long id, AbiertoDTO cliente) throws BusinessLogicException, UnsupportedOperationException {
           return null;
     }
     

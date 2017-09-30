@@ -24,7 +24,7 @@ public class AbiertoEntity extends BaseEntity implements Serializable{
     private int numeroDeHuecos;
     
     @PodamExclude
-    @OneToOne    
+    @OneToOne(orphanRemoval = true)
     private List<HuecoEntity> huecos;
 
     /**

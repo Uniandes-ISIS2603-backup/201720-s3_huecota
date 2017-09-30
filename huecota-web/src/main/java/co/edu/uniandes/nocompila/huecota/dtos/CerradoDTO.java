@@ -14,12 +14,18 @@ public class CerradoDTO {
     
     private Long id;
     
+    private String causa;
+    
+    private String comentario;
+    
     public CerradoDTO(){
         
     }
     
-    public CerradoDTO(CerradoEntity cliente){
-        this.id = (cliente.getId());
+    public CerradoDTO(CerradoEntity state){
+        this.id = (state.getId());
+        this.comentario = state.getComentario();
+        this.causa = state.getCausa();
     }
     
     public Long getId(){
@@ -29,10 +35,28 @@ public class CerradoDTO {
     public void setId(Long id){
         this.id = id;
     }
+
+    public String getCausa() {
+        return causa;
+    }
+
+    public void setCausa(String causa) {
+        this.causa = causa;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
     
     public CerradoEntity toEntity(){
         CerradoEntity entity = new CerradoEntity();
         entity.setId(this.id);
+        entity.setCausa(causa);
+        entity.setComentario(comentario);
         return entity;
     }
 }
