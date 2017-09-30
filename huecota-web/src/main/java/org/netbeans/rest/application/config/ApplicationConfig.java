@@ -40,8 +40,9 @@ public class ApplicationConfig extends Application {
         resources.add(co.edu.uniandes.nocompila.huecota.resources.ContratistaResource.class);
         resources.add(co.edu.uniandes.nocompila.huecota.resources.CuentaCobroResource.class);
         resources.add(co.edu.uniandes.nocompila.huecota.resources.DireccionResource.class);
+		resources.add(co.edu.uniandes.nocompila.huecota.resources.EnProgresoContratistaResource.class);
 		resources.add(co.edu.uniandes.nocompila.huecota.resources.EnProgresoResource.class);
-		resources.add(co.edu.uniandes.nocompila.huecota.resources.HuecoCalificacionResource.class);
+        resources.add(co.edu.uniandes.nocompila.huecota.resources.HuecoCalificacionResource.class);
         resources.add(co.edu.uniandes.nocompila.huecota.resources.HuecoResource.class);
         resources.add(co.edu.uniandes.nocompila.huecota.resources.ImagenResource.class);
         resources.add(co.edu.uniandes.nocompila.huecota.resources.PuntoResource.class);

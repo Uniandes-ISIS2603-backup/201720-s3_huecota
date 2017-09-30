@@ -5,14 +5,18 @@
  */
 package co.edu.uniandes.nocompila.huecota.resources;
 
-import co.edu.uniandes.baco.huecota.ejb.HuecoLogic;
+import co.edu.uniandes.nocompila.huecota.ejb.HuecoLogic;
 import co.edu.uniandes.nocompila.huecota.dtos.CalificacionDTO;
 import co.edu.uniandes.nocompila.huecota.entities.CalificacionEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
@@ -32,7 +36,7 @@ public class HuecoCalificacionResource {
      * @param entityList Lista de CalificacionEntity a convertir.
      * @return Lista de CalificacionDTO.
      */
-    private List<CalificacionDTO> calificacionListEntity2DTO(List<CalificacionEntity> entityList)
+    private List<CalificacionDTO> calificacionesListEntity2DTO(List<CalificacionEntity> entityList)
     {
         List<CalificacionDTO> list = new ArrayList();
         for(CalificacionEntity entity : entityList)
@@ -48,7 +52,7 @@ public class HuecoCalificacionResource {
      * @param dtos Lista de CalificacionDTO a convertir.
      * @return Lista de CalificacionEntity convertida.
      */
-    private List<CalificacionEntity> calificacionListDTO2Entity(List<CalificacionDTO> dtos)
+    private List<CalificacionEntity> calificacionesListDTO2Entity(List<CalificacionDTO> dtos)
     {
         List<CalificacionEntity> list = new ArrayList();
         for(CalificacionDTO dto : dtos)
@@ -59,10 +63,48 @@ public class HuecoCalificacionResource {
         return list;
     }
     
-    
+    /**
+     * Obtiene  una colección de instancias de CalificacionDTO asociados a un hueco
+     * @param huecosid identificador de la instancia de hueco.
+     * @return Coleccion de instancias de calificacionDTO asociadas al hueco.
+     */
     @GET
     public List<CalificacionDTO> listCalificaciones(@PathParam("huecosid") Long huecosid)
     {
-        return null;
+        return calificacionesListEntity2DTO(huecoLogic.getCalificaciones(huecosid));
+    }
+    
+    /**
+     * Obtiene una instancia de calificacion asociada a un hueco.
+     * @param huecosid identificador de la instancia hueco.
+     * @param calificacionesId identificador de la calificacion-
+     * @return calificacion que pertenece a un hueco.
+     */
+    @GET
+    @Path("{calificacionesId: \\d+}")
+    public CalificacionDTO getCalificacion(@PathParam("huecosid") Long huecosid, @PathParam("calificacionesId") Long calificacionesId)
+    {
+        return new CalificacionDTO(huecoLogic.getCalificacion(huecosid, calificacionesId));
+    }
+    
+    @POST
+    @Path("{calificacionesId: \\d+}")
+    public CalificacionDTO addCalificacion(@PathParam("huecosid") Long huecosid, @PathParam("calificacionesId") Long calificacionesId)
+    {
+        return new CalificacionDTO(huecoLogic.addCalificacion(huecosid, calificacionesId));
+    }
+    
+    @PUT
+    public List<CalificacionDTO> remplazarCalificacion(@PathParam("huecosid") Long huecosid,List<CalificacionDTO> calificaciones)
+    {
+        return calificacionesListEntity2DTO(huecoLogic.replaceCalificaciones(huecosid, calificacionesListDTO2Entity(calificaciones)));
+    }
+    
+    
+    @DELETE
+    @Path("{calificacionesId: \\d+}")
+    public void removeCalificaciones(@PathParam("huecosid") Long huecosid, @PathParam("calificacionesid") Long calificacionesid)
+    {
+        huecoLogic.removeCalificacion(huecosid, calificacionesid);
     }
 }

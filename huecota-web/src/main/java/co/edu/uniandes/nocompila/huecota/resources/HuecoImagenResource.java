@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.nocompila.huecota.resources;
 
-import co.edu.uniandes.baco.huecota.ejb.HuecoLogic;
+import co.edu.uniandes.nocompila.huecota.ejb.HuecoLogic;
 import co.edu.uniandes.nocompila.huecota.dtos.ImagenDTO;
 import co.edu.uniandes.nocompila.huecota.entities.ImagenEntity;
 import java.util.ArrayList;
