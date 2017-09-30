@@ -41,18 +41,7 @@ public class AccidenteEntity  extends BaseEntity implements Serializable
     @Temporal(TemporalType.DATE)
 	private Date fecha;
 
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
 	
-	/**
-	 * Atributo que reresenta la descripción de un accidente.
-	 */
-	private String descripcion;
 	
 	
 	public List<ClienteEntity> getCliente() {
