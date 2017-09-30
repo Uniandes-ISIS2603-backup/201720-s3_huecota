@@ -1,0 +1,139 @@
+{
+	"variables": [],
+	"info": {
+		"name": "CollectionAccidenteResource",
+		"_postman_id": "03c5b94e-00c6-b274-2dcd-92650e5e3cb6",
+		"description": "Collection para probar los servicios del recurso Accidente.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/huecota-web/api/accidentes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/accidentes",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/huecota-web/api/accidentes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/accidentes",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[  \r\n   {  \r\n      \"fecha\":\"12/19/2014\"\r\n   },\r\n   {  \r\n      \"fecha\":\"08/24/2013\"\r\n   },\r\n   {  \r\n      \"fecha\":\"04/18/2014\"\r\n   },\r\n   {  \r\n      \"fecha\":\"07/04/2011\"\r\n   },\r\n   {  \r\n      \"fecha\":\"06/27/2012\"\r\n   },\r\n   {  \r\n      \"fecha\":\"11/14/2015\"\r\n   },\r\n   {  \r\n      \"fecha\":\"01/03/2014\"\r\n   },\r\n   {  \r\n      \"fecha\":\"11/14/2012\"\r\n   },\r\n   {  \r\n      \"fecha\":\"05/12/2014\"\r\n   },\r\n   {  \r\n      \"fecha\":\"01/08/2015\"\r\n   }\r\n]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/huecota-web/api/accidentes/5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/accidentes/5",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/huecota-web/api/accidentes/7",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/accidentes/7",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n      \"fecha\":\"12/19/2014\"\r\n   }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/huecota-web/api/accidentes/9",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/accidentes/9",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
