@@ -6,24 +6,42 @@
 package co.edu.uniandes.nocompila.huecota.dtos;
 
 import co.edu.uniandes.nocompila.huecota.entities.CerradoEntity;
+import co.edu.uniandes.nocompila.huecota.entities.HuecoEntity;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author jpr.arango10
  */
 public class CerradoDetailDTO extends CerradoDTO{
     
+    private List<HuecoDTO> huecos;
+    
     public CerradoDetailDTO(){
+        super();
     }
-    public CerradoDetailDTO(CerradoEntity entity) 
-    {
+    public CerradoDetailDTO(CerradoEntity entity){
         super(entity);
+        if(entity != null){
+            huecos = new ArrayList();
+            for(HuecoEntity entityHueco : entity.getHuecos()){
+                huecos.add(new HuecoDTO(entityHueco));
+            }
+        }
     }
 
     @Override
     public CerradoEntity toEntity() 
     {
-        CerradoEntity HuecoE = super.toEntity();
-        return HuecoE;
+        CerradoEntity entity = super.toEntity();
+        if (huecos != null) {
+        List<HuecoEntity> huecoEntity = new ArrayList();
+            for (HuecoDTO dtoBook : huecos) {
+                huecoEntity.add(dtoBook.toEntity());
+            }
+            entity.setHuecos(huecoEntity);
+        }
+        return entity;
     }
     
 }

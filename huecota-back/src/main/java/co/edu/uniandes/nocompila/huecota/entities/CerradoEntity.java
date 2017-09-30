@@ -29,8 +29,12 @@ public class CerradoEntity extends BaseEntity implements Serializable {
     private String comentario;
     
     @PodamExclude
-    @OneToOne    
+    @OneToOne(orphanRemoval = true)
     private List<HuecoEntity> huecos;
+    
+    @PodamExclude
+    @OneToOne(orphanRemoval = true)
+    private List<CuentaCobroEntity> cuentaCobro;
 
     /**
      * Retorna el comentario asociado al hueco cerrado.
@@ -71,6 +75,16 @@ public class CerradoEntity extends BaseEntity implements Serializable {
     public void setHuecos(List<HuecoEntity> huecos) {
         this.huecos = huecos;
     }
+
+    public List<CuentaCobroEntity> getCuentaCobro() {
+        return cuentaCobro;
+    }
+
+    public void setCuentaCobro(List<CuentaCobroEntity> cuentaCobro) {
+        this.cuentaCobro = cuentaCobro;
+    }
+    
+    
     
     
 }

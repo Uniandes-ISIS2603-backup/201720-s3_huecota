@@ -6,24 +6,43 @@
 package co.edu.uniandes.nocompila.huecota.dtos;
 
 import co.edu.uniandes.nocompila.huecota.entities.EnProgresoEntity;
+import co.edu.uniandes.nocompila.huecota.entities.HuecoEntity;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author jpr.arango10
  */
 public class EnProgresoDetailDTO extends EnProgresoDTO{
     
+    private List<HuecoDTO> huecos;    
+    
     public EnProgresoDetailDTO(){
-}
-        public EnProgresoDetailDTO(EnProgresoEntity entity) 
-    {
+        super();
+    }
+    
+    public EnProgresoDetailDTO(EnProgresoEntity entity) {
         super(entity);
+        if(entity != null){
+            huecos = new ArrayList();
+            for(HuecoEntity entityHueco : entity.getHuecos()){
+                huecos.add(new HuecoDTO(entityHueco));
+            }
+        }        
     }
 
     @Override
     public EnProgresoEntity toEntity() 
     {
-        EnProgresoEntity HuecoE = super.toEntity();
-        return HuecoE;
+        EnProgresoEntity entity = super.toEntity();
+        if (huecos != null) {
+        List<HuecoEntity> huecoEntity = new ArrayList();
+            for (HuecoDTO dtoBook : huecos) {
+                huecoEntity.add(dtoBook.toEntity());
+            }
+            entity.setHuecos(huecoEntity);
+        }
+        return entity;
     }
     
 }

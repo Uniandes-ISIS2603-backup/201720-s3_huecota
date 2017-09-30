@@ -11,7 +11,6 @@ import co.edu.uniandes.nocompila.huecota.entities.EnProgresoEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -22,20 +21,19 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 /**
  *
  * @author jpr.arango10
  */
 @Path("/estadosAbierto")
-@Produces("application/json")
-@Consumes("application/json")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 @Stateless
 public class EnProgresoResource {
     @Inject
     EnProgresoLogic enProgresoLogic;
-    
-    private static final Logger LOGGER = Logger.getLogger(EnProgresoResource.class.getName());
 
     @POST
     public EnProgresoDetailDTO createState(EnProgresoDetailDTO state) throws BusinessLogicException {
@@ -72,7 +70,7 @@ public class EnProgresoResource {
     
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteHueco(@PathParam("id") Long id) throws BusinessLogicException {
+    public void deleteState(@PathParam("id") Long id) throws BusinessLogicException {
          enProgresoLogic.deleteState(id);
     }
 }

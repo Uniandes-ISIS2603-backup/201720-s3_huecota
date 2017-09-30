@@ -28,8 +28,12 @@ public class EnProgresoEntity extends BaseEntity implements Serializable{
     private Date fechaDeInicio;
     
     @PodamExclude
-    @OneToOne    
+    @OneToOne(orphanRemoval = true)
     private List<HuecoEntity> huecos;
+    
+    @PodamExclude
+    @OneToOne(orphanRemoval = true)
+    private List<CuentaCobroEntity> cuentaCobro;
 
     /**
      * Retorna la fecha de inicio.
@@ -54,4 +58,13 @@ public class EnProgresoEntity extends BaseEntity implements Serializable{
     public void setHuecos(List<HuecoEntity> huecos) {
         this.huecos = huecos;
     }
+
+    public List<CuentaCobroEntity> getCuentaCobro() {
+        return cuentaCobro;
+    }
+
+    public void setCuentaCobro(List<CuentaCobroEntity> cuentaCobro) {
+        this.cuentaCobro = cuentaCobro;
+    }
+    
 }
