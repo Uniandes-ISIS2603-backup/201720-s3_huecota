@@ -27,23 +27,8 @@ public class DireccionEntity extends BaseEntity implements Serializable
     @PodamExclude
     @OneToOne
     private HuecoEntity hueco;
-
-	public ContratistaEntity getContratista() {
-		return contratista;
-	}
-
-	public void setContratista(ContratistaEntity contratista) {
-		this.contratista = contratista;
-	}
-
-	public HuecoEntity getHueco() {
-		return hueco;
-	}
-
-	public void setHueco(HuecoEntity hueco) {
-		this.hueco = hueco;
-	}
-
+	
+	
 	/**
 	 * Atributo de tipo Integer que representa el tipo de via en una dirección.
 	 */
@@ -65,28 +50,50 @@ public class DireccionEntity extends BaseEntity implements Serializable
 	 */
 	private String direccionRaw;
 
-	
-	public Integer getTipoVia() {
+	public ContratistaEntity getContratista() {
+		return contratista;
+	}
+
+	public void setContratista(ContratistaEntity contratista) {
+		this.contratista = contratista;
+	}
+
+	public HuecoEntity getHueco() {
+		return hueco;
+	}
+
+	public void setHueco(HuecoEntity hueco) {
+		this.hueco = hueco;
+	}
+
+
+	public Integer getTipoVia()
+	{
 		return tipoVia;
 	}
 
-	public void setTipoVia(Integer tipoVia) {
+	public void setTipoVia(Integer tipoVia)
+	{
 		this.tipoVia = tipoVia;
 	}
 
-	public Integer getNumero() {
+	public Integer getNumero()
+	{
 		return numero;
 	}
 
-	public void setNumero(Integer numero) {
+	public void setNumero(Integer numero)
+	{
 		this.numero = numero;
 	}
 
-	public String getLetra() {
+	public String getLetra()
+	{
 		return letra;
 	}
 
-	public void setLetra(String letra) {
+	public void setLetra(String letra)
+	{
 		this.letra = letra;
 	}
 
@@ -100,7 +107,8 @@ public class DireccionEntity extends BaseEntity implements Serializable
 		this.cuadrante = cuadrante;
 	}
 
-	public String getDireccionRaw() {
+	public String getDireccionRaw()
+	{
 		return direccionRaw;
 	}
 
