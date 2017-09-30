@@ -1,0 +1,174 @@
+{
+	"id": "dd5366e4-798e-1757-593e-f7d5e9ef95ed",
+	"name": "CollectionContratistaResource",
+	"description": "Colección para probar los recursos de ContratistaResource.",
+	"order": [
+		"d0b09764-d153-3344-edd7-31b4d81f495f",
+		"681ad2a9-6a25-1a2a-549f-d2768d2ac421",
+		"749e6e8a-0fd1-cb2b-26c8-5323113cbb7b",
+		"d7d6129f-e219-7a53-e79b-1d42470488be",
+		"ec4542fc-6719-7906-8bc9-ef00384a8197"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1506745826122,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "681ad2a9-6a25-1a2a-549f-d2768d2ac421",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/contratistas/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "dd5366e4-798e-1757-593e-f7d5e9ef95ed",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Crear un Contratista exitosamente",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1506746987048,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"id\": \"1\",\n        \"name\": \"Carlos Sanchez\"\n}"
+		},
+		{
+			"id": "749e6e8a-0fd1-cb2b-26c8-5323113cbb7b",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/contratistas/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "dd5366e4-798e-1757-593e-f7d5e9ef95ed",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Crear un contratista con id repetido",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1506747032459,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"id\": \"1\",\n        \"name\": \"Ramiro Vanegas\"\n}"
+		},
+		{
+			"id": "d0b09764-d153-3344-edd7-31b4d81f495f",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/contratistas",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "dd5366e4-798e-1757-593e-f7d5e9ef95ed",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Consultar todos los contratistas",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1506746123892,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"type\": \"cityDetailDTO\",\n        \"name\": \"Palmira\",\n        \"pais\": \"Colombia\"\n\t\n}"
+		},
+		{
+			"id": "d7d6129f-e219-7a53-e79b-1d42470488be",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/contratistas/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "dd5366e4-798e-1757-593e-f7d5e9ef95ed",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Actualizar un contratista exitosamente",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1506747098559,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"id\": \"1\",\n        \"name\": \"Ramiro Vanegas\"\n}"
+		},
+		{
+			"id": "ec4542fc-6719-7906-8bc9-ef00384a8197",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/contratistas/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "dd5366e4-798e-1757-593e-f7d5e9ef95ed",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Actualizar un contratista con error",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1506747134422,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"id\": \"3\",\n        \"name\": \"Ramiro Vanegas\"\n}"
+		}
+	]
+}
