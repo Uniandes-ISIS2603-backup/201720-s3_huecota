@@ -14,13 +14,35 @@ package co.edu.uniandes.nocompila.huecota.entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-/**
- *
- * @author ma.puentes
- */
+import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
+
 @Entity
 public class DireccionEntity extends BaseEntity implements Serializable
 {
+	@PodamExclude
+    @OneToOne
+    private ContratistaEntity contratista;
+    
+    @PodamExclude
+    @OneToOne
+    private HuecoEntity hueco;
+
+	public ContratistaEntity getContratista() {
+		return contratista;
+	}
+
+	public void setContratista(ContratistaEntity contratista) {
+		this.contratista = contratista;
+	}
+
+	public HuecoEntity getHueco() {
+		return hueco;
+	}
+
+	public void setHueco(HuecoEntity hueco) {
+		this.hueco = hueco;
+	}
 
 	/**
 	 * Atributo de tipo Integer que representa el tipo de via en una dirección.
