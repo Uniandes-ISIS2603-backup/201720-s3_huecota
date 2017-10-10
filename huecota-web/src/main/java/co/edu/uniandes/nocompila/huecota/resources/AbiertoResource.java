@@ -26,7 +26,7 @@ import javax.ws.rs.Produces;
  *
  * @author jpr.arango10
  */
-@Path("/estadosAbierto")
+@Path("estadosAbierto")
 @Produces("application/json")
 @Consumes("application/json")
 @Stateless

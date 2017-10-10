@@ -27,7 +27,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author jpr.arango10
  */
-@Path("/estadosAbierto")
+@Path("estadosEnProgreso")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Stateless

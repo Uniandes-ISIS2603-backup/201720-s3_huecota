@@ -110,7 +110,7 @@ public class CalificacionResource {
      * En caso de no existir el id del accidente a actualizar se retorna 404 con el mensaje.
      */
     @PUT
-    @Path("{id: \\d+)")
+    @Path("{id: \\d+}")
     public CalificacionDTO updateCalificacion(@PathParam("id") Long id, CalificacionDTO calificacion) throws BusinessLogicException
     {
         calificacion.setId(id);
@@ -130,7 +130,7 @@ public class CalificacionResource {
      * 
      */
     @DELETE
-    @Path("{id: \\d+")
+    @Path("{id: \\d+}")
     public void deleteCalificacion(@PathParam("id") Long id)
     {
         calificacionLogic.deleteCalificacion(id);
