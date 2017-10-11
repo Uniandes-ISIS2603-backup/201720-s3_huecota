@@ -1,0 +1,302 @@
+{
+	"id": "dd5366e4-798e-1757-593e-f7d5e9ef95ed",
+	"name": "CollectionContratistaResource",
+	"description": "Colección para probar los recursos de ContratistaResource.",
+	"order": [
+		"d5ca19e4-d5af-135b-222e-687e8217badc",
+		"1ac13282-7846-42bf-85ba-b65ffb45e2fd",
+		"cb982458-d2cb-bb99-5519-a85ef5cfae61",
+		"e85990c3-7d27-1c30-875e-249206fc6aec",
+		"300408eb-adab-d059-7045-a1f438f906ba",
+		"33cdd1ac-525d-7899-f045-a2b353cac0dd",
+		"7acc941e-6cc6-3f06-4207-bb6bc6b550c8",
+		"90a61f7f-cf63-1fa8-396c-e7cd97daedc4",
+		"7761d112-334a-e6f0-ebfb-ad8c4309545d"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1506745826122,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "1ac13282-7846-42bf-85ba-b65ffb45e2fd",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/contratistas/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "dd5366e4-798e-1757-593e-f7d5e9ef95ed",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Crear otro nuevo contratista",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1507760467436,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"name\": \"Ricardo Lopez\"\n}"
+		},
+		{
+			"id": "300408eb-adab-d059-7045-a1f438f906ba",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/contratistas/2",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "dd5366e4-798e-1757-593e-f7d5e9ef95ed",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Actualizar un contratista dado un id",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1507761508900,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"name\": \"Roberto Blanco\"\n}"
+		},
+		{
+			"id": "33cdd1ac-525d-7899-f045-a2b353cac0dd",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/contratistas/2",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "DELETE",
+			"collectionId": "dd5366e4-798e-1757-593e-f7d5e9ef95ed",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Borrar un contratista dado un id",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1507761622677,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": ""
+		},
+		{
+			"id": "7761d112-334a-e6f0-ebfb-ad8c4309545d",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/contratistas/3",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "DELETE",
+			"collectionId": "dd5366e4-798e-1757-593e-f7d5e9ef95ed",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Borrar un contratista inexistente dado un id",
+			"description": "Debería devolver el mensaje: \"El recurso contratista: 3 no existe.\"",
+			"descriptionFormat": "html",
+			"time": 1507762993355,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": ""
+		},
+		{
+			"id": "7acc941e-6cc6-3f06-4207-bb6bc6b550c8",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/contratistas/3",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "dd5366e4-798e-1757-593e-f7d5e9ef95ed",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Consultar un contratista inexistente dado un id",
+			"description": "Debería devolver el mensaje: \"El recurso contratista: 3 no existe\"",
+			"descriptionFormat": "html",
+			"time": 1507762775955,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"name\": \"Ricardo Lopez\"\n}"
+		},
+		{
+			"id": "90a61f7f-cf63-1fa8-396c-e7cd97daedc4",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/contratistas/3",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "dd5366e4-798e-1757-593e-f7d5e9ef95ed",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Actualizar un contratista inexistente dado un id",
+			"description": "Debería devolver el mensaje: \"El recurso contratista: 3 no existe\"",
+			"descriptionFormat": "html",
+			"time": 1507762928498,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"name\": \"Orlando Bustos\"\n}"
+		},
+		{
+			"id": "cb982458-d2cb-bb99-5519-a85ef5cfae61",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/contratistas/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "dd5366e4-798e-1757-593e-f7d5e9ef95ed",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Consultar todos los contratistas",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1507761235010,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"name\": \"Ricardo Lopez\"\n}"
+		},
+		{
+			"id": "d5ca19e4-d5af-135b-222e-687e8217badc",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/contratistas/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "dd5366e4-798e-1757-593e-f7d5e9ef95ed",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Crear un nuevo contratista",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1507760319955,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"name\": \"Ramiro Vanegas\"\n}"
+		},
+		{
+			"id": "e85990c3-7d27-1c30-875e-249206fc6aec",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/contratistas/1",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "dd5366e4-798e-1757-593e-f7d5e9ef95ed",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Consultar un contratista dado un id",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1507761268533,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"name\": \"Ricardo Lopez\"\n}"
+		}
+	]
+}

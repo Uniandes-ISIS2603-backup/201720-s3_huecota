@@ -1,0 +1,302 @@
+{
+	"id": "40ce1ff9-a964-196e-9b6e-553fdbd74c08",
+	"name": "CollectionCuentaCobroResource",
+	"description": "",
+	"order": [
+		"5d8689f7-bdad-7470-9b64-c8d9855a6233",
+		"de3afc01-5254-8a68-6395-17780ccbeac4",
+		"e9c3b7a1-aca9-774b-4ef5-eca602fe6e7e",
+		"a9199c5c-17b4-673e-3856-2f7e497f0ff6",
+		"1a265ade-1abd-5cc6-2214-159d79dcd0f0",
+		"664c61df-0591-e4c2-a450-a738c91c8dde",
+		"77328da6-a0f5-46ec-3d51-ffd694fd6518",
+		"26aaf8cb-f53c-519e-2560-08bf3abe2b50",
+		"e33ecf3c-f17c-02b2-80ad-3812ea2d9ef4"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1507761644212,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "1a265ade-1abd-5cc6-2214-159d79dcd0f0",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/cuentascobros/2",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "40ce1ff9-a964-196e-9b6e-553fdbd74c08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Actualizar una cuenta de cobro dado un id",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1507762503101,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"precio\": 4500000\n}"
+		},
+		{
+			"id": "26aaf8cb-f53c-519e-2560-08bf3abe2b50",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/cuentascobros/3",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "40ce1ff9-a964-196e-9b6e-553fdbd74c08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Actualizar una cuenta de cobro inexistente dado un id",
+			"description": "Debería devolver el mensaje: \"El recurso cuenta de cobro: 3 no existe.\"",
+			"descriptionFormat": "html",
+			"time": 1507763211577,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"precio\": 3800000\n}"
+		},
+		{
+			"id": "5d8689f7-bdad-7470-9b64-c8d9855a6233",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/cuentascobros/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "40ce1ff9-a964-196e-9b6e-553fdbd74c08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Crear una nueva cuenta de Cobro",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1507761998976,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"name\": \"Cuenta Hueco 2016\",\n        \"precio\": 1500000\n}"
+		},
+		{
+			"id": "664c61df-0591-e4c2-a450-a738c91c8dde",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/cuentascobros/2",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "DELETE",
+			"collectionId": "40ce1ff9-a964-196e-9b6e-553fdbd74c08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Borra una cuenta de cobro dado un id",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1507762626953,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": ""
+		},
+		{
+			"id": "77328da6-a0f5-46ec-3d51-ffd694fd6518",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/cuentascobros/3",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "40ce1ff9-a964-196e-9b6e-553fdbd74c08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Consultar una cuenta de cobro inexistente dado un id",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1507763114763,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"precio\": 2500000\n}"
+		},
+		{
+			"id": "a9199c5c-17b4-673e-3856-2f7e497f0ff6",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/cuentascobros/2",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "40ce1ff9-a964-196e-9b6e-553fdbd74c08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Consultar una cuenta de cobro dado un id",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1507762132149,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"precio\": 2500000\n}"
+		},
+		{
+			"id": "de3afc01-5254-8a68-6395-17780ccbeac4",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/cuentascobros/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "40ce1ff9-a964-196e-9b6e-553fdbd74c08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Crear otra nueva cuenta de cobro",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1507762066963,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"precio\": 2500000\n}"
+		},
+		{
+			"id": "e33ecf3c-f17c-02b2-80ad-3812ea2d9ef4",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/cuentascobros/3",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "DELETE",
+			"collectionId": "40ce1ff9-a964-196e-9b6e-553fdbd74c08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Borrar una cuenta de cobro inexistente dado un id",
+			"description": "Debería devolver el mensaje: \"El recurso cuenta de cobro: 3 no existe.\"",
+			"descriptionFormat": "html",
+			"time": 1507763298201,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": ""
+		},
+		{
+			"id": "e9c3b7a1-aca9-774b-4ef5-eca602fe6e7e",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/huecota-web/api/cuentascobros/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "40ce1ff9-a964-196e-9b6e-553fdbd74c08",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Consultar todas las cuentas de cobro",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1507762103709,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n        \"precio\": 2500000\n}"
+		}
+	]
+}
