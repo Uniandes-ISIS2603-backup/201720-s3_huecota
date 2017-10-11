@@ -1,0 +1,107 @@
+{
+	"variables": [],
+	"info": {
+		"name": "calificacion-Postman",
+		"_postman_id": "e7f71276-6144-c6a3-5696-5abf38619839",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/huecota-web/api/calificaciones/",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/calificaciones/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/huecota-web/api/calificaciones/1",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/calificaciones/1",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/huecota-web/api/calificaciones/1",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/calificaciones/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/huecota-web/api/calificaciones/1",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/calificaciones/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":1,\"name\":\"Koss and Son\",\"nota\":4.5,\"comentario\":\"a\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/huecota-web/api/calificaciones/",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/calificaciones/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":2,\"name\":\"abcd\",\"nota\":4.5,\"comentario\":\"Muy bueno\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/huecota-web/api/calificaciones/",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/calificaciones/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":1,\"name\":\"Koss and Sons\",\"nota\":4.4,\"comentario\":\"DsiV9Tlxpo\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

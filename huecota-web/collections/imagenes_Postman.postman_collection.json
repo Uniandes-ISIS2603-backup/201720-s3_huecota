@@ -1,0 +1,107 @@
+{
+	"variables": [],
+	"info": {
+		"name": "imagenes_Postman",
+		"_postman_id": "15c518eb-6290-317c-3ce8-2fd40cff646e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/huecota-web/api/imagenes/2",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/imagenes/2",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/huecota-web/api/imagenes",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/imagenes",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/huecota-web/api/imagenes/1",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/imagenes/1",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/huecota-web/api/imagenes/1",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/imagenes/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"foto\": \"jawodjawjd\",\n        \"id\": 1,\n        \"name\": \"Koss and Sons\",\n        \"tamanio\": 12,\n        \"tipoArchivo\": \"jpeg\"\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/huecota-web/api/imagenes",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/imagenes",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":1,\"name\":\"Otra Foto\",\"tipoArchivo\":\"png\",\"tamanio\":\"22\",\"foto\":\"xxajskdw\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/huecota-web/api/imagenes",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/imagenes",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":2,\"name\":\"Koss and Sons\",\"tipoArchivo\":\"jpeg\",\"tamanio\":\"12\",\"foto\":\"jawodjawjd\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
