@@ -6,7 +6,6 @@
 package co.edu.uniandes.nocompila.huecota.dtos;
 
 import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
-import java.util.Date;
 
 /**
  *
@@ -19,12 +18,13 @@ public class AccidenteDTO
 	/**
 	 * Identificador del accidente.
 	 */
+	
     private Long id;
 	/**
 	 * Fecha del accidente
 	 */
-	private Date fecha;
-
+	private String fecha;
+	private String descripcion;
     /**
      * Constructor por defecto
      */
@@ -43,41 +43,33 @@ public class AccidenteDTO
     {
         this.id = Accidente.getId();
 		this.fecha = Accidente.getFecha();
+		this.descripcion = Accidente.getDescripcion();
+		
     }
 
-    /**
-	 * Retorna el identificador del accidente.
-     * @return id
-     */
-    public Long getId() 
-    {
-        return id;
-    }
-	/**
-	 * Retorna la fecha del accidente.
-	 * @return fecha
-	 */
-	public Date getDireccion()
+	public String getFecha()
 	{
 		return fecha;
 	}
 
-    /**
-	 * Cambia el id por el id que recibe por parámetro.
-     * @param id id a cambiar
-     */
-    public void setId(Long id) 
-    {
-        this.id = id;
-    }
-	/**
-	 * Cambia la fecha por la fehca que recibe por parámetro.
-     * @param fecha fecha a cambiar
-     */
-	public void setDate(Date fecha) 
-    {
-        this.fecha = fecha;
-    }
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
     /**
      * Convertir DTO a Entity
@@ -87,6 +79,7 @@ public class AccidenteDTO
     {
         AccidenteEntity entity = new AccidenteEntity();
         entity.setId(this.id);
+		entity.setDescripcion(this.descripcion);
 		entity.setFecha(this.fecha);
         return entity;
     }

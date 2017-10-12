@@ -6,13 +6,10 @@
 package co.edu.uniandes.nocompila.huecota.entities;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import uk.co.jemos.podam.common.PodamExclude;
 /**
  *
@@ -38,10 +35,18 @@ public class AccidenteEntity  extends BaseEntity implements Serializable
 	/**
 	 * Atributo que representa la fecha del accidente.
 	 */
-    @Temporal(TemporalType.DATE)
-	private Date fecha;
+//    @Temporal(TemporalType.DATE)
+	private String fecha;
 
-	
+	private String descripcion;
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 	
 	
 	public List<ClienteEntity> getCliente() {
@@ -64,7 +69,7 @@ public class AccidenteEntity  extends BaseEntity implements Serializable
 	 * Método que retorna la fecha.
 	 * @return 
 	 */
-	public Date getFecha()
+	public String getFecha()
 	{
 		return fecha;
 	}
@@ -72,7 +77,7 @@ public class AccidenteEntity  extends BaseEntity implements Serializable
 	 * M{etodo que cambia la fecha de la clase pro la que recibe por parámetro.
 	 * @param pFecha 
 	 */
-	public void setFecha(Date pFecha)
+	public void setFecha(String pFecha)
 	{
 		this.fecha = pFecha;
 	}

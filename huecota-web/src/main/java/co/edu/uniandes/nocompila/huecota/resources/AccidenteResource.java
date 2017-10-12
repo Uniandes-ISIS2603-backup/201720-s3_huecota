@@ -102,6 +102,7 @@ public class AccidenteResource
      * @return el accidente en objeto json DTO.
      * @throws BusinessLogicException
      */
+	@GET
     @Path("{id: \\d+}")
     public AccidenteDTO getAccidente(@PathParam("id") Long id) throws BusinessLogicException
 	{
@@ -126,15 +127,13 @@ public class AccidenteResource
     @Path("{id: \\d+}")
     public AccidenteDTO updateAccidente(@PathParam("id") Long id, AccidenteDTO accidente) throws BusinessLogicException, UnsupportedOperationException
 	{
-		
-		
 		accidente.setId(id);
 		AccidenteEntity entity = accidenteLogic.getAccidente(id);
 		if (entity == null)
 		{
 			throw new WebApplicationException("El recurso /direcciones/" + id + "no existe.", 404);
 		}
-		return new AccidenteDTO( accidenteLogic.updateDireccion(id, accidente.toEntity()));
+		return new AccidenteDTO( accidenteLogic.updateAccidente(id, accidente.toEntity()));
     }
     
     /**

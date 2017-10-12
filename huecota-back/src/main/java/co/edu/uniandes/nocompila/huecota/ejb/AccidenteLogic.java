@@ -81,7 +81,7 @@ public class AccidenteLogic
      * ejemplo el nombre.
      * @return el accidente con los cambios actualizados en la base de datos.
      */
-    public AccidenteEntity updateDireccion(Long id, AccidenteEntity entity)
+    public AccidenteEntity updateAccidente(Long id, AccidenteEntity entity)
 	{
         AccidenteEntity newEntity = persistence.update(entity);
         return newEntity;

@@ -104,6 +104,7 @@ public class DireccionResource
      * @return la direccion en objeto json DTO.
      * @throws BusinessLogicException
      */
+	@GET
     @Path("{id: \\d+}")
     public DireccionDTO getDireccion(@PathParam("id") Long id) throws BusinessLogicException
 	{
