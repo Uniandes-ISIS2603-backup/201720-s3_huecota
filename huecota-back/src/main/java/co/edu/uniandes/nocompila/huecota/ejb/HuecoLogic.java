@@ -105,7 +105,7 @@ public class HuecoLogic {
      * @return el hueco actualizado.
      * @throws BusinessLogicException
      */
-    public HuecoEntity updateBook(Long id, HuecoEntity hueco) throws BusinessLogicException {
+    public HuecoEntity updateHueco(Long id, HuecoEntity hueco) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar el hueco con id={0}", id);
         if (getHueco(id) == null) {
             throw new BusinessLogicException("El hueco con el id por parametro es inválido");
@@ -120,7 +120,7 @@ public class HuecoLogic {
      * Elimina el hueco con el id por parametro existente en la base de datos.
      * @param id
      */
-    public void deleteBook(Long id) {
+    public void deleteHueco(Long id) {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar el hueco con id={0}", id);
         persistence.delete(id);
         LOGGER.log(Level.INFO, "Termina proceso de borrar el hueco con id={0}", id);
