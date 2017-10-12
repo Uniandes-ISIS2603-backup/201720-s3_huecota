@@ -1,0 +1,137 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Pruebas-Cliente",
+		"_postman_id": "173f329d-25b1-590c-016b-8cd3a61f7682",
+		"description": "Estas son las pruebas web del recurso cliente\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Consulta vacia",
+			"request": {
+				"url": " http://localhost:8080/huecota-web/api/clientes",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"description": "",
+							"type": "file",
+							"src": "DATAPunto.json"
+						}
+					]
+				},
+				"description": "Consulta cuando esta vacia la tabla"
+			},
+			"response": []
+		},
+		{
+			"name": "Crea los clientes que vienen por json",
+			"request": {
+				"url": " http://localhost:8080/huecota-web/api/clientes",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Intenta crear los clientes",
+			"request": {
+				"url": " http://localhost:8080/huecota-web/api/clientes",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": "Debe lanzar exception ya que es el mismo archivo"
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta nueva",
+			"request": {
+				"url": " http://localhost:8080/huecota-web/api/clientes",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"description": "",
+							"type": "file",
+							"src": "MOCK_DATA (1).json"
+						}
+					]
+				},
+				"description": "Get de los nuevos clientes\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza los clientes",
+			"request": {
+				"url": " http://localhost:8080/huecota-web/api/clientes/{id}",
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": "Actualiza la lista de los clientes"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtioene los clientes actualizados",
+			"request": {
+				"url": " http://localhost:8080/huecota-web/api/clientes",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
