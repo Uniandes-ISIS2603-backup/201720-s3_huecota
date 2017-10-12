@@ -8,29 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:8080/huecota-web/api/accidentes",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"tests[\"Status code is 200\"] = responseCode.code === 200;"
-						]
-					}
-				}
-			],
-			"request": {
-				"url": "http://localhost:8080/huecota-web/api/accidentes",
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8080/huecota-web/api/accidentes",
+			"name": "Se crea un accidente nuevo",
 			"event": [
 				{
 					"listen": "test",
@@ -54,14 +32,14 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[  \r\n   {  \r\n      \"fecha\":\"12/19/2014\"\r\n   },\r\n   {  \r\n      \"fecha\":\"08/24/2013\"\r\n   },\r\n   {  \r\n      \"fecha\":\"04/18/2014\"\r\n   },\r\n   {  \r\n      \"fecha\":\"07/04/2011\"\r\n   },\r\n   {  \r\n      \"fecha\":\"06/27/2012\"\r\n   },\r\n   {  \r\n      \"fecha\":\"11/14/2015\"\r\n   },\r\n   {  \r\n      \"fecha\":\"01/03/2014\"\r\n   },\r\n   {  \r\n      \"fecha\":\"11/14/2012\"\r\n   },\r\n   {  \r\n      \"fecha\":\"05/12/2014\"\r\n   },\r\n   {  \r\n      \"fecha\":\"01/08/2015\"\r\n   }\r\n]"
+					"raw": "{\r\n\t\"fecha\":\"10/12/2018\",\r\n\t\"descripcion\" : \"Accidente que se presentó en el barrio santa fé de Bogotá.\"\r\n}\r\n"
 				},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/huecota-web/api/accidentes/5",
+			"name": "Se obtienen todos los accidentes",
 			"event": [
 				{
 					"listen": "test",
@@ -74,7 +52,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/huecota-web/api/accidentes/5",
+				"url": "http://localhost:8080/huecota-web/api/accidentes",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -83,7 +61,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/huecota-web/api/accidentes/7",
+			"name": "Se obtiene el accidente con id 1",
 			"event": [
 				{
 					"listen": "test",
@@ -96,7 +74,29 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/huecota-web/api/accidentes/7",
+				"url": "http://localhost:8080/huecota-web/api/accidentes/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Se actualiza el accidente con id 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/accidentes/1",
 				"method": "PUT",
 				"header": [
 					{
@@ -107,14 +107,14 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{  \r\n      \"fecha\":\"12/19/2014\"\r\n   }"
+					"raw": "{  \r\n      \"fecha\":\"12/19/2014\",\r\n      \"descripcion\" : \"Update: Accidente ocurrido en el barrio las Aguas.\"\r\n}"
 				},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/huecota-web/api/accidentes/9",
+			"name": "Se elimina el accidente con id 1",
 			"event": [
 				{
 					"listen": "test",
@@ -127,7 +127,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/huecota-web/api/accidentes/9",
+				"url": "http://localhost:8080/huecota-web/api/accidentes/1",
 				"method": "DELETE",
 				"header": [],
 				"body": {},

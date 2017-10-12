@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:8080/huecota-web/api/direcciones",
+			"name": "Se crea una direccion",
 			"event": [
 				{
 					"listen": "test",
@@ -23,17 +23,23 @@
 			"request": {
 				"url": "http://localhost:8080/huecota-web/api/direcciones",
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "[  \r\n   {  \r\n      \"tipoVia\":1,\r\n      \"numero\":1,\r\n      \"letra\":\"Honorable\",\r\n      \"cuadrante\":1,\r\n      \"direccionRaw\":\"7435 Weeping Birch Avenue\"\r\n   },\r\n   {  \r\n      \"tipoVia\":2,\r\n      \"numero\":2,\r\n      \"letra\":\"Rev\",\r\n      \"cuadrante\":2,\r\n      \"direccionRaw\":\"34306 Oxford Court\"\r\n   },\r\n   {  \r\n      \"tipoVia\":3,\r\n      \"numero\":3,\r\n      \"letra\":\"Ms\",\r\n      \"cuadrante\":3,\r\n      \"direccionRaw\":\"49461 Hollow Ridge Junction\"\r\n   },\r\n   {  \r\n      \"tipoVia\":4,\r\n      \"numero\":4,\r\n      \"letra\":\"Honorable\",\r\n      \"cuadrante\":4,\r\n      \"direccionRaw\":\"17867 Wayridge Court\"\r\n   },\r\n   {  \r\n      \"tipoVia\":5,\r\n      \"numero\":5,\r\n      \"letra\":\"Rev\",\r\n      \"cuadrante\":5,\r\n      \"direccionRaw\":\"64 Dawn Lane\"\r\n   },\r\n   {  \r\n      \"tipoVia\":6,\r\n      \"numero\":6,\r\n      \"letra\":\"Ms\",\r\n      \"cuadrante\":6,\r\n      \"direccionRaw\":\"7784 Petterle Court\"\r\n   },\r\n   {  \r\n      \"tipoVia\":7,\r\n      \"numero\":7,\r\n      \"letra\":\"Dr\",\r\n      \"cuadrante\":7,\r\n      \"direccionRaw\":\"00058 Menomonie Alley\"\r\n   },\r\n   {  \r\n      \"tipoVia\":8,\r\n      \"numero\":8,\r\n      \"letra\":\"Dr\",\r\n      \"cuadrante\":8,\r\n      \"direccionRaw\":\"214 Killdeer Trail\"\r\n   },\r\n   {  \r\n      \"tipoVia\":9,\r\n      \"numero\":9,\r\n      \"letra\":\"Ms\",\r\n      \"cuadrante\":9,\r\n      \"direccionRaw\":\"17 Warner Terrace\"\r\n   },\r\n   {  \r\n      \"tipoVia\":10,\r\n      \"numero\":10,\r\n      \"letra\":\"Ms\",\r\n      \"cuadrante\":10,\r\n      \"direccionRaw\":\"02 Cherokee Center\"\r\n   }\r\n]"
+					"raw": "  {\r\n   \t  \"tipoVia\":3,\r\n      \"numero\":3,\r\n      \"letra\":\"Ms\",\r\n      \"cuadrante\":3,\r\n      \"direccionRaw\":\"49461 Ridge Junction\"\r\n   }\r\n   "
 				},
 				"description": "Test servicio post, 10 direcciones."
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/huecota-web/api/direcciones",
+			"name": "Se obtienen todas las direcciones",
 			"event": [
 				{
 					"listen": "test",
@@ -55,7 +61,29 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/huecota-web/api/direcciones/1",
+			"name": "Se obtiene la direccion con id 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/direcciones/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Se actualiza la direccion con id 1",
 			"event": [
 				{
 					"listen": "test",
@@ -79,14 +107,14 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{  \r\n      \"tipoVia\":1,\r\n      \"numero\":1,\r\n      \"letra\":\"Honorable\",\r\n      \"cuadrante\":1,\r\n      \"direccionRaw\":\"7435 Weeping Birch Avenue\"\r\n}"
+					"raw": "{  \r\n      \"tipoVia\":4,\r\n      \"numero\":56,\r\n      \"letra\":\"Street Honorable\",\r\n      \"cuadrante\":51,\r\n      \"direccionRaw\":\"Birch Avenue\"\r\n}"
 				},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/huecota-web/api/direcciones/3",
+			"name": "Se elimina la direccion con id 1",
 			"event": [
 				{
 					"listen": "test",
@@ -99,30 +127,8 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:8080/huecota-web/api/direcciones/3",
+				"url": "http://localhost:8080/huecota-web/api/direcciones/1",
 				"method": "DELETE",
-				"header": [],
-				"body": {},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8080/huecota-web/api/direcciones/5",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"tests[\"Status code is 200\"] = responseCode.code === 200;"
-						]
-					}
-				}
-			],
-			"request": {
-				"url": "http://localhost:8080/huecota-web/api/direcciones/5",
-				"method": "GET",
 				"header": [],
 				"body": {},
 				"description": ""
