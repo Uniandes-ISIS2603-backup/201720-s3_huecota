@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.nocompila.huecota.resources;
 
-import co.edu.uniandes.nocompila.huecota.dtos.CerradoDetailDTO;
+import co.edu.uniandes.nocompila.huecota.dtos.CerradoDTO;
 import co.edu.uniandes.nocompila.huecota.ejb.CerradoLogic;
 import co.edu.uniandes.nocompila.huecota.entities.CerradoEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
@@ -35,39 +35,71 @@ public class CerradoResource {
     @Inject
     CerradoLogic cerradoLogic;
 
+    /**
+     * POST http://localhost:8080/huecota-web/api/estadosCerrado
+     * @param state corresponde a la representacion Java del objeto json.
+     * enviado en el llamado.
+     * @return Devuelve el objeto json de entrada que contiene el id creado por la base de datos y el tipo del objeto java.
+     */
     @POST
-    public CerradoDetailDTO createState(CerradoDetailDTO state) throws BusinessLogicException {
+    public CerradoDTO createState(CerradoDTO state) throws BusinessLogicException {
         CerradoEntity entity = state.toEntity();
         CerradoEntity newState = cerradoLogic.createState(entity);
-        return new CerradoDetailDTO(newState);
+        return new CerradoDTO(newState);
     }
     
+    /**
+     * GET para todos los estados cerrado.
+     * http://localhost:8080/huecota-web/api/estadosCerrado
+     * @return  la lista de todas las calificaciones en objetos json DTO.
+     */
     @GET
-    public List<CerradoDetailDTO> getStates() throws BusinessLogicException {
+    public List<CerradoDTO> getStates() throws BusinessLogicException {
         return listEntity2DetailDTO(cerradoLogic.getStates());
     }
     
-    private List<CerradoDetailDTO> listEntity2DetailDTO(List<CerradoEntity> entityList) {
-        List<CerradoDetailDTO> list = new ArrayList();
+    private List<CerradoDTO> listEntity2DetailDTO(List<CerradoEntity> entityList) {
+        List<CerradoDTO> list = new ArrayList();
         for (CerradoEntity entity : entityList) {
-            list.add(new CerradoDetailDTO(entity));
+            list.add(new CerradoDTO(entity));
         }
         return list;
     }
     
+    /**
+     * GET para un estado abierto con in id específico,
+     * http://localhost:8080/huecota-web/api/estadosCerrado/{id}
+     * @param id del estado que se quiere.
+     * @return  el objeto calificacion que se consulto.
+     */
     @GET
     @Path("{id: \\d+}")
-    public CerradoDetailDTO getState(@PathParam("id") Long id) throws BusinessLogicException{
-        CerradoDetailDTO dto = new CerradoDetailDTO(cerradoLogic.getState(id));
+    public CerradoDTO getState(@PathParam("id") Long id) throws BusinessLogicException{
+        CerradoDTO dto = new CerradoDTO(cerradoLogic.getState(id));
         return dto;
     }
     
+    /**
+     * PUT http://localhost:8080/huecota-web/api/estadosCerrado/{id}
+     * 
+     * @param id corresponde al estado a actualizar.
+     * @param cliente corresponde al objeto con los cambios que se van a realizar.
+     * @return La calificacion actualizada.
+     * @throws BusinessLogicException 
+     * 
+     * En caso de no existir el id del accidente a actualizar se retorna 404 con el mensaje.
+     */
     @PUT
     @Path("{id: \\d+}")
-    public CerradoDetailDTO updateState(@PathParam("id") Long id, CerradoDetailDTO cliente) throws BusinessLogicException, UnsupportedOperationException {
+    public CerradoDTO updateState(@PathParam("id") Long id, CerradoDTO cliente) throws BusinessLogicException, UnsupportedOperationException {
           return null;
     }
     
+    /**
+     * DELETE http://localhost:8080/huecota-web/api/estadosCerrado/{id} 
+     * @param id corresponde al estado a borrar.
+     * 
+     */
     @DELETE
     @Path("{id: \\d+}")
     public void deleteState(@PathParam("id") Long id) throws BusinessLogicException {

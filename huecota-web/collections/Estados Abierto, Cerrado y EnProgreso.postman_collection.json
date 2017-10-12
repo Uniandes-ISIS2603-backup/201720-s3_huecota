@@ -1,0 +1,293 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Estados Abierto, Cerrado y EnProgreso",
+		"_postman_id": "02fb557e-f6c0-7150-650e-1295146db19e",
+		"description": "Pruebas en postman de los tres estados de huecotá.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Agregar un hueco a estado abierto",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/estadosAbierto",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n\t{\r\n\t\"numeroDeHuecos\" : 1\r\n\t}"
+				},
+				"description": "Se agrega un nuevo hueco al total de huecos en estado abierto."
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiene todos los cambios de estado Abierto",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/estadosAbierto",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Se obtiene todos los cambios de estado Abierto, se va incrementando o bajando el numero de huecos en estado abierto dependiendo del caso."
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiene estado Abierto de id {2}",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/estadosAbierto/2",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Se obtiene el nuemero de huecos de estado Abierto con el id 2."
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza estado Abierto de id {2}",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/estadosAbierto",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"numeroDeHuecos\": 50\n}"
+				},
+				"description": "Se cambia el numero de huecos en estado abierto a 50 al registro del id 2."
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina el estado Abierto de id {2}",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/estadosAbierto/2",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2\n}"
+				},
+				"description": "Se elimina el registro de huecos de id 2."
+			},
+			"response": []
+		},
+		{
+			"name": "Agrega un nuevo estado Cerrado",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/estadosCerrado",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"causa\": \"Se cerró este estado por ser falsa alarma\",\n    \"comentario\" : \"No se encuentra un hueco en este lugar.\"\n}"
+				},
+				"description": "Se indica la causa y el comentario del cambio de estado."
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiene todos los huecos en estado Cerrado",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/estadosCerrado",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"causa\": \"Se cerró este estado por estar terminado\",\n    \"comentario\" : \"Era muy grande\"\n}"
+				},
+				"description": "Lista con todos los huecos en estado en progreso con su causa y comentario."
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiene el hueco en estado Cerrado de id {3}",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/estadosCerrado/3",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"causa\": \"Se cerró este estado por estar terminado\",\n    \"comentario\" : \"Era muy grande\"\n}"
+				},
+				"description": "La causa y comentario del hueco de id 3"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza el hueco en estado Cerrado de id {3}",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/estadosCerrado/3",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"causa\": \"Se cerrÃ³ este estado por estar terminado\",\n    \"comentario\": \"Era muy grande\",\n    \"id\": 3\n}"
+				},
+				"description": "Cambia la causa del cambio de estado"
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina el hueco en estado Cerrado de id {3}",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/estadosCerrado/3",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 3\n}"
+				},
+				"description": "Elimina el estado de id 3"
+			},
+			"response": []
+		},
+		{
+			"name": "Agrega una fecha al hueco EnProgreso",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/estadosEnProgreso",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fecha\":\"10/12/2018\"\n}"
+				},
+				"description": "La fecha indica el inicio de la operación."
+			},
+			"response": []
+		},
+		{
+			"name": "Otiene todos los huecos en estado EnProgreso",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/estadosEnProgreso",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fecha\":\"10/12/2018\"\n}"
+				},
+				"description": "Lista con todos los huecos en progreso."
+			},
+			"response": []
+		},
+		{
+			"name": "Otiene el hueco en estado EnProgreso con id {1}",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/estadosEnProgreso/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fecha\":\"10/12/2018\"\n}"
+				},
+				"description": "La fecha de inicio de operación del hueco con id 1"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza la fecha del hueco EnProgreso",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/estadosEnProgreso/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fecha\":\"10/12/2017\"\n}"
+				},
+				"description": "Se actualizó la fecha del inicio de operación."
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina el estado EnProgreso de id {1}",
+			"request": {
+				"url": "http://localhost:8080/huecota-web/api/estadosEnProgreso/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fecha\":\"10/12/2017\"\n}"
+				},
+				"description": "Se eliminó el estado de id {1}"
+			},
+			"response": []
+		}
+	]
+}

@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.nocompila.huecota.resources;
 
-import co.edu.uniandes.nocompila.huecota.dtos.EnProgresoDetailDTO;
+import co.edu.uniandes.nocompila.huecota.dtos.EnProgresoDTO;
 import co.edu.uniandes.nocompila.huecota.ejb.EnProgresoLogic;
 import co.edu.uniandes.nocompila.huecota.entities.EnProgresoEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
@@ -35,39 +35,71 @@ public class EnProgresoResource {
     @Inject
     EnProgresoLogic enProgresoLogic;
 
+    /**
+     * POST http://localhost:8080/huecota-web/api/estadosEnProgreso
+     * @param state corresponde a la representacion Java del objeto json.
+     * enviado en el llamado.
+     * @return Devuelve el objeto json de entrada que contiene el id creado por la base de datos y el tipo del objeto java.
+     */
     @POST
-    public EnProgresoDetailDTO createState(EnProgresoDetailDTO state) throws BusinessLogicException {
+    public EnProgresoDTO createState(EnProgresoDTO state) throws BusinessLogicException {
         EnProgresoEntity entity = state.toEntity();
         EnProgresoEntity newState = enProgresoLogic.createState(entity);
-        return new EnProgresoDetailDTO(newState);
+        return new EnProgresoDTO(newState);
     }
     
+    /**
+     * GET para todos los estados en progreso.
+     * http://localhost:8080/huecota-web/api/estadosEnProgreso
+     * @return  la lista de todos los estados en objetos json DTO.
+     */
     @GET
-    public List<EnProgresoDetailDTO> getStates() throws BusinessLogicException {
+    public List<EnProgresoDTO> getStates() throws BusinessLogicException {
         return listEntity2DetailDTO(enProgresoLogic.getStates());
     }
     
-    private List<EnProgresoDetailDTO> listEntity2DetailDTO(List<EnProgresoEntity> entityList) {
-        List<EnProgresoDetailDTO> list = new ArrayList();
+    private List<EnProgresoDTO> listEntity2DetailDTO(List<EnProgresoEntity> entityList) {
+        List<EnProgresoDTO> list = new ArrayList();
         for (EnProgresoEntity entity : entityList) {
-            list.add(new EnProgresoDetailDTO(entity));
+            list.add(new EnProgresoDTO(entity));
         }
         return list;
     }
     
+    /**
+     * GET para un estado abierto con in id específico,
+     * http://localhost:8080/huecota-web/api/estadosEnProgreso/{id}
+     * @param id del estado que se quiere.
+     * @return  el objeto calificacion que se consulto.
+     */
     @GET
     @Path("{id: \\d+}")
-    public EnProgresoDetailDTO getState(@PathParam("id") Long id) throws BusinessLogicException{
-        EnProgresoDetailDTO dto = new EnProgresoDetailDTO(enProgresoLogic.getState(id));
+    public EnProgresoDTO getState(@PathParam("id") Long id) throws BusinessLogicException{
+        EnProgresoDTO dto = new EnProgresoDTO(enProgresoLogic.getState(id));
         return dto;
     }
     
+    /**
+     * PUT http://localhost:8080/huecota-web/api/estadosEnProgreso/{id}
+     * 
+     * @param id corresponde al estado a actualizar.
+     * @param cliente corresponde al objeto con los cambios que se van a realizar.
+     * @return La calificacion actualizada.
+     * @throws BusinessLogicException 
+     * 
+     * En caso de no existir el id del accidente a actualizar se retorna 404 con el mensaje.
+     */
     @PUT
     @Path("{id: \\d+}")
-    public EnProgresoDetailDTO updateState(@PathParam("id") Long id, EnProgresoDetailDTO cliente) throws BusinessLogicException, UnsupportedOperationException {
+    public EnProgresoDTO updateState(@PathParam("id") Long id, EnProgresoDTO cliente) throws BusinessLogicException, UnsupportedOperationException {
           return null;
     }
     
+    /**
+     * DELETE http://localhost:8080/huecota-web/api/estadosEnProgreso/{id} 
+     * @param id corresponde al estado a borrar.
+     * 
+     */
     @DELETE
     @Path("{id: \\d+}")
     public void deleteState(@PathParam("id") Long id) throws BusinessLogicException {
