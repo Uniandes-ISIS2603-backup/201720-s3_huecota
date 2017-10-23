@@ -23,14 +23,15 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.MediaType;
 
 /**
  *
  * @author c.martinezc1
  */
 @Path("/clientes")
-@Produces("application/json")
-@Consumes("application/json")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 @Stateless
 public class ClienteResource {
  
@@ -54,9 +55,9 @@ public class ClienteResource {
         // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
         ClienteEntity entity = cliente.toEntity();
         // Invoca la lógica para crear el cliente nuev
-        ClienteEntity nuevoHueco = clienteLogic.createCliente(entity);
+        ClienteEntity nuevoCliente = clienteLogic.createCliente(entity);
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-        return new ClienteDetailDTO(nuevoHueco);
+        return new ClienteDetailDTO(nuevoCliente);
     }
     
     /**

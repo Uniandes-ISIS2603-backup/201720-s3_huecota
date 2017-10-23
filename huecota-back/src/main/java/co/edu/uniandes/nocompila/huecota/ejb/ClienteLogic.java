@@ -5,9 +5,11 @@
  */
 package co.edu.uniandes.nocompila.huecota.ejb;
 
+import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
 import co.edu.uniandes.nocompila.huecota.persistence.ClientePersistence;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
 import co.edu.uniandes.nocompila.huecota.entities.ClienteEntity;
+import co.edu.uniandes.nocompila.huecota.entities.HuecoEntity;
 import co.edu.uniandes.nocompila.huecota.entities.PuntoEntity;
 
 import java.util.List;
@@ -113,7 +115,7 @@ public class ClienteLogic {
      * @param puntoId Identificador de la instancia de Author
      * 
      */
-    public void removeAuthor(Long clienteId, Long puntoId) {
+    public void removePunto(Long clienteId, Long puntoId) {
         try {
             LOGGER.log(Level.INFO, "Inicia proceso de borrar un punto del cliente con id = {0}", clienteId);
             ClienteEntity entity = getCliente(clienteId);
@@ -124,6 +126,147 @@ public class ClienteLogic {
             Logger.getLogger(ClienteLogic.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+   
+    public List<AccidenteEntity> listaAccidente(Long clienteId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar todos los accidentes del cliente con id = {0}", clienteId);
+        return getCliente(clienteId).getAccidentes();
+    }
     
+    public AccidenteEntity getAccidente(Long clienteId, Long accidenteId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar un accidente del cliente con id = {0}", clienteId);
+        List<AccidenteEntity> list = getCliente(clienteId).getAccidentes();
+        AccidenteEntity accidenteEntity = new AccidenteEntity();
+        accidenteEntity.setId(accidenteId);
+        int index = list.indexOf(accidenteEntity);
+        if (index >= 0) {
+            return list.get(index);
+        }
+        return null;
+    }
+    
+     public AccidenteEntity addAccidente(Long clienteId, Long accidenteId) {
+        try {
+            LOGGER.log(Level.INFO, "Inicia proceso de asociar un accidente al cliente con id = {0}", clienteId);
+            ClienteEntity clienteEntity = getCliente(clienteId);
+            AccidenteEntity accidenteEntity = new AccidenteEntity();
+            accidenteEntity.setId(accidenteId);
+            clienteEntity.getAccidentes().add(accidenteEntity);
+            return getAccidente(clienteId, accidenteId);
+        } catch (BusinessLogicException ex) {
+            Logger.getLogger(ClienteLogic.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+
+    /**
+     * Remplaza las instancias de Author asociadas a una instancia de Book
+     *
+     * @param clienteId Identificador de la instancia de Book
+     * @param list Colección de instancias de AuthorEntity a asociar a instancia
+     * de Book
+     * @return Nueva colección de AuthorEntity asociada a la instancia de Book
+     * 
+     */
+    public List<AccidenteEntity> replaceAccidentes(Long clienteId, List<AccidenteEntity> list) {
+        try {
+            LOGGER.log(Level.INFO, "Inicia proceso de reemplazar un punto del cliente con id = {0}", clienteId);
+            ClienteEntity clienteEntity = getCliente(clienteId);
+            clienteEntity.setAccidentes(list);
+            return clienteEntity.getAccidentes();
+        } catch (BusinessLogicException ex) {
+            Logger.getLogger(ClienteLogic.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+
+    /**
+     * Desasocia un Author existente de un Book existente
+     *
+     * @param clienteId Identificador de la instancia de Book
+     * @param puntoId Identificador de la instancia de Author
+     * 
+     */
+    public void removeAccidente(Long clienteId, Long accidenteId) {
+        try {
+            LOGGER.log(Level.INFO, "Inicia proceso de borrar un punto del cliente con id = {0}", clienteId);
+            ClienteEntity entity = getCliente(clienteId);
+            AccidenteEntity accidenteEntity = new AccidenteEntity();
+            accidenteEntity.setId(accidenteId);
+            entity.getAccidentes().remove(accidenteEntity);
+        } catch (BusinessLogicException ex) {
+            Logger.getLogger(ClienteLogic.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public List<HuecoEntity> listaHueco(Long clienteId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar todos los accidentes del cliente con id = {0}", clienteId);
+        return getCliente(clienteId).getHuecos();
+    }
+    
+    public HuecoEntity getHueco(Long clienteId, Long huecoId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar un accidente del cliente con id = {0}", clienteId);
+        List<HuecoEntity> list = getCliente(clienteId).getHuecos();
+        HuecoEntity huecoEntity = new HuecoEntity();
+        huecoEntity.setId(huecoId);
+        int index = list.indexOf(huecoEntity);
+        if (index >= 0) {
+            return list.get(index);
+        }
+        return null;
+    }
+    
+     public HuecoEntity addHueco(Long clienteId, Long huecoId) {
+        try {
+            LOGGER.log(Level.INFO, "Inicia proceso de asociar un accidente al cliente con id = {0}", clienteId);
+            ClienteEntity clienteEntity = getCliente(clienteId);
+            HuecoEntity huecoEntity = new HuecoEntity();
+            huecoEntity.setId(huecoId);
+            clienteEntity.getHuecos().add(huecoEntity);
+            return getHueco(clienteId, huecoId);
+        } catch (BusinessLogicException ex) {
+            Logger.getLogger(ClienteLogic.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+
+    /**
+     * Remplaza las instancias de Author asociadas a una instancia de Book
+     *
+     * @param clienteId Identificador de la instancia de Book
+     * @param list Colección de instancias de AuthorEntity a asociar a instancia
+     * de Book
+     * @return Nueva colección de AuthorEntity asociada a la instancia de Book
+     * 
+     */
+    public List<HuecoEntity> replaceHuecos(Long clienteId, List<HuecoEntity> list) {
+        try {
+            LOGGER.log(Level.INFO, "Inicia proceso de reemplazar un punto del cliente con id = {0}", clienteId);
+            ClienteEntity clienteEntity = getCliente(clienteId);
+            clienteEntity.setHuecos(list);
+            return clienteEntity.getHuecos();
+        } catch (BusinessLogicException ex) {
+            Logger.getLogger(ClienteLogic.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+
+    /**
+     * Desasocia un Author existente de un Book existente
+     *
+     * @param clienteId Identificador de la instancia de Book
+     * @param puntoId Identificador de la instancia de Author
+     * 
+     */
+    public void removeHueco(Long clienteId, Long huecoId) {
+        try {
+            LOGGER.log(Level.INFO, "Inicia proceso de borrar un punto del cliente con id = {0}", clienteId);
+            ClienteEntity entity = getCliente(clienteId);
+            HuecoEntity huecoEntity = new HuecoEntity();
+            huecoEntity.setId(huecoId);
+            entity.getHuecos().remove(huecoEntity);
+        } catch (BusinessLogicException ex) {
+            Logger.getLogger(ClienteLogic.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }
