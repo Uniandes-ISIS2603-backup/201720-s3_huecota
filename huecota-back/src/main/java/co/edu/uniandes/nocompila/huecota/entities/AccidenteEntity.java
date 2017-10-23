@@ -23,7 +23,7 @@ public class AccidenteEntity  extends BaseEntity implements Serializable
 	 */
 	@PodamExclude
     @ManyToMany
-    private List<ClienteEntity> cliente;
+    private List<ClienteEntity> clientes;
 	
 	/**
 	 * Atributo que representa un cliente para la clase accidente.
@@ -49,12 +49,16 @@ public class AccidenteEntity  extends BaseEntity implements Serializable
 	}
 	
 	
-	public List<ClienteEntity> getCliente() {
-		return cliente;
+	public List<ClienteEntity> getClientes() {
+		return clientes;
 	}
 
-	public void setCliente(List<ClienteEntity> cliente) {
-		this.cliente = cliente;
+	public void setClientes(List<ClienteEntity> clientes) {
+		this.clientes = clientes;
+	}
+	public void addCliente(ClienteEntity cliente)
+	{
+		this.clientes.add(cliente);
 	}
 
 	public HuecoEntity getHueco() {
