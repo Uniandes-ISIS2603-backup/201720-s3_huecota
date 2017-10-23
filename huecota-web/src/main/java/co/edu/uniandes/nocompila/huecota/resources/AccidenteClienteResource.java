@@ -24,7 +24,7 @@ import javax.ws.rs.Produces;
  */
 @Consumes("application/json")
 @Produces("application/json")
-public class ClientesAccidenteResource
+public class AccidenteClienteResource
 {
 	 @Inject
     private AccidenteLogic accidenteLogic;
