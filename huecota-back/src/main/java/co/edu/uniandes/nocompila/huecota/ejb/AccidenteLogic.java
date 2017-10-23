@@ -6,6 +6,7 @@
 package co.edu.uniandes.nocompila.huecota.ejb;
 
 import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
+import co.edu.uniandes.nocompila.huecota.entities.ClienteEntity;
 import co.edu.uniandes.nocompila.huecota.entities.DireccionEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
 import co.edu.uniandes.nocompila.huecota.persistence.AccidentePersistence;
@@ -86,4 +87,15 @@ public class AccidenteLogic
         AccidenteEntity newEntity = persistence.update(entity);
         return newEntity;
     }
+	
+	public List<ClienteEntity> getClientes(Long AccidenteId)
+	{
+        return getAccidente(AccidenteId).getClientes();
+    }
+	public ClienteEntity addCliente(Long AccidenteId, ClienteEntity cliente)
+	{
+		AccidenteEntity accidente = getAccidente(AccidenteId);
+		accidente.addCliente(cliente);
+		return cliente;
+	}
 }

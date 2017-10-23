@@ -38,6 +38,7 @@ public class ApplicationConfig extends Application {
         resources.add(co.edu.uniandes.nocompila.huecota.resources.CerradoResource.class);
         resources.add(co.edu.uniandes.nocompila.huecota.resources.ClienteAccidenteResource.class);
         resources.add(co.edu.uniandes.nocompila.huecota.resources.ClienteResource.class);
+        resources.add(co.edu.uniandes.nocompila.huecota.resources.ClientesAccidenteResource.class);
         resources.add(co.edu.uniandes.nocompila.huecota.resources.ContratistaResource.class);
         resources.add(co.edu.uniandes.nocompila.huecota.resources.CuentaCobroResource.class);
 		resources.add(co.edu.uniandes.nocompila.huecota.resources.DireccionResource.class);
@@ -47,7 +48,7 @@ public class ApplicationConfig extends Application {
         resources.add(co.edu.uniandes.nocompila.huecota.resources.HuecoImagenResource.class);
         resources.add(co.edu.uniandes.nocompila.huecota.resources.HuecoResource.class);
         resources.add(co.edu.uniandes.nocompila.huecota.resources.ImagenResource.class);
-        resources.add(co.edu.uniandes.nocompila.huecota.resources.PuntoResource.class);
+		resources.add(co.edu.uniandes.nocompila.huecota.resources.PuntoResource.class);
     }
     
 }
