@@ -57,12 +57,12 @@ public class ClienteLogic {
     }
     
     public List<PuntoEntity> listaPunto(Long clienteId) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar todos los accidentes del cliente con id = {0}", clienteId);
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar todos los puntos del cliente con id = {0}", clienteId);
         return getCliente(clienteId).getPuntos();
     }
     
     public PuntoEntity getPunto(Long clienteId, Long accidenteId) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar un accidente del cliente con id = {0}", clienteId);
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar un punto del cliente con id = {0}", clienteId);
         List<PuntoEntity> list = getCliente(clienteId).getPuntos();
         PuntoEntity puntoEntity = new PuntoEntity();
         puntoEntity.setId(accidenteId);
@@ -75,7 +75,7 @@ public class ClienteLogic {
     
      public PuntoEntity addPunto(Long clienteId, Long puntoId) {
         try {
-            LOGGER.log(Level.INFO, "Inicia proceso de asociar un autor al libro con id = {0}", clienteId);
+            LOGGER.log(Level.INFO, "Inicia proceso de asociar un punto a un cliente con id = {0}", clienteId);
             ClienteEntity bookEntity = getCliente(clienteId);
             PuntoEntity puntoEntity = new PuntoEntity();
             puntoEntity.setId(puntoId);
@@ -169,7 +169,7 @@ public class ClienteLogic {
      */
     public List<AccidenteEntity> replaceAccidentes(Long clienteId, List<AccidenteEntity> list) {
         try {
-            LOGGER.log(Level.INFO, "Inicia proceso de reemplazar un punto del cliente con id = {0}", clienteId);
+            LOGGER.log(Level.INFO, "Inicia proceso de reemplazar un accidente del cliente con id = {0}", clienteId);
             ClienteEntity clienteEntity = getCliente(clienteId);
             clienteEntity.setAccidentes(list);
             return clienteEntity.getAccidentes();
@@ -183,12 +183,12 @@ public class ClienteLogic {
      * Desasocia un Author existente de un Book existente
      *
      * @param clienteId Identificador de la instancia de Book
-     * @param puntoId Identificador de la instancia de Author
+     * @param accidenteId Identificador de la instancia de Author
      * 
      */
     public void removeAccidente(Long clienteId, Long accidenteId) {
         try {
-            LOGGER.log(Level.INFO, "Inicia proceso de borrar un punto del cliente con id = {0}", clienteId);
+            LOGGER.log(Level.INFO, "Inicia proceso de borrar un accidente del cliente con id = {0}", clienteId);
             ClienteEntity entity = getCliente(clienteId);
             AccidenteEntity accidenteEntity = new AccidenteEntity();
             accidenteEntity.setId(accidenteId);
@@ -199,12 +199,12 @@ public class ClienteLogic {
     }
     
     public List<HuecoEntity> listaHueco(Long clienteId) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar todos los accidentes del cliente con id = {0}", clienteId);
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar todos los huecos del cliente con id = {0}", clienteId);
         return getCliente(clienteId).getHuecos();
     }
     
     public HuecoEntity getHueco(Long clienteId, Long huecoId) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar un accidente del cliente con id = {0}", clienteId);
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar un hueco del cliente con id = {0}", clienteId);
         List<HuecoEntity> list = getCliente(clienteId).getHuecos();
         HuecoEntity huecoEntity = new HuecoEntity();
         huecoEntity.setId(huecoId);
@@ -217,7 +217,7 @@ public class ClienteLogic {
     
      public HuecoEntity addHueco(Long clienteId, Long huecoId) {
         try {
-            LOGGER.log(Level.INFO, "Inicia proceso de asociar un accidente al cliente con id = {0}", clienteId);
+            LOGGER.log(Level.INFO, "Inicia proceso de asociar un hueco al cliente con id = {0}", clienteId);
             ClienteEntity clienteEntity = getCliente(clienteId);
             HuecoEntity huecoEntity = new HuecoEntity();
             huecoEntity.setId(huecoId);
@@ -240,7 +240,7 @@ public class ClienteLogic {
      */
     public List<HuecoEntity> replaceHuecos(Long clienteId, List<HuecoEntity> list) {
         try {
-            LOGGER.log(Level.INFO, "Inicia proceso de reemplazar un punto del cliente con id = {0}", clienteId);
+            LOGGER.log(Level.INFO, "Inicia proceso de reemplazar un hueco del cliente con id = {0}", clienteId);
             ClienteEntity clienteEntity = getCliente(clienteId);
             clienteEntity.setHuecos(list);
             return clienteEntity.getHuecos();
@@ -254,12 +254,12 @@ public class ClienteLogic {
      * Desasocia un Author existente de un Book existente
      *
      * @param clienteId Identificador de la instancia de Book
-     * @param puntoId Identificador de la instancia de Author
+     * @param huecoId Identificador de la instancia de Author
      * 
      */
     public void removeHueco(Long clienteId, Long huecoId) {
         try {
-            LOGGER.log(Level.INFO, "Inicia proceso de borrar un punto del cliente con id = {0}", clienteId);
+            LOGGER.log(Level.INFO, "Inicia proceso de borrar un hueco del cliente con id = {0}", clienteId);
             ClienteEntity entity = getCliente(clienteId);
             HuecoEntity huecoEntity = new HuecoEntity();
             huecoEntity.setId(huecoId);
