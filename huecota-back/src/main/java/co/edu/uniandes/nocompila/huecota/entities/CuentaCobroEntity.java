@@ -26,6 +26,7 @@ public class CuentaCobroEntity extends BaseEntity implements Serializable
     /**
      * Contratista encargado de la cuenta de cobro.
      */
+    @PodamExclude
     @ManyToOne
     private ContratistaEntity contratista;
     

@@ -29,6 +29,7 @@ public class ContratistaEntity extends BaseEntity implements  Serializable
     /**
      * Cuentas de Cobro del contratista.
      */
+    @PodamExclude
     @OneToMany(mappedBy = "contratista", cascade = {CascadeType.ALL}, orphanRemoval = true)
     private List<CuentaCobroEntity> cuentasCobro = new ArrayList<CuentaCobroEntity>();
     
