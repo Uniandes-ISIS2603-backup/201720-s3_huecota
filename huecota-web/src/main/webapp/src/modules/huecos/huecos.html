@@ -1,20 +1,9 @@
-<html>
-    <head>
-        <title>Huecos</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>Contenido</div>
-        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
-    <div class="container-fluid">
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
+<div class="container-fluid">
     <div class="row">
-           <div ui-view="detailView"></div>
+        <div ui-view="detailView"></div>
     </div>
     <div class="row">
-            <div ui-view="listView"></div>
+        <div ui-view="listView"></div>
     </div>
-        
-    </div>
-    </body>
-</html>
+</div>

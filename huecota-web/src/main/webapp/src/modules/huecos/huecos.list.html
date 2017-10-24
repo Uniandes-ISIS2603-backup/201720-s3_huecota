@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2" ng-repeat="huecos in huecosRecords">
+            <div class="thumbnail">
+                <a ui-sref="huecosDetail({huecoId: huecos.id})">                    
+                    <img class="img-responsive" ng-src='{{huecos.imagenes}}' alt="{{huecos.id}}" />                  
+                </a>
+                <div class="caption text-center">
+                    <p>{{huecos.name}}</p>
+                    <p ng-repeat="imagenes in huecos.imagenes">
+                        <a ui-sref="imagenesDetail({imagenesId: imagenes.id})" class="thumb">{{imagenes.foto}}</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

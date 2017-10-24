@@ -1,7 +1,7 @@
 (function (ng) {
-    var mod = ng.module("huecoModule");
+    var mod = ng.module("huecosModule");
     mod.constant("huecosContext", "api/huecos");
-    mod.controller('huecoCtrl', ['$scope', '$http', 'huecosContext', '$state',
+    mod.controller('huecosCtrl', ['$scope', '$http', 'huecosContext', '$state',
         function ($scope, $http, huecosContext, $state) {
             $http.get(huecosContext).then(function (response) {
                 $scope.huecosRecords = response.data;
