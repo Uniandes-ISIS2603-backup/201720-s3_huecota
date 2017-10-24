@@ -1,0 +1,39 @@
+<div class="panel panel-default"> 
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-3">
+                <dl>     
+                    <dt>{{currentHueco.name}}</dt>
+                    <ul ng-repeat="author in currentHueco.authors">
+                        <a ui-sref="authorDetail({authorId: author.id})">{{author.name}}</a>
+                    </ul>
+                    <dt> ISBN</dt>
+                    <dd>{{currentHueco.isbn}}</dd>
+                    <hr>
+                    <dt>Publishing Date</dt>
+                    <dd>{{currentHueco.publishingdate| date:'yyyy-MM-dd'}}</dd>
+                    <hr>
+                    <dt class="bold">Editorial</dt>
+
+                    <dd>{{currentHueco.editorial.name}}</dd>
+                    <hr>
+                    <dt class="bold">Descripcion</dt>
+                    <dd>{{currentHueco.descripcion}}</dd>
+
+                </dl>
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"> <a ui-sref="reviewsList({HuecoId: currentHueco.id})">Reviews</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+                <div ui-view="childrenView"></div>
+            </div>
+        </div>
+    </div>
+</div>
+

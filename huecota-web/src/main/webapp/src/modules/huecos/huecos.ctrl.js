@@ -1,16 +1,18 @@
 (function (ng) {
-    
-    var mod = ng.module("huecosModule");
-    
-    mod.controller("huecosCtrl", ['$scope','$state', '$stateParams', '$http', 'huecosContext', function ($scope, $state, $stateParams, $http, context) {
-            
-            $scope.records = {};
-            
-            $http.get(context).then(function (response) {
-                $scope.records = response.data;
+    var mod = ng.module("huecoModule");
+    mod.constant("huecosContext", "api/huecos");
+    mod.controller('huecoCtrl', ['$scope', '$http', 'huecosContext', '$state',
+        function ($scope, $http, huecosContext, $state) {
+            $http.get(huecosContext).then(function (response) {
+                $scope.huecosRecords = response.data;
             });
- 
-    }])
-})
-
-
+            
+            if ($state.params.huecoId !== undefined) {
+                $http.get(huecosContext + '/' + $state.params.huecoId).then(function (response) {
+                    $scope.currentHueco = response.data;
+                });
+            }
+        }
+    ]);
+}
+)(angular);
