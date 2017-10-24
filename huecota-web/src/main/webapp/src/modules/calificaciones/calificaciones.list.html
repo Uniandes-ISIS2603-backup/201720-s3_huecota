@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <div class="col-sm-12">
+        <br>
+        <table ng-if="!messageCalificaciones" class="table table-striped">
+            
+            <tbody>
+                <tr ng-repeat="calificacion in calificacionesRecords">
+                    <td id="{{$index}}-id"><b>{{currentHueco.name}}</b><span>: </span>{{calificacion.nota}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table ng-if="messageCalificaciones" class="table table-striped">
+            <tbody>
+                <tr>
+                    <td><b>{{messageCalificaciones}}</b></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
