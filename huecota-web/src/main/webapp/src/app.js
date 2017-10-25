@@ -6,7 +6,8 @@
        
         // Internal modules dependencies       
         'huecoModule',
-        'calificacionModule'
+        'calificacionModule',
+        'clienteModule'
         
 
     ]);
