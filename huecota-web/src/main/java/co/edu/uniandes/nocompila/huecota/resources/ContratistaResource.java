@@ -91,4 +91,14 @@ public class ContratistaResource
             throw new WebApplicationException("El recurso contratista: " + id + " no existe.", 404);
         contratistaLogic.deleteContratistaEntity(id);
     }
+    
+    @Path("{idContratista: \\d+}/cuentascobro")
+     public Class<CuentaCobroResource> getContratistaCuentaCobroResource(@PathParam ("idContratista") Long contratistasId)
+    {
+        ContratistaEntity entity = contratistaLogic.getContratista(contratistasId);
+        if(entity==null)
+            throw new WebApplicationException("El recurso /contratistas/"+contratistasId+" no existe", 404);
+        return CuentaCobroResource.class;
+        
+    }
 }
