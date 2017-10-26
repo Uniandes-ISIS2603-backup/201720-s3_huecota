@@ -12,9 +12,11 @@ package co.edu.uniandes.nocompila.huecota.resources;
 
 import co.edu.uniandes.nocompila.huecota.dtos.AccidenteDTO;
 import co.edu.uniandes.nocompila.huecota.dtos.ClienteDTO;
+import co.edu.uniandes.nocompila.huecota.dtos.HuecoDTO;
 import co.edu.uniandes.nocompila.huecota.ejb.AccidenteLogic;
 import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
 import co.edu.uniandes.nocompila.huecota.entities.ClienteEntity;
+import co.edu.uniandes.nocompila.huecota.entities.HuecoEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
@@ -183,4 +185,22 @@ public class AccidenteResource
     {
         return new ClienteDTO(accidenteLogic.addCliente(accidenteId,cliente));
     }
+	
+	@GET
+	@Path("{accidenteId: \\d+}/hueco")
+    public HuecoDTO getHueco(@PathParam("accidenteId") Long accidenteId)
+    {
+        return new HuecoDTO(accidenteLogic.getHueco(accidenteId));
+    }
+    
+       
+    @POST
+    @Path("{accidenteId: \\d+}/hueco")
+    public HuecoDTO setHueco(@PathParam("accidenteId") Long accidenteId, HuecoEntity hueco)
+    {
+        return new HuecoDTO(accidenteLogic.setHueco(accidenteId,hueco));
+    }
+	
+	
+	
 }
