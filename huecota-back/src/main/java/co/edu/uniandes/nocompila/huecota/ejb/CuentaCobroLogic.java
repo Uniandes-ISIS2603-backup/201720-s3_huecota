@@ -40,10 +40,17 @@ public class CuentaCobroLogic
         return toReturn;
     }
     
-    public CuentaCobroEntity getCuentaCobro(Long id)
+    public CuentaCobroEntity getCuentaCobro(Long idContratista, Long id) throws BusinessLogicException
     {
         LOGGER.info("Inicia el proceso de consultar una cuenta de cobro");
-        CuentaCobroEntity toReturn = persistence.find(id);
+        CuentaCobroEntity toReturn = null;
+        ContratistaEntity contratista = contratistaLogic.getContratista(idContratista);
+        for(CuentaCobroEntity cuentaEntity : contratista.getCuentasCobro())
+            if(cuentaEntity.getId()==id)
+            {
+                toReturn = cuentaEntity;
+                break;
+            }
         LOGGER.info("Termina el proceso de consultar una cuenta de cobro");
         return toReturn;
     }
@@ -61,18 +68,21 @@ public class CuentaCobroLogic
         return toReturn;
     }
     
-    public CuentaCobroEntity updateCuentaCobro(CuentaCobroEntity entity)
+    public CuentaCobroEntity updateCuentaCobro(Long idContratista, CuentaCobroEntity entity)
     {
         LOGGER.log(Level.INFO, "Inicia el proceso de actualizar la cuenta de cobro con id={0}", entity.getId());
+        ContratistaEntity contratista = contratistaLogic.getContratista(idContratista);
+        entity.setContratista(contratista);
         CuentaCobroEntity toReturn = persistence.update(entity);
         LOGGER.log(Level.INFO, "Termina el proceso de actualizar la cuenta de cobro con id={0}", entity.getId());
         return toReturn;
     }
     
-    public void deleteCuentaCobroEntity(Long id)
+    public void deleteCuentaCobroEntity(Long idContratista, Long id) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "Inicia el proceso de borrar cuenta de cobro con id={0}", id);
-        persistence.delete(id);
+        CuentaCobroEntity cuentaCobroOld = getCuentaCobro(idContratista, id);
+        persistence.delete(cuentaCobroOld.getId());
         LOGGER.log(Level.INFO, "termina el proceso de borrar cuenta de cobro con id={0}", id);
     }
 }

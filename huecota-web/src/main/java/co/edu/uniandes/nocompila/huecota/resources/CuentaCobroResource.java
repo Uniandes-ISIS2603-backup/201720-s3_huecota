@@ -57,34 +57,34 @@ public class CuentaCobroResource
     
     @GET
     @Path("{id: \\d+}")
-    public CuentaCobroDetailDTO getCuentaCobro(@PathParam("id") Long id)
+    public CuentaCobroDetailDTO getCuentaCobro(@PathParam("idContratista") Long idContratista, @PathParam("id") Long id) throws BusinessLogicException
     {
-        CuentaCobroEntity entity = cuentaCobroLogic.getCuentaCobro(id);
+        CuentaCobroEntity entity = cuentaCobroLogic.getCuentaCobro(idContratista, id);
         if(entity == null)
         {
-            throw new WebApplicationException( "El recurso cuenta de cobro: " + id + " no existe",404);
+            throw new WebApplicationException( "El recurso /contratistas/" + idContratista + "/cuentascobros/" + id + " no existe",404);
         }
         return new CuentaCobroDetailDTO(entity);
     }
     
     @PUT
     @Path("{id: \\d+}")
-    public CuentaCobroDetailDTO updateCuentaCobro(@PathParam("id") Long id, CuentaCobroDetailDTO cuentaCobro)
+    public CuentaCobroDetailDTO updateCuentaCobro(@PathParam("idContratista") Long idContratista, @PathParam("id") Long id, CuentaCobroDetailDTO cuentaCobro) throws BusinessLogicException
     {
         cuentaCobro.setId(id);
-        CuentaCobroEntity entity = cuentaCobroLogic.getCuentaCobro(id);
+        CuentaCobroEntity entity = cuentaCobroLogic.getCuentaCobro(idContratista, id);
         if (entity == null)
-            throw new WebApplicationException("El recurso cuenta de cobro: " + id + " no existe.", 404);
-        return new CuentaCobroDetailDTO(cuentaCobroLogic.updateCuentaCobro(cuentaCobro.toEntity()));
+            throw new WebApplicationException("El recurso /contratistas/" + idContratista + "/cuentascobros/" + id + " no existe", 404);
+        return new CuentaCobroDetailDTO(cuentaCobroLogic.updateCuentaCobro(idContratista, cuentaCobro.toEntity()));
     }
     
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteCuentaCobro(@PathParam("id") Long id)
+    public void deleteCuentaCobro(@PathParam("idContratista") Long idContratista, @PathParam("id") Long id) throws BusinessLogicException
     {
-        CuentaCobroEntity entity = cuentaCobroLogic.getCuentaCobro(id);
+        CuentaCobroEntity entity = cuentaCobroLogic.getCuentaCobro(idContratista, id);
         if (entity == null)
-            throw new WebApplicationException("El recurso cuenta de cobro: " + id + " no existe.", 404);
-        cuentaCobroLogic.deleteCuentaCobroEntity(id);
+            throw new WebApplicationException("El recurso /contratistas/" + idContratista + "/cuentascobros/" + id + " no existe", 404);
+        cuentaCobroLogic.deleteCuentaCobroEntity(idContratista, id);
     }
 }
