@@ -7,8 +7,8 @@
         // Internal modules dependencies       
         'huecoModule',
         'calificacionModule',
-        'clienteModule'
-        
+        'clienteModule',
+        'puntoModule'
 
     ]);
     // Resuelve problemas de las promesas
