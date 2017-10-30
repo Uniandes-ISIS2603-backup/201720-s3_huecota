@@ -26,7 +26,7 @@ import javax.ws.rs.WebApplicationException;
 
 /**
  *
- * @author c.martinezc1
+ * @author ch.patino
  */
 @Path("/huecos")
 @Produces("application/json")

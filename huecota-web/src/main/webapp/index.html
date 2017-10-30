@@ -6,31 +6,33 @@
         <title>Huecota</title>
         
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
-        <script src="bower_components/angular/angular.js"></script>
+          <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
         
         
         <!--Cliente-->
         <script src="src/modules/clientes/clientes.mod.js" type="text/javascript"></script>
-        <script src="src/modules/clientes/clientes.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/clientes/clientes.ctr.js" type="text/javascript"></script>
         
-        <!-- Calificaciones -->
+        <!-- Calificaciones 
         <script src="src/modules/calificaciones/calificaciones.mod.js" type ="text/javascript"></script>
         <script src="src/modules/calificaciones/calificaciones.ctrl.js" type="text/javascript"></script>
         
-        <!--Imagenes-->
+        
         <script src="src/modules/reviews/imagenes.mod.js" type="text/javascript"></script>
         <script src="src/modules/reviews/imagenes.ctrl.js" type="text/javascript"></script>
         
-        <!-- Hueco -->
+        
         <script src="src/modules/huecos/huecos.mod.js" type="text/javascript"></script>
         <script src="src/modules/huecos/huecos.ctrl.js" type="text/javascript"></script>
         
+        
               <!--------------------------------------- Estados ----------------------------------------->
-        <!--- Abierto --->
+        <!--- Abierto 
         <script src="src/modules/estados/abierto.mod.js" type ="text/javascript"></script>
         <script src="src/modules/estados/abierto.ctrl.js" type="text/javascript"></script>
-        
+        -->
         <script src="src/app.js" type="text/javascript"></script>
         
         <style type="text/css">
@@ -106,14 +108,15 @@
                 <div class="col-md-12">
                     <ul class="nav nav-tabs">
                         <li role="navigation"><a ui-sref="clientesList"> Clientes</a></li>
-                        <li role="navigation"><a ui-sref="huecosList"> Huecos</a></li>
+                        <!--
+                        <li><a href="huecos">Huecos</a></li>
                         <li><a href="#">Estados</a>
                         <ul>
                             <li role="presentation"><a ui-sref="abiertosList">Abierto</a></li>
                             <li><a href="">Cerrado</a></li>
                             <li><a href="">En Progreso</a></li>
                        </ul>
-                            
+                        -->    
                     </ul>
                 </div>
             </div>

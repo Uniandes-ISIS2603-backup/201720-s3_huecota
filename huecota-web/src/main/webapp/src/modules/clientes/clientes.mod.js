@@ -21,20 +21,12 @@
                         controllerAs: 'ctrl'
                     }
                 }
-            }).state('clienteDetail', {
-                url: '/{clienteId:int}/detail',
+            }).state('clientesList', {
+                url: '/list',
                 parent: 'clientes',
-                param: {
-                    authorId: null
-                },
                 views: {
                     'listView': {
-                        templateUrl: basePuntoss + 'puntos.list.html',
-                        controller: 'clienteCtrl',
-                        controllerAs: 'ctrl'
-                    },
-                    'detailView': {
-                        templateUrl: basePath + 'clientes.detail.html',
+                        templateUrl: basePath + 'clientes.list.html',
                         controller: 'clienteCtrl',
                         controllerAs: 'ctrl'
                     }

@@ -1,18 +1,44 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2" ng-repeat="huecos in huecosRecords">
-            <div class="thumbnail">
-                <a ui-sref="huecosDetail({huecoId: huecos.id})">                    
-                    <img class="img-responsive" ng-src='{{huecos.imagenes}}' alt="{{huecos.id}}" />                  
-                </a>
-                <div class="caption text-center">
-                    <p>{{huecos.name}}</p>
-                    <p ng-repeat="imagenes in huecos.imagenes">
-                        <a ui-sref="imagenesDetail({imagenesId: imagenes.id})" class="thumb">{{imagenes.foto}}</a>
-                    </p>
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label>Huecos list</label></div>
+            <div class="panel-body">
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-info" ui-sref="huecosCreate"><span class="glyphicon glyphicon-plus-sign"></span> Add new hueco</a>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Descripcion</th>    
+                                <th>Direccion</th>  
+                                <th>Calificaciones</th> 
+                                <th>Accidentes</th>
+                                <th>Clientes</th>
+                                <th>Imgenes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="huecos in huecosRecords">
+                                <td id="{{$index}}-descripcion"><a ui-sref="huecosDetail({huecoId: huecos.id})">{{huecos.descripcion}}</a></td>
+                                <td id="{{$index}}-direccion"><a ui-sref="huecosDetail({huecoId: huecos.id})">{{huecos.direccion}}</a></td>
+                                <td id="{{$index}}-calificaciones"><a ui-sref="huecosDetail({huecoId: huecos.id})">{{huecos.calificaciones}}</a></td>
+                                <td id="{{$index}}-accidentes"><a ui-sref="huecosDetail({huecoId: huecos.id})">{{huecos.accidentes}}</a></td>
+                                <td id="{{$index}}-clientes"><a ui-sref="huecosDetail({huecoId: huecos.id})">{{huecos.clientes}}</a></td>
+                                <td id="{{$index}}-imagenes"><a ui-sref="huecosDetail({huecoId: huecos.id})">{{huecos.imagenes}}</a></td>
+                                <td id="{{$index}}-actions">
+                                    <a class="btn btn-default btn-sm" ui-sref="huecosUpdate({huecoId: huecos.id})"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a class="btn btn-danger btn-sm" ui-sref="huecosDelete({huecoId: huecos.id})"><span class="glyphicon glyphicon-trash"></span></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
+
+</div>

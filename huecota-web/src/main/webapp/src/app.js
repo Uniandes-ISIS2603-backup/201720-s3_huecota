@@ -5,10 +5,11 @@
         'ui.bootstrap',
        
         // Internal modules dependencies       
-        'huecoModule',
-        'calificacionModule',
-        'clienteModule',
-        'puntoModule'
+        //'huecoModule'
+        //,
+        //'calificacionModule',
+        'clienteModule'
+        //'puntoModule'
 
     ]);
     // Resuelve problemas de las promesas
