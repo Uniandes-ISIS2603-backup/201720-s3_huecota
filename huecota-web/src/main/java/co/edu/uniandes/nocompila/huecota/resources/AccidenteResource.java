@@ -11,8 +11,12 @@ package co.edu.uniandes.nocompila.huecota.resources;
  */
 
 import co.edu.uniandes.nocompila.huecota.dtos.AccidenteDTO;
+import co.edu.uniandes.nocompila.huecota.dtos.ClienteDTO;
+import co.edu.uniandes.nocompila.huecota.dtos.HuecoDTO;
 import co.edu.uniandes.nocompila.huecota.ejb.AccidenteLogic;
 import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
+import co.edu.uniandes.nocompila.huecota.entities.ClienteEntity;
+import co.edu.uniandes.nocompila.huecota.entities.HuecoEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
@@ -152,4 +156,51 @@ public class AccidenteResource
 	{
          accidenteLogic.deleteAccidente(id);
     }
+	/**
+	 * Métodos para los clientes de un accidente.
+	 */
+	 private List<ClienteDTO> clienteEntity2DTO(List<ClienteEntity> entityList)
+    {
+        List<ClienteDTO> list = new ArrayList();
+        for(ClienteEntity entity : entityList)
+        {
+            list.add(new ClienteDTO(entity));
+        }
+        
+        return list;
+    }
+	
+	
+	@GET
+	@Path("{accidenteId: \\d+}/clientes")
+    public List<ClienteDTO> listClientes(@PathParam("accidenteId") Long accidenteId)
+    {
+        return clienteEntity2DTO(accidenteLogic.getClientes(accidenteId));
+    }
+    
+       
+    @POST
+    @Path("{accidenteId: \\d+}/clientes")
+    public ClienteDTO addCliente(@PathParam("accidenteId") Long accidenteId, ClienteEntity cliente)
+    {
+        return new ClienteDTO(accidenteLogic.addCliente(accidenteId,cliente));
+    }
+	
+	@GET
+	@Path("{accidenteId: \\d+}/hueco")
+    public HuecoDTO getHueco(@PathParam("accidenteId") Long accidenteId)
+    {
+        return new HuecoDTO(accidenteLogic.getHueco(accidenteId));
+    }
+    
+       
+    @POST
+    @Path("{accidenteId: \\d+}/hueco")
+    public HuecoDTO setHueco(@PathParam("accidenteId") Long accidenteId, HuecoEntity hueco)
+    {
+        return new HuecoDTO(accidenteLogic.setHueco(accidenteId,hueco));
+    }
+	
+	
+	
 }

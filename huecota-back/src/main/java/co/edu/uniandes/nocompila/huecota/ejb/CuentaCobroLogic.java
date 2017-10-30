@@ -5,7 +5,9 @@
  */
 package co.edu.uniandes.nocompila.huecota.ejb;
 
+import co.edu.uniandes.nocompila.huecota.entities.ContratistaEntity;
 import co.edu.uniandes.nocompila.huecota.entities.CuentaCobroEntity;
+import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
 import co.edu.uniandes.nocompila.huecota.persistence.CuentaCobroPersistence;
 import java.util.List;
 import java.util.logging.Level;
@@ -25,42 +27,62 @@ public class CuentaCobroLogic
     @Inject
     private CuentaCobroPersistence persistence;
     
-    public CuentaCobroEntity crearCuentaCobro(CuentaCobroEntity entity)
+    @Inject
+    private ContratistaLogic contratistaLogic;
+    
+    public CuentaCobroEntity crearCuentaCobro(Long idContratista, CuentaCobroEntity entity)
     {
         LOGGER.info("Inicia el proceso de creación de una cuenta de cobro");
+        ContratistaEntity contratista = contratistaLogic.getContratista(idContratista);
+        entity.setContratista(contratista);
         CuentaCobroEntity toReturn = persistence.create(entity);
         LOGGER.info("Finaliza el proceso de creación de una cuenta de cobro");
         return toReturn;
     }
     
-    public CuentaCobroEntity getCuentaCobro(Long id)
+    public CuentaCobroEntity getCuentaCobro(Long idContratista, Long id) throws BusinessLogicException
     {
         LOGGER.info("Inicia el proceso de consultar una cuenta de cobro");
-        CuentaCobroEntity toReturn = persistence.find(id);
+        CuentaCobroEntity toReturn = null;
+        ContratistaEntity contratista = contratistaLogic.getContratista(idContratista);
+        for(CuentaCobroEntity cuentaEntity : contratista.getCuentasCobro())
+            if(cuentaEntity.getId()==id)
+            {
+                toReturn = cuentaEntity;
+                break;
+            }
         LOGGER.info("Termina el proceso de consultar una cuenta de cobro");
         return toReturn;
     }
     
-    public List<CuentaCobroEntity> getCuentasCobros()
+    public List<CuentaCobroEntity> getCuentasCobros(Long idContratista) throws BusinessLogicException
     {
         LOGGER.info("Inicia el proceso de consultar todas las cuentas de cobro");
-        List<CuentaCobroEntity> toReturn = persistence.findAll();
+        ContratistaEntity contratista = contratistaLogic.getContratista(idContratista);
+        if(contratista.getCuentasCobro()==null)
+            throw new BusinessLogicException("El contratista aún no tiene Cuentas de Cobro asociadas.");
+        if(contratista.getCuentasCobro().isEmpty())
+            throw new BusinessLogicException("El contratista aún no tiene Cuentas de Cobro asociadas.");
+        List<CuentaCobroEntity> toReturn = contratista.getCuentasCobro();
         LOGGER.info("Termina el proceso de consultar todas las cuentas de cobro");
         return toReturn;
     }
     
-    public CuentaCobroEntity updateCuentaCobro(CuentaCobroEntity entity)
+    public CuentaCobroEntity updateCuentaCobro(Long idContratista, CuentaCobroEntity entity)
     {
         LOGGER.log(Level.INFO, "Inicia el proceso de actualizar la cuenta de cobro con id={0}", entity.getId());
+        ContratistaEntity contratista = contratistaLogic.getContratista(idContratista);
+        entity.setContratista(contratista);
         CuentaCobroEntity toReturn = persistence.update(entity);
         LOGGER.log(Level.INFO, "Termina el proceso de actualizar la cuenta de cobro con id={0}", entity.getId());
         return toReturn;
     }
     
-    public void deleteCuentaCobroEntity(Long id)
+    public void deleteCuentaCobroEntity(Long idContratista, Long id) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "Inicia el proceso de borrar cuenta de cobro con id={0}", id);
-        persistence.delete(id);
+        CuentaCobroEntity cuentaCobroOld = getCuentaCobro(idContratista, id);
+        persistence.delete(cuentaCobroOld.getId());
         LOGGER.log(Level.INFO, "termina el proceso de borrar cuenta de cobro con id={0}", id);
     }
 }

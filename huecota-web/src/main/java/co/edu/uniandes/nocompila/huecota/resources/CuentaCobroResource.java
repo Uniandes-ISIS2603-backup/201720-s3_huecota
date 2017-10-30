@@ -8,6 +8,7 @@ package co.edu.uniandes.nocompila.huecota.resources;
 import co.edu.uniandes.nocompila.huecota.dtos.CuentaCobroDetailDTO;
 import co.edu.uniandes.nocompila.huecota.ejb.CuentaCobroLogic;
 import co.edu.uniandes.nocompila.huecota.entities.CuentaCobroEntity;
+import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -26,10 +27,8 @@ import javax.ws.rs.WebApplicationException;
  *
  * @author lc.garavito
  */
-@Path("/cuentascobros")
 @Produces("application/json")
 @Consumes("application/json")
-@Stateless
 public class CuentaCobroResource 
 {
     
@@ -37,18 +36,18 @@ public class CuentaCobroResource
     CuentaCobroLogic cuentaCobroLogic;
     
     @POST
-    public CuentaCobroDetailDTO createCuentaCobro(CuentaCobroDetailDTO cuentaCobro)
+    public CuentaCobroDetailDTO createCuentaCobro(@PathParam("idContratista") Long idContratista, CuentaCobroDetailDTO cuentaCobro)
     {
         CuentaCobroEntity entity = cuentaCobro.toEntity();
-        CuentaCobroEntity newCuentaCobro = cuentaCobroLogic.crearCuentaCobro(entity);
+        CuentaCobroEntity newCuentaCobro = cuentaCobroLogic.crearCuentaCobro(idContratista, entity);
         return new CuentaCobroDetailDTO(newCuentaCobro);
     }
     
     @GET
-    public List<CuentaCobroDetailDTO> getCuentasCobros()
+    public List<CuentaCobroDetailDTO> getCuentasCobros(@PathParam("idContratista") Long idContratista) throws BusinessLogicException
     {
         List<CuentaCobroDetailDTO> toReturn = new ArrayList<CuentaCobroDetailDTO>();
-        List<CuentaCobroEntity> list = cuentaCobroLogic.getCuentasCobros();
+        List<CuentaCobroEntity> list = cuentaCobroLogic.getCuentasCobros(idContratista);
         for ( CuentaCobroEntity entity : list )
         {
             toReturn.add(new CuentaCobroDetailDTO(entity));
@@ -58,34 +57,34 @@ public class CuentaCobroResource
     
     @GET
     @Path("{id: \\d+}")
-    public CuentaCobroDetailDTO getCuentaCobro(@PathParam("id") Long id)
+    public CuentaCobroDetailDTO getCuentaCobro(@PathParam("idContratista") Long idContratista, @PathParam("id") Long id) throws BusinessLogicException
     {
-        CuentaCobroEntity entity = cuentaCobroLogic.getCuentaCobro(id);
+        CuentaCobroEntity entity = cuentaCobroLogic.getCuentaCobro(idContratista, id);
         if(entity == null)
         {
-            throw new WebApplicationException( "El recurso cuenta de cobro: " + id + " no existe",404);
+            throw new WebApplicationException( "El recurso /contratistas/" + idContratista + "/cuentascobros/" + id + " no existe",404);
         }
         return new CuentaCobroDetailDTO(entity);
     }
     
     @PUT
     @Path("{id: \\d+}")
-    public CuentaCobroDetailDTO updateCuentaCobro(@PathParam("id") Long id, CuentaCobroDetailDTO cuentaCobro)
+    public CuentaCobroDetailDTO updateCuentaCobro(@PathParam("idContratista") Long idContratista, @PathParam("id") Long id, CuentaCobroDetailDTO cuentaCobro) throws BusinessLogicException
     {
         cuentaCobro.setId(id);
-        CuentaCobroEntity entity = cuentaCobroLogic.getCuentaCobro(id);
+        CuentaCobroEntity entity = cuentaCobroLogic.getCuentaCobro(idContratista, id);
         if (entity == null)
-            throw new WebApplicationException("El recurso cuenta de cobro: " + id + " no existe.", 404);
-        return new CuentaCobroDetailDTO(cuentaCobroLogic.updateCuentaCobro(cuentaCobro.toEntity()));
+            throw new WebApplicationException("El recurso /contratistas/" + idContratista + "/cuentascobros/" + id + " no existe", 404);
+        return new CuentaCobroDetailDTO(cuentaCobroLogic.updateCuentaCobro(idContratista, cuentaCobro.toEntity()));
     }
     
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteCuentaCobro(@PathParam("id") Long id)
+    public void deleteCuentaCobro(@PathParam("idContratista") Long idContratista, @PathParam("id") Long id) throws BusinessLogicException
     {
-        CuentaCobroEntity entity = cuentaCobroLogic.getCuentaCobro(id);
+        CuentaCobroEntity entity = cuentaCobroLogic.getCuentaCobro(idContratista, id);
         if (entity == null)
-            throw new WebApplicationException("El recurso cuenta de cobro: " + id + " no existe.", 404);
-        cuentaCobroLogic.deleteCuentaCobroEntity(id);
+            throw new WebApplicationException("El recurso /contratistas/" + idContratista + "/cuentascobros/" + id + " no existe", 404);
+        cuentaCobroLogic.deleteCuentaCobroEntity(idContratista, id);
     }
 }
