@@ -16,7 +16,7 @@
                 views: {
                     'mainView': {
                         templateUrl: basePath + 'direcciones.html',
-                        controller: 'direccionCtrl',
+                        controller: 'DireccionCtrl',
                         controllerAs: 'ctrl'
                     }
                 }
@@ -26,7 +26,7 @@
                 views: {
                     'listView': {
                         templateUrl: basePath + 'direcciones.list.html',
-                        controller: 'direccionCtrl',
+                        controller: 'DireccionCtrl',
                         controllerAs: 'ctrl'
                     }
                 }

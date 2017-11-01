@@ -15,7 +15,7 @@
 
             if ($state.params.direccionId !== undefined) {
                 $http.get(direccionesContext + '/' + $state.params.direccionId).then(function (response) {
-                    $scope.puntosRecords = response.data.punto;
+                    $scope.direccionesRecords = response.data.punto;
                     $scope.currentDireccion = response.data;
                 });
             }

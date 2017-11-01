@@ -14,6 +14,9 @@
         <!--Cliente-->
         <script src="src/modules/clientes/clientes.mod.js" type="text/javascript"></script>
         <script src="src/modules/clientes/clientes.ctrl.js" type="text/javascript"></script>
+		
+		<script src="src/modules/direcciones/direcciones.mod.js" type="text/javascript"></script>
+        <script src="src/modules/direcciones/direcciones.ctrl.js" type="text/javascript"></script>
         
         <!-- Calificaciones 
         <script src="src/modules/calificaciones/calificaciones.mod.js" type ="text/javascript"></script>
@@ -108,6 +111,7 @@
                 <div class="col-md-12">
                     <ul class="nav nav-tabs">
                         <li role="navigation"><a ui-sref="clientesList"> Clientes</a></li>
+						<li role="navigation"><a ui-sref="direccionesList"> Direcciones</a></li>
                         <!--
                         <li><a href="huecos">Huecos</a></li>
                         <li><a href="#">Estados</a>
@@ -120,7 +124,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="span4" ui-view="mainView"></div>
+			<div class="span4" ui-view="mainView"></div>
         </div>
         <br>
         <br>

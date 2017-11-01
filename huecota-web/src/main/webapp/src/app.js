@@ -8,7 +8,8 @@
         //'huecoModule'
         //,
         //'calificacionModule',
-        'clienteModule'
+        'clienteModule',
+		'DireccionModule'
         //'puntoModule'
 
     ]);
