@@ -6,7 +6,7 @@
 (function (ng) {
     var mod = ng.module("puntoModule");
     mod.constant("puntosContext", "api/puntos");
-    mod.controller('puntCtrl', ['$scope', '$http', 'puntosContext', '$state',
+    mod.controller('puntoCtrl', ['$scope', '$http', 'puntosContext', '$state',
         function ($scope, $http, puntosContext, $state) {
             $http.get(puntosContext).then(function (response) {
                 $scope.puntosRecords = response.data;
