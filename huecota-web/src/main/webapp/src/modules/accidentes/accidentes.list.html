@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="container-fluid">
+    <div class="panel-group">
+        <br>
+        <div class="col-md-8">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Fecha</th>
+					<th>Descripcion</th>
+				</tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="accidente in accidentesRecords">
+                                <td id="{{$index}}-id"><a ui-sref="Accidente({accidenteId: accidente.id})">{{accidente.id}}</a></td>
+                                <td id="{{$index}}-fechaa">{{accidente.fecha}}</td>
+								<td id="{{$index}}-descripcion">{{accidente.descripcion}}</td>
+								
+                </tr>
+            </tbody>
+            
+        </table>
+        </div>
+    </div>
+</div>
