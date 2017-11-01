@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="container-fluid">
+    <div class="panel-group">
+        <br>
+        <div class="col-md-8">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Tipo Vía</th>
+					<th>Numero</th>
+					<th>Letra</th>
+					<th>Cuadrante</th>
+				</tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="direccion in direccionesRecords">
+                                <td id="{{$index}}-id"><a ui-sref="Direccion({direccionId: direccion.id})">{{direccion.id}}</a></td>
+                                <td id="{{$index}}-tipoVia">{{direccion.tipoVia}}</td>
+								<td id="{{$index}}-numero">{{direccion.numero}}</td>
+								<td id="{{$index}}-letra">{{direccion.letra}}</td>
+								<td id="{{$index}}-cuadrante">{{direccion.cuadrante}}</td>
+								
+                </tr>
+            </tbody>
+            
+        </table>
+        </div>
+    </div>
+</div>
