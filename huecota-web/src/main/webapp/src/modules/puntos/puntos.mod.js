@@ -16,7 +16,7 @@
                 views: {
                     'mainView': {
                         templateUrl: basePath + 'puntos.html',
-                        controller: 'bookCtrl',
+                        controller: 'puntoCtrl',
                         controllerAs: 'ctrl'
                     }
                 }

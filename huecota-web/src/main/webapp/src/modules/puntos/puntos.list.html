@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2" ng-repeat="punto in puntosRecords">
+            <div class="caption text-center">
+                <p>{{book.name}}</p>
+                <p ng-repeat="author in book.authors">
+                    <a ui-sref="clienteDetail({clienteId: cliente.id})" class="thumb">{{cliente.name}}</a>
+                </p>
+            </div>
+           
+        </div>
+    </div>
+</div>

@@ -31,7 +31,57 @@
                         controllerAs: 'ctrl'
                     }
                 }
-            });
+            }).state('clienteDetail', {
+                url: '/{clienteId:int}/detail',
+                parent: 'clientes',
+                param: {
+                    authorId: null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePathPuntos + 'puntos.list.html',
+                        controller: 'clienteCtrl',
+                        controllerAs: 'ctrl'
+                    },
+                    'detailView': {
+                        templateUrl: basePath + 'clientes.detail.html',
+                        controller: 'clienteCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            }).state('clientesCreate', {
+                url: '/create',
+                parent: 'clientes',
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/new/clientes.new.html',
+                        controller: 'clienteNewCtrl'
+                    }
+                }
+            }).state('clientesUpdate', {
+                url: '/update',
+                parent: 'clientes',
+                param: {
+                    authorId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/update/clientes.update.html',
+                        controller: 'clienteUpdateCtrl'
+                    }
+                }
+            }).state('clientesDelete', {
+                url: '/delete',
+                parent: 'clientes',
+                param: {
+                    authorId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/delete/clientes.delete.html',
+                        controller: 'clienteDeleteCtrl'
+                    }
+                }
+            });   
         }]);
 })(window.angular);
-

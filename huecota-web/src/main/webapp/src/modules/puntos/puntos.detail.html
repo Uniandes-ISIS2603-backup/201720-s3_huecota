@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="col-md-3">
+    <dl>     
+        <ul ng-repeat="cliente in currentPunto.cliente">
+            <a ui-sref="clienteDetail({clienteId: cliente.id})">{{cliente.nombre}}</a>
+        </ul>
+        <dt> Cantidad</dt>
+        <dd>{{currentPunto.cantidad}}</dd>
+        <hr>
+        <dt>Fecha</dt>
+        <dd>{{currentPunto.fecha| date:'dd-MM-yyyy'}}</dd>
+
+    </dl>
+</div>

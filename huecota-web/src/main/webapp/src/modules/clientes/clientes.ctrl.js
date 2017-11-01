@@ -14,7 +14,7 @@
 
             if ($state.params.clienteId !== undefined) {
                 $http.get(clientesContext + '/' + $state.params.clienteId).then(function (response) {
-                    $scope.puntosRecords = response.data.books;
+                    $scope.puntosRecords = response.data.punto;
                     $scope.currentCliente = response.data;
                 });
             }

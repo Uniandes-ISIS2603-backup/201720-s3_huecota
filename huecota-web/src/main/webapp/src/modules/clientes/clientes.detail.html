@@ -11,15 +11,16 @@ and open the template in the editor.
         </div>
         <div class="col-md-3">
             <dl>     
-                <dt>{{currentCliente.name}}</dt>
+                <dt>{{currentCliente.nombre}}</dt>
                 
-                
-          
                 <hr>
-                <dt>Bio</dt>
-                <dd>{{currentCeliente.description}}</dd>
+                <dt>Cedula</dt>
+                <dd>{{currentCliente.cedula}}</dd>
 
             </dl>
+            <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"> <a ui-sref="puntosList({puntoId: currentPunto.id})">Puntos</a></li>
+              </ul>
         </div>
     </div>
         </div>
