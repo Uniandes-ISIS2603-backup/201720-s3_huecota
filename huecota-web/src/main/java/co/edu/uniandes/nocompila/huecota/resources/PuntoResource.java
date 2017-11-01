@@ -42,22 +42,17 @@ public class PuntoResource {
     /**
      * POST http://localhost:8080/huecota-web/api/clientes/{id}/puntos
      *
+     * @param idCLiente
      * @param punto correponde a la representación java del objeto json
      * enviado en el llamado.
-     * @param clienteid
      * @return Devuelve el objeto json de entrada que contiene el id creado por
      * la base de datos y el tipo del objeto java. Ejemplo: { "type":
      * "HuecoDetailDTO", "id": 1, atributo1 : "valor" }
      * @throws BusinessLogicException
      */
     @POST
-    public PuntoDTO createPunto(PuntoDTO punto,@PathParam("id") Long clienteid) throws BusinessLogicException {
-        // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
-        PuntoEntity entity = punto.toEntity();
-        // Invoca la lógica para crear el cliente nuev
-        PuntoEntity nuevoHueco = puntoLogic.createPunto(clienteid,entity);
-        // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-        return new PuntoDTO(nuevoHueco);
+    public PuntoDTO createPunto(@PathParam("idCliente") Long idCLiente, PuntoDTO punto) throws BusinessLogicException {
+        return new PuntoDTO(puntoLogic.createPunto(idCLiente, punto.toEntity()));
     }
     
     /**
@@ -96,6 +91,8 @@ public class PuntoResource {
      * GET para un cliente.
      * http://localhost:8080/huecota-web/api/clientes/{id}/puntos/{id}
      *
+     * @param clienteid
+     * @param puntoid
      * @return el cliente en objeto json DTO.
      * @throws BusinessLogicException
      */
@@ -109,6 +106,7 @@ public class PuntoResource {
     /**
      * DELETE http://localhost:8080/huecota-web/api/clientes/{id}/puntos/{id}
      *
+     * @param clienteid
      * @param id corresponde al cliente a borrar.
      * @throws BusinessLogicException
      *

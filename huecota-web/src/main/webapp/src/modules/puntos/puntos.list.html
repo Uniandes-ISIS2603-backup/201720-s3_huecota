@@ -8,8 +8,8 @@ and open the template in the editor.
     <div class="row">
         <div class="col-md-2" ng-repeat="punto in puntosRecords">
             <div class="caption text-center">
-                <p>{{book.name}}</p>
-                <p ng-repeat="author in book.authors">
+                <p>{{punto.cantidad}}</p>
+                <p ng-repeat="cliente in punto.clientes">
                     <a ui-sref="clienteDetail({clienteId: cliente.id})" class="thumb">{{cliente.name}}</a>
                 </p>
             </div>

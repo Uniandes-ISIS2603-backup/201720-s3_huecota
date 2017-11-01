@@ -25,7 +25,9 @@
                 parent: 'puntos',
                 views: {
                     'listView': {
-                        templateUrl: basePath + 'puntos.list.html'
+                        templateUrl: basePath + 'puntos.list.html',
+                        controller: 'puntoCtrl',
+                        controllerAs: 'ctrl'
                     }
                 }
             }).state('puntoDetail', {
