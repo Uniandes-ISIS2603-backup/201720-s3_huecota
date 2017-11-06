@@ -8,6 +8,7 @@ and open the template in the editor.
     <div class="panel-group">
         <br>
         <div class="col-md-8">
+			<button id="{{$index}}-edit-btn" class="btn btn-default btn-sm" ui-sref="accidentesForm"><span class="glyphicon glyphicon-edit"></span>Crear Nuevo</button>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -21,6 +22,7 @@ and open the template in the editor.
                                 <td id="{{$index}}-id"><a ui-sref="Accidente({accidenteId: accidente.id})">{{accidente.id}}</a></td>
                                 <td id="{{$index}}-fechaa">{{accidente.fecha}}</td>
 								<td id="{{$index}}-descripcion">{{accidente.descripcion}}</td>
+								
 								
                 </tr>
             </tbody>

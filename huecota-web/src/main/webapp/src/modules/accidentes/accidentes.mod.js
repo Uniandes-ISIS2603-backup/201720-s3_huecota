@@ -30,6 +30,16 @@
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('accidentesForm', {
+                url: '/form',
+                parent: 'accidentes',
+                views: {
+                    'formView': {
+                        templateUrl: basePath + 'accidentes.form.html',
+                        controller: 'AccidenteCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
             });   
         }]);
 })(window.angular);
