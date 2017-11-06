@@ -35,8 +35,8 @@
                 parent: 'accidentes',
                 views: {
                     'formView': {
-                        templateUrl: basePath + 'accidentes.form.html',
-                        controller: 'AccidenteCtrl',
+                        templateUrl: basePath + '/new/accidentes.form.html',
+                        controller: 'AccidenteNewCtrl',
                         controllerAs: 'ctrl'
                     }
                 }
