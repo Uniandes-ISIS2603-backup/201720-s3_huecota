@@ -5,13 +5,16 @@
  */
 package co.edu.uniandes.nocompila.huecota.entities;
 
+import co.edu.uniandes.nocompila.huecota.podam.DateStrategy;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import uk.co.jemos.podam.common.PodamExclude;
+import uk.co.jemos.podam.common.PodamStrategyValue;
 
 /**
  *
@@ -33,22 +36,14 @@ public class EnProgresoEntity extends BaseEntity implements Serializable{
     @OneToOne(orphanRemoval = true)
     private List<CuentaCobroEntity> cuentaCobro;
 
-    /**
-     * Retorna la fecha de inicio.
-     * @return fechaDeInicio
-     */
     public String getFechaDeInicio() {
         return fechaDeInicio;
     }
 
-    /**
-     * Fija una fecha de inicio del tapado del hueco.
-     * @param fechaDeInicio 
-     */
     public void setFechaDeInicio(String fechaDeInicio) {
         this.fechaDeInicio = fechaDeInicio;
     }
-
+    
     public List<HuecoEntity> getHuecos() {
         return huecos;
     }

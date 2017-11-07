@@ -6,14 +6,12 @@
             $http.get(huecosContext).then(function (response) {
                 $scope.huecosRecords = response.data;
             });
-            
-            if ($state.params.huecoId !== undefined) {
-                $http.get(huecosContext + '/' + $state.params.huecoId).then(function (response) {
-                    $scope.huecosRecords = response.data.huecos;
+            if (($state.params.huecosId !== undefined)&& ($state.params.huecosId !== null)) {
+                $http.get(huecosContext + '/' + $state.params.huecosId).then(function (response) {
                     $scope.currentHueco = response.data;
                 });
             }
         }
     ]);
 }
-)(angular);
+)(window.angular);

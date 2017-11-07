@@ -41,24 +41,31 @@
         <script src="src/modules/huecos/new/huecos.new.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/huecos/update/huecos.update.ctrl.js" type="text/javascript"></script>
         
-        <!-- Calificaciones 
+        <!-- Calificaciones -->
         <script src="src/modules/calificaciones/calificaciones.mod.js" type ="text/javascript"></script>
         <script src="src/modules/calificaciones/calificaciones.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/calificaciones/delete/calificaciones.delete.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/calificaciones/new/calificaciones.new.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/calificaciones/update/calificaciones.update.ctrl.js" type="text/javascript"></script>
+
+        <!--Contratistas-->
+        <script src="src/modules/contratistas/contratistas.mod.js" type="text/javascript"></script>
+        <script src="src/modules/contratistas/contratistas.ctrl.js" type="text/javascript"></script>
+
+       <!--------------------------------------- Estados ----------------------------------------->
+        <!--- Abierto -->
+        <script src="src/modules/estados/abierto/Abierto.mod.js" type ="text/javascript"></script>
+        <script src="src/modules/estados/abierto/Abierto.ctrl.js" type="text/javascript"></script>
+        <!--- Cerrado -->
+        <script src="src/modules/estados/cerrado/Cerrado.mod.js" type ="text/javascript"></script>
+        <script src="src/modules/estados/cerrado/Cerrado.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/estados/cerrado/new/Cerrado.new.ctrl.js" type="text/javascript"></script>
+        <!--- En Progreso -->
+        <script src="src/modules/estados/enProgreso/EnProgreso.mod.js" type ="text/javascript"></script>
+        <script src="src/modules/estados/enProgreso/EnProgreso.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/estados/enProgreso/new/EnProgreso.new.ctrl.js" type="text/javascript"></script>
+
         
-        
-        <script src="src/modules/reviews/imagenes.mod.js" type="text/javascript"></script>
-        <script src="src/modules/reviews/imagenes.ctrl.js" type="text/javascript"></script>
-        
-        
-        <script src="src/modules/huecos/huecos.mod.js" type="text/javascript"></script>
-        <script src="src/modules/huecos/huecos.ctrl.js" type="text/javascript"></script>
-        
-        
-              <!--------------------------------------- Estados ----------------------------------------->
-        <!--- Abierto 
-        <script src="src/modules/estados/abierto.mod.js" type ="text/javascript"></script>
-        <script src="src/modules/estados/abierto.ctrl.js" type="text/javascript"></script>
-        -->
         <script src="src/app.js" type="text/javascript"></script>
         
         <style type="text/css">
@@ -128,21 +135,18 @@
 			<li role="navigation"><a ui-sref="direccionesList"> Direcciones</a></li>
 			<li role="navigation"><a ui-sref="accidentesList"> Accidentes</a></li>
                         <li role="navigation"><a ui-sref="huecosList"> Huecos</a></li>
-                        <li><a>Contratistas</a>
+                        <li role="navigation"><a ui-sref="calificacionesList">Calificaciones</a></li>
+                        <li role="navigation"><a ui-sref="contratistasList">Contratistas</a>
                             <ul>
-                                <li><a ui-sref="contratistaCreate">Crear</a></li>
-                                <li><a ui-sref="contratistasList">Lista</a></li>
+                                <li role="navigation"><a ui-sref="contratistaCreate">Crear</a></li>
                             </ul>
                         </li>
-                        <!--
-                        <li><a href="huecos">Huecos</a></li>
                         <li><a href="#">Estados</a>
                         <ul>
-                            <li role="presentation"><a ui-sref="abiertosList">Abierto</a></li>
-                            <li><a href="">Cerrado</a></li>
-                            <li><a href="">En Progreso</a></li>
-                       </ul>
-                        -->    
+                            <li role="navigation"><a ui-sref="abiertoList">Abierto</a></li>
+                            <li role="navigation"><a ui-sref="cerradoList">Cerrado</a></li>
+                            <li role="navigation"><a ui-sref="enProgresoList">En Progreso</a></li>
+                       </ul>   
                     </ul>
                 </div>
             </div>

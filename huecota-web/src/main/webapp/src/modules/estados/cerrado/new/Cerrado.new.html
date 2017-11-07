@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label ng-if="!edit" id="createState">Create new Author</label>
+                <label ng-if="edit" id="editAuthor">Edit Author</label></div>
+            <div class="panel-body">
+                <form ng-submit="createState()" name="state">
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="cerradoCausa" class="col-sm-2">Causa:</label>
+                            <textarea id="cerradoCausa" required ng-model="cerradoCausa" class="col-sm-6"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="cerradoComentario" class="col-sm-2">Comentario:</label>
+                            <textarea id="cerradoComentario" required ng-model="cerradoComentario" class="col-sm-6"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="form-group col-sm-4" ng-if="!state.$valid">
+
+                            <div class="alert alert-warning" >
+                                <strong>Error</strong><p>Todos los campos son obligatorios*</p>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="form-group row">
+                        <div class="form-group col-sm-12">
+                            <input ng-show="state.$valid" type="submit" value="Guardar" class="btn btn-success"/>
+                            <a class="btn btn-info" ui-sref="cerradoList">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

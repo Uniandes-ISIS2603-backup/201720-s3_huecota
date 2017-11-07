@@ -6,6 +6,7 @@
 package co.edu.uniandes.nocompila.huecota.dtos;
 
 import co.edu.uniandes.nocompila.huecota.entities.CerradoEntity;
+import java.util.Date;
 /**
  *
  * @author jpr.arango10
@@ -18,6 +19,8 @@ public class CerradoDTO {
     
     private String comentario;
     
+    private String fechaDeCerrado;
+    
     public CerradoDTO(){
         
     }
@@ -26,6 +29,15 @@ public class CerradoDTO {
         this.id = (state.getId());
         this.comentario = state.getComentario();
         this.causa = state.getCausa();
+        this.fechaDeCerrado = state.getFechaDeCerrado();
+    }
+
+    public String getFechaDeCerrado() {
+        return fechaDeCerrado;
+    }
+
+    public void setFechaDeCerrado(String fechaDeCerrado) {
+        this.fechaDeCerrado = fechaDeCerrado;
     }
     
     public Long getId(){
@@ -57,6 +69,7 @@ public class CerradoDTO {
         entity.setId(this.id);
         entity.setCausa(causa);
         entity.setComentario(comentario);
+        entity.setFechaDeCerrado(fechaDeCerrado);
         return entity;
     }
 }

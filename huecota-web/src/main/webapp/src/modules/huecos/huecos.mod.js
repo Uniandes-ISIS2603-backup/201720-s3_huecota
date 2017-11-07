@@ -26,7 +26,7 @@
                     }
                 }
             }).state('huecosDetail', {
-                url: '/{huecoId:int}/detail',
+                url: '/{huecosId:int}/detail',
                 parent: 'huecos',
                 param: {
                     huecoId: null
@@ -34,7 +34,7 @@
                 views: {
                     'detailView': {
                         templateUrl: basePath + 'huecos.detail.html',
-                        controller: 'huecoCtrl',
+                        controller: 'huecosCtrl',
                         controllerAs: 'ctrl'
                     }
                 }
@@ -48,7 +48,7 @@
                     }
                 }
             }).state('huecosUpdate', {
-                url: '/update/{huecoId:int}',
+                url: '/update/{huecosId:int}',
                 parent: 'huecos',
                 param: {
                     huecoId: null
@@ -60,7 +60,7 @@
                     }
                 }
             }).state('huecosDelete', {
-                url: '/delete/{huecoId:int}',
+                url: '/delete/{huecosId:int}',
                 parent: 'huecos',
                 param: {
                     huecoId: null

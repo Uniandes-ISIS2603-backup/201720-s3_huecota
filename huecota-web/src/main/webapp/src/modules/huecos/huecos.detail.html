@@ -1,27 +1,22 @@
 <div class="panel panel-default"> 
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-3">
-            </div>
-            <div class="col-md-3">
+            <div class="col-md-12">
                 <dl>     
-                    <dt>{{currentHueco.imagenes}}</dt>
-                    <ul ng-repeat="imagenes in currentHueco.imagenes">
-                        <a ui-sref="imagenesDetail({imagenesId: imagenes.id})">{{imagenes.foto}}</a>
-                    </ul>
-                    <dt>{{currentHueco.calificaciones}}</dt>
-                    <ul ng-repeat="calificaciones in currentHueco.calificaciones">
-                        <a ui-sref="calificacionesDetail({calificacionesId: calificaciones.id})">{{calificaciones.nota + calificaciones.comentario}}</a>
-                    </ul>
-                    <dt>{{currentHueco.direccion}}</dt>
-                    <ul ng-repeat="direccion in currentHueco.direccion">
-                        <a ui-sref="direccionDetail({direccionId: direccion.id})">{{direccion.tipoVia + direccion.Numero + direccion.letra + direccion.direccionRaw}}</a>
-                    </ul>
-                    <dt class="bold">Descripcion</dt>
-                    <dd>{{currentHueco.descripcion}}</dd>
-                </dl>
+                    <dt>{{"id: " + currentHueco.id}}</dt>
+                    <hr>
+                    <dt>Description</dt>
+                    <dd>{{currentHueco.description}}</dd>
+                    <hr>
+                    <hr>
+                    <dt>Direccion</dt>
+                    <dd>{{currentHueco.direccion}}</dd>
+                    <hr>
+                     
+               </dl>
                 <ul class="nav nav-tabs">
-                    <li role="presentation" class="active"> <a ui-sref="calificacionesList({HuecoId: currentHueco.id})">Calificaciones</a></li>
+                    <li role="presentation" class="active"> <a ui-sref="calificacionesList({HuecosId: currentHueco.id})">Calificaciones</a></li>
+                    <li role="presentation" class="active"> <a ui-sref="imagenesList({HuecosId: currentHueco.id})">Fotos</a></li>
                 </ul>
             </div>
         </div>

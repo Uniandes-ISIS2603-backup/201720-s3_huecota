@@ -7,12 +7,15 @@
         // Internal modules dependencies       
         //'huecoModule'
         //,
-        //'calificacionModule',
+        'calificacionModule',
         'clienteModule',
 	'DireccionModule',
 	'AccidenteModule',
-        'huecosModule'
-        //'contratistaModule'
+        'huecosModule',
+        'contratistaModule',
+        'AbiertoModule',
+        'CerradoModule',
+        'EnProgresoModule'
         //'puntoModule'
 
     ]);

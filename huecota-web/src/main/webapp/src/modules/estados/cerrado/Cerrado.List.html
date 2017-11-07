@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <body>
+    <h1>Huecos en estado cerrado</h1>
+    
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+                <a class="btn btn-info" ui-sref="cerradosCreate"><span class="glyphicon glyphicon-plus-sign"></span> Agregar nuevo estado</a>
+            </div>
+        </div> 
+      </br>
+            </br>
+            
+        <div class="container-fluid">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id del hueco</th>
+                    <th>Causa de cierre</th>
+                    <th>Comentario</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="estados in estadosRecords">
+                     <td id="{{$index}}-id"><a ui-sref="cerradoDetail({stateId: estados.id})">{{estados.id}}</a></td>
+                     <td  id="{{$index}}-causa">{{estados.causa}}</td>
+                     <td  id="{{$index}}-comentario">{{estados.comentario}}</td>
+            </tbody>
+        </table>
+    </div>
+   </body>
+</html>
