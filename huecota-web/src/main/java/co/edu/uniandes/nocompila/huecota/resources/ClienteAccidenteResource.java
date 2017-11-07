@@ -106,6 +106,15 @@ public class ClienteAccidenteResource {
         return new AccidenteDTO(clienteLogic.addAccidente(clienteid, accidenteId));
     }
     
+    @POST
+    @Path("{accidenteId: \\d+}")
+    public AccidenteDTO addAccidente(AccidenteDTO accidente,@PathParam("clienteid") Long clienteid)
+    {
+        AccidenteEntity entity = accidente.toEntity();
+        AccidenteEntity  nuevo = accidenteLogic.createAccidente(entity);
+        return new AccidenteDTO(clienteLogic.addAccidente(clienteid, accidenteId));
+    }
+    
     @PUT
     public List<AccidenteDTO> remplazarAccidente(@PathParam("clienteid") Long clienteid,List<AccidenteDTO> accidentes)
     {
