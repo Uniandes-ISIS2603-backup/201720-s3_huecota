@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <body>
+    <h2>Numero de huecos en estado abierto</h2>
+        <div class="container-fluid">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id de los huecos:</th>
+                    <dt>{{currentEstado.id}}</dt>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="estados in estadosRecords">
+                     <td id="{{$index}}-id">{{estados.id}}</td>
+            </tbody>
+        </table>
+    </div>
+   </body>
+</html>

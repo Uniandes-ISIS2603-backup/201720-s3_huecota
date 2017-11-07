@@ -5,11 +5,16 @@
  */
 package co.edu.uniandes.nocompila.huecota.entities;
 
+import co.edu.uniandes.nocompila.huecota.podam.DateStrategy;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import uk.co.jemos.podam.common.PodamExclude;
+import uk.co.jemos.podam.common.PodamStrategyValue;
 
 /**
  *
@@ -17,6 +22,8 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 public class CerradoEntity extends BaseEntity implements Serializable {
+    
+    private String fechaDeCerrado;
     
     /**
      * Causa de cerramiento.
@@ -52,6 +59,14 @@ public class CerradoEntity extends BaseEntity implements Serializable {
         this.comentario = comentario;
     }
 
+    public String getFechaDeCerrado() {
+        return fechaDeCerrado;
+    }
+
+    public void setFechaDeCerrado(String fechaDeCerrado) {
+        this.fechaDeCerrado = fechaDeCerrado;
+    }
+    
     /**
      * Retorna la causa del cerramiento del hueco.
      * @return causa

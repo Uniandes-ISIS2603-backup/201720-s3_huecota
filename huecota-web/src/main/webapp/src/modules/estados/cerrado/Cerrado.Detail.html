@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="panel panel-default"> 
+    <div class="panel-body">
+    <div class="row">
+        <div class="col-md-3">
+            <dl> 
+                <dt>Id del hueco</dt>
+                <dt>{{currentEstado.id}}</dt>
+                <hr>
+                <dt>Fecha de cierre</dt>
+                <dd>{{currentEstado.fechaDeCierre| date:'yyyy-MM-dd'}}</dd>
+                <hr>
+                <dt>Causa</dt>
+                <dd>{{currentEstado.causa}}</dd>
+                <hr>
+                <dt>Comentario</dt>
+                <dd>{{currentEstado.comentario}}</dd>
+
+            </dl>
+        </div>
+    </div>
+        </div>
+</div>
