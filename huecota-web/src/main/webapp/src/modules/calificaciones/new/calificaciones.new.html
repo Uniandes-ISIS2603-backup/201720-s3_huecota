@@ -7,13 +7,17 @@
                 <form ng-submit="createCalificacion()" name="calificacion">
                     <div class="form-group row">
                         <div class="form-group col-md-6">
-                            <label for="calificacionNota" class="col-sm-2">Nota:</label>
-                            <input id="calificacionNota" required ng-model="calificacionNota" class="col-sm-6"/>
+                            <label for="calificacionName" class="col-sm-2">Nombre:</label>
+                            <input id="calificacionName" placeholder="Nombre" required ng-model="data.name" class="col-sm-6"/>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="calificacionComentario" class="col-sm-2">Comentario:</label>
-                            <input id="calificacionComentario" required ng-model="calificacionComentario" class="col-sm-6"/>
+                            <input id="calificacionComentario" required ng-model="data.comentario" class="col-sm-6"/>
                     </div>
+                        <div class="form-group col-md-6">
+                            <label for="calificacionNota" class="col-sm-2">Nota:</label>
+                            <input id="calificacionNota" placeholder="enteros" required ng-model="data.nota" class="col-sm-6"/>
+                        </div>
                     <div class="form-group row">
                         <div class="form-group col-sm-4" ng-if="!calificacion.$valid">
 

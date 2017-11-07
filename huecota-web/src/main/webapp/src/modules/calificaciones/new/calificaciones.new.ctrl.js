@@ -4,13 +4,11 @@
     mod.controller('calificacionNewCtrl', ['$scope', '$http', 'calificacionesContext', '$state', '$rootScope',
         function ($scope, $http, calificacionesContext, $state, $rootScope) {
             $rootScope.edit = false;
-            
-            $scope.data={};
+
+            $scope.data = {};
+
             $scope.createCalificacion = function () {
-                $http.post(calificacionesContext, {
-                    nota: $scope.nota,
-                    comentario: $scope.comentario
-                }).then(function (response) {
+                $http.post(calificacionesContext, $scope.data).then(function (response) {
                     $state.go('calificacionesList', {calificacionId: response.data.id}, {reload: true});
                 });
             };
