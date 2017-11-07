@@ -1,7 +1,7 @@
 (function (ng) {
     var mod = ng.module("huecosModule", ['ui.router']);
     mod.constant("huecosContext", "api/huecos");
-    mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+   mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/huecos/';
             $urlRouterProvider.otherwise("/huecosList");
 
@@ -15,28 +15,60 @@
                         controllerAs: 'ctrl'
                     }
                 }
-            }).state('huecosList', {
+           }).state('huecosList', {
                 url: '/list',
                 parent: 'huecos',
                 views: {
                     'listView': {
-                        templateUrl: basePath + 'huecos.list.html'
+                        templateUrl: basePath + 'huecos.list.html',
+                        controller: 'huecosCtrl',
+                        controllerAs: 'ctrl'
                     }
                 }
             }).state('huecosDetail', {
-                url: '/{huecosId:int}/detail',
+                url: '/{huecoId:int}/detail',
                 parent: 'huecos',
                 param: {
                     huecoId: null
                 },
                 views: {
-                    'listView': {
-                        templateUrl: basePath + 'huecos.list.html'
-                    },
                     'detailView': {
                         templateUrl: basePath + 'huecos.detail.html',
-                        controller: 'huecosCtrl',
+                        controller: 'huecoCtrl',
                         controllerAs: 'ctrl'
+                    }
+                }
+            }).state('huecosCreate', {
+                url: '/create',
+                parent: 'huecos',
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/new/huecos.new.html',
+                        controller: 'huecosNewCtrl'
+                    }
+                }
+            }).state('huecosUpdate', {
+                url: '/update/{huecoId:int}',
+                parent: 'huecos',
+                param: {
+                    huecoId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/new/huecos.new.html',
+                        controller: 'huecosUpdateCtrl'
+                    }
+                }
+            }).state('huecosDelete', {
+                url: '/delete/{huecoId:int}',
+                parent: 'huecos',
+                param: {
+                    huecoId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/delete/hueco.delete.html',
+                        controller: 'huecosDeleteCtrl'
                     }
                 }
             });
