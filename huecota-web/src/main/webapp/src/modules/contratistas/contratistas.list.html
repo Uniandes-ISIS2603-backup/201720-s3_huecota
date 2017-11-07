@@ -8,8 +8,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="contratista in records">
-                    <td id="{{$index}}-identificador"><a ui-sref="contratistaDetail({contratistaId: contratista.id})">{{contratista.id}}</a></td>
+                <tr ng-repeat="contratista in contratistasRecords">
+                    <td id="{{$index}}-identificador">{{contratista.id}}</td>
                     <td id="{{$index}}-nombre">{{contratista.name}}</td>
                 </tr>
             </tbody>
