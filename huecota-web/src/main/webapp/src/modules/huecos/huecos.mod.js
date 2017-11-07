@@ -67,7 +67,7 @@
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/delete/hueco.delete.html',
+                        templateUrl: basePath + '/delete/huecos.delete.html',
                         controller: 'huecosDeleteCtrl'
                     }
                 }
