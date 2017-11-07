@@ -12,25 +12,23 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Descripcion</th>    
-                                <th>Direccion</th>  
+                                <th>Id del hueco</th>
+                                <th>Descripción</th>    
+                                <th>Dirección</th>  
                                 <th>Calificaciones</th> 
-                                <th>Accidentes</th>
-                                <th>Clientes</th>
                                 <th>Imagenes</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="huecos in huecosRecords">
-                                <td id="{{$index}}-descripcion"><a ui-sref="huecosDetail({huecoId: huecos.id})">{{huecos.descripcion}}</a></td>
-                                <td id="{{$index}}-direccion"><a ui-sref="huecosDetail({huecoId: huecos.id})">{{huecos.direccion}}</a></td>
-                                <td id="{{$index}}-calificaciones"><a ui-sref="huecosDetail({huecoId: huecos.id})">{{huecos.calificaciones}}</a></td>
-                                <td id="{{$index}}-accidentes"><a ui-sref="huecosDetail({huecoId: huecos.id})">{{huecos.accidentes}}</a></td>
-                                <td id="{{$index}}-clientes"><a ui-sref="huecosDetail({huecoId: huecos.id})">{{huecos.clientes}}</a></td>
-                                <td id="{{$index}}-imagenes"><a ui-sref="huecosDetail({huecoId: huecos.id})">{{huecos.imagenes}}</a></td>
+                                <td id="{{$index}}-Id del hueco"><a ui-sref="huecosDetail({huecosId: huecos.id})">{{huecos.id}}</a></td>
+                                <td id="{{$index}}-descripcion">{{huecos.descripcion}}</td>
+                                <td id="{{$index}}-direccion">{{huecos.direccion}}</td>
+                                <td id="{{$index}}-calificaciones"><a ui-sref="huecosDetail({huecosId: huecos.id})">{{huecos.calificaciones}}</a></td>
+                                <td id="{{$index}}-imagenes"><a ui-sref="huecosDetail({huecosId: huecos.id})">{{huecos.fotos}}</a></td>
                                 <td id="{{$index}}-actions">
-                                    <a class="btn btn-default btn-sm" ui-sref="huecosUpdate({huecoId: huecos.id})"><span class="glyphicon glyphicon-edit"></span></a>
-                                    <a class="btn btn-danger btn-sm" ui-sref="huecosDelete({huecoId: huecos.id})"><span class="glyphicon glyphicon-trash"></span></a>
+                                    <a class="btn btn-default btn-sm" ui-sref="huecosUpdate({huecosId: huecos.id})"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a class="btn btn-danger btn-sm" ui-sref="huecosDelete({huecosId: huecos.id})"><span class="glyphicon glyphicon-trash"></span></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -39,6 +37,4 @@
             </div>
         </div>
     </div>
-
-
 </div>

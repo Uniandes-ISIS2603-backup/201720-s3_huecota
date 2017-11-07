@@ -6,12 +6,11 @@
             $rootScope.edit = false;
             $scope.createhueco = function () {
                 $http.post(huecosContext, {
-                    descripcion: $scope.huecoDescripcion,
-                    direccion: $scope.huecoDireccion,
-                    imagen: $scope.huecoImagen
+                    id: $scope.huecoId,
+                    descripcion: $scope.huecoDescripcion
                 }).then(function (response) {
                     //hueco created successfully
-                    $state.go('huecosList', {huecoId: response.data.id}, {reload: true});
+                    $state.go('huecosList', {huecosId: response.data.id}, {reload: true});
                 });
             };
         }

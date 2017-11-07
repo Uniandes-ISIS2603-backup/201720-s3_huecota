@@ -6,6 +6,7 @@
 package co.edu.uniandes.nocompila.huecota.dtos;
 
 import co.edu.uniandes.nocompila.huecota.entities.EnProgresoEntity;
+import java.util.Date;
 /**
  *
  * @author jpr.arango10
@@ -14,7 +15,7 @@ public class EnProgresoDTO {
     
     private Long id;
     
-    private String fechaInicio;
+    private String fechaDeInicio;
     
     public EnProgresoDTO(){
         
@@ -22,7 +23,7 @@ public class EnProgresoDTO {
     
     public EnProgresoDTO(EnProgresoEntity state){
         this.id = (state.getId());
-        this.fechaInicio = state.getFechaDeInicio();
+        this.fechaDeInicio = state.getFechaDeInicio();
     }
     
     public Long getId(){
@@ -34,17 +35,17 @@ public class EnProgresoDTO {
     }
 
     public String getFechaInicio() {
-        return fechaInicio;
+        return fechaDeInicio;
     }
 
-    public void setFechaInicio(String fechaInicio) {
-        this.fechaInicio = fechaInicio;
+    public void setFechaInicio(String fechaDeInicio) {
+        this.fechaDeInicio = fechaDeInicio;
     }
     
     public EnProgresoEntity toEntity(){
         EnProgresoEntity entity = new EnProgresoEntity();
         entity.setId(this.id);
-        entity.setFechaDeInicio(fechaInicio);
+        entity.setFechaDeInicio(fechaDeInicio);
         return entity;
     }
 }
