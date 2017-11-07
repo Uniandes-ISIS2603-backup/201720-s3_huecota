@@ -15,7 +15,7 @@
             $stateProvider.state('puntos', {
                 url: '/puntos',
                 abstract: true,
-                parent: 'clienteDetail'
+                parent: 'clienteDetail',
                 views: {
                     'mainView': {
                         templateUrl: basePath + 'puntos.html',
