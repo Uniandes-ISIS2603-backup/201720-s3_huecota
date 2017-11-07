@@ -11,8 +11,8 @@
         'clienteModule',
 	'DireccionModule',
 	'AccidenteModule',
-        'huecosModule',
-        'contratistaModule'
+        'huecosModule'
+        //'contratistaModule'
         //'puntoModule'
 
     ]);
