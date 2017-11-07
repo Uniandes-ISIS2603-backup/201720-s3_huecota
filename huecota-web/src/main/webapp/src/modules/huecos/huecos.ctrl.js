@@ -9,7 +9,7 @@
             
             if ($state.params.huecoId !== undefined) {
                 $http.get(huecosContext + '/' + $state.params.huecoId).then(function (response) {
-                    $scope.huecoRecords = response.data.huecos;
+                    $scope.huecosRecords = response.data.huecos;
                     $scope.currentHueco = response.data;
                 });
             }

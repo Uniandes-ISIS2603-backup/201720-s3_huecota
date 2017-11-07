@@ -9,8 +9,9 @@
         //,
         //'calificacionModule',
         'clienteModule',
-		'DireccionModule',
-		'AccidenteModule'
+	'DireccionModule',
+	'AccidenteModule',
+        'huecosModule'
         //'puntoModule'
 
     ]);
