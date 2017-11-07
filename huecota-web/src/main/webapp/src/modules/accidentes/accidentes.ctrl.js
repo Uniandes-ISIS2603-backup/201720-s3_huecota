@@ -8,17 +8,13 @@
     var mod = ng.module("AccidenteModule");
     mod.constant("accidentesContext", "api/");
     mod.controller('AccidenteCtrl', ['$scope', '$http', 'accidentesContext', '$state',
-        function ($scope, $http, accidentesContext, $state) {
-            $http.get(accidentesContext).then(function (response) {
+        function ($scope, $http, accidentesContext, $state)
+		{
+            $http.get(accidentesContext).then(function (response)
+			{
                 $scope.accidentesRecords = response.data;
             });
-
-            if ($state.params.accidenteId !== undefined) {
-                $http.get(accidentesContext + '/' + $state.params.accidenteId).then(function (response) {
-                    $scope.accidentesRecords = response.data.punto;
-                    $scope.currentAccidente = response.data;
-                });
-            }
+           
         }
     ]);
 }
