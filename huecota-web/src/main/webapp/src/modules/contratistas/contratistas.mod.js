@@ -12,6 +12,27 @@
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('contratistaCreate', {
+                url: '/contratistas/create',
+                views: {
+                    'mainView': {
+                        templateUrl: basePath + 'contratistas.create.html',
+                        controller: 'contratistaCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            }).state('contratistaEdit', {
+                url: '/contratistas/:contratistaId',
+                param: {
+                    contratistaId: null
+                },
+                views: {
+                    'mainView': {
+                        templateUrl: basePath + 'contratista.create.html',
+                        controlles: 'contratistaCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
             });
     }]);
 })(window.angular);
