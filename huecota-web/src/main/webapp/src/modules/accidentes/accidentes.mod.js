@@ -40,6 +40,32 @@
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('accidentesUpdate', {
+                url: '/update/{accidenteId:int}',
+                parent: 'accidentes',
+                param: {
+                    accidenteId: null
+                },
+                views: {
+                    'updateView': {
+                        templateUrl: basePath + '/update/accidentes.update.html',
+                        controller: 'AccidenteUpdateCtrl',
+						controllerAs: 'ctrl'
+                    }
+                }
+            }).state('accidentesDelete', {
+                url: '/delete/{accidenteId:int}',
+                parent: 'accidentes',
+                param: {
+                    accidenteId: null
+                },
+                views: {
+                    'deleteView': {
+                        templateUrl: basePath + '/delete/accidentes.delete.html',
+                        controller: 'AccidenteDeleteCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
             });   
         }]);
 })(window.angular);

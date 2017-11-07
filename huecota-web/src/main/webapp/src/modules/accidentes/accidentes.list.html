@@ -15,13 +15,18 @@ and open the template in the editor.
                     <th>Id</th>
                     <th>Fecha</th>
 					<th>Descripcion</th>
+					<th>Opciones</th>
 				</tr>
             </thead>
             <tbody>
                 <tr ng-repeat="accidente in accidentesRecords">
-                                <td id="{{$index}}-id"><a ui-sref="Accidente({accidenteId: accidente.id})">{{accidente.id}}</a></td>
+                                <td id="{{$index}}-id">{{accidente.id}}</td>
                                 <td id="{{$index}}-fechaa">{{accidente.fecha}}</td>
 								<td id="{{$index}}-descripcion">{{accidente.descripcion}}</td>
+								<td id="{{$index}}-actions">
+                                    <a class="btn btn-default btn-sm" ui-sref="accidentesUpdate({accidenteId: accidente.id})"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a class="btn btn-danger btn-sm" ui-sref="accidentesDelete({accidenteId: accidente.id})"><span class="glyphicon glyphicon-trash"></span></a>
+                                </td>
 								
 								
                 </tr>
