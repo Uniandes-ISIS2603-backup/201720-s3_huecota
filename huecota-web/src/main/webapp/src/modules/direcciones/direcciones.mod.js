@@ -30,6 +30,42 @@
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('direccionesForm', {
+                url: '/form',
+                parent: 'direcciones',
+                views: {
+                    'formView': {
+                        templateUrl: basePath + '/new/direcciones.form.html',
+                        controller: 'DireccionNewCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            }).state('direccionesUpdate', {
+                url: '/update/{direccionId:int}',
+                parent: 'direcciones',
+                param: {
+                    direccionId: null
+                },
+                views: {
+                    'updateView': {
+                        templateUrl: basePath + '/update/direcciones.update.html',
+                        controller: 'DireccionUpdateCtrl',
+						controllerAs: 'ctrl'
+                    }
+                }
+            }).state('direccionesDelete', {
+                url: '/delete/{direccionId:int}',
+                parent: 'direcciones',
+                param: {
+                    direccionId: null
+                },
+                views: {
+                    'deleteView': {
+                        templateUrl: basePath + '/delete/direcciones.delete.html',
+                        controller: 'DireccionDeleteCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
             });   
         }]);
 })(window.angular);

@@ -7,7 +7,8 @@
             var accidenteId = $state.params.accidenteId;
             $scope.deleteAccidente = function ()
 			{
-                $http.delete(accidentesContext + '/' + accidenteId, {}).then(function (response) {
+                $http.delete(accidentesContext + '/' + accidenteId, {}).then(function (response)
+				{
                     $state.go('accidentesList', {accidenteId: response.data.id}, {reload: true});
                 });
             };

@@ -1,7 +1,7 @@
 (function (ng) {
     var mod = ng.module("AccidenteModule");
     mod.constant("accidentesContext", "api/accidentes");
-    mod.controller('AccidenteNewCtrl', ['$scope', '$http', 'accidentesContext', '$state', 'accidentesContext', '$rootScope',
+    mod.controller('AccidenteNewCtrl', ['$scope', '$http', 'accidentesContext', '$state', '$rootScope',
         function ($scope, $http, accidentesContext, $state, $rootScope)
 		{
             $rootScope.edit = false;

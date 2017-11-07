@@ -8,17 +8,14 @@
     var mod = ng.module("DireccionModule");
     mod.constant("direccionesContext", "api/");
     mod.controller('DireccionCtrl', ['$scope', '$http', 'direccionesContext', '$state',
-        function ($scope, $http, direccionesContext, $state) {
-            $http.get(direccionesContext).then(function (response) {
+        function ($scope, $http, direccionesContext, $state)
+		{
+            $http.get(direccionesContext).then(function (response)
+			{
                 $scope.direccionesRecords = response.data;
             });
 
-            if ($state.params.direccionId !== undefined) {
-                $http.get(direccionesContext + '/' + $state.params.direccionId).then(function (response) {
-                    $scope.direccionesRecords = response.data.punto;
-                    $scope.currentDireccion = response.data;
-                });
-            }
+            
         }
     ]);
 }

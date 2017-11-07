@@ -5,8 +5,7 @@
         function ($scope, $http, accidentesContext, $state, $rootScope)
 		{
 			
-            $rootScope.edit = true;
-			 var accidenteId = $state.params.accidenteId;
+            var accidenteId = $state.params.accidenteId;
             $scope.updateAccidente = function ()
 			{
                 $http.put(accidentesContext + "/" + accidenteId,

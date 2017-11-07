@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="container-fluid">
+    <div class="panel-group">
+        <br>
+        <div class="col-md-8">
+			<form ng-submit="updateDireccion()" name="direccion">
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="tipoViaDireccion" class="col-sm-2">Tipo Via:</label>
+                            <input id="tipoViaDireccion" required ng-model="tipoViaDireccion" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="numeroDireccion" class="col-sm-2">Numero:</label>
+                            <input id="numeroDireccion" required ng-model="numeroDireccion" class="col-sm-6"/>
+                        </div>
+                    </div>
+				<div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="letraDireccion" class="col-sm-2">Letra:</label>
+                            <input id="letraDireccion" required ng-model="letraDireccion" class="col-sm-6"/>
+                        </div>
+                    </div>
+				<div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="cuadranteDireccion" class="col-sm-2">Cuadrante:</label>
+                            <input id="cuadranteDireccion" required ng-model="cuadranteDireccion" class="col-sm-6"/>
+                        </div>
+                    </div>
+				<div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="direccionRaw" class="col-sm-2">Direccion RawValue:</label>
+                            <input id="direccionRaw" required ng-model="direccionRaw" class="col-sm-6"/>
+                        </div>
+                    </div>
+					<div class="form-group row">
+                        <div class="form-group col-sm-12">
+                            <input ng-show="direccion.$valid" type="submit" value="Actualizar Direccion" class="btn btn-success"/>
+                            <a class="btn btn-info" ui-sref="direccionesList">Cancelar</a>
+                        </div>
+                    </div>
+			</form> 
+		
+		</div>
+	</div>
+</div>
