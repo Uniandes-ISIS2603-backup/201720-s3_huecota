@@ -29,7 +29,7 @@
                 views: {
                     'mainView': {
                         templateUrl: basePath + 'contratista.create.html',
-                        controlles: 'contratistaCtrl',
+                        controller: 'contratistaCtrl',
                         controllerAs: 'ctrl'
                     }
                 }
