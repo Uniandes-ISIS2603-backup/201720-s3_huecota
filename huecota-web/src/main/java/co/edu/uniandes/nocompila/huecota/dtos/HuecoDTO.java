@@ -53,7 +53,23 @@ public class HuecoDTO
      */
     public HuecoDTO(HuecoEntity Hueco) 
     {
-        this.id = Hueco.getId();
+        if(Hueco != null) {
+            this.id = Hueco.getId();
+            this.descripcion = Hueco.getDescripcion();
+        }
+    }
+    
+    /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
+    public HuecoEntity toEntity() 
+    {
+        HuecoEntity entity = new HuecoEntity();
+        entity.setId(this.id);
+        entity.setDescripcion(this.descripcion);
+        return entity;
     }
 
     /**
@@ -86,18 +102,5 @@ public class HuecoDTO
     public void setDescirpcion(String descripcion) 
     {
         this.descripcion = descripcion;
-    }
-
-    /**
-     * Convertir DTO a Entity
-     *
-     * @return Un Entity con los valores del DTO
-     */
-    public HuecoEntity toEntity() 
-    {
-        HuecoEntity entity = new HuecoEntity();
-        entity.setId(this.id);
-        entity.setDescripcion(this.descripcion);
-        return entity;
     }
 }
