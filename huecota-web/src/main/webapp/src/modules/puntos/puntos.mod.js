@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 (function (ng) {
-    var mod = ng.module("puntoModule", ['ui.router']);
-    mod.constant("puntosContext", "api/puntos");
+    var mod = ng.module("puntoModule", ['clienteModule','ui.router']);
+    mod.constant("puntosContext", "puntos");
+    mod.constant("clientesContext", "api/clientes");
+
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/puntos/';
             $urlRouterProvider.otherwise("/puntosList");
@@ -13,6 +15,7 @@
             $stateProvider.state('puntos', {
                 url: '/puntos',
                 abstract: true,
+                parent: 'clienteDetail'
                 views: {
                     'mainView': {
                         templateUrl: basePath + 'puntos.html',

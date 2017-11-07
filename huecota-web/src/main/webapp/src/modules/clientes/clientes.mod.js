@@ -58,23 +58,23 @@
                         controller: 'clienteNewCtrl'
                     }
                 }
-            }).state('clientesUpdate', {
-                url: '/update',
+            }).state('clienteUpdate', {
+                url: '/update/{clienteId:int}',
                 parent: 'clientes',
                 param: {
-                    authorId: null
+                    clienteId: null
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/update/clientes.update.html',
+                        templateUrl: basePath + '/new/clientes.new.html',
                         controller: 'clienteUpdateCtrl'
                     }
                 }
-            }).state('clientesDelete', {
-                url: '/delete',
+            }).state('clienteDelete', {
+                url: '/delete/{clienteId:int}',
                 parent: 'clientes',
                 param: {
-                    authorId: null
+                    clienteId: null
                 },
                 views: {
                     'detailView': {
