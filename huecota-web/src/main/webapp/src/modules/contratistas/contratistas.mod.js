@@ -40,6 +40,15 @@
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('contratistasCreate', {
+                url: '/create',
+                parent: 'contratistas',
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/new/contratistas.new.html',
+                        controller: 'contratistaNewCtrl'
+                    }
+                }
             });
     }]);
 })(window.angular);
