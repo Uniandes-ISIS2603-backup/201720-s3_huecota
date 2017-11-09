@@ -49,6 +49,18 @@
                         controller: 'contratistaNewCtrl'
                     }
                 }
+            }).state('contratistaDelete', {
+                url: '/delete/{contratistaId:int}',
+                parent: 'contratistas',
+                param: {
+                    contratistaId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/delete/contratistas.delete.html',
+                        controller: 'contratistaDeleteCtrl'
+                    }
+                }
             });
     }]);
 })(window.angular);

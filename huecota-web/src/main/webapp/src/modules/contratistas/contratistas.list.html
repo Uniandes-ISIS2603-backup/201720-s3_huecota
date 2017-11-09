@@ -2,18 +2,22 @@
         <a class="btn btn-info" ui-sref="contratistasCreate"><span class="glyphicon glyphicon-plus-sign"></span>Crear un nuevo contratista.</a>
 </div>
 <div class="container-fluid">
-    <div class="col-md-4">
+    <div class="col-md-5">
         <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Identificador</th>
                     <th>Nombre</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="contratista in contratistasRecords">
                     <td id="{{$index}}-identificador">{{contratista.id}}</td>
                     <td id="{{$index}}-nombre"><a ui-sref="contratistaDetail({contratistaId: contratista.id})">{{contratista.name}}</a></td>
+                    <td>
+                        <a class="btn btn-danger btn-sm" ui-sref="contratistaDelete({contratistaId: contratista.id})"><span class="glyphicon glyphicon-trash"></span></a>
+                    </td>
                 </tr>
             </tbody>
         </table>
