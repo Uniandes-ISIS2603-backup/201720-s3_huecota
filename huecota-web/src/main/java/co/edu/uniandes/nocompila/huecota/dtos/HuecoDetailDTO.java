@@ -20,8 +20,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/
+ */
 package co.edu.uniandes.nocompila.huecota.dtos;
+
 import co.edu.uniandes.nocompila.huecota.entities.CalificacionEntity;
 import co.edu.uniandes.nocompila.huecota.entities.HuecoEntity;
 import co.edu.uniandes.nocompila.huecota.entities.ImagenEntity;
@@ -32,44 +33,42 @@ import java.util.List;
  *
  * @author ch.patino
  */
-public class HuecoDetailDTO extends HuecoDTO 
-{
+public class HuecoDetailDTO extends HuecoDTO {
 
     /*
     * Relacion uno a muchos con Imagen
-    */
+     */
     private List<ImagenDTO> fotos;
-    
+
     /*
     * Relacion con una Direccion
-    */
+     */
     private DireccionDTO direccion;
-    
+
     /*
     * Relacion con un estado Abierto
-    */
+     */
     private AbiertoDTO estadoAbierto;
-    
+
     /*
     * Relacion con un estado EnProgreso
-    */
+     */
     private EnProgresoDTO estadoEnProgreso;
-    
+
     /*
     * Relacion con un estado Cerrado
-    */
+     */
     private CerradoDTO estadoCerrado;
-    
+
     /*
     * Relacion de uno a muchos con Calificacion
-    */
+     */
     private List<CalificacionDTO> calificaciones;
-    
+
     /**
      * Constructor por defecto
      */
-    public HuecoDetailDTO()
-    {
+    public HuecoDetailDTO() {
         super();
     }
 
@@ -78,8 +77,7 @@ public class HuecoDetailDTO extends HuecoDTO
      *
      * @param entity
      */
-    public HuecoDetailDTO(HuecoEntity entity) 
-    {
+    public HuecoDetailDTO(HuecoEntity entity) {
         super(entity);
         if (entity.getDireccion() != null) {
             this.direccion = new DireccionDTO(entity.getDireccion());
@@ -118,22 +116,21 @@ public class HuecoDetailDTO extends HuecoDTO
     /**
      * Transformar un DTO a un Entity
      *
-     * @return 
+     * @return
      */
     @Override
-    public HuecoEntity toEntity() 
-    {
+    public HuecoEntity toEntity() {
         HuecoEntity HuecoE = super.toEntity();
-        if(this.getDireccion() != null) {
+        if (this.getDireccion() != null) {
             HuecoE.setDireccion(this.getDireccion().toEntity());
         }
-        if(this.getEstadoAbierto() != null) {
+        if (this.getEstadoAbierto() != null) {
             HuecoE.setEstadoAbierto(this.getEstadoAbierto().toEntity());
         }
-        if(this.getEstadoCerrado() != null) {
+        if (this.getEstadoCerrado() != null) {
             HuecoE.setEstadoCerrado(this.getEstadoCerrado().toEntity());
         }
-        if(this.getEstadoEnProgreso() != null) {
+        if (this.getEstadoEnProgreso() != null) {
             HuecoE.setEstadoEnProgreso(this.getEstadoEnProgreso().toEntity());
         }
         if (getFotos() != null) {
@@ -152,11 +149,11 @@ public class HuecoDetailDTO extends HuecoDTO
         }
         return HuecoE;
     }
-    
+
     /**
      * Getter de todos los atributos
      */
-     public List<ImagenDTO> getFotos() {
+    public List<ImagenDTO> getFotos() {
         return fotos;
     }
 
@@ -179,11 +176,10 @@ public class HuecoDetailDTO extends HuecoDTO
     public List<CalificacionDTO> getCalificaciones() {
         return calificaciones;
     }
-    
+
     /**
      * Setter de todos los atributos
      */
-    
     public void setFotos(List<ImagenDTO> fotos) {
         this.fotos = fotos;
     }

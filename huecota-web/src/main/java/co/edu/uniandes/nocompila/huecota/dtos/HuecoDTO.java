@@ -26,23 +26,22 @@ package co.edu.uniandes.nocompila.huecota.dtos;
 import co.edu.uniandes.nocompila.huecota.entities.HuecoEntity;
 
 /**
- * HuecoDTO Objeto de transferencia de datos de Huecoes. Los DTO
- * contienen las represnetaciones de los JSON que se transfieren entre el
- * cliente y el servidor.
+ * HuecoDTO Objeto de transferencia de datos de Huecoes. Los DTO contienen las
+ * represnetaciones de los JSON que se transfieren entre el cliente y el
+ * servidor.
  *
  * @author ch.patino
  */
-public class HuecoDTO 
-{
+public class HuecoDTO {
 
     private Long id;
     private String descripcion;
+    private String cerrado;
 
     /**
      * Constructor por defecto
      */
-    public HuecoDTO() 
-    {
+    public HuecoDTO() {
     }
 
     /**
@@ -51,56 +50,66 @@ public class HuecoDTO
      *
      * @param Hueco: Es la entidad que se va a convertir a DTO
      */
-    public HuecoDTO(HuecoEntity Hueco) 
-    {
-        if(Hueco != null) {
+    public HuecoDTO(HuecoEntity Hueco) {
+        if (Hueco != null) {
             this.id = Hueco.getId();
             this.descripcion = Hueco.getDescripcion();
+            this.cerrado = Hueco.getCerrado();
         }
     }
-    
+
     /**
      * Convertir DTO a Entity
      *
      * @return Un Entity con los valores del DTO
      */
-    public HuecoEntity toEntity() 
-    {
+    public HuecoEntity toEntity() {
         HuecoEntity entity = new HuecoEntity();
         entity.setId(this.id);
         entity.setDescripcion(this.descripcion);
+        entity.setCerrado(this.cerrado);
         return entity;
     }
 
     /**
      * @return id
      */
-    public Long getId() 
-    {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id id a cambiar
      */
-    public void setId(Long id) 
-    {
+    public void setId(Long id) {
         this.id = id;
     }
-    
+
     /**
      * @return descripcion
      */
-    public String getDescripcion() 
-    {
+    public String getDescripcion() {
         return descripcion;
     }
 
     /**
-     * @param descripcion  descripcion a cambiar
+     * @param descripcion descripcion a cambiar
      */
-    public void setDescirpcion(String descripcion) 
-    {
+    public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    /**
+     * @return cerrado
+     */
+    public String getCerrado() {
+        return cerrado;
+    }
+
+    /**
+     * @param cerrado cerrado a cambiar
+     */
+    public void setCerrado(String cerrado) {
+        this.cerrado = cerrado;
     }
 }
