@@ -35,7 +35,7 @@
                 url: '/{clienteId:int}/detail',
                 parent: 'clientes',
                 param: {
-                    authorId: null
+                    clienteId: null
                 },
                 views: {
                     'listView': {

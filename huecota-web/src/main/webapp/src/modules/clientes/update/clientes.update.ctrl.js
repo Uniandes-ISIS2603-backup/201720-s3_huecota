@@ -6,7 +6,7 @@
             mod.constant("clientesContext", "api/clientes");
             mod.constant("puntosContext", "api/puntos");
             mod.controller('clienteUpdateCtrl', ['$scope', '$http', 'clientesContext', '$state', 'puntosContext', '$rootScope', '$filter',
-                function ($scope, $http, clientesContext, $state, puntosContext, $rootScope, $filter) {
+                function ($scope, $http, clientesContext, $state, puntosContext, $rootScope) {
                     $rootScope.edit = true;
 
                     var idCliente = $state.params.clienteId;
@@ -19,10 +19,10 @@
 
                     //Consulto el autor a editar.
                     $http.get(clientesContext + '/' + idCliente).then(function (response) {
-                        var author = response.data;
+                        var cliente = response.data;
                         $scope.clienteNombre = cliente.nombre;
                         $scope.clienteCedula = cliente.cedula;
-                        $scope.allPuntosCliente = author.puntos;
+                        $scope.allPuntosCliente = cliente.puntos;
                         $scope.mergePuntos($scope.allPuntosCliente);
                     });
 
@@ -46,12 +46,12 @@
                     $scope.getPuntos = function (puntos) {
                         $http.get(puntosContext).then(function (response) {
                             $scope.Allpuntos = response.data;
-                            $scope.puntoCliente = punto;
+                            $scope.puntoCliente = puntos;
 
                             var filteredPuntos = $scope.Allpuntos.filter(function (Allpuntos) {
                                 return $scope.puntosCliente.filter(function (puntosCliente) {
-                                    return puntosCliente.id == Allpuntos.id;
-                                }).length == 0
+                                    return puntosCliente.id === Allpuntos.id;
+                                }).length === 0;
                             });
 
                             $scope.allPuntosShow = filteredPuntos;
@@ -88,11 +88,11 @@
                         }
                     };
 
-                    $scope.createAuthor = function () {
+                    $scope.createCliente = function () {
                         /*Se llama a la función newBooks() para buscar cada uno de los ids de los books
                          en el array que tiene todos los books y así saber como queda la lista final de los books asociados al autor.
                          */
-                        $scope.newBooks();
+                        $scope.newPuntos();
                         $http.put(clientesContext + "/" + idCliente, {
                             nombre: $scope.clienteNombre,
                             cedula: $scope.clienteCedula
@@ -106,7 +106,7 @@
                         });
                     };
 
-                    $scope.newBooks = function () {
+                    $scope.newPuntos = function () {
                         $scope.allPuntosCliente = [];
                         for (var ite in idsPunto) {
                             for (var all in $scope.Allpuntos) {

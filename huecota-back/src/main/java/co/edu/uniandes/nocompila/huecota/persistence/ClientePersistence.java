@@ -13,7 +13,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 /**
  *
  * @author c.martinezc1
@@ -28,7 +27,6 @@ public class ClientePersistence {
     protected EntityManager em;
     
     public ClienteEntity find(Long id){
-         LOGGER.log(Level.INFO, "Consultando Cliente con id={0}", id);
         return em.find(ClienteEntity.class, id);
     }
     

@@ -29,9 +29,11 @@ public class PuntoLogic {
     private ClienteLogic clienteLogic;
     
     public PuntoEntity createPunto(Long clienteid, PuntoEntity punto)throws BusinessLogicException{
-       LOGGER.info("Inicia proceso de crear punto");
+        LOGGER.info("Inicia proceso de crear punto");
+        System.out.println(clienteid);
         ClienteEntity cliente = clienteLogic.getCliente(clienteid);
         punto.setCliente(cliente);
+        cliente.getPuntos().add(punto);
         return persistence.create(punto);
     }
     
@@ -39,7 +41,7 @@ public class PuntoLogic {
         LOGGER.info("Inicia proceso de consultar todos los puntos");
         ClienteEntity cliente = clienteLogic.getCliente(clienteid);
         if (cliente.getPuntos().isEmpty()) {
-            throw new BusinessLogicException("El libro que consulta aún no tiene reviews");
+            throw new BusinessLogicException("El usuario que consulta aún no tiene puntos");
         }
         return cliente.getPuntos();
     }

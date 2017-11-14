@@ -6,6 +6,7 @@
 package co.edu.uniandes.nocompila.huecota.resources;
 
 import co.edu.uniandes.nocompila.huecota.dtos.AccidenteDTO;
+import co.edu.uniandes.nocompila.huecota.ejb.AccidenteLogic;
 import co.edu.uniandes.nocompila.huecota.ejb.ClienteLogic;
 import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
 import co.edu.uniandes.nocompila.huecota.exceptions.BusinessLogicException;
@@ -33,6 +34,8 @@ public class ClienteAccidenteResource {
     @Inject
     private ClienteLogic clienteLogic;
     
+    private AccidenteLogic accidenteLogic;
+    
     /**
      * Convierte una lista de CalificacionEntity a una lista de CalificacionDTO
      * @param entityList Lista de CalificacionEntity a convertir.
@@ -40,7 +43,7 @@ public class ClienteAccidenteResource {
      */
     private List<AccidenteDTO> accidentesListEntity2DTO(List<AccidenteEntity> entityList)
     {
-        List<AccidenteDTO> list = new ArrayList();
+        List<AccidenteDTO> list = new ArrayList<AccidenteDTO>();
         for(AccidenteEntity entity : entityList)
         {
             list.add(new AccidenteDTO(entity));
@@ -56,7 +59,7 @@ public class ClienteAccidenteResource {
      */
     private List<AccidenteEntity> accidentesListDTO2Entity(List<AccidenteDTO> dtos)
     {
-        List<AccidenteEntity> list = new ArrayList();
+        List<AccidenteEntity> list = new ArrayList<AccidenteEntity>();
         for(AccidenteDTO dto : dtos)
         {
             list.add(dto.toEntity());
@@ -105,18 +108,22 @@ public class ClienteAccidenteResource {
     {
         return new AccidenteDTO(clienteLogic.addAccidente(clienteid, accidenteId));
     }
-    /**
-     * @POST
+    @POST
     @Path("{accidenteId: \\d+}")
     public AccidenteDTO addAccidente(AccidenteDTO accidente,@PathParam("clienteid") Long clienteid)
     {
         AccidenteEntity entity = accidente.toEntity();
-        AccidenteEntity  nuevo = accidenteLogic.createAccidente(entity);
-        return new AccidenteDTO(clienteLogic.addAccidente(clienteid, accidenteId));
+        AccidenteEntity  nuevo;
+        try {
+            nuevo = accidenteLogic.createAccidente(entity);
+            return new AccidenteDTO(clienteLogic.addAccidente(clienteid, nuevo.getId()));
+        } catch (BusinessLogicException ex) {
+            Logger.getLogger(ClienteAccidenteResource.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
-     */
     
-    
+
     @PUT
     public List<AccidenteDTO> remplazarAccidente(@PathParam("clienteid") Long clienteid,List<AccidenteDTO> accidentes)
     {

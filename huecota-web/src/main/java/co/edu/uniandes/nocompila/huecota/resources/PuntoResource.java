@@ -42,7 +42,7 @@ public class PuntoResource {
     /**
      * POST http://localhost:8080/huecota-web/api/clientes/{id}/puntos
      *
-     * @param idCLiente
+     * @param clienteid
      * @param punto correponde a la representación java del objeto json
      * enviado en el llamado.
      * @return Devuelve el objeto json de entrada que contiene el id creado por
@@ -51,8 +51,9 @@ public class PuntoResource {
      * @throws BusinessLogicException
      */
     @POST
-    public PuntoDTO createPunto(@PathParam("idCliente") Long idCLiente, PuntoDTO punto) throws BusinessLogicException {
-        return new PuntoDTO(puntoLogic.createPunto(idCLiente, punto.toEntity()));
+    public PuntoDTO createPunto(@PathParam("id") Long clienteid, PuntoDTO punto) throws BusinessLogicException {
+        LOGGER.info("Inicia el proceso de crear un punto "+clienteid);
+        return new PuntoDTO(puntoLogic.createPunto(clienteid, punto.toEntity()));
     }
     
     /**
@@ -65,6 +66,7 @@ public class PuntoResource {
      */
     @GET
     public List<PuntoDTO> getPuntos(@PathParam("id") Long clienteid) throws BusinessLogicException {
+        LOGGER.info("Inicia la consulta de los puntos "+clienteid);
         return listEntity2DTO(puntoLogic.getPuntos(clienteid));
     }
     

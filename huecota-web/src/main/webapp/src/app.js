@@ -15,8 +15,8 @@
         'contratistaModule',
         'AbiertoModule',
         'CerradoModule',
-        'EnProgresoModule'
-        //'puntoModule'
+        'EnProgresoModule',
+        'puntoModule'
 
     ]);
     // Resuelve problemas de las promesas

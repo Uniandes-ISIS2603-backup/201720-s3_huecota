@@ -5,21 +5,19 @@
  */
 (function (ng) {
     var mod = ng.module("puntoModule");
-    mod.constant("puntosContext", "api/puntos");
-    mod.controller('puntoCtrl', ['$scope', '$http', 'puntosContext', '$state',
-        function ($scope, $http, puntosContext, $state) {
-            $http.get(puntosContext).then(function (response) {
+    mod.constant("puntosContext", "puntos");
+    mod.constant("clientesContext", "api/clientes");
+    mod.controller('puntosCtrl', ['$scope', '$http', 'clientesContext', '$state', 'puntosContext',
+        function ($scope, $http, clientesContext, $state, puntosContext) {
+            $http.get(clientesContext + '/' + $state.params.clienteId + '/' + puntosContext).then(function (response) {
                 $scope.puntosRecords = response.data;
             });
-            
-            if ($state.params.puntoId !== undefined) {
-                $http.get(puntosContext + '/' + $state.params.puntoId).then(function (response) {
+        if ($state.params.puntoId !== undefined) {
+                $http.get(clientesContext + '/' + $state.params.clienteId +'/' + puntosContext + '/' + $state.params.puntoId).then(function (response) {
                     $scope.currentPunto = response.data;
                 });
-            }
+            }    
         }
     ]);
 }
-)(angular);
-
-
+)(window.angular);

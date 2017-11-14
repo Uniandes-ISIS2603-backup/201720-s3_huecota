@@ -19,6 +19,8 @@ public class ClienteDTO {
     
     private int cedula;
     
+    private int huecosRegistrados;
+    
     public ClienteDTO(){
         
     }
@@ -53,11 +55,20 @@ public class ClienteDTO {
         this.cedula = cedula;
     }
     
+    public int getHuecosR(){
+        return huecosRegistrados;
+    }
+    
+    public void setHuecosR(int huecosRegistrados){
+        this.huecosRegistrados = huecosRegistrados;
+    }
+    
     public ClienteEntity toEntity(){
         ClienteEntity entity = new ClienteEntity();
         entity.setId(this.id);
         entity.setCedula(this.cedula);
         entity.setNombre(this.nombre);
+        entity.setHuecosRegistrados(huecosRegistrados);
         return entity;
     }
 }

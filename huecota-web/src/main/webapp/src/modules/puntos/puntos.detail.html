@@ -6,9 +6,9 @@ and open the template in the editor.
 -->
 <div class="col-md-3">
     <dl>     
-        <ul ng-repeat="cliente in currentPunto.cliente">
-            <a ui-sref="clienteDetail({clienteId: cliente.id})">{{cliente.nombre}}</a>
-        </ul>
+        <dt> Usuario</dt>
+        <dd>{{currentPunto.cliente}}</dd>
+        <hr>
         <dt> Cantidad</dt>
         <dd>{{currentPunto.cantidad}}</dd>
         <hr>

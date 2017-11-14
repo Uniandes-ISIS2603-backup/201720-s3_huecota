@@ -17,7 +17,7 @@
                 abstract: true,
                 parent: 'clienteDetail',
                 views: {
-                    'mainView': {
+                    'childrenView': {
                         templateUrl: basePath + 'puntos.html',
                         controller: 'puntoCtrl',
                         controllerAs: 'ctrl'
@@ -40,9 +40,6 @@
                     bookId: null
                 },
                 views: {
-                    'listView': {
-                        templateUrl: basePath + 'puntos.list.html'
-                    },
                     'detailView': {
                         templateUrl: basePath + 'puntos.detail.html',
                         controller: 'puntoCtrl',

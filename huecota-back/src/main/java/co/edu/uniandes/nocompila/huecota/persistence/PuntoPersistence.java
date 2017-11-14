@@ -25,9 +25,9 @@ public class PuntoPersistence {
     protected EntityManager em;
     
     public PuntoEntity find(Long clienteid, Long puntoid) {
-        TypedQuery<PuntoEntity> q = em.createQuery("select p from PuntoEntity p where (p.cliente.id = :clienteid) and (p.id = :clienteid)", PuntoEntity.class);
-        q.setParameter("bookid", clienteid);
-        q.setParameter("reviewid", puntoid);
+        TypedQuery<PuntoEntity> q = em.createQuery("select p from PuntoEntity p where (p.cliente.id = :clienteid) and (p.id = :puntoid)", PuntoEntity.class);
+        q.setParameter("clienteid", clienteid);
+        q.setParameter("puntoid", puntoid);
         return q.getSingleResult();
     }
     public PuntoEntity find(Long puntoid) {
