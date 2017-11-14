@@ -6,6 +6,9 @@
 package co.edu.uniandes.nocompila.huecota.dtos;
 
 import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
+import java.util.List;
+import co.edu.uniandes.nocompila.huecota.entities.ClienteEntity;
+import java.util.ArrayList;
 
 /**
  *
@@ -24,7 +27,17 @@ public class AccidenteDTO
 	 * Fecha del accidente
 	 */
 	private String fecha;
+	/**
+	 * Descripcion del accidente.
+	 */
 	private String descripcion;
+	
+	/**
+	 * Lista de ciudadanos
+	 */
+	
+	private List<ClienteDTO> clientes;
+	
     /**
      * Constructor por defecto
      */
@@ -44,8 +57,36 @@ public class AccidenteDTO
         this.id = Accidente.getId();
 		this.fecha = Accidente.getFecha();
 		this.descripcion = Accidente.getDescripcion();
+		this.clientes = entidadADTO(Accidente.getClientes());
+		
 		
     }
+	private List<ClienteDTO> entidadADTO(List<ClienteEntity> entityList)
+	{
+        List<ClienteDTO> list = new ArrayList();
+        for (ClienteEntity entity : entityList)
+		{
+            list.add(new ClienteDTO(entity));
+        }
+        return list;
+    }
+	private List<ClienteEntity> DTOAentity(List<ClienteDTO> dtoList)
+	{
+        List<ClienteEntity> list = new ArrayList();
+        for (ClienteDTO dtoActual : dtoList)
+		{
+            list.add(dtoActual.toEntity());
+        }
+        return list;
+    }
+
+	public List<ClienteDTO> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(List<ClienteDTO> clientes) {
+		this.clientes = clientes;
+	}
 
 	public String getFecha()
 	{
@@ -81,6 +122,7 @@ public class AccidenteDTO
         entity.setId(this.id);
 		entity.setDescripcion(this.descripcion);
 		entity.setFecha(this.fecha);
+		entity.setClientes(DTOAentity(this.clientes));
         return entity;
     }
 	    

@@ -34,7 +34,7 @@ import javax.persistence.TypedQuery;
 
 /**
  *
- * @author ISIS2603
+ * @author ch.patino
  */
 @Stateless
 public class HuecoPersistence {
@@ -45,26 +45,27 @@ public class HuecoPersistence {
     protected EntityManager em;
 
     /**
+     * Crea un hueco.
      *
      * @param entity objeto Hueco que se creará en la base de datos
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
     public HuecoEntity create(HuecoEntity entity) {
-        LOGGER.info("Creando un huecota nueva");
+        LOGGER.info("Creando un hueco nuevo");
         /* Note que hacemos uso de un método propio de EntityManager para persistir la Hueco en la base de datos.
         Es similar a "INSERT INTO table_codigo (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);" en SQL.
          */
         em.persist(entity);
-        LOGGER.info("Creando un huecota nueva");
+        LOGGER.info("Creando un hueco nuevo");
         return entity;
     }
 
     /**
-     * Actualiza un huecota.
+     * Actualiza un hueco.
      *
-     * @param entity: la Hueco que viene con los nuevos cambios. Por ejemplo
-     * el codigo pudo cambiar. En ese caso, se haria uso del método update.
-     * @return un huecota con los cambios aplicados.
+     * @param entity: la Hueco que viene con los nuevos cambios. Por ejemplo el
+     * codigo pudo cambiar. En ese caso, se haria uso del método update.
+     * @return un hueco con los cambios aplicados.
      */
     public HuecoEntity update(HuecoEntity entity) {
         LOGGER.log(Level.INFO, "Actualizando Hueco con id={0}", entity.getId());
@@ -77,8 +78,8 @@ public class HuecoPersistence {
 
     /**
      *
-     * Borra un huecota de la base de datos recibiendo como argumento el id
-     * de la Hueco
+     * Borra un huecota de la base de datos recibiendo como argumento el id de
+     * la Hueco
      *
      * @param id: id correspondiente a la Hueco a borrar.
      */
@@ -108,18 +109,17 @@ public class HuecoPersistence {
     }
 
     /**
-     * Devuelve todas las Huecoes de la base de datos.
+     * Devuelve todas las Huecos de la base de datos.
      *
-     * @return una lista con todas las Huecoes que encuentre en la base de
+     * @return una lista con todas las Huecos que encuentre en la base de
      * datos, "select u from HuecoEntity u" es como un "select * from
      * HuecoEntity;" - "SELECT * FROM table_codigo" en SQL.
      */
-    public List<HuecoEntity> findAll()
-	{
-        LOGGER.info("Consultando todas las Huecoes");
-        // Se crea un query para buscar todas las Huecoes en la base de datos.
+    public List<HuecoEntity> findAll() {
+        LOGGER.info("Consultando todas las Hueco");
+        // Se crea un query para buscar todas las Hueco en la base de datos.
         TypedQuery query = em.createQuery("select u from HuecoEntity u", HuecoEntity.class);
-        // Note que en el query se hace uso del método getResultList() que obtiene una lista de Huecoes.
+        // Note que en el query se hace uso del método getResultList() que obtiene una lista de Huecos.
         return query.getResultList();
     }
 }

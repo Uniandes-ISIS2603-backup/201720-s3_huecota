@@ -2,35 +2,63 @@
     var mod = ng.module("contratistaModule", ['ui.router']);
     mod.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
             var basePath = 'src/modules/contratistas/';
-            $urlRouterProvider.otherwise("contratistasList");
-            $stateProvider.state('contratistasList', {
-                url: '/contratistas/list',
+            var basePathCuentas = 'src/modules/cuentascobro/';
+            $urlRouterProvider.otherwise("/contratistasList");
+            $stateProvider.state('contratistas', {
+                url: '/contratistas',
+                abstract: true,
                 views: {
                     'mainView': {
-                        templateUrl: basePath + 'contratistas.list.html',
+                        templateUrl: basePath + 'contratistas.html',
                         controller: 'contratistaCtrl',
                         controllerAs: 'ctrl'
                     }
                 }
-            }).state('contratistaCreate', {
-                url: '/contratistas/create',
+            }).state('contratistasList', {
+                url: '/list',
+                parent: 'contratistas',
                 views: {
-                    'mainView': {
-                        templateUrl: basePath + 'contratistas.create.html',
-                        controller: 'contratistaCtrl',
-                        controllerAs: 'ctrl'
+                    'listView': {
+                        templateUrl: basePath + 'contratistas.list.html'
                     }
                 }
-            }).state('contratistaEdit', {
-                url: '/contratistas/:contratistaId',
+            }).state('contratistaDetail', {
+                url: '/{contratistaId:int}/detail',
+                parent: 'contratistas',
                 param: {
                     contratistaId: null
                 },
                 views: {
-                    'mainView': {
-                        templateUrl: basePath + 'contratista.create.html',
+                    'listView': {
+                        templateUrl: basePathCuentas + 'cuentascobro.list.html',
                         controller: 'contratistaCtrl',
                         controllerAs: 'ctrl'
+                    },
+                    'detailView': {
+                        templateUrl: basePath + 'contratistas.detail.html',
+                        controller: 'contratistaCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            }).state('contratistasCreate', {
+                url: '/create',
+                parent: 'contratistas',
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/new/contratistas.new.html',
+                        controller: 'contratistaNewCtrl'
+                    }
+                }
+            }).state('contratistaDelete', {
+                url: '/delete/{contratistaId:int}',
+                parent: 'contratistas',
+                param: {
+                    contratistaId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/delete/contratistas.delete.html',
+                        controller: 'contratistaDeleteCtrl'
                     }
                 }
             });
