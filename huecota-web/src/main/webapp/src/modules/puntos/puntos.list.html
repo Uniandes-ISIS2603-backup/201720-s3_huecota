@@ -7,11 +7,6 @@ and open the template in the editor.
 <div class="container-fluid">
     <div class="row">
         <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Cantidad</th>
-                </tr>
-            </thead>
             <tbody>
                 <tr ng-repeat="punto in puntosRecords">
                     <td id="{{$index}}-cantidad"><a ui-sref="puntoDetail({puntoId: punto.id})">{{punto.cantidad}}</a></td>
