@@ -61,6 +61,18 @@
                         controller: 'contratistaDeleteCtrl'
                     }
                 }
+            }).state('contratistaUpdate', {
+                url:'/update/{contratistaId:int}',
+                parent: 'contratistas',
+                param: {
+                    contratistaId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/new/contratistas.new.html',
+                        controller: 'contratistaUpdateCtrl'
+                    }
+                }
             });
     }]);
 })(window.angular);

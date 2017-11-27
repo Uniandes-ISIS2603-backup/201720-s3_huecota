@@ -5,9 +5,7 @@
     function ($scope, $http, contratistasContext, $state, $rootScope){
         $rootScope.edit = false;
         $scope.createContratista = function () {
-            $http.post(contratistasContext, {
-                name: $scope.contratistaName
-            }).then(function (response) {
+            $http.post(contratistasContext, $scope.data).then(function (response) {
                 $state.go('contratistasList', {contratistaId: response.data.id}, {reload: true});
             });
         };
