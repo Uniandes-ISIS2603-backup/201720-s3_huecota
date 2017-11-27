@@ -6,20 +6,25 @@ and open the template in the editor.
 -->
 <div class="panel panel-default"> 
     <div class="panel-body">
-    <div class="row">
-        <div class="col-md-2">
-            <dl>     
-                <dt>{{currentCliente.nombre}}</dt>
+      <div class="row">
+        <div class="col-md-6">
+            <div class="col-md-2">
+                <dl>     
+                    <dt>{{currentCliente.nombre}}</dt>
                 
-                <hr>
-                <dt>Cedula</dt>
-                <dd>{{currentCliente.cedula}}</dd>
+                    <hr>
+                    <dt>Cedula</dt>
+                    <dd>{{currentCliente.cedula}}</dd>
 
-            </dl>
-            <ul class="nav nav-tabs">
-               <li role="presentation" class="active"><a ui-sref="puntosList({clienteId: currentCliente.id})"> Puntos</a></li>
-            </ul>
+                </dl>
+            </div>
+           
+                <ul class="nav nav-tabs">
+                    <li role="navigation" class="active"><a ui-sref="puntosList({clienteId: currentCliente.id})"> Puntos</a></li>
+                    <li role="navigation" class="active"><a ui-sref="accidentesList({clienteId: currentCliente.id})"> Accidentes</a></li>
+                </ul>
+            
         </div>
+      </div>
     </div>
-        </div>
 </div>

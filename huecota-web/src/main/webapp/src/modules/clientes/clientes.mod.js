@@ -9,6 +9,7 @@
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/clientes/';
             var basePathPuntos = 'src/modules/puntos/';
+            var basePathAccidentes = 'src/modules/accidentes/';
             $urlRouterProvider.otherwise("/clientesList");
 
             $stateProvider.state('clientes', {
@@ -38,11 +39,6 @@
                     clienteId: null
                 },
                 views: {
-                    'listView': {
-                        templateUrl: basePathPuntos + 'puntos.list.html',
-                        controller: 'clienteCtrl',
-                        controllerAs: 'ctrl'
-                    },
                     'detailView': {
                         templateUrl: basePath + 'clientes.detail.html',
                         controller: 'clienteCtrl',
