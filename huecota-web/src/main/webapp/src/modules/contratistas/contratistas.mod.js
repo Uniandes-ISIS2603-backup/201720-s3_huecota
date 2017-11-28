@@ -73,6 +73,24 @@
                         controller: 'contratistaUpdateCtrl'
                     }
                 }
+            }).state('cuentasCobroCreate', {
+                url:'/{contratistaId:int}/createcuenta',
+                parent: 'contratistas',
+                param: {
+                    contratistaId: null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePathCuentas + 'cuentascobro.create.html',
+                        controller: 'contratistaCreateCuentaCtrl',
+                        controllerAs: 'ctrl'
+                    },
+                    'detailView': {
+                        templateUrl: basePath + 'contratistas.detail.html',
+                        controller: 'contratistaCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
             });
     }]);
 })(window.angular);
