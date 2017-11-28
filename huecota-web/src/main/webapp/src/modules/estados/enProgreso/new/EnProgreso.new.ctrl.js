@@ -1,15 +1,14 @@
 (function (ng) {
-    var mod = ng.module("CerradoModule");
-    mod.constant("cerradoContext", "api/estadosCerrado");
-    mod.controller('cerradoNewCtrl', ['$scope', '$http', 'cerradoContext', '$state', '$rootScope',
-        function ($scope, $http, cerradoContext, $state, $rootScope) {
+    var mod = ng.module("EnProgresoModule");
+    mod.constant("enProgresoContext", "api/estadosEnProgreso");
+    mod.controller('enProgresoNewCtrl', ['$scope', '$http', 'enProgresoContext', '$state', '$rootScope',
+        function ($scope, $http, enProgresoContext, $state, $rootScope) {
             $rootScope.edit = false;
             $scope.createState = function () {
-                $http.post(cerradoContext, {
-                    causa: $scope.causa,
-                    comentario: $scope.comentario
+                $http.post(enProgresoContext, {
+                    fechaInicio: $scope.enProgresoFecha
                 }).then(function (response) {
-                    $state.go('cerradoList', {stateId: response.data.id}, {reload: true});
+                    $state.go('enProgresoList', {stateId: response.data.id}, {reload: true});
                 });
             };
         }

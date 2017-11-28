@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-  <body>
-    <h2>Numero de huecos en estado abierto</h2>
-        <div class="container-fluid">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Id de los huecos:</th>
-                    <dt>{{currentEstado.id}}</dt>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="estados in estadosRecords">
-                     <td id="{{$index}}-id">{{estados.id}}</td>
-            </tbody>
-        </table>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    </head>    
+    <div class="container-fluid">
+        <div class="panel-group">
+            <h2>Numero de huecos en estado abierto:   <dt>{{currentEstado.id}}</dt></h2>
+            <div class="panel panel-primary">
+                <div class="panel-heading"><label>Lista de huecos</label></div>
+                <div class="panel-body">
+                      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+                            <div class="container-fluid">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Id de los huecos:</th>
+                                        <dt>{{currentEstado.id}}</dt>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="estados in estadosRecords">
+                                         <td id="{{$index}}-id">{{estados.id}}</td>
+                                </tbody>
+                            </table>
+                        </div>
+                       </body>  
+                </div>
+            </div>
+        </div>
     </div>
-   </body>
 </html>

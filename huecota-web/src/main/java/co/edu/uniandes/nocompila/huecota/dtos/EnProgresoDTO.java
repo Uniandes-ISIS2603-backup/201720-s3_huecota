@@ -15,7 +15,7 @@ public class EnProgresoDTO {
     
     private Long id;
     
-    private String fechaDeInicio;
+    private Date fechaDeInicio;
     
     public EnProgresoDTO(){
         
@@ -34,11 +34,11 @@ public class EnProgresoDTO {
         this.id = id;
     }
 
-    public String getFechaInicio() {
+    public Date getFechaInicio() {
         return fechaDeInicio;
     }
 
-    public void setFechaInicio(String fechaDeInicio) {
+    public void setFechaInicio(Date fechaDeInicio) {
         this.fechaDeInicio = fechaDeInicio;
     }
     

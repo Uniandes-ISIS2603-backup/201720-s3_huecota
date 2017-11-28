@@ -20,7 +20,7 @@
                 parent: 'enProgresos',
                 views: {
                     'listView': {
-                        templateUrl: basePath + 'EnProgreso.html',
+                        templateUrl: basePath + 'EnProgreso.List.html',
                         controller: 'enProgresoCtrl',
                         controllerAs: 'ctrl'
                     }
@@ -32,11 +32,6 @@
                     stateId: null
                 },
                 views: {
-                    'listView': {
-                        templateUrl: basePath + 'EnProgreso.html',
-                        controller: 'enProgresoCtrl',
-                        controllerAs: 'ctrl'
-                    },
                     'detailView': {
                         templateUrl: basePath + 'EnProgreso.Detail.html',
                         controller: 'enProgresoCtrl',
@@ -65,14 +60,14 @@
                     }
                 }
             }).state('enProgresosDelete', {
-                url: '/delete',
+                url: '/delete/{stateId:int}',
                 parent: 'enProgresos',
                 param: {
-                    authorId: null
+                    stateId: null
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/delete/enProgresos.delete.html',
+                        templateUrl: basePath + '/delete/EnProgreso.delete.html',
                         controller: 'enProgresoDeleteCtrl'
                     }
                 }

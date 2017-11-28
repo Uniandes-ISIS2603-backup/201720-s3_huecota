@@ -26,7 +26,8 @@ public class EnProgresoEntity extends BaseEntity implements Serializable{
     /**
      * Fecha de inicio de tapado del hueco.
      */
-    private String fechaDeInicio;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date fechaInicio;
     
     @PodamExclude
     @OneToOne(orphanRemoval = true)
@@ -36,12 +37,12 @@ public class EnProgresoEntity extends BaseEntity implements Serializable{
     @OneToOne(orphanRemoval = true)
     private List<CuentaCobroEntity> cuentaCobro;
 
-    public String getFechaDeInicio() {
-        return fechaDeInicio;
+    public Date getFechaDeInicio() {
+        return fechaInicio;
     }
 
-    public void setFechaDeInicio(String fechaDeInicio) {
-        this.fechaDeInicio = fechaDeInicio;
+    public void setFechaDeInicio(Date fechaDeInicio) {
+        this.fechaInicio = fechaDeInicio;
     }
     
     public List<HuecoEntity> getHuecos() {

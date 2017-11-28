@@ -7,9 +7,10 @@
             $scope.createState = function () {
                 $http.post(cerradoContext, {
                     causa: $scope.cerradoCausa,
-                    comentario: $scope.cerradoComentario
+                    comentario: $scope.cerradoComentario,
+                    fechaDeCerrado : $scope.cerradoFecha
                 }).then(function (response) {
-                    $state.go('cerradoList', {stateId: response.data.stateId}, {reload: true});
+                    $state.go('cerradoList', {stateId: response.data.id}, {reload: true});
                 });
             };
         }
