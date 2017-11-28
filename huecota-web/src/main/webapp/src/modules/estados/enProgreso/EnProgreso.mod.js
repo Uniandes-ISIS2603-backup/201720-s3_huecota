@@ -48,14 +48,14 @@
                     }
                 }
             }).state('enProgresosUpdate', {
-                url: '/update',
+                url: '/update/{stateId:int}',
                 parent: 'enProgresos',
                 param: {
-                    authorId: null
+                    stateId: null
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + 'update/enProgresos.update.html',
+                        templateUrl: basePath + '/new/EnProgreso.new.html',
                         controller: 'enProgresoUpdateCtrl'
                     }
                 }
