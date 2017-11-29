@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+<h1>Numero de huecos en estado abierto: {{currentEstado.id}} </h1>
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label>Lista de huecos</label></div>
+            <div class="panel-body">
+                  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+                        <div class="container-fluid">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id de los huecos: </th>
+                                    <dt>{{currentEstado.id}}</dt>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="estados in estadosRecords">
+                                     <td id="{{$index}}-id">{{estados.id}}</td>
+                            </tbody>
+                        </table>
+                        </div>
+                   </body>  
+            </div>
+        </div>
+    </div>
+</div>
+-->
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+    <h1>Numero de huecos en estado abierto: {{estados.id}}</h1>
+        <div class="panel panel-primary">
+        <div class="panel-heading"><label>Lista de huecos</label></div>
+            <div class="panel-body">
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+                <div class="container-fluid">
+                <table class="table table-striped">
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <a class="btn btn-info" ui-sref="abiertosCreate"><span class="glyphicon glyphicon-plus-sign"></span>Registrar fecha de inicio</a>
+                    </div>
+                    </div> 
+                    <div class="container-fluid"></div>
+                </table>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id del hueco</th>
+                            <th>Fecha de inscripción</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="estados in estadosRecords">
+                        <td id="{{$index}}-id"><a ui-sref="abiertoDetail({stateId: estados.id})">{{estados.id}}</a></td>
+                        <td  id="{{$index}}-fechaDeAbierto">{{estados.fechaDeAbierto| date:'yyyy-MM-dd hh:mm:ss'}}</td>
+                        <td id="{{$index}}-actions">
+                            <a class="btn btn-default btn-sm" ui-sref="abiertosUpdate({stateId: estados.id})"><span class="glyphicon glyphicon-edit"></span></a>
+                            <a class="btn btn-danger btn-sm" ui-sref="abiertosDelete({stateId: estados.id})"><span class="glyphicon glyphicon-trash"></span></a>
+                        </td>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </body>  
+        </div>
+    </div>       
+</body>
+</html>

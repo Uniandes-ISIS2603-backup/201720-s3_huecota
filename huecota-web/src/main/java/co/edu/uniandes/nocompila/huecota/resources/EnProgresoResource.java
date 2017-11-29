@@ -21,6 +21,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  *
@@ -90,8 +91,12 @@ public class EnProgresoResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public EnProgresoDTO updateState(@PathParam("id") Long id, EnProgresoDTO cliente) throws BusinessLogicException, UnsupportedOperationException {
-          return null;
+    public EnProgresoDTO updateState(@PathParam("id") Long id, EnProgresoDTO state) throws BusinessLogicException, UnsupportedOperationException {
+        state.setId(id);
+        EnProgresoEntity entity = enProgresoLogic.getState(id);
+        if (entity == null)
+            throw new WebApplicationException("El recurso estado: " + id + " no existe.", 404);
+        return new EnProgresoDTO(enProgresoLogic.updateState(state.toEntity()));
     }
     
     /**

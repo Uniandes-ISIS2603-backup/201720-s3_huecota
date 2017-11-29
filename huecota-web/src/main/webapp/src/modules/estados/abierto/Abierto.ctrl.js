@@ -8,17 +8,11 @@
                 $scope.estadosRecords = response.data;
             });
             
-            //borrado
-                        this.deleteRecord = function(estado){
-                    return $http.delete(AbiertoContext + "/" + estado.id)
-                            .then(function () {
-                                // $http.delete es una promesa
-                                // cuando termine bien, cambie de estado
-                                var index = $scope.entrenadorRecords.indexOf(estado);                               
-                                if (index > -1) {
-                                    $scope.entrenadorRecords.splice(index, 1);
-                                }
-                            });
+            if (($state.params.stateId !== undefined)) {
+                $http.get(AbiertoContext + '/' + $state.params.stateId).then(function (response) {
+                    $scope.estadosRecords = response.data.estadosAbierto;
+                    $scope.currentEstado = response.data;
+                });
             }
 
         }

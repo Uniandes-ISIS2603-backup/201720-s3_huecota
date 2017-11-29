@@ -61,6 +61,68 @@
                         controller: 'contratistaDeleteCtrl'
                     }
                 }
+            }).state('contratistaUpdate', {
+                url:'/update/{contratistaId:int}',
+                parent: 'contratistas',
+                param: {
+                    contratistaId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/new/contratistas.new.html',
+                        controller: 'contratistaUpdateCtrl'
+                    }
+                }
+            }).state('cuentasCobroCreate', {
+                url:'/{contratistaId:int}/createcuenta',
+                parent: 'contratistas',
+                param: {
+                    contratistaId: null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePathCuentas + 'cuentascobro.create.html',
+                        controller: 'contratistaCreateCuentaCtrl',
+                        controllerAs: 'ctrl'
+                    },
+                    'detailView': {
+                        templateUrl: basePath + 'contratistas.detail.html',
+                        controller: 'contratistaCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            }).state('cuentasCobroDelete', {
+                url:'/{contratistaId:int}/deletecuenta/{cuentaId:int}',
+                parent: 'contratistas',
+                params: {
+                    contratistaId: null,
+                    cuentaId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePathCuentas + 'cuentascobro.delete.html',
+                        controller: 'contratistaDeleteCuentaCtrl'
+                    }
+                }
+            }).state('cuentasCobroUpdate', {
+                url:'/{contratistaId:int}/updatecuenta/{cuentaId:int}',
+                parent: 'contratistas',
+                params: {
+                    contratistaId: null,
+                    cuentaId: null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePathCuentas + 'cuentascobro.create.html',
+                        controller: 'contratistaUpdateCuentaCtrl',
+                        controllerAs: 'ctrl'
+                    },
+                    'detailView': {
+                        templateUrl: basePath + 'contratistas.detail.html',
+                        controller: 'contratistaCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
             });
     }]);
 })(window.angular);

@@ -4,6 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<h2>Detalle del hueco con id: {{currentEstado.id}}</h2>
 <div class="panel panel-default"> 
     <div class="panel-body">
     <div class="row">
@@ -13,7 +14,7 @@ and open the template in the editor.
                 <dt>{{currentEstado.id}}</dt>
                 <hr>
                 <dt>Fecha de cierre</dt>
-                <dd>{{currentEstado.fechaDeCierre| date:'yyyy-MM-dd'}}</dd>
+                <dd>{{currentEstado.fechaDeCerrado| date:'yyyy-MM-dd'}}</dd>
                 <hr>
                 <dt>Causa</dt>
                 <dd>{{currentEstado.causa}}</dd>
@@ -22,6 +23,9 @@ and open the template in the editor.
                 <dd>{{currentEstado.comentario}}</dd>
 
             </dl>
+        </div>
+        <div class="form-group col-sm-12">
+            <a class="btn btn-info" ui-sref="cerradoList">Volver</a>
         </div>
     </div>
         </div>

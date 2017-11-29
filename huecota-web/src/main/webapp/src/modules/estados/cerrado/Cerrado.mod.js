@@ -48,26 +48,26 @@
                     }
                 }
             }).state('cerradosUpdate', {
-                url: '/update',
+                url: '/update/{stateId:int}',
                 parent: 'cerrados',
                 param: {
-                    authorId: null
+                    stateId: null
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + 'update/cerrados.update.html',
+                        templateUrl: basePath + '/new/Cerrado.new.html',
                         controller: 'cerradoUpdateCtrl'
                     }
                 }
             }).state('cerradosDelete', {
-                url: '/delete',
+                url: '/delete/{stateId:int}',
                 parent: 'cerrados',
                 param: {
-                    authorId: null
+                    stateId: null
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/delete/cerrados.delete.html',
+                        templateUrl: basePath + '/delete/Cerrado.delete.html',
                         controller: 'cerradoDeleteCtrl'
                     }
                 }

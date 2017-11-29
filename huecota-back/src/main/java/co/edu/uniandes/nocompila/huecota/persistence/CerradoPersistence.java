@@ -6,7 +6,6 @@
 package co.edu.uniandes.nocompila.huecota.persistence;
 
 import co.edu.uniandes.nocompila.huecota.entities.CerradoEntity;
-import co.edu.uniandes.nocompila.huecota.entities.CerradoEntity;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

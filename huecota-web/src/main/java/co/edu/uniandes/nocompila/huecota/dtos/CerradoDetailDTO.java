@@ -18,7 +18,7 @@ public class CerradoDetailDTO extends CerradoDTO{
     private List<HuecoDTO> huecos;
     
     public CerradoDetailDTO(){
-        super();
+       
     }
     public CerradoDetailDTO(CerradoEntity entity){
         super(entity);

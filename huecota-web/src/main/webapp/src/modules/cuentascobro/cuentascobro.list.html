@@ -7,6 +7,8 @@
                     <dd>{{cuenta.id}}</dd>
                     <dt>Precio</dt>
                     <dd>{{cuenta.precio}}</dd>
+                    <a class="btn btn-default btn-sm" ui-sref="cuentasCobroUpdate({contratistaId: currentContratista.id, cuentaId: cuenta.id})"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a class="btn btn-danger btn-sm" ui-sref="cuentasCobroDelete({contratistaId: currentContratista.id, cuentaId: cuenta.id})"><span class="glyphicon glyphicon-trash"></span></a>
                 </dl>
             </div>
         </div>

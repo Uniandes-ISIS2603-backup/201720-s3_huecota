@@ -21,6 +21,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -91,8 +92,12 @@ public class CerradoResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public CerradoDTO updateState(@PathParam("id") Long id, CerradoDTO cliente) throws BusinessLogicException, UnsupportedOperationException {
-          return null;
+    public CerradoDTO updateState(@PathParam("id") Long id, CerradoDTO state) throws BusinessLogicException, UnsupportedOperationException {
+        state.setId(id);
+        CerradoEntity entity = cerradoLogic.getState(id);
+        if (entity == null)
+            throw new WebApplicationException("El recurso estado: " + id + " no existe.", 404);
+        return new CerradoDTO(cerradoLogic.updateState(state.toEntity()));
     }
     
     /**

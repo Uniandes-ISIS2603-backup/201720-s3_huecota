@@ -23,7 +23,8 @@ import uk.co.jemos.podam.common.PodamStrategyValue;
 @Entity
 public class CerradoEntity extends BaseEntity implements Serializable {
     
-    private String fechaDeCerrado;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date fechaDeCerrado;
     
     /**
      * Causa de cerramiento.
@@ -59,11 +60,11 @@ public class CerradoEntity extends BaseEntity implements Serializable {
         this.comentario = comentario;
     }
 
-    public String getFechaDeCerrado() {
+    public Date getFechaDeCerrado() {
         return fechaDeCerrado;
     }
 
-    public void setFechaDeCerrado(String fechaDeCerrado) {
+    public void setFechaDeCerrado(Date fechaDeCerrado) {
         this.fechaDeCerrado = fechaDeCerrado;
     }
     

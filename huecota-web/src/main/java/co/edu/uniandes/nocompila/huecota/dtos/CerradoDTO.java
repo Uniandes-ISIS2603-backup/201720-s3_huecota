@@ -19,7 +19,7 @@ public class CerradoDTO {
     
     private String comentario;
     
-    private String fechaDeCerrado;
+    private Date fechaDeCerrado;
     
     public CerradoDTO(){
         
@@ -32,11 +32,11 @@ public class CerradoDTO {
         this.fechaDeCerrado = state.getFechaDeCerrado();
     }
 
-    public String getFechaDeCerrado() {
+    public Date getFechaDeCerrado() {
         return fechaDeCerrado;
     }
 
-    public void setFechaDeCerrado(String fechaDeCerrado) {
+    public void setFechaDeCerrado(Date fechaDeCerrado) {
         this.fechaDeCerrado = fechaDeCerrado;
     }
     
