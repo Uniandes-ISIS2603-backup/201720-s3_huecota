@@ -91,6 +91,19 @@
                         controllerAs: 'ctrl'
                     }
                 }
+            }).state('cuentasCobroDelete', {
+                url:'/{contratistaId:int}/deletecuenta/{cuentaId:int}',
+                parent: 'contratistas',
+                params: {
+                    contratistaId: null,
+                    cuentaId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePathCuentas + 'cuentascobro.delete.html',
+                        controller: 'contratistaDeleteCuentaCtrl'
+                    }
+                }
             });
     }]);
 })(window.angular);
