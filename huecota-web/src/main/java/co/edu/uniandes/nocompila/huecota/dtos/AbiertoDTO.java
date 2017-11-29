@@ -6,6 +6,7 @@
 package co.edu.uniandes.nocompila.huecota.dtos;
 
 import co.edu.uniandes.nocompila.huecota.entities.AbiertoEntity;
+import java.util.Date;
 /**
  *
  * @author jpr.arango10
@@ -14,7 +15,7 @@ public class AbiertoDTO {
     
     private Long id;
     
-    private int numeroDeHuecos;
+    private Date fechaDeAbierto;
     
     public AbiertoDTO(){
         
@@ -22,7 +23,7 @@ public class AbiertoDTO {
     
     public AbiertoDTO(AbiertoEntity state){
         this.id = (state.getId());
-        this.numeroDeHuecos = state.getNumeroDeHuecos();
+        this.fechaDeAbierto = state.getFechaDeAbierto();
     }
     
     public Long getId(){
@@ -33,18 +34,18 @@ public class AbiertoDTO {
         this.id = id;
     }
 
-    public int getNumeroDeHuecos() {
-        return numeroDeHuecos;
+    public Date getFechaDeAbierto() {
+        return fechaDeAbierto;
     }
 
-    public void setNumeroDeHuecos(int numeroDeHuecos) {
-        this.numeroDeHuecos = numeroDeHuecos;
+    public void setFechaDeAbierto(Date fechaDeAbierto) {
+        this.fechaDeAbierto = fechaDeAbierto;
     }
     
     public AbiertoEntity toEntity(){
         AbiertoEntity entity = new AbiertoEntity();
         entity.setId(this.id);
-        entity.setNumeroDeHuecos(numeroDeHuecos);
+        entity.setFechaDeAbierto(fechaDeAbierto);
         return entity;
     }
 }

@@ -71,4 +71,7 @@
     .panel-transparent .panel-body{
         background: rgba(46, 51, 56, 0.2)!important;
     }
-
+    
+    a[target=_titulo] {
+        text-align: center;
+    }
