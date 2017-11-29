@@ -1,38 +1,22 @@
-<div class="container-fluid">
-    <div class="panel-group">
-        <div class="panel panel-primary">
-            <div class="panel-heading"><label>Calificaciones list</label></div>
-            <div class="panel-body">
-                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <a class="btn btn-info" ui-sref="calificacionesCreate"><span class="glyphicon glyphicon-plus-sign"></span> Agregar Calificacion</a>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Nombre</th>
-                                <th>Nota</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="calificacion in calificacionesRecords">
-                                <td id="{{$index}}-numeroid">{{calificacion.id}}</td>
-                                <td id="{{$index}}-nombre">{{calificacion.name}}</td>
-                                <td id="{{$index}}-nota">{{calificacion.nota}}</td>
-                                <td id="{{$index}}-comentario">{{calificacion.comentario}}</td>
-                                    <a class="btn btn-default btn-sm" ui-sref="calificacionUpdate({calificacionId: calificacion.id})"><span class="glyphicon glyphicon-edit"></span></a>
-                                    <a class="btn btn-danger btn-sm" ui-sref="calificacionDelete({calificacionId: calificacion.id})"><span class="glyphicon glyphicon-trash"></span></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+<div class="container-fluid">   
+    <div class="col-sm-12">
+        <br>
+        <table ng-if="!messageCalificaciones" class="table table-striped">
+            
+            <tbody>
+                <tr ng-repeat="calificacion in calificacionesRecords">
+                    <td id="{{$index}}-id"><b>{{currentHueco.id}}</b><span>: </span>{{calificacion.comentario}}</td>                                  
+                </tr>
+            </tbody>
+        </table>
+        <table ng-if="messageCalificaciones" class="table table-striped">
+            
+            <tbody>
+                <tr>
+                    <td><b>{{messageCalificaciones}}</b></td>                                  
+                </tr>
+            </tbody>
+        </table>
     </div>
-
 
 </div>
