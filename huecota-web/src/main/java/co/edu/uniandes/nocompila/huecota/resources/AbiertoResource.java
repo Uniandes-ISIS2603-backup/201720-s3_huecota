@@ -21,6 +21,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  *
@@ -90,8 +91,12 @@ public class AbiertoResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public AbiertoDTO updateState(@PathParam("id") Long id, AbiertoDTO cliente) throws BusinessLogicException, UnsupportedOperationException {
-          return null;
+    public AbiertoDTO updateState(@PathParam("id") Long id, AbiertoDTO state) throws BusinessLogicException, UnsupportedOperationException {
+        state.setId(id);
+        AbiertoEntity entity = abiertoLogic.getState(id);
+        if (entity == null)
+            throw new WebApplicationException("El recurso estado: " + id + " no existe.", 404);
+        return new AbiertoDTO(abiertoLogic.updateState(state.toEntity()));
     }
     
     /**

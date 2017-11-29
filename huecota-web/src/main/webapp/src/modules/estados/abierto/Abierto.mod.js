@@ -20,7 +20,20 @@
                 parent: 'abiertos',
                 views: {
                     'listView': {
-                        templateUrl: basePath + 'Abierto.html',
+                        templateUrl: basePath + 'Abierto.List.html',
+                        controller: 'abiertoCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            }).state('abiertoDetail', {
+                url: '/{stateId:int}/detail',
+                parent: 'abiertos',
+                param: {
+                    stateId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + 'Abierto.Detail.html',
                         controller: 'abiertoCtrl',
                         controllerAs: 'ctrl'
                     }
@@ -30,31 +43,31 @@
                 parent: 'abiertos',
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/new/abiertos.new.html',
+                        templateUrl: basePath + '/new/Abierto.new.html',
                         controller: 'abiertoNewCtrl'
                     }
                 }
             }).state('abiertosUpdate', {
-                url: '/update',
+                url: '/update/{stateId:int}',
                 parent: 'abiertos',
                 param: {
-                    authorId: null
+                    stateId: null
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/update/abiertos.update.html',
+                        templateUrl: basePath + '/new/Abierto.new.html',
                         controller: 'abiertoUpdateCtrl'
                     }
                 }
             }).state('abiertosDelete', {
-                url: '/delete',
+                url: '/delete/{stateId:int}',
                 parent: 'abiertos',
                 param: {
                     authorId: null
                 },
                 views: {
                     'detailView': {
-                        templateUrl: basePath + '/delete/abiertos.delete.html',
+                        templateUrl: basePath + '/delete/Abierto.delete.html',
                         controller: 'abiertoDeleteCtrl'
                     }
                 }

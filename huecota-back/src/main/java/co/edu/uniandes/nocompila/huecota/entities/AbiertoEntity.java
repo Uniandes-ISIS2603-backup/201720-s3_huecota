@@ -6,9 +6,11 @@
 package co.edu.uniandes.nocompila.huecota.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -21,7 +23,8 @@ public class AbiertoEntity extends BaseEntity implements Serializable{
     /**
      * Número de huecos en estado abierto.
      */
-    private int numeroDeHuecos;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date fechaDeAbierto;
     
     @PodamExclude
     @OneToOne(orphanRemoval = true)
@@ -31,16 +34,16 @@ public class AbiertoEntity extends BaseEntity implements Serializable{
      * Retorna el número de huecos en estado abierto.
      * @return numeroDeHuecos
      */
-    public int getNumeroDeHuecos() {
-        return numeroDeHuecos;
+    public Date getFechaDeAbierto() {
+        return fechaDeAbierto;
     }
 
     /**
      * Fija un número de huecos en estado abierto.
-     * @param numeroDeHuecos 
+     * @param fechaDeAbierto 
      */
-    public void setNumeroDeHuecos(int numeroDeHuecos) {
-        this.numeroDeHuecos = numeroDeHuecos;
+    public void setFechaDeAbierto(Date fechaDeAbierto) {
+        this.fechaDeAbierto = fechaDeAbierto;
     }
 
     public List<HuecoEntity> getHuecos() {

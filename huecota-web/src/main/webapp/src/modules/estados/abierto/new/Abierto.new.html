@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label ng-if="!edit" id="createAuthor">Ingresar fecha de registro</label>
+                <label ng-if="edit" id="editAuthor">Editar estado</label></div>
+            <div class="panel-body">
+                <form ng-submit="createState()" name="state">
+                   <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="abiertoFecha" class="col-sm-2">Fecha de registro:</label>  
+                            <input type="date" id="abiertoFecha" placeholder="DD/MM/YYYY" required ng-model="abiertoFecha" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-sm-4" ng-if="!state.$valid">
+
+                            <div class="alert alert-warning" >
+                                <strong>Error</strong><p>Todos los campos son obligatorios*</p>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="form-group row">
+                        <div class="form-group col-sm-12">
+                            <input ng-show="state.$valid" type="submit" value="Guardar" class="btn btn-success"/>
+                            <a class="btn btn-info" ui-sref="abiertoList">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
