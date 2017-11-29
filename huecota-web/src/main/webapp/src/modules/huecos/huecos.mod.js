@@ -1,7 +1,7 @@
 (function (ng) {
     var mod = ng.module("huecosModule", ['ui.router']);
     mod.constant("huecosContext", "api/huecos");
-   mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/huecos/';
             $urlRouterProvider.otherwise("/huecosList");
 
@@ -15,7 +15,7 @@
                         controllerAs: 'ctrl'
                     }
                 }
-           }).state('huecosList', {
+            }).state('huecosList', {
                 url: '/list',
                 parent: 'huecos',
                 views: {
@@ -69,6 +69,16 @@
                     'detailView': {
                         templateUrl: basePath + '/delete/huecos.delete.html',
                         controller: 'huecosDeleteCtrl'
+                    }
+                }
+            }).state('huecosDireccion', {
+                url: '/direcciones',
+                parent: 'huecos',
+                views: {
+                    'listView': {
+                        templateUrl: 'src/modules/direcciones/direcciones.list.html',
+                        controller: 'huecosCtrl',
+                        controllerAs: 'ctrl'
                     }
                 }
             });

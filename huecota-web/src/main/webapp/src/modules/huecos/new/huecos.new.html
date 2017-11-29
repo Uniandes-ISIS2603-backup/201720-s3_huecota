@@ -1,28 +1,32 @@
+<br>
 <div class="container-fluid">
     <div class="panel-group">
         <div class="panel panel-primary">
-            <div class="panel-heading"><label ng-if="!edit" id="createhueco">Crear nuevo  hueco</label>
-                <label ng-if="edit" id="edithueco">Editar hueco</label></div>
+            <div class="panel-heading"><label ng-if="!edit" id="createHueco">Crear nuevo Hueco</label>
+                <label ng-if="edit" id="edithueco">Editar Hueco</label></div>
             <div class="panel-body">
                 <form ng-submit="createhueco()" name="hueco">
-                  
+
                     <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="huecoId" class="col-sm-3">Id:</label>
+                        <div class="form-group col-md-12">
+                            <label for="huecoId" class="col-sm-2">Id:</label>
                             <textarea id="huecoId" required ng-model="huecoId" class="col-sm-6"></textarea>
                         </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="huecoDescripcion" class="col-sm-3">Descripción:</label>
+
+                        <div class="form-group col-md-12">
+                            <label for="huecoDescripcion" class="col-sm-2">Descripción:</label>
                             <textarea id="huecoDescripcion" required ng-model="huecoDescripcion" class="col-sm-6"></textarea>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label for="huecoDireccion" class="col-sm-2">Dirección:</label>
+                            <a class="btn btn-success" ui-sref="huecosDireccion" ng-if="!hueco.$valid"> Crear Dirección</a>
+                            <label id="huecoDireccion" ng-if="hueco.$valid" class="col-sm-6" > Cra 69 # 80 - 70</label>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <div class="form-group col-sm-4" ng-if="!hueco.$valid">
-
+                        <div class="form-group col-sm-8" ng-if="!hueco.$valid">
                             <div class="alert alert-warning" >
                                 <strong>Importante!</strong><p>Todos los campos son requeridos*</p>
                             </div> 
@@ -35,7 +39,6 @@
                         </div>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
