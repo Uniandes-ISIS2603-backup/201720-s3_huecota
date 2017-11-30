@@ -11,11 +11,8 @@
             $http.get(clientesContext).then(function (response) {
                 $scope.clientesRecords = response.data;
             });
-
             if ($state.params.clienteId !== undefined) {
                 $http.get(clientesContext + '/' + $state.params.clienteId).then(function (response) {
-                    $scope.puntosRecords = response.data.punto;
-                    $scope.accidentesRecords = response.data.accidente;
                     $scope.currentCliente = response.data;
                 });
             }

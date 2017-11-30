@@ -8,8 +8,6 @@
     mod.constant("clientesContext", "api/clientes");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/clientes/';
-            var basePathPuntos = 'src/modules/puntos/';
-            var basePathAccidentes = 'src/modules/accidentes/';
             $urlRouterProvider.otherwise("/clientesList");
 
             $stateProvider.state('clientes', {
@@ -65,7 +63,7 @@
                         templateUrl: basePath + '/new/clientes.new.html',
                         controller: 'clienteUpdateCtrl'
                     }
-                }
+                }    
             }).state('clienteDelete', {
                 url: '/delete/{clienteId:int}',
                 parent: 'clientes',

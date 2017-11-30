@@ -18,9 +18,7 @@
                 parent: 'clienteDetail',
                 views: {
                     'childrenView': {
-                        templateUrl: basePath + 'puntos.html',
-                        controller: 'puntoCtrl',
-                        controllerAs: 'ctrl'
+                        templateUrl: basePath + 'puntos.html'
                     }
                 }
             }).state('puntosList', {
@@ -37,7 +35,7 @@
                 url: '/{puntoId:int}/detail',
                 parent: 'puntos',
                 param: {
-                    bookId: null
+                    puntoId: null
                 },
                 views: {
                     'detailView': {

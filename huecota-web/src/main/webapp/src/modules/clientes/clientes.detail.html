@@ -8,6 +8,10 @@ and open the template in the editor.
     <div class="panel-body">
       <div class="row">
         <div class="col-md-6">
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+            <a class="btn btn-info" ui-sref="accidentesForm"><span class="glyphicon glyphicon-plus-sign"></span> Agregar un accidente</a>
+            <a class="btn btn-info" ui-sref="huecosCreate"><span class="glyphicon glyphicon-plus-sign"></span> Agregar un hueco</a>
+            </div>
             <div class="col-md-2">
                 <dl>     
                     <dt>{{currentCliente.nombre}}</dt>
@@ -15,16 +19,24 @@ and open the template in the editor.
                     <hr>
                     <dt>Cedula</dt>
                     <dd>{{currentCliente.cedula}}</dd>
+                    <hr>
+                    <dt>ID</dt>
+                    <dd>{{currentCliente.id}}</dd>
 
                 </dl>
             </div>
-           
                 <ul class="nav nav-tabs">
                     <li role="navigation" class="active"><a ui-sref="puntosList({clienteId: currentCliente.id})"> Puntos</a></li>
-                    <li role="navigation" class="active"><a ui-sref="accidentesList({clienteId: currentCliente.id})"> Accidentes</a></li>
+                    <li role="navigation" class="active"><a ui-sref="accidentesListCliente({clienteId: currentCliente.id})"> Accidentes</a></li>
                 </ul>
             
         </div>
       </div>
+      <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+                <div ui-view="childrenView"></div>
+            </div>
+        </div>  
     </div>
 </div>
