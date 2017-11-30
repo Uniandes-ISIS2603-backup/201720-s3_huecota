@@ -1,38 +1,48 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<div class="container-fluid">
-    <div class="panel-group">
-        <br>
-        <div class="col-md-8">
-			<button id="{{$index}}-edit-btn" class="btn btn-info" ui-sref="accidentesForm"><span class="glyphicon glyphicon-edit"></span>Crear Nuevo</button>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Fecha</th>
-					<th>Descripcion</th>
-					<th>Opciones</th>
-				</tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="accidente in accidentesRecords">
-                                <td id="{{$index}}-id">{{accidente.id}}</td>
-                                <td id="{{$index}}-fechaa">{{accidente.fecha}}</td>
-								<td id="{{$index}}-descripcion">{{accidente.descripcion}}</td>
-								<td id="{{$index}}-actions">
-                                    <a class="btn btn-default btn-sm" ui-sref="accidentesUpdate({accidenteId: accidente.id})"><span class="glyphicon glyphicon-edit"></span></a>
-                                    <a class="btn btn-danger btn-sm" ui-sref="accidentesDelete({accidenteId: accidente.id})"><span class="glyphicon glyphicon-trash"></span></a>
-                                </td>
-								
-								
-                </tr>
-            </tbody>
-            
-        </table>
-        </div>
-    </div>
-</div>
+<html>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<h1 style="font-family:Berlin Sans FB;"> Módulo de administracion - Accidentes: </h1>
+        <div class="panel panel-primary">
+
+
+			<style>	label
+				{
+					color: #FFFFFF;
+					font-weight: bold;
+					display: block;
+					width: 300px;
+					float: left;
+					font-family:Arial;
+				}</style>
+
+
+            <div class="panel-body">
+				<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+				<a class="btn btn-info" ui-sref="accidentesForm"><span class="glyphicon glyphicon-plus-sign"></span>Agregar</a>
+
+
+				<table class="table">
+					<thead class="thead-inverse">
+						<tr>
+							<th>Id</th>
+							<th>Fecha</th>
+							<th>Descripcion</th>
+							<th>Opciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="accidente in accidentesRecords">
+							<td id="{{$index}}-id">{{accidente.id}}</td>
+							<td id="{{$index}}-fechaa">{{accidente.fecha}}</td>
+							<td id="{{$index}}-descripcion">{{accidente.descripcion}}</td>
+							<td id="{{$index}}-actions">
+								<a class="btn btn-default btn-sm" ui-sref="accidentesUpdate({accidenteId: accidente.id})"><span class="glyphicon glyphicon-edit"></span></a>
+								<a class="btn btn-danger btn-sm" ui-sref="accidentesDelete({accidenteId: accidente.id})"><span class="glyphicon glyphicon-trash"></span></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>       
+	</body>
+</html>

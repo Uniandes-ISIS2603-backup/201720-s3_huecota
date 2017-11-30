@@ -4,14 +4,14 @@
     mod.controller('DireccionNewCtrl', ['$scope', '$http', 'direccionesContext', '$state', '$rootScope',
         function ($scope, $http, direccionesContext, $state, $rootScope)
 		{
-            $rootScope.edit = false;
+            $rootScope.edit = true;
             $scope.createDireccion = function ()
 			{
                 $http.post(direccionesContext, {
                     tipoVia: $scope.tipoViaDireccion,
                     numero: $scope.numeroDireccion,
 					letra: $scope.letraDireccion,
-					cuadrante: $scope.cuadranteDireccion,
+					cuadrante:$scope.cuadranteDireccion,
 					direccionRaw: $scope.direccionRaw
                
                 }).then(function (response) {

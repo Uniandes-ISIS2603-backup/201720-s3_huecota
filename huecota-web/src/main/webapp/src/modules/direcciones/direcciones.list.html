@@ -8,7 +8,7 @@ and open the template in the editor.
     <div class="panel-group">
         <br>
         <div class="col-md-8">
-			<button id="{{$index}}-edit-btn" class="btn btn-info" ui-sref="direccionesForm">Crear Nueva Direccion</button>
+			<a class="btn btn-info" ui-sref="direccionesForm"><span class="glyphicon glyphicon-plus-sign"></span> Agregar</a>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -17,6 +17,7 @@ and open the template in the editor.
 					<th>Numero</th>
 					<th>Letra</th>
 					<th>Cuadrante</th>
+					<th>Direccion Raw</th>
 				</tr>
             </thead>
             <tbody>
@@ -26,6 +27,7 @@ and open the template in the editor.
 								<td id="{{$index}}-numero">{{direccion.numero}}</td>
 								<td id="{{$index}}-letra">{{direccion.letra}}</td>
 								<td id="{{$index}}-cuadrante">{{direccion.cuadrante}}</td>
+								<td id="{{$index}}-direccionRaw">{{direccion.direccionRaw}}</td>
 								
                 </tr>
             </tbody>

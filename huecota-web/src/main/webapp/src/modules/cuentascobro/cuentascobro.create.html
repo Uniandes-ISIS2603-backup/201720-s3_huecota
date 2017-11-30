@@ -1,22 +1,26 @@
-<form ng-submit="createCuenta()" name="cuenta">
-    <div class="form-group row">
-        <div class="panel-heading"><label ng-if="!edit" id="createCuenta">Crear una nueva cuenta</label>
-                <label ng-if="edit" id="editAuthor">Editar una cuenta</label>
-        </div>
-        <div class="form-group col-md-6">
-            <label for="cuentaPrecio" class="col-md-2">Precio:</label>
-            <input id="cuentaPrecio" required ng-model="data.precio" class="col-md-6"/>
-        </div>
-        <div class="form-group row">
-            <div class="form-group col-md-4" ng-if="!cuenta.$valid">
-                <strong>Alerta!</strong><p>Todos los campos son requeridos.</p>
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="form-group col-sm-12">
-                <input ng-show="cuenta.$valid" type="submit" value="Guardar" class="btn btn-success"/>
-                <a class="btn btn-info" ui-sref="contratistaDetail({contratistaId: id})">Cancelar</a>
-            </div>
-        </div>
+<div class="panel panel-primary">
+    <div class="panel-heading"><label ng-if="!edit" id="createCuenta">Crear una nueva cuenta</label>
+        <label ng-if="edit" id="editAuthor">Editar una cuenta</label>
     </div>
-</form>
+    <div class="panel-body">
+        <form ng-submit="createCuenta()" name="cuenta">
+            <div class="form-group row">
+                <div class="form-group col-sm-6">
+                    <label for="cuentaPrecio" class="col-sm-6">Precio:</label>
+                    <input id="cuentaPrecio" required ng-model="data.precio" class="col-sm-6"/>
+                </div>
+                <div class="form-group row col-sm-3">
+                    <div class="form-group" ng-if="!cuenta.$valid">
+                        <strong>Alerta!</strong><p>Todos los campos son requeridos.</p>
+                    </div>
+                </div>
+                <div class="form-group row col-sm-3">
+                    <div class="form-group col-sm-12">
+                        <input ng-show="cuenta.$valid" type="submit" value="Guardar" class="btn btn-success"/>
+                        <a class="btn btn-info" ui-sref="contratistaDetail({contratistaId: id})">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

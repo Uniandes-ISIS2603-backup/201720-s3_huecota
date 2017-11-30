@@ -4,7 +4,7 @@
     mod.controller('AccidenteNewCtrl', ['$scope', '$http', 'accidentesContext', '$state', '$rootScope',
         function ($scope, $http, accidentesContext, $state, $rootScope)
 		{
-            $rootScope.edit = false;
+            $rootScope.edit = true;
             $scope.createAccidente = function ()
 			{
                 $http.post(accidentesContext, {
