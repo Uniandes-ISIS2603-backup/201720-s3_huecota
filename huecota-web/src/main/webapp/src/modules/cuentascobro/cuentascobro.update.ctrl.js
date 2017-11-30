@@ -3,7 +3,8 @@
     mod.constant("contratistasContext", "api/contratistas");
     mod.constant("cuentasContext", "cuentascobro");
     mod.controller('contratistaUpdateCuentaCtrl', ['$scope', '$http', 'contratistasContext', 'cuentasContext', '$state', '$rootScope',
-        function($scope, $http, contratistasContext, cuentasContext, $state, $rootScope){
+        function($scope, $http, contratistasContext, cuentasContext, $state, $rootScope)
+		{
             $rootScope.edit = true;
             $scope.data = {};
             var idContratista = $state.params.contratistaId;

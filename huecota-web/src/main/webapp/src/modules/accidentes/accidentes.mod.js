@@ -36,7 +36,7 @@
                 url: '/form',
                 parent: 'accidentes',
                 views: {
-                    'formView': {
+                    'listView': {
                         templateUrl: basePath + '/new/accidentes.form.html',
                         controller: 'AccidenteNewCtrl',
                         controllerAs: 'ctrl'

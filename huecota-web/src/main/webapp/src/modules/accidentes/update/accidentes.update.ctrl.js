@@ -1,24 +1,24 @@
 (function (ng) {
     var mod = ng.module("AccidenteModule");
     mod.constant("accidentesContext", "api/accidentes");
-    mod.controller('AccidenteUpdateCtrl', ['$scope', '$http', 'accidentesContext', '$state', 'accidentesContext', '$rootScope',
-        function ($scope, $http, accidentesContext, $state, $rootScope)
+	mod.controller('AccidenteUpdateCtrl', ['$scope', '$http', 'accidentesContext', '$state', '$rootScope',
+        function($scope, $http, accidentesContext, $state, $rootScope)
 		{
-			
-            var accidenteId = $state.params.accidenteId;
-            $scope.updateAccidente = function ()
+            $rootScope.edit = true;
+            $scope.data = {};
+            var idAccidente = $state.params.accidenteId;
+            $http.get(accidentesContext + '/' + idAccidente).then(function(response){
+                var accidente = response.data;
+                $scope.data.fechaAccidente = accidente.fecha;
+				$scope.data.descripcionAccidente = accidente.descripcion;
+            });
+            $scope.updateAccidente = function() {
+            $http.put(accidentesContext + '/' + idAccidente, $scope.data).then(function(response)
 			{
-                $http.put(accidentesContext + "/" + accidenteId,
-				{
-                    fecha: $scope.fechaAccidente,
-                    descripcion: $scope.descripcionAccidente
-                }).then(function (response)
-				{
-                       //Author updated successfully
-                   $state.go('accidentesList', {accidenteId: response.data.id}, {reload: true});
-                });
-            };
-        }
-    ]);
-}
-)(window.angular);
+				fecha: $scope.data.fechaAccidente;
+				descripcion: $scope.data.descripcionAccidente;
+                $state.go('accidentesList', {accidenteId: idAccidente}, {reload: true});
+            });
+        };
+    }]);
+})(window.angular);
