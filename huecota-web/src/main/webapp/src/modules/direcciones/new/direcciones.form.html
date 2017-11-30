@@ -1,42 +1,49 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<div class="container-fluid">
-    <div class="panel-group">
-        <br>
-        <div class="col-md-8">
+<html>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		
+        <div class="panel panel-primary">
+			<h1 style="font-family:Verdana; font-size: xx-large; text-align: center;"> Registrar una dirección </h1>
+
+			<style>	label
+				{
+					color: #FFFFFF;
+					display: block;
+					width: 300px;
+					float: left;
+					font-family:Arial;
+				}</style>
+			<div class="panel-body">
 			<form ng-submit="createDireccion()" name="direccion">
+				
                     <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="tipoViaDireccion" class="col-sm-2">Tipo Via:</label>
-                            <input id="tipoViaDireccion" required ng-model="tipoViaDireccion" class="col-sm-6"/>
+                        <div class="form-group col-md-9">
+                            <label for="tipoViaDireccion" class="col-sm-3"><a style="font-family:Arial; font-size: medium; color: #000"> Tipo Via: </a></label>
+                            <input id="tipoViaDireccion" required ng-model="tipoViaDireccion" class="col-sm-3"/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="numeroDireccion" class="col-sm-2">Numero:</label>
-                            <input id="numeroDireccion" required ng-model="numeroDireccion" class="col-sm-6"/>
+                        <div class="form-group col-md-9">
+                            <label for="numeroDireccion" class="col-sm-3"><a style="font-family:Arial; font-size: medium; color: #000"> Número: </a></label>
+                            <input id="numeroDireccion" required ng-model="numeroDireccion" class="col-sm-3"/>
                         </div>
                     </div>
 				<div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="letraDireccion" class="col-sm-2">Letra:</label>
-                            <input id="letraDireccion" required ng-model="letraDireccion" class="col-sm-6"/>
+                        <div class="form-group col-md-9">
+                            <label for="letraDireccion" class="col-sm-3"><a style="font-family:Arial; font-size: medium; color: #000"> Letra: </a></label>
+                            <input id="letraDireccion" required ng-model="letraDireccion" class="col-sm-3"/>
                         </div>
                     </div>
 				<div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="cuadranteDireccion" class="col-sm-2">Cuadrante:</label>
-                            <input id="cuadranteDireccion" required ng-model="cuadranteDireccion" class="col-sm-6"/>
+                        <div class="form-group col-md-9">
+                            <label for="cuadranteDireccion" class="col-sm-3"><a style="font-family:Arial; font-size: medium; color: #000"> Cuadrante: </a></label>
+                            <input id="cuadranteDireccion" required ng-model="cuadranteDireccion" class="col-sm-3"/>
                         </div>
                     </div>
 				<div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="direccionRaw" class="col-sm-2">Direccion RawValue:</label>
-                            <input id="direccionRaw" required ng-model="direccionRaw" class="col-sm-6"/>
+                        <div class="form-group col-md-9">
+                            <label for="direccionRaw" class="col-sm-3"><a style="font-family:Arial; font-size: medium; color: #000"> Informacion Adicional: </a></label>
+                            <input id="direccionRaw" required ng-model="direccionRaw" class="col-sm-3"/>
                         </div>
                     </div>
 					<div class="form-group row">
@@ -48,4 +55,3 @@ and open the template in the editor.
 			</form> 
 		</div>
 	</div>
-</div>

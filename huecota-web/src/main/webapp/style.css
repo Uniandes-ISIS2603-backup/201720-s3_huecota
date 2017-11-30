@@ -60,6 +60,15 @@
             z-index: -1;   
     }
     
+    #id_img_fondoinicio{    
+            width: 100%; ; /* en porcentaje (el highlight del foro lo trasforma) */
+            height: 100%;
+            top:0;
+            left:0;
+            position:fixed;
+            z-index: -1;   
+    }
+    
     .panel-transparent {
         background: none;
     }

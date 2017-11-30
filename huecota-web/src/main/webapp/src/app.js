@@ -16,7 +16,8 @@
         'AbiertoModule',
         'CerradoModule',
         'EnProgresoModule',
-        'puntoModule'
+        'puntoModule',
+        'inicioModule'
 
     ]);
     // Resuelve problemas de las promesas
