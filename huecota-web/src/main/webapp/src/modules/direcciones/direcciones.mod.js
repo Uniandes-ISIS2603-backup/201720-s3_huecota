@@ -23,6 +23,9 @@
             }).state('direccionesList', {
                 url: '/list',
                 parent: 'direcciones',
+				param: {
+                    direccionId: null
+                },
                 views: {
                     'listView': {
                         templateUrl: basePath + 'direcciones.list.html',
@@ -33,8 +36,8 @@
             }).state('direccionesForm', {
                 url: '/form',
                 parent: 'direcciones',
-                views: {
-                    'formView': {
+				views: {
+                    'listView': {
                         templateUrl: basePath + '/new/direcciones.form.html',
                         controller: 'DireccionNewCtrl',
                         controllerAs: 'ctrl'
@@ -47,7 +50,7 @@
                     direccionId: null
                 },
                 views: {
-                    'updateView': {
+                    'listView': {
                         templateUrl: basePath + '/update/direcciones.update.html',
                         controller: 'DireccionUpdateCtrl',
 						controllerAs: 'ctrl'
@@ -60,7 +63,7 @@
                     direccionId: null
                 },
                 views: {
-                    'deleteView': {
+                    'listView': {
                         templateUrl: basePath + '/delete/direcciones.delete.html',
                         controller: 'DireccionDeleteCtrl',
                         controllerAs: 'ctrl'
