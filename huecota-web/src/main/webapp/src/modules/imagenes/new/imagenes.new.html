@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.checked {
+    color: orange;
+}
+</style>
+</head>
+<div class="container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading"><label ng-if="!edit" id="createImagen">Insertar Imagen</label>
+            <div class="panel-body">
+                <form name="imagen">
+                     <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="rutaImagen" class="col-sm-2">RutaImagen:</label>
+                            <input placeholder="rutaImagen" id="imagen" required ng-model="foto" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-sm-4" ng-if="!imagen.$valid">
+
+                            <div class="alert alert-warning" >
+                                <strong>Atención!</strong><p>Se requieren todos los espacios*</p>
+                            </div> 
+                        </div> 
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-sm-12">
+                            <input ng-show="imagen.$valid" type="submit" value="Agregar" class="btn btn-success"/>
+                            <a class="btn btn-info" ui-sref="imagenesList">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
