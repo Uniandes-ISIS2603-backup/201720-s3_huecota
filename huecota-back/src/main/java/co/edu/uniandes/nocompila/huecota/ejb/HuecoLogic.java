@@ -429,6 +429,24 @@ public class HuecoLogic {
     /**
      * Getter y Setter de la relacion con AbiertoEntity
      */
+    
+    /**
+     * Asocia una EstadoAbierto existente a un hueco
+     *
+     * @param huecoId Identificador de la instancia de Hueco
+     * @param EstadoAbiertoId Identificador de la instancia de EstadoAbierto
+     * @return Instancia de EstadoAbiertoEntity que fue asociada a Hueco
+     *
+     */
+    public AbiertoEntity addEstadoAbierto(Long huecoId, Long EstadoAbiertoId) {
+        LOGGER.log(Level.INFO, "Inicia proceso de asociar una EstadoAbierto al hueco con id = {0}", huecoId);
+        HuecoEntity hueco = getHueco(huecoId);
+        AbiertoEntity EstadoAbierto = new AbiertoEntity();
+        EstadoAbierto.setId(EstadoAbiertoId);
+        hueco.setEstadoAbierto(EstadoAbierto);
+        return getEstadoAbierto(huecoId);
+    }
+    
     /**
      * Obtiene una instancia de AbiertoEntity asociada a una instancia de Hueco
      *
@@ -457,6 +475,21 @@ public class HuecoLogic {
         HuecoEntity hueco = getHueco(huecoId);
         hueco.setEstadoAbierto(estadoAbierto);
         return hueco.getEstadoAbierto();
+    }
+    
+    /**
+     * Desasocia una EstadoAbierto existente de un Hueco existente
+     *
+     * @param huecoId Identificador de la instancia de Hueco
+     * @param EstadoAbiertoId Identificador de la instancia de EstadoAbierto
+     *
+     */
+    public void removeEstadoAbierto(Long huecoId, Long EstadoAbiertoId) {
+        LOGGER.log(Level.INFO, "Inicia proceso de borrar una EstadoAbierto del hueco con id = {0}", huecoId);
+        HuecoEntity hueco = getHueco(huecoId);
+        AbiertoEntity EstadoAbierto = new AbiertoEntity();
+        EstadoAbierto.setId(EstadoAbiertoId);
+        hueco.setEstadoAbierto(null);
     }
 
     /**
