@@ -40,6 +40,30 @@
                         controller: 'calificacionNewCtrl'
                     }
                 }
+            }).state('calificacionesDelete', {
+                url: '/delete/{calificacionId;int}',
+                parent: 'calificaciones',
+                param: {
+                    calificacionId:null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/delete/calificaciones.delete.html',
+                        controller: 'calificacionesDeleteCtrl'
+                    }
+                }
+            }).state('calificacionesUpdate', {
+                url: '/update/{calificacionId;int}',
+                parent: 'calificaciones',
+                param: {
+                    calificacionId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/update/calificaciones.update.html',
+                        controller: 'calificacionesUpdateCtrl'
+                    }
+                }
             });
         }]);
 })(window.angular);
