@@ -9,8 +9,8 @@ and open the template in the editor.
       <div class="row">
         <div class="col-md-8">
             <div class="btn-group mr-2" role="group" aria-label="First group">
-            <a class="btn btn-info" ui-sref="accidentesForm"><span class="glyphicon glyphicon-plus-sign"></span> Agregar un accidente</a>
-            <a class="btn btn-info" ui-sref="huecosCreate"><span class="glyphicon glyphicon-plus-sign"></span> Agregar un hueco</a>
+            <a class="btn btn-info" ui-sref="accidentesForm({clienteId: currentCliente.id})"><span class="glyphicon glyphicon-plus-sign"></span> Agregar un accidente</a>
+            <a class="btn btn-info" ui-sref="huecosCreate({clienteId: currentCliente.id})"><span class="glyphicon glyphicon-plus-sign"></span> Agregar un hueco</a>
 
             </div>
             <div class="col-md-5">

@@ -6,6 +6,8 @@
 (function (ng) {
     var mod = ng.module("AccidenteModule", ['ui.router']);
     mod.constant("accidentesContext", "api/accidentes");
+    mod.constant("accidentessContextC", "accidentes");
+    mod.constant("clientesContext", "api/clientes");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/accidentes/';
             $urlRouterProvider.otherwise("/accidentesList");
@@ -66,6 +68,31 @@
                         controllerAs: 'ctrl'
                     }
                 }
-            });   
+            });
+            $stateProvider.state('accidentesC', {
+                url: '/accidentesC',
+                abstract: true,
+                parent: 'clienteDetail',
+                views: {
+                    'childrenView': {
+                        templateUrl: basePath + 'accidentes.html',
+                        controller: 'AccidenteCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            }).state('accidentesListCliente', {
+                url: '/accidentes/list',
+                parent: 'accidentesC',
+                param: {
+                    clienteId: null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePath + 'accidentes.list.html',
+                        controller: 'AccidenteCtrl2',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            });
         }]);
 })(window.angular);
