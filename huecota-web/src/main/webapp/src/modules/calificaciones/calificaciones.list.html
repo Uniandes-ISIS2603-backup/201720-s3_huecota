@@ -5,7 +5,11 @@
             
             <tbody>
                 <tr ng-repeat="calificacion in calificacionesRecords">
-                    <td id="{{$index}}-id"><b>{{currentHueco.id}}</b><span>: </span>{{calificacion.nota}}</td>                                  
+                    <td id="{{$index}}-id"><b>{{currentHueco.id}}</b><span>: </span>{{calificacion.nota}}</td>
+                    <td id="{{$index}}-actions">
+                            <a class="btn btn-default btn-sm" ui-sref="calificacionUpdate({calificacionId: calificacion.id})"><span class="glyphicon glyphicon-edit"></span></a>
+                            <a class="btn btn-danger btn-sm" ui-sref="calificacionDelete({calificacionId: calificacion.id})"><span class="glyphicon glyphicon-trash"></span></a>
+                        </td>
                 </tr>
             </tbody>
         </table>
