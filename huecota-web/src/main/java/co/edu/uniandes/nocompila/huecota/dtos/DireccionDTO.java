@@ -24,7 +24,7 @@ public class DireccionDTO
 	/**
 	 * Atributo de tipo Integer que representa el tipo de via en una dirección.
 	 */
-	private Integer tipoVia;
+	private String tipoVia;
 	/**
 	 * Atributo de tipo Integer que representa el numero en una dirección.
 	 */
@@ -75,11 +75,11 @@ public class DireccionDTO
 		this.id = id;
 	}
 
-	public Integer getTipoVia() {
+	public String getTipoVia() {
 		return tipoVia;
 	}
 
-	public void setTipoVia(Integer tipoVia) {
+	public void setTipoVia(String tipoVia) {
 		this.tipoVia = tipoVia;
 	}
 

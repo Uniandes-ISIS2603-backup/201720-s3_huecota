@@ -24,7 +24,8 @@
 					<th><h1 style="font-family:Arial; font-size: large"> Número </h1></th>
 					<th><h1 style="font-family:Arial; font-size: large"> Letra </h1></th>
 					<th><h1 style="font-family:Arial; font-size: large"> Cuadrante </h1></th>
-					<th><h1 style="font-family:Arial; font-size: large"> Dirección </h1></th>
+					<th><h1 style="font-family:Arial; font-size: large"> Información Adicional </h1></th>
+					<th><h1 style="font-family:Arial; font-size: large"> Opciones </h1></th>
 				</tr>
             </thead>
             <tbody>
@@ -35,6 +36,10 @@
 								<td id="{{$index}}-letra">{{direccion.letra}}</td>
 								<td id="{{$index}}-cuadrante">{{direccion.cuadrante}}</td>
 								<td id="{{$index}}-direccionRaw">{{direccion.direccionRaw}}</td>
+								<td id="{{$index}}-actions">
+								<a class="btn btn-default btn-sm" ui-sref="direccionesUpdate({direccionId: accidente.id})"><span class="glyphicon glyphicon-edit"></span></a>
+								<a class="btn btn-danger btn-sm" ui-sref="direccionesDelete({direccionId: accidente.id})"><span class="glyphicon glyphicon-trash"></span></a>
+							</td>
 								
                 </tr>
             </tbody>
@@ -42,4 +47,3 @@
         </table>
         </div>
     </div>
-</div>
