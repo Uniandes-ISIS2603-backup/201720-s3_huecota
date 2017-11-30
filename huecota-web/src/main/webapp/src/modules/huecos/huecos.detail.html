@@ -8,15 +8,14 @@
                     <dt>Descripción</dt>
                     <dd>{{currentHueco.descripcion}}</dd>
                     <hr>
-                    <hr>
                     <dt>Direccion</dt>
                     <dd>{{currentHueco.direccion}}</dd>
                     <hr>
-                     
+                    <dt><a class="btn btn-default btn-sm" ui-sref="calificacionesCreate({huecosId: currentHueco.id})">Calificar <span class="glyphicon glyphicon-star-empty"></span></a></dt>
                </dl>
                 <ul class="nav nav-tabs">
-                    <li role="presentation" class="active"> <a ui-sref="calificacionesList({HuecosId: currentHueco.id})">Calificaciones</a></li>
-                    <li role="presentation" class="active"> <a ui-sref="imagenesList({HuecosId: currentHueco.id})">Fotos</a></li>
+                    <li role="presentation" class="active"> <a ui-sref="calificacionesList({huecosId: currentHueco.id})">Calificaciones</a></li>
+                    <li role="presentation" class="active"> <a ui-sref="imagenesList({huecosId: currentHueco.id})">Fotos</a></li>
                 </ul>
             </div>
         </div>

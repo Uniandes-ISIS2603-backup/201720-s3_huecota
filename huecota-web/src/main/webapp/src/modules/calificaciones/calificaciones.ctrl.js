@@ -4,7 +4,7 @@
     mod.constant("huecosContext", "api/huecos");
     mod.controller('calificacionCtrl', ['$scope', '$http', 'huecosContext', 'calificacionesContext', '$state',
         function ($scope, $http, huecosContext ,calificacionesContext, $state) {
-            $http.get(huecosContext + '/' + $state.params.huecoId + '/' + calificacionesContext).then(function (response){
+            $http.get(huecosContext + '/' + $state.params.huecosId + '/' + calificacionesContext).then(function (response){
                 $scope.calificacionesRecords = response.data;
             });
         }
