@@ -18,7 +18,7 @@
                 }
             }).state('imagenesList' , {
                 url: '/list',
-                parent: 'reviews',
+                parent: 'imagenes',
                 views: {
                     listView: {
                         templateUrl: basePath + 'imagenes.list.html',

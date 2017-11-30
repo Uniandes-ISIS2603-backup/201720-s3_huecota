@@ -3,8 +3,8 @@
         <br>
         <table ng-if="!messageImagenes" class="table table-striped">
             <tbody>
-                <tr ng-repeat="review in reviewsRecords">
-                    <td id="{{$index}}-id"><b>{{currentHueco.name}}</b><span>: </span>{{imagen.foto}}</td>
+                <tr ng-repeat="imagen in imagenesRecords">
+                    <td id="{{$index}}-id"><b>{{currentHueco.id}}</b><span>: </span>{{imagen.foto}}</td>
                 </tr>
             </tbody>
         </table>

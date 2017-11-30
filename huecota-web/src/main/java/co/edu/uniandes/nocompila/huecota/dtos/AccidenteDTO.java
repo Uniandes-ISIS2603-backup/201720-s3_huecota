@@ -57,7 +57,7 @@ public class AccidenteDTO
         this.id = Accidente.getId();
 		this.fecha = Accidente.getFecha();
 		this.descripcion = Accidente.getDescripcion();
-		this.clientes = entidadADTO(Accidente.getClientes());
+		
 		
 		
     }
@@ -122,7 +122,6 @@ public class AccidenteDTO
         entity.setId(this.id);
 		entity.setDescripcion(this.descripcion);
 		entity.setFecha(this.fecha);
-		entity.setClientes(DTOAentity(this.clientes));
         return entity;
     }
 	    

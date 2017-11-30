@@ -1,44 +1,72 @@
+<br>
 <div class="container-fluid">
     <div class="panel-group">
         <div class="panel panel-primary">
-            <div class="panel-heading"><label ng-if="!edit" id="createhueco">Crear nuevo  hueco</label>
-                <label ng-if="edit" id="edithueco">Editar hueco</label></div>
+            <div class="panel-heading"><label ng-if="!edit" id="createHueco">Crear nuevo Hueco</label>
+                <label ng-if="edit" id="edithueco">Editar Hueco</label></div>
             <div class="panel-body">
                 <form ng-submit="createhueco()" name="hueco">
-                  
+
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <label for="huecoId" class="col-sm-3">Id:</label>
-                            <textarea id="huecoId" required ng-model="huecoId" class="col-sm-6"></textarea>
+                            <input id="huecoId" required ng-model="huecoId" class="col-sm-6"/>
                         </div>
-                    </div>
-                    
-                    <div class="form-group row">
+
+                        <div class="form-group col-md-6">
+                            <label for="tipoViaDireccion" class="col-sm-3">Tipo Via:</label>
+                            <input id="tipoViaDireccion" required ng-model="tipoViaDireccion" class="col-sm-6"/>
+                        </div>
+
                         <div class="form-group col-md-6">
                             <label for="huecoDescripcion" class="col-sm-3">Descripción:</label>
-                            <textarea id="huecoDescripcion" required ng-model="huecoDescripcion" class="col-sm-6"></textarea>
+                            <input id="huecoDescripcion" required ng-model="huecoDescripcion" class="col-sm-6"/>
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <div class="form-group col-sm-4" ng-if="!hueco.$valid">
-
-                            <div class="alert alert-warning" >
-                                <strong>Importante!</strong><p>Todos los campos son requeridos*</p>
-                            </div> 
-                        </div> 
-                    </div> 
-                    <div class="form-group row">
-                        <div class="form-group col-sm-12">
-                            <input ng-show="hueco.$valid" type="submit" value="Guardar" class="btn btn-success"/>
-                            <a class="btn btn-info" ui-sref="huecosList">Cancelar</a>
+                        <div class="form-group col-md-6">
+                            <label for="numeroDireccion" class="col-sm-3">Numero:</label>
+                            <input id="numeroDireccion" required ng-model="numeroDireccion" class="col-sm-6"/>
                         </div>
-                    </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="letraDireccion" class="col-sm-3">Letra:</label>
+                            <input id="letraDireccion" required ng-model="letraDireccion" class="col-sm-6"/>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="cuadranteDireccion" class="col-sm-3">Cuadrante:</label>
+                            <input id="cuadranteDireccion" required ng-model="cuadranteDireccion" class="col-sm-6"/>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="direccionRaw" class="col-sm-3">Fila:</label>
+                            <input id="direccionRaw" required ng-model="direccionRaw" class="col-sm-6"/>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="form-group col-md-12">
+                                <div class="form-group col-sm-12" ng-if="!hueco.$valid">
+                                    <div class="alert alert-warning" >
+                                        <strong>Importante!</strong><p>Todos los campos son requeridos*</p>
+                                    </div> 
+                                </div> 
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <div class="form-group col-md-12">
+                                <input ng-show="hueco.$valid" type="submit" value="Guardar" class="btn btn-success"/>
+                                <a class="btn btn-info" ui-sref="huecosList">Cancelar</a>
+                            </div>
+                        </div>
                 </form>
-
             </div>
         </div>
     </div>
+</div>
 </div>
 
 

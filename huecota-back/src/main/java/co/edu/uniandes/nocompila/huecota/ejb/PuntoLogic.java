@@ -48,6 +48,7 @@ public class PuntoLogic {
     
     public PuntoEntity getPunto(Long clienteid, Long puntoid)throws BusinessLogicException{
        try {
+           LOGGER.info(puntoid+"");
             return persistence.find(clienteid, puntoid);
         } catch (NoResultException e) {
             return null;
