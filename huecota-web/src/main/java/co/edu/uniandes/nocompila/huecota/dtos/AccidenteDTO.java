@@ -9,6 +9,7 @@ import co.edu.uniandes.nocompila.huecota.entities.AccidenteEntity;
 import java.util.List;
 import co.edu.uniandes.nocompila.huecota.entities.ClienteEntity;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -26,7 +27,7 @@ public class AccidenteDTO
 	/**
 	 * Fecha del accidente
 	 */
-	private String fecha;
+	private Date fecha;
 	/**
 	 * Descripcion del accidente.
 	 */
@@ -88,12 +89,12 @@ public class AccidenteDTO
 		this.clientes = clientes;
 	}
 
-	public String getFecha()
+	public Date getFecha()
 	{
 		return fecha;
 	}
 
-	public void setFecha(String fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 
