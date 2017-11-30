@@ -2,43 +2,43 @@
         function (ng) {
             var mod = ng.module("huecosModule");
             mod.constant("huecosContext", "api/huecos");
-            mod.controller('huecosUpdateCtrl', ['$scope', '$http', 'huecosContext', '$state', 'booksContext', '$rootScope', '$filter',
-                function ($scope, $http, huecosContext, $state, booksContext, $rootScope, $filter) {
+            mod.controller('huecosUpdateCtrl', ['$scope', '$http', 'huecosContext', '$state', 'huecosContext', '$rootScope', '$filter',
+                function ($scope, $http, huecosContext, $state, huecosContext, $rootScope, $filter) {
                     $rootScope.edit = true;
 
                     var idhueco = $state.params.huecoId;
 
-                    // Este arreglo guardara los ids de los books asociados y por asociar al autor.
-                    var idsBook = [];
+                    // Este arreglo guardara los ids de los huecos asociados y por asociar al direccion.
+                    var idsHueco = [];
 
-                    // Este arreglo mostrará los books una vez esten filtrados visualmente por lo que el autor ya tiene asociado.
-                    $scope.allBooksShow = [];
+                    // Este arreglo mostrará los huecos una vez esten filtrados visualmente por lo que el direccion ya tiene asociado.
+                    $scope.allHuecosShow = [];
 
                     //Consulto el hueco a editar.
                     $http.get(huecosContext + '/' + idhueco).then(function (response) {
                         var hueco = response.data;
+                        $scope.huecoId = hueco.id;
                         $scope.huecoDescripcion = hueco.descripcion;
                         $scope.huecoDireccion = hueco.direccion;
-                        $scope.huecoImagen = hueco.imagen;
                     });
 
                     /*
-                     * Esta función recibe como param los books que tiene el autor para hacer un filtro visual con todos los books que existen.
-                     * @param {type} books
+                     * Esta función recibe como param los huecos que tiene el direccion para hacer un filtro visual con todos los huecos que existen.
+                     * @param {type} huecos
                      * @returns {undefined}
                      */
-                    $scope.getBooks = function (books) {
-                        $http.get(booksContext).then(function (response) {
-                            $scope.Allbooks = response.data;
-                            $scope.bookshueco = books;
+                    $scope.getHuecos = function (huecos) {
+                        $http.get(huecosContext).then(function (response) {
+                            $scope.Allhuecos = response.data;
+                            $scope.huecosDireccion = huecos;
 
-                            var filteredBooks = $scope.Allbooks.filter(function (Allbooks) {
-                                return $scope.bookshueco.filter(function (bookshueco) {
-                                    return bookshueco.id == Allbooks.id;
+                            var filteredHuecos = $scope.Allhuecos.filter(function (Allhuecos) {
+                                return $scope.huecosDireccion.filter(function (huecosDireccion) {
+                                    return huecosDireccion.id == Allhuecos.id;
                                 }).length == 0
                             });
 
-                            $scope.allBooksShow = filteredBooks;
+                            $scope.allHuecosShow = filteredHuecos;
 
                         });
                     };
@@ -57,34 +57,34 @@
                         ev.preventDefault();
                         var data = ev.dataTransfer.getData("text");
                         ev.target.appendChild(document.getElementById(data));
-                        //Cuando un book se añade al autor, se almacena su id en el array idsBook
-                        idsBook.push("" + data);
+                        //Cuando un hueco se añade al direccion, se almacena su id en el array idsHueco
+                        idsHueco.push("" + data);
                     };
 
                     $scope.dropDelete = function (ev) {
                         ev.preventDefault();
                         var data = ev.dataTransfer.getData("text");
                         ev.target.appendChild(document.getElementById(data));
-                        //Para remover el book que no se va asociar, por eso se usa el splice que quita el id del book en el array idsBook
-                        var index = idsBook.indexOf(data);
+                        //Para remover el hueco que no se va asociar, por eso se usa el splice que quita el id del hueco en el array idsHueco
+                        var index = idsHueco.indexOf(data);
                         if (index > -1) {
-                            idsBook.splice(index, 1);
+                            idsHueco.splice(index, 1);
                         }
                     };
 
                     $scope.createhueco = function () {
-                        /*Se llama a la función newBooks() para buscar cada uno de los ids de los books
-                         en el array que tiene todos los books y así saber como queda la lista final de los books asociados al autor.
+                        /*Se llama a la función newHuecos() para buscar cada uno de los ids de los huecos
+                         en el array que tiene todos los huecos y así saber como queda la lista final de los huecos asociados al direccion.
                          */
-                        $scope.newBooks();
+                        $scope.newHuecos();
                         $http.put(huecosContext + "/" + idhueco, {
                             name: $scope.huecoName,
                             birthDate: $scope.huecoBirthDate,
                             description: $scope.huecoDescription,
                             image: $scope.huecoImage
                         }).then(function (response) {
-                            if (idsBook.length >= 0) {
-                                $http.put(huecosContext + "/" + response.data.id + "/books", $scope.allBookshueco).then(function (response) {
+                            if (idsHueco.length >= 0) {
+                                $http.put(huecosContext + "/" + response.data.id + "/huecos", $scope.allHuecoshueco).then(function (response) {
                                 });
                             }
                             //hueco created successfully
@@ -92,12 +92,12 @@
                         });
                     };
 
-                    $scope.newBooks = function () {
-                        $scope.allBookshueco = [];
-                        for (var ite in idsBook) {
-                            for (var all in $scope.Allbooks) {
-                                if ($scope.Allbooks[all].id === parseInt(idsBook[ite])) {
-                                    $scope.allBookshueco.push($scope.Allbooks[all]);
+                    $scope.newHuecos = function () {
+                        $scope.allHuecoshueco = [];
+                        for (var ite in idsHueco) {
+                            for (var all in $scope.Allhuecos) {
+                                if ($scope.Allhuecos[all].id === parseInt(idsHueco[ite])) {
+                                    $scope.allHuecoshueco.push($scope.Allhuecos[all]);
                                 }
                             }
                         }
