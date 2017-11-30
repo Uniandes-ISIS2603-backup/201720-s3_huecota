@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<body>
-<h1>Huecos en estado cerrado</h1>
-    <div class="panel panel-primary">
-    <div class="panel-heading"><label>Lista de huecos</label></div>
-        <div class="panel-body">
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-        <div class="container-fluid">
-            <table class="table table-striped">
-                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <a class="btn btn-info" ui-sref="cerradosCreate"><span class="glyphicon glyphicon-plus-sign"></span>Cerrar hueco</a>
-                    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <body>
+        <div class="panel panel-primary">
+            <div class="panel-heading"><label>Lista de huecos en estado cerrado</label></div>
+            <div class="panel-body">
+                <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+                <div class="container-fluid">
+                    <table class="table table-striped">
+                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="btn-group mr-2" role="group" aria-label="First group">
+                                <a class="btn btn-info" ui-sref="cerradosCreate"><span class="glyphicon glyphicon-plus-sign"></span>Cerrar hueco</a>
+                            </div>
+                        </div>
+                        <thead>
+                            <tr>
+                                <th>Id del hueco</th>
+                                <th>Causa de cierre</th>
+                                <th>Comentario</th>
+                                <th>Fecha de cierre</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="estados in estadosRecords">
+                                <td id="{{$index}}-id"><a ui-sref="cerradoDetail({stateId: estados.id})">{{estados.id}}</a></td>
+                                <td  id="{{$index}}-causa">{{estados.causa}}</td>
+                                <td  id="{{$index}}-comentario">{{estados.comentario}}</td>
+                                <td  id="{{$index}}-fechaDeCerrado">{{estados.fechaDeCerrado| date:'yyyy-MM-dd hh:mm:ss'}}</td>
+                                <td id="{{$index}}-actions">
+                                    <a class="btn btn-default btn-sm" ui-sref="cerradosUpdate({stateId: estados.id})"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a class="btn btn-danger btn-sm" ui-sref="cerradosDelete({stateId: estados.id})"><span class="glyphicon glyphicon-trash"></span></a>
+                                </td>
+                        </tbody>
+                    </table>
                 </div>
-            <thead>
-                <tr>
-                    <th>Id del hueco</th>
-                    <th>Causa de cierre</th>
-                    <th>Comentario</th>
-                    <th>Fecha de cierre</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="estados in estadosRecords">
-                <td id="{{$index}}-id"><a ui-sref="cerradoDetail({stateId: estados.id})">{{estados.id}}</a></td>
-                <td  id="{{$index}}-causa">{{estados.causa}}</td>
-                <td  id="{{$index}}-comentario">{{estados.comentario}}</td>
-                <td  id="{{$index}}-fechaDeCerrado">{{estados.fechaDeCerrado| date:'yyyy-MM-dd hh:mm:ss'}}</td>
-                <td id="{{$index}}-actions">
-                    <a class="btn btn-default btn-sm" ui-sref="cerradosUpdate({stateId: estados.id})"><span class="glyphicon glyphicon-edit"></span></a>
-                    <a class="btn btn-danger btn-sm" ui-sref="cerradosDelete({stateId: estados.id})"><span class="glyphicon glyphicon-trash"></span></a>
-                </td>
-            </tbody>
-            </table>
-        </div>
-        </div>
+            </div>
     </body>  
-    </div>
+</div>
 </body>
 </html>
 

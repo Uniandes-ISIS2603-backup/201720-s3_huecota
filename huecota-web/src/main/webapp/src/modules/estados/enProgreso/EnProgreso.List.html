@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<body>
-    <h1>Huecos en estado en progreso</h1>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <body>
         <div class="panel panel-primary">
-        <div class="panel-heading"><label>Lista de huecos</label></div>
+            <div class="panel-heading"><label>Lista de huecos en estado en progreso</label></div>
             <div class="panel-body">
-            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
                 <div class="container-fluid">
-                <table class="table table-striped">
-                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                    <a class="btn btn-info" ui-sref="enProgresosCreate"><span class="glyphicon glyphicon-plus-sign"></span>Empezar progreso</a>
-                    </div>
-                    </div> 
-                    <div class="container-fluid"></div>
-                </table>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Id del hueco</th>
-                            <th>Fecha de inicio</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="estados in estadosRecords">
-                        <td id="{{$index}}-id"><a ui-sref="enProgresoDetail({stateId: estados.id})">{{estados.id}}</a></td>
-                        <td  id="{{$index}}-fechaInicio">{{estados.fechaInicio| date:'yyyy-MM-dd hh:mm:ss'}}</td>
-                        <td id="{{$index}}-actions">
-                            <a class="btn btn-default btn-sm" ui-sref="enProgresosUpdate({stateId: estados.id})"><span class="glyphicon glyphicon-edit"></span></a>
-                            <a class="btn btn-danger btn-sm" ui-sref="enProgresosDelete({stateId: estados.id})"><span class="glyphicon glyphicon-trash"></span></a>
-                        </td>
-                    </tbody>
-                </table>
+                    <table class="table table-striped">
+                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="btn-group mr-2" role="group" aria-label="First group">
+                                <a class="btn btn-info" ui-sref="enProgresosCreate"><span class="glyphicon glyphicon-plus-sign"></span>Empezar progreso</a>
+                            </div>
+                        </div> 
+                        <div class="container-fluid"></div>
+                    </table>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id del hueco</th>
+                                <th>Fecha de inicio</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="estados in estadosRecords">
+                                <td id="{{$index}}-id"><a ui-sref="enProgresoDetail({stateId: estados.id})">{{estados.id}}</a></td>
+                                <td  id="{{$index}}-fechaInicio">{{estados.fechaInicio| date:'yyyy-MM-dd hh:mm:ss'}}</td>
+                                <td id="{{$index}}-actions">
+                                    <a class="btn btn-default btn-sm" ui-sref="enProgresosUpdate({stateId: estados.id})"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a class="btn btn-danger btn-sm" ui-sref="enProgresosDelete({stateId: estados.id})"><span class="glyphicon glyphicon-trash"></span></a>
+                                </td>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </body>  
-        </div>
-    </div>       
+    </body>  
+</div>
+</div>       
 </body>
 </html>
