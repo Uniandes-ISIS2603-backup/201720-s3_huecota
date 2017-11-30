@@ -71,6 +71,6 @@
                         controller: 'abiertoDeleteCtrl'
                     }
                 }
-            });   
+            });
         }]);
 })(window.angular);
