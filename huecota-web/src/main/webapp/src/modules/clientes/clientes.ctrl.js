@@ -14,6 +14,7 @@
             if ($state.params.clienteId !== undefined) {
                 $http.get(clientesContext + '/' + $state.params.clienteId).then(function (response) {
                     $scope.currentCliente = response.data;
+                    $scope.accidentesRecords = response.data.accidentes;
                 });
             }
         }
