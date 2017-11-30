@@ -9,7 +9,7 @@
             $stateProvider.state('calificaciones', {
                 url: '/calificaciones',
                 abstract: true,
-                parent:'huecoDetail',
+                parent:'huecosDetail',
                 views: {
                     'childrenView': {
                         templateUrl: basePath + 'calificaciones.html'
@@ -18,11 +18,26 @@
             }).state('calificacionesList', {
                 url: '/list',
                 parent: 'calificaciones',
+                param: {
+                    huecosId: null
+                },
                 views: {
                     'listView': {
                         templateUrl: basePath + 'calificaciones.list.html',
-                        controller: 'reviewsCtrl',
+                        controller: 'calificacionCtrl',
                         controllerAs:'ctrl'
+                    }
+                }
+            }).state('calificacionesCreate', {
+                url:'/createCalificacion',
+                parent: 'huecosDetail',
+                param: {
+                    huecosId: null
+                },
+                views: {
+                    'detailView':{
+                        templateUrl: basePath + '/new/calificaciones.new.html',
+                        controller: 'calificacionNewCtrl'
                     }
                 }
             });

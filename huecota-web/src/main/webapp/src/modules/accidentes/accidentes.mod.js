@@ -47,7 +47,7 @@
                     accidenteId: null
                 },
                 views: {
-                    'updateView': {
+                    'listView': {
                         templateUrl: basePath + '/update/accidentes.update.html',
                         controller: 'AccidenteUpdateCtrl',
 						controllerAs: 'ctrl'
@@ -60,7 +60,7 @@
                     accidenteId: null
                 },
                 views: {
-                    'deleteView': {
+                    'listView': {
                         templateUrl: basePath + '/delete/accidentes.delete.html',
                         controller: 'AccidenteDeleteCtrl',
                         controllerAs: 'ctrl'

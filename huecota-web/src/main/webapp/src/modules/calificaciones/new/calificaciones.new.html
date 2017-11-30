@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.checked {
+    color: orange;
+}
+</style>
+</head>
+<div class="container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading"><label ng-if="!edit" id="createCalificacion">Create new Author</label>
+            <div class="panel-body">
+                <form name="calificacion">
+                     <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="calificacionTitulo" class="col-sm-2">Titulo:</label>
+                            <input placeholder="Titulo" id="calificacionTitulo" required ng-model="caliTitulo" class="col-sm-6"/>
+                        </div>
+                    </div>
+                     <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="calificacionNota" class="col-sm-2">Nota:</label>
+                            <input type="number" min= "1" max ="5" id="calificacionNota" required ng-model="caliNota" class="col-sm-6"/>
+                        </div>
+                    </div>
+                     <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label for="calificacionComentario" class="col-sm-2">Descripción:</label>
+                            <input placeholder="Descripción" id="calificacionComentario" required ng-model="caliComentario" class="col-sm-6"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-sm-4" ng-if="!calificacion.$valid">
+
+                            <div class="alert alert-warning" >
+                                <strong>Atención!</strong><p>Se requieren todos los espacios*</p>
+                            </div> 
+                        </div> 
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-sm-12">
+                            <input ng-show="calificacion.$valid" type="submit" value="Agregar" class="btn btn-success"/>
+                            <a class="btn btn-info" ui-sref="calificacionesList">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
