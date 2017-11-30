@@ -18,9 +18,9 @@
 					"formdata": [
 						{
 							"key": "",
+							"value": "",
 							"description": "",
-							"type": "file",
-							"src": "DATAPunto.json"
+							"type": "file"
 						}
 					]
 				},
@@ -29,44 +29,22 @@
 			"response": []
 		},
 		{
-			"name": "Crea los clientes que vienen por json",
+			"name": "Crea el cliente por json",
 			"request": {
 				"url": " http://localhost:8080/huecota-web/api/clientes",
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
 				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "",
-							"value": "",
-							"description": "",
-							"type": "file"
-						}
-					]
+					"mode": "raw",
+					"raw": "{\"cedula\":206,\"nombre\":\"Claire 2\"}"
 				},
 				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "Intenta crear los clientes",
-			"request": {
-				"url": " http://localhost:8080/huecota-web/api/clientes",
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "",
-							"value": "",
-							"description": "",
-							"type": "file"
-						}
-					]
-				},
-				"description": "Debe lanzar exception ya que es el mismo archivo"
 			},
 			"response": []
 		},
@@ -81,9 +59,9 @@
 					"formdata": [
 						{
 							"key": "",
+							"value": "",
 							"description": "",
-							"type": "file",
-							"src": "MOCK_DATA (1).json"
+							"type": "file"
 						}
 					]
 				},
@@ -94,19 +72,18 @@
 		{
 			"name": "Actualiza los clientes",
 			"request": {
-				"url": " http://localhost:8080/huecota-web/api/clientes/{id}",
+				"url": " http://localhost:8080/huecota-web/api/clientes/1",
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
 				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "",
-							"value": "",
-							"description": "",
-							"type": "file"
-						}
-					]
+					"mode": "raw",
+					"raw": "{\"cedula\":205,\"nombre\":\"Claire\"}"
 				},
 				"description": "Actualiza la lista de los clientes"
 			},

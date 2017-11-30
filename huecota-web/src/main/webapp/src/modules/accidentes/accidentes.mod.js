@@ -92,7 +92,7 @@
                         controller: 'AccidenteCtrl2',
                         controllerAs: 'ctrl'
                     }
-                }
+                }   
             });
         }]);
 })(window.angular);

@@ -5,7 +5,7 @@
  */
 (function (ng) {
     var mod = ng.module("AccidenteModule");
-    mod.constant("accidentesContext", "accidentes");
+    mod.constant("accidentesContextC", "accidentes");
     mod.constant("clientesContext", "api/clientes");
     mod.controller('AccidenteCtrl2', ['$scope', '$http', 'clientesContext','$state', 'accidentesContextC' ,
         function ($scope, $http, clientesContext, $state, accidentesContextC) {

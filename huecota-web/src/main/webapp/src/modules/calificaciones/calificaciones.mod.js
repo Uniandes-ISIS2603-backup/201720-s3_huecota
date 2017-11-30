@@ -65,5 +65,30 @@
                     }
                 }
             });
+            $stateProvider.state('calificacionesC', {
+                url: '/calificacionesC',
+                abstract: true,
+                parent: 'clienteDetail',
+                views: {
+                    'childrenView': {
+                        templateUrl: basePath + 'calificaciones.html',
+                        controller: 'calificacionesCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }
+            }).state('calificacionesListCliente', {
+                url: '/calificaciones/list',
+                parent: 'calificacionesC',
+                param: {
+                    clienteId: null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePath + 'calificaciones.list.html',
+                        controller: 'calificacionCtrl2',
+                        controllerAs: 'ctrl'
+                    }
+                }   
+            });
         }]);
 })(window.angular);

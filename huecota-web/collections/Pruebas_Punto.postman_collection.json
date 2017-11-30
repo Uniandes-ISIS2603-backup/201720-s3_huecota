@@ -10,7 +10,7 @@
 		{
 			"name": "Pide todos los puntos de un cliente",
 			"request": {
-				"url": " http://localhost:8080/huecota-web/api/clientes/{id}/puntos",
+				"url": " http://localhost:8080/huecota-web/api/clientes/1/puntos",
 				"method": "GET",
 				"header": [],
 				"body": {
@@ -31,91 +31,27 @@
 		{
 			"name": "Registra los puntos desde el json",
 			"request": {
-				"url": {
-					"raw": "http://localhost:8080/huecota-web/api/clientes/:id/puntos",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"huecota-web",
-						"api",
-						"clientes",
-						":id",
-						"puntos"
-					],
-					"query": [],
-					"variable": [
-						{
-							"key": "id",
-							"value": ""
-						}
-					]
-				},
+				"url": " http://localhost:8080/huecota-web/api/clientes/1/puntos",
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
 				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "",
-							"value": "",
-							"description": "",
-							"type": "file"
-						}
-					]
+					"mode": "raw",
+					"raw": "{\"cantidad\":10,\"fecha\":\"10/10/2010\"}"
 				},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "Intenta registrar los puntos del json",
-			"request": {
-				"url": {
-					"raw": "http://localhost:8080/huecota-web/api/clientes/:id/puntos",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"huecota-web",
-						"api",
-						"clientes",
-						":id",
-						"puntos"
-					],
-					"query": [],
-					"variable": [
-						{
-							"key": "id",
-							"value": ""
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "",
-							"value": "",
-							"description": "",
-							"type": "file"
-						}
-					]
-				},
-				"description": "Sale exception porque es el mismo archivo"
-			},
-			"response": []
-		},
-		{
 			"name": "Consulta los puntos",
 			"request": {
-				"url": " http://localhost:8080/huecota-web/api/clientes/{id}/puntos",
+				"url": " http://localhost:8080/huecota-web/api/clientes/1/puntos",
 				"method": "GET",
 				"header": [],
 				"body": {
@@ -136,19 +72,18 @@
 		{
 			"name": "Actualiza los puntos con json",
 			"request": {
-				"url": " http://localhost:8080/huecota-web/api/clientes/{id}/puntos/{id}",
+				"url": " http://localhost:8080/huecota-web/api/clientes/1/puntos/1",
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
 				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "",
-							"value": "",
-							"description": "",
-							"type": "file"
-						}
-					]
+					"mode": "raw",
+					"raw": "{\"cantidad\":104,\"fecha\":\"10/10/2010\"}"
 				},
 				"description": ""
 			},
@@ -157,7 +92,7 @@
 		{
 			"name": "Obtiene los puntos actualizados",
 			"request": {
-				"url": " http://localhost:8080/huecota-web/api/clientes/{id}/puntos",
+				"url": " http://localhost:8080/huecota-web/api/clientes/1/puntos",
 				"method": "GET",
 				"header": [],
 				"body": {
